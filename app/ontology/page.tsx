@@ -134,15 +134,25 @@ export default function OntologyPage() {
           {stages.map((stage) => (
             <div
               key={stage.id}
-              className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4"
+              className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 flex flex-col justify-between"
             >
-              <p className="text-xs font-mono uppercase tracking-wide text-sky-400">
-                {stage.short}
-              </p>
-              <p className="mt-1 text-sm font-semibold">{stage.tagline}</p>
-              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-                {stage.overview}
-              </p>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-wide text-sky-400">
+                  {stage.short}
+                </p>
+                <p className="mt-1 text-sm font-semibold">{stage.tagline}</p>
+                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                  {stage.overview}
+                </p>
+              </div>
+              <div className="mt-3">
+                <Link
+                  href={`/deep/${stage.id}`}
+                  className="inline-flex items-center text-xs font-medium text-sky-400 hover:text-sky-300"
+                >
+                  Dive deeper →
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -193,6 +203,17 @@ export default function OntologyPage() {
                 {stage.detail.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
+                <p className="pt-2 text-xs text-slate-400">
+                  For a full chapter-style treatment of {stage.label.toLowerCase()},
+                  see{" "}
+                  <Link
+                    href={`/deep/${stage.id}`}
+                    className="font-medium text-sky-400 hover:text-sky-300"
+                  >
+                    Dive deeper →
+                  </Link>
+                  .
+                </p>
               </div>
             </details>
           ))}
@@ -217,8 +238,14 @@ export default function OntologyPage() {
             Simulations
           </Link>{" "}
           show small toy-worlds that illustrate how structure can emerge from
-          simple informational rules; and future sections will go deeper into
-          each step of the sequence.
+          simple informational rules; and the{" "}
+          <Link
+            href="/deep/delta"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            deep section pages
+          </Link>{" "}
+          provide book-length treatments of each stage.
         </p>
       </section>
     </main>
