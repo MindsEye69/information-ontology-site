@@ -14,35 +14,37 @@ type Particle = {
 const PARTICLE_COUNT = 40;
 const CANVAS_WIDTH = 720;
 const CANVAS_HEIGHT = 420;
-const MAX_SPEED = 0.25; // base speed – scaled by slider
-const LINK_DISTANCE = 90; // distance to draw relation lines
+// Slightly faster base speed than before
+const MAX_SPEED = 0.3;
+const LINK_DISTANCE = 90;
 
 export default function DeltaRelationSimulationPage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [particles, setParticles] = useState<Particle[]>([]);
+  const particlesRef = useRef<Particle[]>([]);
   const [running, setRunning] = useState(true);
-  const [speed, setSpeed] = useState(0.4); // 0.1–1.0 works well; 0.4 is calm
+  const [speed, setSpeed] = useState(0.5); // a bit faster default
   const [frameRate, setFrameRate] = useState(0);
-
-  // Initialize particles once
-  useEffect(() => {
-    const rng = () => Math.random();
-    const initial: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
-      x: rng() * CANVAS_WIDTH,
-      y: rng() * CANVAS_HEIGHT,
-      vx: (rng() - 0.5) * MAX_SPEED,
-      vy: (rng() - 0.5) * MAX_SPEED,
-    }));
-    setParticles(initial);
-  }, []);
 
   // Animation loop
   useEffect(() => {
     let animationId: number;
     let lastTime = performance.now();
-
     let fpsSampleTime = performance.now();
     let frames = 0;
+
+    const ensureParticles = () => {
+      if (particlesRef.current.length > 0) return;
+      const rng = () => Math.random();
+      particlesRef.current = Array.from(
+        { length: PARTICLE_COUNT },
+        () => ({
+          x: rng() * CANVAS_WIDTH,
+          y: rng() * CANVAS_HEIGHT,
+          vx: (rng() - 0.5) * MAX_SPEED,
+          vy: (rng() - 0.5) * MAX_SPEED,
+        })
+      );
+    };
 
     const updateAndDraw = (now: number) => {
       const canvas = canvasRef.current;
@@ -52,20 +54,25 @@ export default function DeltaRelationSimulationPage() {
         return;
       }
 
+      ensureParticles();
+
       const deltaMs = now - lastTime;
       lastTime = now;
 
       const timeFactor = Math.min(deltaMs / 16.67, 2) * speed;
 
-      let nextParticles = particles;
-
       if (running) {
-        nextParticles = particles.map((p) => {
+        // update positions
+        const arr = particlesRef.current;
+        for (let i = 0; i < arr.length; i++) {
+          let p = arr[i];
+
           let x = p.x + p.vx * timeFactor;
           let y = p.y + p.vy * timeFactor;
           let vx = p.vx;
           let vy = p.vy;
 
+          // bounce from walls
           if (x < 0) {
             x = 0;
             vx = Math.abs(vx);
@@ -82,30 +89,31 @@ export default function DeltaRelationSimulationPage() {
             vy = -Math.abs(vy);
           }
 
-          return { x, y, vx, vy };
-        });
-
-        setParticles(nextParticles);
+          arr[i] = { x, y, vx, vy };
+        }
       }
 
-      // Clear
-      ctx.fillStyle = "#020617"; // deep slate-ish
+      const currentParticles = particlesRef.current;
+
+      // clear background
+      ctx.fillStyle = "#020617";
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-      // Relation lines
-      ctx.lineWidth = 0.7;
-
-      for (let i = 0; i < nextParticles.length; i++) {
-        for (let j = i + 1; j < nextParticles.length; j++) {
-          const a = nextParticles[i];
-          const b = nextParticles[j];
+      // draw relation lines – brighter when points are closer
+      ctx.lineWidth = 0.9;
+      for (let i = 0; i < currentParticles.length; i++) {
+        for (let j = i + 1; j < currentParticles.length; j++) {
+          const a = currentParticles[i];
+          const b = currentParticles[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < LINK_DISTANCE) {
-            const alpha = 1 - dist / LINK_DISTANCE;
-            ctx.strokeStyle = `rgba(56,189,248,${0.1 + 0.25 * alpha})`;
+            const closeness = 1 - dist / LINK_DISTANCE; // 0 far, 1 very close
+            // Shift brightness range upward: always visible, much brighter when close
+            const alpha = 0.35 + 0.45 * closeness; // ~0.35–0.8
+            ctx.strokeStyle = `rgba(56,189,248,${alpha})`;
 
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -115,11 +123,11 @@ export default function DeltaRelationSimulationPage() {
         }
       }
 
-      // Draw particles
-      for (const p of nextParticles) {
+      // draw particles
+      ctx.fillStyle = "#e5f6ff";
+      for (const p of currentParticles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-        ctx.fillStyle = "#e5f6ff";
         ctx.fill();
       }
 
@@ -136,7 +144,17 @@ export default function DeltaRelationSimulationPage() {
 
     animationId = requestAnimationFrame(updateAndDraw);
     return () => cancelAnimationFrame(animationId);
-  }, [running, speed, particles]);
+  }, [running, speed]);
+
+  const resetSystem = () => {
+    const rng = () => Math.random();
+    particlesRef.current = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x: rng() * CANVAS_WIDTH,
+      y: rng() * CANVAS_HEIGHT,
+      vx: (rng() - 0.5) * MAX_SPEED,
+      vy: (rng() - 0.5) * MAX_SPEED,
+    }));
+  };
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
@@ -193,7 +211,7 @@ export default function DeltaRelationSimulationPage() {
           </div>
 
           <div className="space-y-3">
-            {/* Pause / Resume */}
+            {/* Pause / Resume + Reset */}
             <div className="flex gap-3">
               <Button
                 variant={running ? "outline" : "default"}
@@ -203,21 +221,10 @@ export default function DeltaRelationSimulationPage() {
                 {running ? "Pause" : "Resume"}
               </Button>
 
-              {/* Reset */}
               <Button
                 variant="outline"
                 className="flex-1"
-                onClick={() => {
-                  const rng = () => Math.random();
-                  setParticles(
-                    Array.from({ length: PARTICLE_COUNT }, () => ({
-                      x: rng() * CANVAS_WIDTH,
-                      y: rng() * CANVAS_HEIGHT,
-                      vx: (rng() - 0.5) * MAX_SPEED,
-                      vy: (rng() - 0.5) * MAX_SPEED,
-                    }))
-                  );
-                }}
+                onClick={resetSystem}
               >
                 Reset system
               </Button>
@@ -232,8 +239,8 @@ export default function DeltaRelationSimulationPage() {
 
               <input
                 type="range"
-                min={0.1}
-                max={1}
+                min={0.2}
+                max={1.2}
                 step={0.05}
                 value={speed}
                 onChange={(e) => setSpeed(parseFloat(e.target.value))}
@@ -253,31 +260,31 @@ export default function DeltaRelationSimulationPage() {
 
             <p>
               Each dot begins as a simple positional difference. But once two
-              dots come close enough, their difference becomes structured—
-              a relationship of nearness emerges.
+              dots come close enough, their difference becomes structured—a
+              relationship of nearness emerges.
             </p>
 
             <p>
-              You aren’t imposing a graph on the points. The graph forms itself
-              from their evolving configuration. This echoes the IO idea that
-              relations appear wherever differences are patterned.
+              You aren&apos;t imposing a graph on the points. The graph forms
+              itself from their evolving configuration. This echoes the IO idea
+              that relations appear wherever differences are patterned.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div className="pt-2 border-t border-slate-800 flex flex-wrap gap-3 text-xs">
-            <Link href="/simulations" className="flex-1 min-w-[8rem]">
+          {/* Navigation buttons – cleaner layout */}
+          <div className="pt-2 border-t border-slate-800 flex flex-col sm:flex-row gap-3 text-xs">
+            <Link href="/simulations" className="sm:flex-1 min-w-[8rem]">
               <Button variant="outline" className="w-full border-slate-700">
                 ← Back to simulations
               </Button>
             </Link>
 
-            <Link href="/deep/delta" className="flex-1 min-w-[8rem]">
+            <Link href="/deep/delta" className="sm:flex-1 min-w-[8rem]">
               <Button
                 variant="outline"
                 className="w-full border-sky-700/60 text-sky-300"
               >
-                Read Δ — Difference deep dive
+                Δ — Difference deep dive
               </Button>
             </Link>
           </div>
