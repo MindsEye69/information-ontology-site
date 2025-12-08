@@ -1,28 +1,28 @@
-// app/deep/relation/formal/page.tsx
+// app/deep/practice/formal/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Relation (R) – Technical notes | Informational Ontology",
+  title: "Practice (P) – Technical notes | Informational Ontology",
   description:
-    "Technical and formal notes on Relation (R) as structured patterns over differences.",
+    "Technical and formal notes on Practice (P) in the IO framework.",
 };
 
-export default function FormalRelationPage() {
+export default function FormalPracticePage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-sky-400">
-          Technical layer · R — Relation
+          Technical layer · P — Practice
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Formal notes on Relation (R)
+          Formal notes on Practice (P)
         </h1>
         <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
-          This page will host a more explicit treatment of relations: how to
-          model them formally, and how relational structure underwrites
-          information in IO.
+          This page will eventually house more formal treatments of practice in
+          IO: action spaces, policies, experimental practice, and their relation
+          to the rest of the chain.
         </p>
       </section>
 
@@ -30,31 +30,27 @@ export default function FormalRelationPage() {
         <h2 className="text-lg font-semibold">Planned technical content</h2>
         <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
           <li>
-            Representation of relational structures as graphs, networks, or
-            relational algebras over a domain of differences.
-          </li>
-          <li>
-            Discussion of symmetry, invariance, and automorphisms of relational
+            Practice as policy over states, given informational and valuation
             structures.
           </li>
           <li>
-            Links between relational constraints and the emergence of
-            informational regularities (transition to I).
+            Links to reinforcement learning, control theory, and experimental
+            methodology.
           </li>
           <li>
-            Potential category-theoretic perspectives on relational composition.
+            Feedback loops from practice to earlier stages (Δ, R, I, A, V, M).
           </li>
         </ul>
         <p className="text-xs text-slate-400">
-          Most readers can safely skip this page. It exists to anchor IO in
-          candidate formal frameworks for those who want to press further.
+          As with the other technical pages, this is intended as a bridge
+          between IO and existing formal disciplines.
         </p>
       </section>
 
       <section className="border-t border-slate-800 pt-6">
-        <Link href="/deep/relation">
+        <Link href="/deep/practice">
           <Button variant="outline" className="border-slate-700">
-            ← Back to Relation deep dive
+            ← Back to Practice deep dive
           </Button>
         </Link>
       </section>
