@@ -14,97 +14,90 @@ export default function HomePage() {
           A layered ontology of difference, relation, and information
         </h1>
         <p className="max-w-2xl text-slate-200 leading-relaxed">
-          Informational Ontology (IO) is an attempt to describe reality starting
-          from pure difference and relation, building up through information,
-          awareness, valuation, meaning, and practice.
+          Informational Ontology (IO) describes reality starting from pure
+          difference and relation, building up through information, awareness,
+          valuation, meaning, and practice.
         </p>
         <p className="max-w-2xl text-sm text-slate-400 leading-relaxed">
-          The site is designed in layers: a guided path for lay readers, a more
-          formal ontological overview, and deeper technical materials for
-          specialists.
+          The site is structured in layers: a guided path for lay readers,
+          a formal ontological overview, and deeper technical material.
         </p>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        {/* Start here card */}
-        <Card className="md:col-span-1">
+        {/* Start Here */}
+        <Card>
           <CardHeader>
-            <CardTitle>Start here</CardTitle>
+            <CardTitle>Start Here</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-slate-300 leading-relaxed">
-              A guided, hand-holding journey through IO using analogies and
-              everyday examples. Designed for non-specialists.
+              A guided, analogy-rich journey through IO designed for curious
+              non-specialists.
             </p>
-            <div className="mt-5">
-              <Link href="/start">
-                <Button className="w-full rounded-2xl text-sm font-semibold shadow-lg shadow-sky-500/30">
-                  Start the journey →
+
+            <div className="mt-4 flex justify-start">
+              <Link href="/start" className="w-full">
+                <Button className="w-full rounded-xl font-semibold shadow-lg shadow-sky-500/20">
+                  Start the Journey →
                 </Button>
               </Link>
-              <p className="mt-2 text-[11px] text-slate-400 leading-relaxed">
-                Recommended first step if you&apos;re new to the ideas, or just
-                curious and not in the mood for formal philosophy.
-              </p>
             </div>
           </CardContent>
         </Card>
 
-        {/* Ontological chain card */}
+        {/* Ontology */}
         <Card>
           <CardHeader>
-            <CardTitle>Ontological chain</CardTitle>
+            <CardTitle>Ontological Chain</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="mb-2 text-sm text-slate-300">
-              The core sequence explored in IO:
+              The formal structure at the heart of IO:
             </p>
             <p className="font-mono text-sm text-sky-300">
               Δ → R → I → A → V → M → P
             </p>
-            <p className="mt-2 text-xs text-slate-400">
-              Difference, Relation, Information, Awareness, Valuation, Meaning,
-              Practice.
-            </p>
-            <Link
-              href="/ontology"
-              className="mt-4 inline-flex items-center text-sm font-medium text-sky-400 hover:text-sky-300"
-            >
-              View the formal overview →
-            </Link>
+
+            <div className="mt-5">
+              <Link href="/ontology" className="w-full">
+                <Button variant="outline" className="w-full text-sky-300 border-sky-700/60 hover:bg-sky-950/30">
+                  Dive Into the Chain →
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
 
-        {/* Simulations card */}
+        {/* Simulations */}
         <Card>
           <CardHeader>
             <CardTitle>Simulations</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-3 text-sm text-slate-300">
-              Small visual toys that show how rich structure can emerge from
-              simple, rule-based systems.
+            <p className="mb-3 text-sm text-slate-300 leading-relaxed">
+              Interactive toy systems showing how complex structure
+              emerges from simple rules.
             </p>
-            <Link
-              href="/simulations"
-              className="mt-2 inline-flex items-center text-sm text-sky-400 hover:text-sky-300"
-            >
-              Explore simulations →
-            </Link>
+
+            <div className="mt-5">
+              <Link href="/simulations" className="w-full">
+                <Button variant="outline" className="w-full border-slate-700 hover:bg-slate-800">
+                  Explore Simulations →
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </section>
 
       <section>
         <p className="text-xs text-slate-500">
-          For a more meta-level overview of the project, see the{" "}
-          <Link
-            href="/intro"
-            className="text-sky-400 hover:text-sky-300 font-medium"
-          >
+          Want background instead? Visit the{" "}
+          <Link href="/intro" className="text-sky-400 hover:text-sky-300">
             Introduction
-          </Link>{" "}
-          page.
+          </Link>
+          .
         </p>
       </section>
     </main>
