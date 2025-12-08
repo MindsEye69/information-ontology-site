@@ -1,5 +1,6 @@
 // app/ontology/page.tsx
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Ontological chain | Informational Ontology",
@@ -14,10 +15,10 @@ const stages = [
     label: "Difference (Δ)",
     tagline: "To exist is to differ.",
     overview:
-      "We begin from what cannot be denied without using it: difference. If there were no differences at all, nothing could be distinguished, described, or talked about. Any act of thought or perception already presupposes that something differs from something else.",
+      "We begin from what cannot be denied without using it: difference. If there were no differences at all, nothing could be distinguished, described, or talked about.",
     detail: [
       "Difference is not an extra property we add to an already-existing world. It is the most minimal condition under which anything like a 'world' can appear at all. If there were no differences, there would be no boundaries, no events, no change, and no way to draw a line between 'this' and 'that'.",
-      "Stating 'there are differences' is not a speculative claim about physics; it is a structural claim about what must be the case for any experience, measurement, or statement to be possible. Informational Ontology takes this as its starting point and refuses to smuggle in extra assumptions at this stage.",
+      "Stating 'there are differences' is not a speculative claim about physics; it is a structural claim about what must be the case for any experience, measurement, or statement to be possible.",
     ],
   },
   {
@@ -29,7 +30,7 @@ const stages = [
       "Once we admit differences, we get relations for free. A difference is always a difference between at least two somethings. Those somethings stand in structured patterns of 'more / less', 'before / after', 'near / far', and so on.",
     detail: [
       "A lone, isolated 'difference' that relates to nothing else is incoherent. As soon as we distinguish A from B, we can also ask how they stand with respect to each other: closer or further, similar or dissimilar, causally connected or independent.",
-      "The ontology at this stage is still extremely thin. We are not yet talking about particles, fields, or minds; only about the fact that whatever exists is caught up in networks of relations. Those networks are what later show up as structure, regularity, and eventually law-like behaviour.",
+      "The ontology at this stage is still extremely thin. We are not yet talking about particles, fields, or minds; only about the fact that whatever exists is caught up in networks of relations.",
     ],
   },
   {
@@ -38,10 +39,10 @@ const stages = [
     label: "Information (I)",
     tagline: "Stable relations encode information.",
     overview:
-      "Information, in this context, is not 'news' or 'meaningful messages'. It is pattern in relational structure: regularities that make a difference to what can happen next. When relations become stable enough to be relied on, they can be treated as informational.",
+      "Information, in this context, is not 'news' or 'meaningful messages'. It is pattern in relational structure: regularities that make a difference to what can happen next.",
     detail: [
       "A system has information when some of its possible states rule out others in a structured way. For example, if a detector reliably flips when a certain event occurs, that flip carries information about the event, even if no conscious mind ever reads it.",
-      "Informational Ontology treats information as an objective feature of relational structure, not something that only exists relative to a human observer. Later, awareness and meaning will be built on top of this more basic, structural notion.",
+      "Informational Ontology treats information as an objective feature of relational structure, not something that only exists relative to a human observer.",
     ],
   },
   {
@@ -53,7 +54,7 @@ const stages = [
       "Awareness, in IO, is not full human consciousness. It is the minimal condition under which a system is sensitive to information in a way that guides its own state or behaviour.",
     detail: [
       "A thermostat 'knows' the temperature only in a very thin sense, but it does stand in an informational relation that makes a difference to what it does. At higher levels, biological organisms integrate vast streams of information to maintain their own structure.",
-      "IO is careful not to equate awareness with human-like experience, but also not to treat it as magic that appears out of nowhere. Awareness is what it looks like when informational structure is organised around maintaining or updating a system's own ongoing pattern.",
+      "Awareness is what it looks like when informational structure is organised around maintaining or updating a system's own ongoing pattern.",
     ],
   },
   {
@@ -62,7 +63,7 @@ const stages = [
     label: "Valuation (V)",
     tagline: "Awareness carries implicit tendencies: better / worse.",
     overview:
-      "Once a system is organised around its own continuation, information is no longer neutral. Some states are good for the system, some are bad, and information is processed accordingly. This is valuation in its minimal sense.",
+      "Once a system is organised around its own continuation, information is no longer neutral. Some states are good for the system, some are bad, and information is processed accordingly.",
     detail: [
       "For a system that can fail or succeed at staying organised, 'better' and 'worse' are not merely human projections. They are structural facts about which conditions support or undermine the system's pattern of activity.",
       "Valuation at this level does not yet involve explicit goals or ethical judgments. It is closer to the way a living cell 'prefers' certain chemical conditions: what sustains its organisation is implicitly valued.",
@@ -76,8 +77,8 @@ const stages = [
     overview:
       "Meaning arises when information and valuation are woven into longer-term patterns: expectations, models, narratives, and symbols that matter to a system because of how they guide its ongoing activity.",
     detail: [
-      "A signal has meaning for a system when it is not just correlated with something, but used by the system in ways that connect to its valuations. The same pattern can mean different things to different systems, depending on how it is integrated into their structures.",
-      "Human meaning-making adds language, culture, and reflection on top of this deeper informational-valuation layer, but IO aims to keep sight of that layer even when dealing with high-level phenomena like art, science, or religion.",
+      "A signal has meaning for a system when it is not just correlated with something, but used by the system in ways that connect to its valuations.",
+      "Human meaning-making adds language, culture, and reflection on top of this deeper informational-valuation layer.",
     ],
   },
   {
@@ -86,9 +87,9 @@ const stages = [
     label: "Practice (P)",
     tagline: "Meaning embodied in action.",
     overview:
-      "Practice is where the chain closes back on the world. Meaning that never shows up in action, behaviour, or transformed structure remains hypothetical. In practice, systems enact their ontology.",
+      "Practice is where the chain closes back on the world. Meaning that never shows up in action, behaviour, or transformed structure remains hypothetical.",
     detail: [
-      "For humans, practice includes everything from bodily habits to scientific experimentation and ethical decision-making. These are not just consequences of an already-fixed ontology; they are also how our ontologies are tested, revised, and sometimes overturned.",
+      "For humans, practice includes everything from bodily habits to scientific experimentation and ethical decision-making.",
       "By placing practice at the end of the chain, IO emphasises that an ontology is not merely a description of what is. It is also a guide to how we move, build, and live within what is.",
     ],
   },
@@ -123,9 +124,9 @@ export default function OntologyPage() {
           <p className="mt-3 text-sm text-slate-300 leading-relaxed">
             Each arrow indicates a claimed dependency: once you grant the left
             side, IO argues that you are already committed to the right. The
-            goal of the project is not to add extra metaphysical entities, but
-            to show how much structure follows from starting with difference and
-            refusing to smuggle in anything else.
+            goal is not to add extra metaphysical entities, but to show how much
+            structure follows from starting with difference and refusing to
+            smuggle in anything else.
           </p>
         </div>
 
@@ -154,9 +155,14 @@ export default function OntologyPage() {
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
           You can skim the overviews above and only open the sections that
-          matter to you, or work through the chain in order. Later, each stage
-          will link to a full chapter with diagrams, simulations, and formal
-          notes.
+          matter to you, or work through the chain in order. The{" "}
+          <Link
+            href="/start"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Start here
+          </Link>{" "}
+          path tells the same story in more narrative form.
         </p>
 
         <div className="space-y-3">
@@ -197,12 +203,22 @@ export default function OntologyPage() {
       <section className="border-t border-slate-800 pt-6">
         <p className="text-sm text-slate-400 leading-relaxed">
           The rest of the site unpacks this chain in more detail. The{" "}
-          <span className="font-semibold">Introductory path</span> tells the
-          story in narrative form; the{" "}
-          <span className="font-semibold">Simulations</span> show small
-          toy-worlds that illustrate how structure can emerge from simple
-          informational rules; and individual sections will go deeper into each
-          step of the sequence.
+          <Link
+            href="/start"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Start here
+          </Link>{" "}
+          journey gives a story-like version for lay readers; the{" "}
+          <Link
+            href="/simulations"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Simulations
+          </Link>{" "}
+          show small toy-worlds that illustrate how structure can emerge from
+          simple informational rules; and future sections will go deeper into
+          each step of the sequence.
         </p>
       </section>
     </main>

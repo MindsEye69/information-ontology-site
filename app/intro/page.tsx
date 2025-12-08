@@ -1,5 +1,6 @@
 // app/intro/page.tsx
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Introduction | Informational Ontology",
@@ -21,14 +22,14 @@ export default function IntroPage() {
         <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
           Informational Ontology (IO) is an attempt to describe reality by
           starting from what cannot be denied: pure difference and relation.
-          From there, we build a chain through information, awareness, value,
-          meaning, and purpose. This page explains what the project is trying
+          From there, it builds a chain through information, awareness, value,
+          meaning, and practice. This page explains what the project is trying
           to do, who it is for, and how to move through the material without
           getting lost.
         </p>
       </section>
 
-      {/* 1.1 Purpose */}
+      {/* 1. Purpose */}
       <section className="grid gap-8 md:grid-cols-[3fr,2fr] items-start">
         <div className="space-y-3">
           <h2 className="text-xl font-semibold">1. Purpose of this project</h2>
@@ -47,7 +48,7 @@ export default function IntroPage() {
             </span>
             . We start from difference, show why relation must follow, how
             relation gives rise to information, and how awareness, value,
-            meaning, and purpose emerge from that informational structure.
+            meaning, and practice emerge from that informational structure.
           </p>
           <p className="text-slate-300 leading-relaxed">
             The website version exists so that these steps can be explored at
@@ -68,39 +69,69 @@ export default function IntroPage() {
             <span className="font-semibold">
               guided tour through one possible map of reality
             </span>
-            . When the text splits into &quot;intuitive explanation&quot; and
-            &quot;formal notes,&quot; you can safely skip the formal bits on a
-            first pass.
+            . The{" "}
+            <Link
+              href="/start"
+              className="font-semibold text-sky-400 hover:text-sky-300"
+            >
+              Start here
+            </Link>{" "}
+            path is designed specifically for you.
           </p>
         </aside>
       </section>
 
-      {/* 1.2 How to read */}
+      {/* 2. How to read */}
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">2. How to move through the site</h2>
         <p className="text-slate-300 leading-relaxed">
           The site is organised roughly along the core ontological chain:
           difference → relation → information → awareness → value → meaning →
-          purpose. You don&apos;t need to absorb everything at once. A good
+          practice. You don&apos;t need to absorb everything at once. A good
           way to read is:
         </p>
         <ol className="list-decimal list-inside space-y-2 text-slate-300">
           <li>
-            <span className="font-semibold">Start with the introductory path</span>{" "}
-            for a narrative, analogy-rich overview.
+            <span className="font-semibold">Start with the guided path</span>{" "}
+            on the{" "}
+            <Link
+              href="/start"
+              className="text-sky-400 hover:text-sky-300 font-medium"
+            >
+              Start here
+            </Link>{" "}
+            section for a narrative, analogy-rich overview.
           </li>
           <li>
-            Visit the <span className="font-semibold">Ontological chain</span>{" "}
+            Visit the{" "}
+            <Link
+              href="/ontology"
+              className="text-sky-400 hover:text-sky-300 font-medium"
+            >
+              Ontological chain
+            </Link>{" "}
             section for a more structured, step-by-step formulation.
           </li>
           <li>
-            Dip into <span className="font-semibold">Simulations</span> to see
-            small visual &quot;toy worlds&quot; that illustrate how structure
-            can emerge from informational rules.
+            Dip into{" "}
+            <Link
+              href="/simulations"
+              className="text-sky-400 hover:text-sky-300 font-medium"
+            >
+              Simulations
+            </Link>{" "}
+            to see small visual &quot;toy worlds&quot; that illustrate how
+            structure can emerge from informational rules.
           </li>
           <li>
-            Use the <span className="font-semibold">Glossary</span> whenever a
-            term feels slippery or overloaded.
+            Use the{" "}
+            <Link
+              href="/glossary"
+              className="text-sky-400 hover:text-sky-300 font-medium"
+            >
+              Glossary
+            </Link>{" "}
+            whenever a term feels slippery or overloaded.
           </li>
         </ol>
 
@@ -110,9 +141,15 @@ export default function IntroPage() {
               If you like intuition and analogies
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Follow the &quot;Start here&quot; track, read the examples, and
-              skim the rest. You can treat the formal structure as optional
-              scaffolding.
+              Follow the{" "}
+              <Link
+                href="/start"
+                className="font-semibold text-sky-400 hover:text-sky-300"
+              >
+                Start here
+              </Link>{" "}
+              track, read the examples, and skim the rest. You can treat the
+              formal structure as optional scaffolding.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-2">
@@ -122,14 +159,14 @@ export default function IntroPage() {
             <p className="text-sm text-slate-300 leading-relaxed">
               Treat each section as a set of claims to be checked. Follow the
               chain Δ → R → I → A → V → M → P and ask whether each step really
-              follows. The simulations and analogies are then tools for stress-
-              testing the structure, not replacements for it.
+              follows. The simulations and analogies are then tools for
+              stress-testing the structure, not replacements for it.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 1.3 Scope & limits */}
+      {/* 3. Scope & limits */}
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">
           3. Scope, limits, and intended audience
@@ -159,7 +196,7 @@ export default function IntroPage() {
         </p>
       </section>
 
-      {/* 1.4 Relation to earlier drafts / versions */}
+      {/* 4. Relation to earlier drafts / versions */}
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">
           4. Relation to earlier drafts and future versions
@@ -184,13 +221,24 @@ export default function IntroPage() {
       </section>
 
       {/* Closing */}
-      <section className="border-t border-slate-800 pt-6">
+      <section className="border-t border-slate-800 pt-6 space-y-2">
         <p className="text-sm text-slate-400 leading-relaxed">
-          From here, you can continue along the{" "}
-          <span className="font-semibold">introductory path</span>, or jump
-          directly into the{" "}
-          <span className="font-semibold">ontological chain</span> if you&apos;d
-          like to see the formal structure first.
+          If you&apos;re unsure where to go next, the{" "}
+          <Link
+            href="/start"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Start here
+          </Link>{" "}
+          journey is the safest entry point. If you already like formal
+          structure, you can instead jump to the{" "}
+          <Link
+            href="/ontology"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Ontological chain
+          </Link>
+          .
         </p>
       </section>
     </main>

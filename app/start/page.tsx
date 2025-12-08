@@ -74,7 +74,10 @@ export default function StartHerePage() {
         </ul>
         <p className="text-slate-300 leading-relaxed">
           If you ever feel lost, you can jump to the{" "}
-          <Link href="/ontology" className="text-sky-400 hover:text-sky-300">
+          <Link
+            href="/ontology"
+            className="text-sky-400 hover:text-sky-300 font-medium"
+          >
             Ontological chain
           </Link>{" "}
           page to see the full structure laid out in one place.
