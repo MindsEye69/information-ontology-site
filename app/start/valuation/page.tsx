@@ -16,12 +16,12 @@ export default function ValuationStepPage() {
           Start here · Step 5 of 8
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Valuation: when some states are better than others
+          Value: when some states are better than others
         </h1>
         <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
           Once a system&apos;s awareness is tied to its own continued pattern,
           information stops being neutral. Some possibilities are good for the
-          system, some are bad. This is valuation in a basic, structural sense.
+          system, some are bad. This is value in a basic, structural sense.
         </p>
       </section>
 
@@ -39,7 +39,7 @@ export default function ValuationStepPage() {
         <p className="text-slate-300 leading-relaxed">
           The flame doesn&apos;t have opinions. But there is still a clear
           sense in which certain conditions support its continued existence
-          while others destroy it. That is valuation in embryo form.
+          while others destroy it. That is value in embryo form.
         </p>
       </section>
 
@@ -97,7 +97,7 @@ export default function ValuationStepPage() {
         </p>
         <p className="text-slate-200 leading-relaxed font-medium">
           When information is used by a system that can do better or worse at
-          continuing, valuation is already in play.
+          continuing, value is already in play.
         </p>
       </section>
 

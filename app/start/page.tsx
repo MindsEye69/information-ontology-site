@@ -91,9 +91,9 @@ export default function StartHerePage() {
           <li>Relation – how differences lean on each other.</li>
           <li>Information – patterns that can make a difference.</li>
           <li>Awareness – when information starts to matter to a system.</li>
-          <li>Valuation – better / worse becomes real for that system.</li>
+          <li>Value – better / worse becomes real for that system.</li>
           <li>Meaning – patterns weaving into stories and expectations.</li>
-          <li>Practice – how meaning shows up in action.</li>
+          <li>Purpose – how meaning shows up in action.</li>
           <li>Summary – your &quot;toolkit&quot; for the rest of the site.</li>
         </ol>
       </section>

@@ -23,7 +23,7 @@ export default function IntroPage() {
           Informational Ontology (IO) is an attempt to describe reality by
           starting from what cannot be denied: pure difference and relation.
           From there, it builds a chain through information, awareness, value,
-          meaning, and practice. This page explains what the project is trying
+          meaning, and purpose. This page explains what the project is trying
           to do, who it is for, and how to move through the material without
           getting lost.
         </p>
@@ -48,7 +48,7 @@ export default function IntroPage() {
             </span>
             . We start from difference, show why relation must follow, how
             relation gives rise to information, and how awareness, value,
-            meaning, and practice emerge from that informational structure.
+            meaning, and purpose emerge from that informational structure.
           </p>
           <p className="text-slate-300 leading-relaxed">
             The website version exists so that these steps can be explored at
@@ -87,7 +87,7 @@ export default function IntroPage() {
         <p className="text-slate-300 leading-relaxed">
           The site is organised roughly along the core ontological chain:
           difference → relation → information → awareness → value → meaning →
-          practice. You don&apos;t need to absorb everything at once. A good
+          purpose. You don&apos;t need to absorb everything at once. A good
           way to read is:
         </p>
         <ol className="list-decimal list-inside space-y-2 text-slate-300">

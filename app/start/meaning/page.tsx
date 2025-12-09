@@ -104,10 +104,10 @@ export default function MeaningStepPage() {
       </section>
 
       <StepNav
-        prevHref="/start/valuation"
-        prevLabel="Back: Valuation"
-        nextHref="/start/practice"
-        nextLabel="Next: Practice"
+        prevHref="/start/value"
+        prevLabel="Back: Value"
+        nextHref="/start/purpose"
+        nextLabel="Next: Purpose"
       />
     </main>
   );

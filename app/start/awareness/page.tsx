@@ -96,8 +96,8 @@ export default function AwarenessStepPage() {
       <StepNav
         prevHref="/start/information"
         prevLabel="Back: Information"
-        nextHref="/start/valuation"
-        nextLabel="Next: Valuation"
+        nextHref="/start/value"
+        nextLabel="Next: Value"
       />
     </main>
   );
