@@ -22,7 +22,7 @@ export default function FormalInformationPage() {
         <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
           This page will gather more explicit treatments of information in IO:
           how constrained possibility can be represented mathematically, and how
-          that connects to awareness and valuation.
+          that connects to awareness and value.
         </p>
       </section>
 

@@ -34,7 +34,7 @@ export default function FormalMeaningPage() {
           </li>
           <li>
             Ways in which meaning can be seen as a function from informational
-            states and valuations to action policies.
+            states and value to action policies.
           </li>
           <li>
             The role of learning and model revision in reshaping meaning over

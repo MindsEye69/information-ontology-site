@@ -88,7 +88,7 @@ export default function DeepAwarenessPage() {
         <p className="text-slate-300 leading-relaxed">
           IO links richer forms of awareness to systems that use information to
           maintain, protect, or extend their own organisation. This sets the
-          stage for valuation: some informationally guided states will be better
+          stage for value: some informationally guided states will be better
           or worse for that ongoing project.
         </p>
       </section>

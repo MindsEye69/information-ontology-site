@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Meaning (M) – Deep dive | Informational Ontology",
   description:
-    "A deeper treatment of Meaning (M) as valuation and information woven over time.",
+    "A deeper treatment of Meaning (M) as value and information woven over time.",
 };
 
 export default function DeepMeaningPage() {
@@ -20,7 +20,7 @@ export default function DeepMeaningPage() {
           Meaning (M): patterns that matter in a story
         </h1>
         <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
-          Meaning in IO emerges when information and valuation are not just
+          Meaning in IO emerges when information and value are not just
           momentary, but organised across time into expectations, models, and
           narratives that guide a system&apos;s ongoing activity.
         </p>
@@ -39,7 +39,7 @@ export default function DeepMeaningPage() {
         </ul>
         <p className="text-slate-300 leading-relaxed">
           Meaning is not in the bare shape of the signal alone, but in its role
-          inside a larger web of information and valuation.
+          inside a larger web of information and value.
         </p>
       </section>
 
@@ -48,7 +48,7 @@ export default function DeepMeaningPage() {
         <p className="text-slate-300 leading-relaxed">
           Human meaning-making adds extra layers: language, culture, memory,
           reflection. A melody can mean comfort for one person and grief for
-          another because it connects to different stories and valuations.
+          another because it connects to different stories and values.
         </p>
         <p className="text-slate-300 leading-relaxed">
           IO does not try to collapse all of this richness into a single
@@ -67,7 +67,7 @@ export default function DeepMeaningPage() {
           conditions.
         </p>
         <p className="text-slate-300 leading-relaxed">
-          The link to valuation is crucial: the same information can have
+          The link to value is crucial: the same information can have
           different meanings for different systems depending on what is at stake
           for them and what they have learned to expect.
         </p>
