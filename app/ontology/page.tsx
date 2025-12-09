@@ -9,36 +9,84 @@ export const metadata: Metadata = {
     "Overview of the core Δ → R → I → A → V → M → P sequence in Informational Ontology.",
 };
 
-// (stages array stays the same ― unchanged for brevity)
-
 const stages = [
   {
     id: "delta",
-    short: "Δ — Difference",
-    label: "Difference (Δ)",
+    short: "Δ",
+    label: "Difference",
     tagline: "To exist is to differ.",
     overview:
-      "Difference is the minimal condition for anything to be distinguishable at all. If nothing differed, nothing could be observed, described, or experienced.",
+      "Difference is the minimal condition for anything to exist at all. If there were no differences, nothing could be distinguished, related, or known.",
     detail: [
-      "Difference is not an extra property we add later — it is the prerequisite of all structure, all events, and all thinking.",
-      "Denying difference collapses into self-contradiction, because the denial depends on contrast.",
+      "Denying difference already presupposes a difference between denial and non-denial. This makes difference the unique, non-derivable ontological primitive.",
     ],
   },
   {
     id: "relation",
-    short: "R — Relation",
-    label: "Relation (R)",
-    tagline: "Difference implies relational structure.",
+    short: "R",
+    label: "Relation",
+    tagline: "Differences never occur in isolation.",
     overview:
-      "Once we admit differences, relationships come for free. A difference is always a difference between something and something else.",
+      "Once you have at least one difference, you immediately have relationships: contrasts, gradients, boundaries, and patterns among differences.",
     detail: [
-      "Relations organize differences into structure: nearer/farther, before/after, larger/smaller.",
-      "IO treats relations as primary, not optional extras superimposed on isolated objects.",
+      "Relation is not something added on top of difference; it is what it means for differences to stand in contrast with one another.",
     ],
   },
-
-  // and the rest of your stages are unchanged… 
-  // I’m keeping them collapsed here to save tokens, but your final file should contain the full array exactly as before.
+  {
+    id: "information",
+    short: "I",
+    label: "Information",
+    tagline: "Structured differences form information.",
+    overview:
+      "Information is what we get when differences are organized into patterns. Order, correlation, and structure are all forms of information.",
+    detail: [
+      "On this view, physics itself can be understood as the dynamics of information—structured differences evolving under lawful constraints.",
+    ],
+  },
+  {
+    id: "awareness",
+    short: "A",
+    label: "Awareness",
+    tagline: "When information refers to itself.",
+    overview:
+      "Awareness arises when information is integrated and recursively related to itself. A system becomes aware when it not only carries information, but tracks and updates it.",
+    detail: [
+      "This is a minimal, structural notion of awareness: no human-level cognition is required. Any system that internally models its own informational state has at least some degree of awareness.",
+    ],
+  },
+  {
+    id: "value",
+    short: "V",
+    label: "Value",
+    tagline: "Awareness introduces preference.",
+    overview:
+      "Once a system is aware of different possible states, some of those states will be better or worse for its continued existence or stability. This generates value.",
+    detail: [
+      "Value, in this sense, is not arbitrary or purely subjective. It is awareness applied to possible states, where some outcomes support the system and others undermine it.",
+    ],
+  },
+  {
+    id: "meaning",
+    short: "M",
+    label: "Meaning",
+    tagline: "Value becomes structured and shared.",
+    overview:
+      "Meaning is the pattern of value across an informational landscape. It is how a system organizes what matters, for what, and in which contexts.",
+    detail: [
+      "Semantic meaning in language, functional meaning in systems, and personal meaning in a life are all special cases of value structured into stable patterns.",
+    ],
+  },
+  {
+    id: "purpose",
+    short: "P",
+    label: "Purpose",
+    tagline: "Meaning extended through time.",
+    overview:
+      "Purpose is what happens when meaning is stabilized and projected into the future. It is the directed, goal-like structure of a system’s meaningful organization.",
+    detail: [
+      "On this view, purpose is not something mysteriously added to reality. It is the long-term shape of meaning in action: how a system consistently leans toward certain patterns of value.",
+    ],
+  },
 ];
 
 export default function OntologyPage() {
@@ -50,70 +98,100 @@ export default function OntologyPage() {
           Ontological chain
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          The Δ → R → I → A → V → M → P sequence
+          Δ → R → I → A → V → M → P
         </h1>
-        <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
-          This chain shows what IO claims are the necessary steps from bare
-          difference to meaning embodied in action.
+        <p className="max-w-3xl text-sm text-slate-300 leading-relaxed">
+          This page summarizes the core sequence of Informational Ontology:
+          Difference, Relation, Information, Awareness, Value, Meaning, and
+          Purpose. Each step is treated as a logical and structural
+          development from the previous one, rather than as an arbitrary list
+          of concepts.
+        </p>
+        <p className="max-w-3xl text-xs text-slate-400 leading-relaxed">
+          For a more narrative and analogy-rich path through the same ideas,
+          see the{" "}
+          <Link
+            href="/start"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Start here
+          </Link>{" "}
+          section.
         </p>
       </section>
 
-      {/* Overview Grid */}
-      <section className="grid gap-4 md:grid-cols-2">
-        {stages.map((stage) => (
-          <div
-            key={stage.id}
-            className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 flex flex-col justify-between"
-          >
-            <div>
-              <p className="text-xs font-mono uppercase tracking-wide text-sky-400">
-                {stage.short}
-              </p>
-              <p className="mt-1 text-sm font-semibold">{stage.tagline}</p>
-              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-                {stage.overview}
-              </p>
-            </div>
+      {/* Overview cards */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">
+          1. One chain, seven stages
+        </h2>
+        <p className="text-sm text-slate-300 leading-relaxed">
+          The goal is not to multiply metaphysical entities, but to show how
+          much structure follows from starting with difference and refusing
+          to smuggle in anything else. Each stage deepens what came before.
+        </p>
 
-            <div className="mt-4">
-              <Link href={`/deep/${stage.id}`} className="w-full">
-                <Button
-                  variant="outline"
-                  className="w-full border-sky-700/60 text-sky-300 hover:bg-sky-950/40"
+        <div className="grid gap-4 md:grid-cols-2">
+          {stages.map((stage) => (
+            <div
+              key={stage.id}
+              className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 flex flex-col justify-between"
+            >
+              <div>
+                <p className="text-xs font-mono uppercase tracking-wide text-sky-400">
+                  {stage.short}
+                </p>
+                <p className="mt-1 text-sm font-semibold">{stage.tagline}</p>
+                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                  {stage.overview}
+                </p>
+              </div>
+              <div className="mt-3">
+                <Link
+                  href={`/deep/${stage.id}`}
+                  className="inline-flex items-center text-xs font-medium text-sky-400 hover:text-sky-300"
                 >
                   Dive deeper →
-                </Button>
-              </Link>
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
-      {/* Details */}
+      {/* Expandable detail list */}
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Expandable details</h2>
-        <p className="text-sm text-slate-400">
-          Below you can expand each section. Or jump straight into a full
-          chapter using the “Dive deeper” buttons above.
+        <h2 className="text-xl font-semibold">
+          2. Expandable details for each stage
+        </h2>
+        <p className="text-slate-300 text-sm leading-relaxed">
+          You can skim the overviews above and only open the sections that
+          matter to you, or work through the chain in order. The{" "}
+          <Link
+            href="/start"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Start here
+          </Link>{" "}
+          path tells the same story in more narrative form.
         </p>
 
         <div className="space-y-3">
           {stages.map((stage, index) => (
             <details
               key={stage.id}
-              className="group rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-4"
+              className="group rounded-2xl border border-slate-800 bg-slate-900/50 px-5 py-4"
             >
-              <summary className="flex cursor-pointer justify-between items-center">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                 <div>
                   <p className="text-xs font-mono uppercase tracking-wide text-sky-400">
                     {index + 1}. {stage.short}
                   </p>
                   <p className="text-sm font-semibold">{stage.label}</p>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="mt-1 text-xs text-slate-400">
                     {stage.tagline}
                   </p>
                 </div>
-
                 <span className="text-xs text-slate-400 group-open:hidden">
                   Show more
                 </span>
@@ -121,36 +199,35 @@ export default function OntologyPage() {
                   Show less
                 </span>
               </summary>
-
-              <div className="mt-3 space-y-2 text-sm text-slate-300">
+              <div className="mt-3 space-y-2 text-sm text-slate-300 leading-relaxed">
                 <p>{stage.overview}</p>
-                {stage.detail.map((p, i) => (
-                  <p key={i}>{p}</p>
+                {stage.detail.map((para, i) => (
+                  <p key={i}>{para}</p>
                 ))}
-
-                <Link href={`/deep/${stage.id}`} className="w-full block mt-3">
-                  <Button
-                    variant="outline"
-                    className="w-full border-sky-700/60 text-sky-300 hover:bg-sky-950/40"
+                <p className="pt-2 text-xs text-slate-400">
+                  For a chapter-style treatment of {stage.label.toLowerCase()},
+                  see{" "}
+                  <Link
+                    href={`/deep/${stage.id}`}
+                    className="font-medium text-sky-400 hover:text-sky-300"
                   >
                     Dive deeper →
-                  </Button>
-                </Link>
+                  </Link>
+                  .
+                </p>
               </div>
             </details>
           ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <section className="border-t border-slate-800 pt-6">
-        <p className="text-sm text-slate-400">
-          For a guided, analogy-rich version of this sequence, visit the{" "}
-          <Link href="/start" className="text-sky-400 hover:text-sky-300">
-            Start Here
-          </Link>{" "}
-          journey.
-        </p>
+      {/* Back link */}
+      <section>
+        <Link href="/" className="inline-flex">
+          <Button variant="outline" size="sm">
+            ← Back to home
+          </Button>
+        </Link>
       </section>
     </main>
   );
