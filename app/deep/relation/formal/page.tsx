@@ -89,7 +89,7 @@ export default function FormalRelationPage() {
           Once Δ is instantiated, we can collect all realized differences into
           a single object:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           D = &#123;&lt;x, y&gt; ∈ U × U : Δ(x, y)&#125;.
         </p>
         <p className="text-sm text-slate-300">

@@ -63,7 +63,7 @@ export default function FormalValuePage() {
           ordering over Ω.
         </p>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Definition (Value Functional).  
           V: Ω → ℝ is any functional such that  
           V(x) &gt; V(y) ⇔ state x increases informational coherence relative
@@ -82,7 +82,7 @@ export default function FormalValuePage() {
           3. Derivation of Value from Awareness
         </h2>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Proposition 1.  
           If a system S has awareness A of its own informational state, then a
           non-trivial Value functional V necessarily exists.
@@ -95,7 +95,7 @@ export default function FormalValuePage() {
           an ordering, which is V.
         </p>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Proposition 2 (Evaluative Gradient).  
           For any trajectory τ = (x₀, x₁, x₂, …) under T,  
           S exhibits evaluative behavior iff ∃V such that V(xₙ₊₁) ≥ V(xₙ) for

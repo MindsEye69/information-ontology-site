@@ -55,10 +55,10 @@ export default function FormalAwarenessPage() {
         <p className="text-sm text-slate-300">
           We model a system as a tuple:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-base text-base text-slate-200">
           S = (X, E, Σ, f)
         </p>
-        <ul className="list-disc space-y-1 pl-5 text-sm text-slate-300">
+        <ul className="list-disc space-y-1 pl-5 text-sm text-slate-200">
           <li>
             X is a Δ-structured set of possible internal states of the system.
           </li>
@@ -100,7 +100,7 @@ export default function FormalAwarenessPage() {
           A system S = (X, E, Σ, f) is minimally aware of E if there exists an
           injective mapping g: E → Σ such that, for relevant histories,
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Σ<sub>t</sub> ≈ g(E<sub>t</sub>)
         </p>
         <p className="text-sm text-slate-300">
@@ -130,7 +130,7 @@ export default function FormalAwarenessPage() {
           system S has a self-model if there exists a mapping h: X → Σ such
           that, for relevant histories,
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Σ<sub>t</sub> = h(X<sub>t</sub>) or Σ<sub>t</sub> = h(X<sub>t</sub>,
           E<sub>t</sub>).
         </p>
@@ -139,7 +139,7 @@ export default function FormalAwarenessPage() {
           just in the environment, but in its own configuration. Recursive
           awareness arises when updates to Σ depend on Σ itself:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Σ<sub>t+1</sub> = F(Σ<sub>t</sub>, X<sub>t</sub>, E<sub>t</sub>)
         </p>
         <p className="text-sm text-slate-300">
@@ -157,7 +157,7 @@ export default function FormalAwarenessPage() {
           Because Σ, g, and h can be more or less complex, Awareness is
           naturally graded in IO. We can define a simple awareness functional:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           A(S) = I(Σ; E, X)
         </p>
         <p className="text-sm text-slate-300">

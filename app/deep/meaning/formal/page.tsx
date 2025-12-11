@@ -57,7 +57,7 @@ export default function FormalMeaningPage() {
           <span className="italic">semantic mapping</span> is a partial
           function:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           σ: Σ ⇀ W
         </p>
         <p className="text-sm text-slate-300">
@@ -75,7 +75,7 @@ export default function FormalMeaningPage() {
           Suppose we also have a value function V: W → ℝ as before. We can then
           define:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           M(σ) = V(σ(σ))
         </p>
         <p className="text-sm text-slate-300">
@@ -110,7 +110,7 @@ export default function FormalMeaningPage() {
           what it directly stands for, but on the network of consequences it
           participates in. We can formalize a simple version:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           M*(σ) = M(σ) + ∑<sub>σ&apos;: RΣ(σ, σ&apos;)</sub> w(σ, σ&apos;) ·
           M(σ&apos;)
         </p>

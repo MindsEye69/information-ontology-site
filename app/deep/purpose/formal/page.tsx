@@ -53,7 +53,7 @@ export default function FormalPurposePage() {
           2. Formal Definition of Purpose
         </h2>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Definition (Purpose Functional).  
           P: Ω × ℕ → ℝ is a functional assigning long-term expected evaluative
           return to a trajectory beginning in state x₀.
@@ -64,7 +64,7 @@ export default function FormalPurposePage() {
           teleological orientation.
         </p>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           P(x₀, τ) = E[ Σₙ γⁿ V(xₙ) | T, M ]
         </p>
 
@@ -88,14 +88,14 @@ export default function FormalPurposePage() {
           trajectories in Ω.
         </p>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Proposition 1.  
           If Meaning assigns relevance structures over Ω, and Value assigns
           evaluative gradients, then Purpose exists as the temporal extension
           that selects trajectories maximizing long-term coherence.
         </p>
 
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Proposition 2 (Teleological Necessity).  
           In any system with stable meaning structures, purpose is the unique
           functional that encodes the consistent pursuit of relevance-weighted

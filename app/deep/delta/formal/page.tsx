@@ -116,7 +116,7 @@ export default function FormalDeltaPage() {
           A minimal formalization requires both instantiation and
           ineliminability.
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-base text-base text-slate-200">
           Axiom Δ1 (Existence of Difference): ∃x ∈ U ∃y ∈ U such that Δ(x, y).
         </p>
         <p className="text-sm text-slate-300">
@@ -124,7 +124,7 @@ export default function FormalDeltaPage() {
           respect. We do not yet specify in virtue of what they differ; that
           belongs to later stages (Relation, Information, etc.).
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           Axiom Δ2 (Ineliminability in Assertion): For any well-formed formula
           ϕ, the performative act of asserting &quot;¬∃x ∈ U ∃y ∈ U Δ(x, y)&quot;
           presupposes at least one instantiation of Δ.
@@ -159,7 +159,7 @@ export default function FormalDeltaPage() {
           &quot;matter&quot;, &quot;mind&quot;, &quot;experience&quot;,
           &quot;energy&quot;).
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           (P0) &nbsp; ∃x ∈ U such that P(x).
         </p>
         <p className="text-sm text-slate-300">
@@ -206,7 +206,7 @@ export default function FormalDeltaPage() {
           the absence of all difference destroys the very conditions of
           assertion.
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           (¬Δ) &nbsp; &quot;There are no differences whatsoever.&quot;
         </p>
         <p className="text-sm text-slate-300">
@@ -267,7 +267,7 @@ export default function FormalDeltaPage() {
           and how they stand to one another. Formally, we can represent the set
           of all instantiated differences as:
         </p>
-        <p className="font-mono text-xs text-slate-300">
+        <p className="font-mono text-base text-slate-200">
           D = &#123;&lt;x, y&gt; ∈ U × U : Δ(x, y)&#125;.
         </p>
         <p className="text-sm text-slate-300">
