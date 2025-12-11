@@ -2,7 +2,6 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -89,32 +88,32 @@ export default function ValueDeepDivePage() {
         </p>
       </section>
 
-      {/* Dive even deeper box */}
-      <section className="rounded-lg border border-slate-800 bg-slate-900/40 p-6 space-y-3">
-        <h2 className="text-lg font-semibold text-slate-100">
-          Dive even deeper (technical)
-        </h2>
-        <p className="text-sm text-slate-400 leading-relaxed">
-          For formal definitions of value functionals, evaluative gradients, and
-          their connection to awareness and system stability, continue to the
-          technical notes on Value (V).
+      {/* Next layers card (matches other pages) */}
+      <section className="mt-8 rounded-xl border border-slate-800 bg-slate-900/40 p-6">
+        <h2 className="text-lg font-semibold text-slate-100">Next layers</h2>
+        <p className="mt-1 text-sm text-slate-400 leading-relaxed">
+          This page is the deeper, non-technical treatment of Value (V). For a
+          more technical take—explicit value functionals, evaluative gradients,
+          and their connection to awareness and system stability—use the
+          technical layer.
         </p>
-        <Link
-          href="/deep/value/formal"
-          className="inline-flex items-center text-sm font-medium text-green-400 hover:text-green-300"
-        >
-          Read the technical exposition
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </Link>
-      </section>
 
-      {/* Back link (optional, matches other deep pages) */}
-      <section className="border-t border-slate-800 pt-6">
-        <Link href="/ontology">
-          <Button variant="outline" className="border-slate-700">
-            ← Back to Ontological chain
-          </Button>
-        </Link>
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+          <Link href="/deep/value/formal">
+            <Button className="w-full sm:w-auto">
+              Dive even deeper (technical) →
+            </Button>
+          </Link>
+
+          <Link href="/ontology">
+            <Button
+              variant="outline"
+              className="w-full border-slate-700 sm:w-auto"
+            >
+              Back to Ontological chain
+            </Button>
+          </Link>
+        </div>
       </section>
     </main>
   );

@@ -2,7 +2,6 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -82,41 +81,3 @@ export default function PurposeDeepDivePage() {
         </p>
         <p className="text-sm text-slate-300 leading-relaxed">
           For a simple organism, that might mean cycling through feeding,
-          resting, and reproduction in ways that keep the organism intact. For a
-          complex agent, it may involve long-term projects, norms, or missions.
-          In both cases, what makes them &quot;purposes&quot; is that they are
-          sustained by informational structures (I, A, M) and value gradients
-          (V) that select some futures over others.
-        </p>
-      </section>
-
-      {/* Dive even deeper box */}
-      <section className="rounded-lg border border-slate-800 bg-slate-900/40 p-6 space-y-3">
-        <h2 className="text-lg font-semibold text-slate-100">
-          Dive even deeper (technical)
-        </h2>
-        <p className="text-sm text-slate-400 leading-relaxed">
-          For a formal treatment of policies, attractors, purpose functionals,
-          and teleodynamic structure in IO, continue to the technical notes on
-          Purpose (P).
-        </p>
-        <Link
-          href="/deep/purpose/formal"
-          className="inline-flex items-center text-sm font-medium text-purple-300 hover:text-purple-200"
-        >
-          Read the technical exposition
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </Link>
-      </section>
-
-      {/* Back link (optional) */}
-      <section className="border-t border-slate-800 pt-6">
-        <Link href="/ontology">
-          <Button variant="outline" className="border-slate-700">
-            ← Back to Ontological chain
-          </Button>
-        </Link>
-      </section>
-    </main>
-  );
-}
