@@ -81,3 +81,40 @@ export default function PurposeDeepDivePage() {
         </p>
         <p className="text-sm text-slate-300 leading-relaxed">
           For a simple organism, that might mean cycling through feeding,
+          resting, and reproduction in ways that keep the organism intact. For a
+          complex agent, it may involve long-term projects, norms, or missions.
+          In both cases, what makes them &quot;purposes&quot; is that they are
+          sustained by informational structures (I, A, M) and value gradients
+          (V) that select some futures over others.
+        </p>
+      </section>
+
+      {/* Next layers card */}
+      <section className="mt-8 rounded-xl border border-slate-800 bg-slate-900/40 p-6">
+        <h2 className="text-lg font-semibold text-slate-100">Next layers</h2>
+        <p className="mt-1 text-sm text-slate-400 leading-relaxed">
+          This page is the deeper, non-technical treatment of Purpose (P). For a
+          more technical take—purpose functionals, policies, attractors, and
+          teleodynamic structure—use the technical layer.
+        </p>
+
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+          <Link href="/deep/purpose/formal">
+            <Button className="w-full sm:w-auto">
+              Dive even deeper (technical) →
+            </Button>
+          </Link>
+
+          <Link href="/ontology">
+            <Button
+              variant="outline"
+              className="w-full border-slate-700 sm:w-auto"
+            >
+              Back to Ontological chain
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
