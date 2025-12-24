@@ -277,22 +277,20 @@ export default function InformationStabilityEngine() {
         const s0 = stable(i);
         if (!s0) continue;
 
-        // check 4-neighbors for a visible boundary:
-        // - stable vs unstable, OR
-        // - (both stable) but different states (helps make outlines visible in highly-stable regimes)
+        // check 4-neighbors for boundary between stable and unstable (outline only the stable "islands")
         const right = idx(wrap(x + 1, N), y, N);
         const down = idx(x, wrap(y + 1, N), N);
 
         const sr = stable(right);
         const sd = stable(down);
 
-        if (!sr || (sr && s[right] !== s[i])) {
+        if (!sr) {
           const x0 = (x + 1) * scale;
           const y0 = y * scale;
           ctx.moveTo(x0, y0);
           ctx.lineTo(x0, y0 + scale);
         }
-        if (!sd || (sd && s[down] !== s[i])) {
+        if (!sd) {
           const x0 = x * scale;
           const y0 = (y + 1) * scale;
           ctx.moveTo(x0, y0);
