@@ -10,7 +10,7 @@ type Params = {
   target: number; // 0..1
   controlGain: number; // 0..1
   sensorNoise: number; // 0..0.2
-  drift: number; // environment drift per step
+  drift: number; // 0..0.01
   memory: 0 | 1 | 2; // 0 none, 1 short, 2 long
   nAgents: 1 | 3;
 };
@@ -25,19 +25,80 @@ function idx(x: number, y: number, N: number) {
   return y * N + x;
 }
 
+function Tip(props: { text: string }) {
+  return (
+    <span className="group relative inline-flex cursor-help select-none items-center">
+      <span className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/20 text-[10px] text-slate-200">
+        i
+      </span>
+      <span className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-xl border border-white/10 bg-black/90 p-3 text-xs text-slate-200 opacity-0 shadow-xl transition group-hover:opacity-100">
+        {props.text}
+      </span>
+    </span>
+  );
+}
+
+function Range(props: {
+  label: string;
+  tip?: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  onChange: (v: number) => void;
+  format?: (v: number) => string;
+}) {
+  const shown = props.format ? props.format(props.value) : String(props.value);
+  return (
+    <div className="space-y-1">
+      <div className="flex items-center justify-between text-xs text-slate-300">
+        <span className="font-semibold text-slate-200">
+          {props.label}
+          {props.tip ? <Tip text={props.tip} /> : null}
+        </span>
+        <span>{shown}</span>
+      </div>
+      <input
+        className="w-full"
+        type="range"
+        min={props.min}
+        max={props.max}
+        step={props.step}
+        value={props.value}
+        onChange={(e) => props.onChange(Number(e.target.value))}
+      />
+    </div>
+  );
+}
+
+function Chip(props: { active?: boolean; onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      onClick={props.onClick}
+      className={[
+        "rounded-xl border px-3 py-2 text-xs font-semibold transition",
+        props.active
+          ? "border-white/60 bg-white/10 text-white"
+          : "border-white/10 bg-black/10 text-slate-200 hover:border-white/30",
+      ].join(" ")}
+      type="button"
+    >
+      {props.children}
+    </button>
+  );
+}
+
 export default function AwarenessHomeostasisToy() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const fieldRef = useRef<Float32Array | null>(null); // environmental resource field (0..1)
-  const tickRef = useRef(0);
-  const accumRef = useRef(0); // fractional step accumulator
-
-  // agents: positions + internal variable "energy" (0..1) and memory of sensed value
+  const fieldRef = useRef<Float32Array | null>(null);
   const agentsRef = useRef<
-    { x: number; y: number; e: number; m: number; v: number; vx: number; vy: number }[]
+    { x: number; y: number; e: number; m: number; vx: number; vy: number }[]
   >([]);
 
   const [running, setRunning] = useState(true);
+  const runningRef = useRef(true);
+
   const [params, setParams] = useState<Params>({
     size: 120,
     speed: 18,
@@ -49,14 +110,24 @@ export default function AwarenessHomeostasisToy() {
     nAgents: 1,
   });
 
+  const paramsRef = useRef<Params>(params);
+  useEffect(() => {
+    paramsRef.current = params;
+  }, [params]);
+
+  useEffect(() => {
+    runningRef.current = running;
+  }, [running]);
+
   const scale = 5;
 
   const reset = () => {
-    const P = params;
+    const P = paramsRef.current;
     const N = P.size;
+
     const f = new Float32Array(N * N);
 
-    // Smooth random field via coarse patches + blur-ish averaging
+    // Seed with coarse patches for readability
     const patch = 10;
     for (let py = 0; py < N; py += patch) {
       for (let px = 0; px < N; px += patch) {
@@ -68,7 +139,8 @@ export default function AwarenessHomeostasisToy() {
         }
       }
     }
-    // quick smoothing passes
+
+    // A couple of smoothing passes
     for (let pass = 0; pass < 2; pass++) {
       const g = new Float32Array(N * N);
       for (let y = 0; y < N; y++) {
@@ -91,70 +163,67 @@ export default function AwarenessHomeostasisToy() {
 
     fieldRef.current = f;
 
-    const agents: { x: number; y: number; e: number; m: number; v: number; vx: number; vy: number }[] =
-      [];
-    const n = params.nAgents === 1 ? 1 : 3;
+    const agents: { x: number; y: number; e: number; m: number; vx: number; vy: number }[] = [];
+    const n = P.nAgents === 1 ? 1 : 3;
     for (let i = 0; i < n; i++) {
       agents.push({
         x: Math.floor((N * (i + 1)) / (n + 1)),
         y: Math.floor(N / 2 + (i - 1) * 12),
-        e: 0.55 + (Math.random() - 0.5) * 0.15,
-        m: 0.55,
-        v: 0.0,
+        e: clamp01(P.target + (Math.random() - 0.5) * 0.2),
+        m: 0.5,
         vx: 0,
         vy: 0,
       });
     }
     agentsRef.current = agents;
-
-    tickRef.current = 0;
-    accumRef.current = 0;
   };
 
+  // Reset on size/agent-count changes
   useEffect(() => {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.size, params.nAgents]);
 
-  // -------- Simulation step (Awareness = feedback using information about internal state) --------
+  // --- Simulation step ---
   const stepOnce = () => {
-    const P = params;
-    const N = P.size;
+    const P = paramsRef.current;
     const field = fieldRef.current;
     if (!field) return;
 
-    // environment drift: slowly shifts the field (forces regulation to matter)
-    // do a gentle "push" toward a random direction each tick, but tiny.
+    const N = P.size;
+
+    // Environment drift (keeps regulation relevant)
     const drift = P.drift;
-    for (let i = 0; i < N * N; i++) {
-      // slight stochastic drift + damping
-      const dv = (Math.random() - 0.5) * drift;
-      field[i] = clamp01(field[i] + dv - (field[i] - 0.5) * drift * 0.15);
+    if (drift > 0) {
+      for (let i = 0; i < N * N; i++) {
+        const dv = (Math.random() - 0.5) * drift;
+        field[i] = clamp01(field[i] + dv - (field[i] - 0.5) * drift * 0.15);
+      }
     }
 
     for (const a of agentsRef.current) {
-      const i = idx(a.x, a.y, N);
+      const i0 = idx(a.x, a.y, N);
 
-      // sensor reads local environment + noise
-      const sensedEnv = clamp01(field[i] + (Math.random() - 0.5) * P.sensorNoise);
+      // Sensor reads local env + noise
+      const sensedEnv = clamp01(field[i0] + (Math.random() - 0.5) * P.sensorNoise);
 
-      // sensed internal error (difference from target)
+      // Error: below target -> positive error
       const err = P.target - a.e;
 
-      // memory: low-pass filter over sensed env (info persistence)
+      // Memory = smoothing of recent sensory input
       const memAlpha = P.memory === 0 ? 1 : P.memory === 1 ? 0.25 : 0.08;
       a.m = clamp01(a.m + (sensedEnv - a.m) * memAlpha);
 
-      // controller: uses information (error + sensed env) to choose action:
-      // - move toward better environment if low energy, away if high (overshoot control)
-      // - adjust intake rate via gain on error
-      const gain = P.controlGain;
-      const drive = clamp01(0.5 + err * gain); // 0..1, stronger drive when below target
-      a.v = drive;
+      // Control drive: stronger corrective action when below target
+      const drive = clamp01(0.5 + err * P.controlGain);
 
-      // pick movement direction by sampling 4 neighbors on the (memory-filtered) sensed field
-      // the agent seeks higher env when below target, and lower env when above target (to avoid runaway).
+      // Exploration: prevents permanent sticking; scales with noise/drift and when near-equilibrium
+      const explore = clamp01(0.08 + P.sensorNoise * 0.9 + P.drift * 30) * (0.35 + 0.65 * (1 - Math.abs(err)));
+
+      // Move rule: if below target seek higher env; if above seek lower env (avoid runaway)
       const seekHigh = err > 0;
+
+      // Sample 4 neighbors
       const dirs = [
         [1, 0],
         [-1, 0],
@@ -162,16 +231,14 @@ export default function AwarenessHomeostasisToy() {
         [0, -1],
       ] as const;
 
-      let bestDx = 0,
-        bestDy = 0;
+      let bestDx = 0;
+      let bestDy = 0;
       let bestVal = seekHigh ? -1 : 2;
 
       for (const [dx, dy] of dirs) {
         const nx = wrap(a.x + dx, N);
         const ny = wrap(a.y + dy, N);
-        const ni = idx(nx, ny, N);
-        const v = field[ni];
-
+        const v = field[idx(nx, ny, N)];
         if (seekHigh) {
           if (v > bestVal) {
             bestVal = v;
@@ -187,48 +254,64 @@ export default function AwarenessHomeostasisToy() {
         }
       }
 
-      // inertia in movement (prevents jitter)
-      a.vx = a.vx * 0.6 + bestDx * 0.4;
-      a.vy = a.vy * 0.6 + bestDy * 0.4;
+      // With exploration, occasionally move randomly instead of greedy best
+      if (Math.random() < explore) {
+        const [dx, dy] = dirs[(Math.random() * dirs.length) | 0];
+        bestDx = dx;
+        bestDy = dy;
+      }
 
-      const stepProb = 0.35 + 0.55 * drive; // move more when regulation "active"
+      // Movement inertia
+      a.vx = a.vx * 0.65 + bestDx * 0.35;
+      a.vy = a.vy * 0.65 + bestDy * 0.35;
+
+      const stepProb = 0.28 + 0.5 * drive;
       if (Math.random() < stepProb) {
         a.x = wrap(a.x + Math.sign(a.vx), N);
         a.y = wrap(a.y + Math.sign(a.vy), N);
       }
 
-      // energy update: intake depends on local env, minus baseline loss.
-      // feedback drives how strongly intake converts to internal state.
-      const intake = sensedEnv * (0.08 + 0.22 * drive);
-      const loss = 0.04 + 0.015 * (0.5 - Math.abs(err)); // small variation
+      // Energy update: intake depends on env and drive, minus baseline loss
+      const intake = sensedEnv * (0.06 + 0.2 * drive);
+      const loss = 0.04;
       a.e = clamp01(a.e + intake - loss);
 
-      // ensure field isn't depleted (this is pedagogy, not ecology)
-      // but add a tiny local perturbation so behavior is visible.
-      field[i] = clamp01(field[i] + (Math.random() - 0.5) * 0.01);
+      // Tiny local perturbation for visibility
+      field[i0] = clamp01(field[i0] + (Math.random() - 0.5) * 0.008);
     }
-
-    tickRef.current += 1;
   };
 
-  // ---------- Rendering ----------
+  // --- Rendering ---
   const palette = useMemo(() => {
-    // dark background + subtle cyan highs
     return {
-      low: [10, 18, 32] as const, // #0a1220
-      high: [240, 248, 255] as const, // near white
+      low: [10, 18, 32] as const,
+      high: [240, 248, 255] as const,
       cyan: [34, 211, 238] as const,
-      agent: [255, 255, 255] as const,
     };
   }, []);
 
-  const draw = (dt: number) => {
+  const accumRef = useRef(0);
+  const lastRef = useRef<number | null>(null);
+
+  const drawFrame = (t: number) => {
     const canvas = canvasRef.current;
     const field = fieldRef.current;
     if (!canvas || !field) return;
 
-    // time-based stepping
-    const P = params;
+    const P = paramsRef.current;
+
+    // time-based stepping with fractional accumulator
+    if (lastRef.current == null) lastRef.current = t;
+    const dt = t - lastRef.current;
+    lastRef.current = t;
+
+    if (runningRef.current) {
+      const want = (dt / 1000) * P.speed + accumRef.current;
+      const steps = Math.max(0, Math.floor(want));
+      accumRef.current = want - steps;
+      for (let k = 0; k < steps; k++) stepOnce();
+    }
+
     const N = P.size;
     canvas.width = N * scale;
     canvas.height = N * scale;
@@ -236,23 +319,20 @@ export default function AwarenessHomeostasisToy() {
     const img = ctx.createImageData(N * scale, N * scale);
     const W = N * scale;
 
-    // render field as grayscale (resource) with subtle cyan tint for mid-high values
+    // Field render
     for (let y = 0; y < N; y++) {
       for (let x = 0; x < N; x++) {
         const v = field[idx(x, y, N)];
-        // gamma-ish curve for contrast
         const g = Math.pow(v, 1.15);
 
-        // blend between low and high
         const rr = palette.low[0] + (palette.high[0] - palette.low[0]) * g;
         const gg = palette.low[1] + (palette.high[1] - palette.low[1]) * g;
         const bb = palette.low[2] + (palette.high[2] - palette.low[2]) * g;
 
-        // tint mid-high slightly cyan
-        const t = clamp01((g - 0.45) / 0.55);
-        const r2 = rr * (1 - 0.18 * t) + palette.cyan[0] * (0.18 * t);
-        const g2 = gg * (1 - 0.18 * t) + palette.cyan[1] * (0.18 * t);
-        const b2 = bb * (1 - 0.18 * t) + palette.cyan[2] * (0.18 * t);
+        const tint = clamp01((g - 0.45) / 0.55);
+        const r2 = rr * (1 - 0.18 * tint) + palette.cyan[0] * (0.18 * tint);
+        const g2 = gg * (1 - 0.18 * tint) + palette.cyan[1] * (0.18 * tint);
+        const b2 = bb * (1 - 0.18 * tint) + palette.cyan[2] * (0.18 * tint);
 
         for (let dy = 0; dy < scale; dy++) {
           for (let dx = 0; dx < scale; dx++) {
@@ -265,17 +345,16 @@ export default function AwarenessHomeostasisToy() {
         }
       }
     }
-
     ctx.putImageData(img, 0, 0);
 
-    // Draw agents: ring encodes energy vs target (homeostasis)
+    // Agents: ring encodes energy error relative to target
     for (const a of agentsRef.current) {
       const cx = a.x * scale + scale / 2;
       const cy = a.y * scale + scale / 2;
 
-      const err = a.e - params.target; // positive = above target
+      const err = a.e - P.target; // above target -> positive
       const mag = Math.min(1, Math.abs(err) * 3);
-      const col = err >= 0 ? "rgba(56,189,248,0.95)" : "rgba(248,113,113,0.95)"; // cyan vs red
+      const col = err >= 0 ? "rgba(56,189,248,0.95)" : "rgba(248,113,113,0.95)";
 
       ctx.beginPath();
       ctx.arc(cx, cy, 5 + 4 * mag, 0, Math.PI * 2);
@@ -292,34 +371,35 @@ export default function AwarenessHomeostasisToy() {
       ctx.fill();
     }
 
-    // HUD: show average energy vs target
-    const avgE =
-      agentsRef.current.reduce((s, a) => s + a.e, 0) / Math.max(1, agentsRef.current.length);
-    const avgErr = avgE - params.target;
-
+    // HUD: avg energy
+    const avgE = agentsRef.current.reduce((s, a) => s + a.e, 0) / Math.max(1, agentsRef.current.length);
     ctx.shadowBlur = 0;
     ctx.fillStyle = "rgba(255,255,255,0.85)";
     ctx.font = "14px ui-sans-serif, system-ui, -apple-system, Segoe UI";
-    ctx.fillText(`avg energy: ${avgE.toFixed(2)}   target: ${params.target.toFixed(2)}`, 12, 22);
-    ctx.fillText(`avg error: ${avgErr.toFixed(2)}`, 12, 42);
+    ctx.fillText(`avg energy: ${avgE.toFixed(2)}   target: ${P.target.toFixed(2)}`, 12, 22);
+    ctx.fillText(`agents: ${agentsRef.current.length}   running: ${runningRef.current ? "yes" : "no"}`, 12, 42);
   };
 
   useEffect(() => {
     let raf = 0;
-    let last = performance.now();
 
     const loop = (t: number) => {
-      const dt = t - last;
-      last = t;
-      draw(dt);
+      drawFrame(t);
       raf = requestAnimationFrame(loop);
     };
 
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-    // Only restart the render loop when the canvas resolution changes.
-  }, [params.size, running]);
-return (
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.size]); // only restart if resolution changes
+
+  const onReset = () => {
+    lastRef.current = null;
+    accumRef.current = 0;
+    reset();
+  };
+
+  return (
     <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
       <Card className="border border-white/10 bg-white/5">
         <CardHeader className="flex flex-row items-start justify-between gap-3">
@@ -333,7 +413,7 @@ return (
             <Button variant="outline" onClick={() => setRunning((v) => !v)}>
               {running ? "Pause" : "Run"}
             </Button>
-            <Button variant="outline" onClick={reset}>
+            <Button variant="outline" onClick={onReset}>
               Reset
             </Button>
           </div>
@@ -351,12 +431,9 @@ return (
                 The agent’s ring turns <span className="text-sky-300">cyan</span> when energy is above target and{" "}
                 <span className="text-red-300">red</span> when below.
               </li>
-              <li>
-                With feedback (control gain), energy hovers near target despite environmental drift.
-              </li>
-              <li>
-                “Memory” here is just smoothing of recent sensory input—no symbols, meaning, or goals.
-              </li>
+              <li>Control gain changes how aggressively the agent corrects toward target.</li>
+              <li>Noise and drift push the system away from equilibrium; feedback pulls it back.</li>
+              <li>“Memory” is just smoothing of recent sensory input—no symbols, meaning, or goals.</li>
             </ul>
           </div>
         </CardContent>
@@ -368,33 +445,31 @@ return (
             <CardTitle className="text-sm">Controls</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs text-slate-300">
-                <span className="font-semibold text-slate-200">Target</span>
-                <span>{params.target.toFixed(2)}</span>
-              </div>
-              <input
-                className="w-full"
-                type="range"
-                min={0.2}
-                max={0.8}
-                step={0.01}
-                value={params.target}
-                onChange={(e) => setParams((p) => ({ ...p, target: Number(e.target.value) }))}
-              />
-            </div>
+            <Range
+              label="Target"
+              tip="Desired internal energy level the agent tries to maintain. This is the set-point in the feedback loop."
+              value={params.target}
+              min={0.2}
+              max={0.8}
+              step={0.01}
+              format={(v) => v.toFixed(2)}
+              onChange={(v) => setParams((p) => ({ ...p, target: v }))}
+            />
 
             <Range
               label="Control gain"
+              tip="How strongly the agent reacts to error (target − energy). Higher gain = more aggressive correction (and possible overshoot)."
               value={params.controlGain}
               min={0}
               max={1}
               step={0.01}
+              format={(v) => v.toFixed(2)}
               onChange={(v) => setParams((p) => ({ ...p, controlGain: v }))}
             />
 
             <Range
               label="Sensor noise"
+              tip="Random distortion added to sensed environmental input. Higher noise makes regulation less reliable."
               value={params.sensorNoise}
               min={0}
               max={0.2}
@@ -405,6 +480,7 @@ return (
 
             <Range
               label="Environment drift"
+              tip="Rate at which the environment changes over time. Drift forces the agent to keep regulating to stay near target."
               value={params.drift}
               min={0}
               max={0.01}
@@ -415,6 +491,7 @@ return (
 
             <Range
               label="Speed"
+              tip="Simulation steps per second. Higher values advance the system faster."
               value={params.speed}
               min={5}
               max={32}
@@ -424,7 +501,10 @@ return (
             />
 
             <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-200">Memory</div>
+              <div className="text-xs font-semibold text-slate-200">
+                Memory
+                <Tip text="Temporal smoothing of recent sensory input (a low-pass filter). Long memory is more stable but slower to respond." />
+              </div>
               <div className="flex flex-wrap gap-2">
                 <Chip active={params.memory === 0} onClick={() => setParams((p) => ({ ...p, memory: 0 }))}>
                   Off
@@ -437,12 +517,15 @@ return (
                 </Chip>
               </div>
               <div className="text-xs text-slate-300">
-                Memory is a simple smoothing of recent sensory input (a low-pass filter).
+                Memory is simple smoothing of sensed input (no symbols or meaning).
               </div>
             </div>
 
             <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-200">Agents</div>
+              <div className="text-xs font-semibold text-slate-200">
+                Agents
+                <Tip text="Adds multiple self-regulating agents. Their trajectories will differ because of local conditions and noise." />
+              </div>
               <div className="flex flex-wrap gap-2">
                 <Chip active={params.nAgents === 1} onClick={() => setParams((p) => ({ ...p, nAgents: 1 }))}>
                   1 agent
@@ -461,12 +544,12 @@ return (
           </CardHeader>
           <CardContent className="space-y-2 text-sm text-slate-200">
             <p>
-              The environment is a drifting resource field. The agent senses local conditions (with optional noise),
-              compares its internal energy to a target, and acts to reduce error.
+              The environment is a drifting resource field. Each agent senses local conditions, compares its internal
+              energy to a target, and acts to reduce error.
             </p>
             <p className="text-slate-300">
-              This is a feedback loop: information about the system’s state guides action to maintain stability.
-              There are no symbols or meaning—only regulation.
+              This is a feedback loop: information about the system’s state guides action to maintain stability. There
+              are no symbols or meaning—only regulation.
             </p>
           </CardContent>
         </Card>
@@ -478,57 +561,11 @@ return (
           <CardContent className="text-sm text-slate-200">
             <p>
               <strong>A (Awareness)</strong> here means self-regulation using information about internal state—not
-              human-like consciousness. It is the first place a system becomes meaningfully “about itself.”
+              human-like consciousness.
             </p>
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
-}
-
-function Chip(props: { active?: boolean; onClick: () => void; children: React.ReactNode }) {
-  return (
-    <button
-      onClick={props.onClick}
-      className={[
-        "rounded-xl border px-3 py-2 text-xs font-semibold transition",
-        props.active
-          ? "border-white/60 bg-white/10 text-white"
-          : "border-white/10 bg-black/10 text-slate-200 hover:border-white/30",
-      ].join(" ")}
-      type="button"
-    >
-      {props.children}
-    </button>
-  );
-}
-
-function Range(props: {
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  step: number;
-  onChange: (v: number) => void;
-  format?: (v: number) => string;
-}) {
-  const shown = props.format ? props.format(props.value) : String(props.value);
-  return (
-    <div className="space-y-1">
-      <div className="flex items-center justify-between text-xs text-slate-300">
-        <span className="font-semibold text-slate-200">{props.label}</span>
-        <span>{shown}</span>
-      </div>
-      <input
-        className="w-full"
-        type="range"
-        min={props.min}
-        max={props.max}
-        step={props.step}
-        value={props.value}
-        onChange={(e) => props.onChange(Number(e.target.value))}
-      />
     </div>
   );
 }
