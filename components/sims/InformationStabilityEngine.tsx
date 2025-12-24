@@ -296,6 +296,8 @@ export default function InformationStabilityEngine() {
 
     ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
     ctx.lineWidth = 4;
+    ctx.shadowColor = "rgba(34, 211, 238, 0.7)";
+    ctx.shadowBlur = 6;
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
 
@@ -313,13 +315,16 @@ export default function InformationStabilityEngine() {
         const sr = stableClean(right);
         const sd = stableClean(down);
 
-        if (!sr) {
+        // Draw an outline when:
+        // 1) stable vs unstable boundary, OR
+        // 2) both stable but different state (domain boundary inside stable structure)
+        if (!sr || (sr && s[right] !== s[i])) {
           const x0 = (x + 1) * scale;
           const y0 = y * scale;
           ctx.moveTo(x0, y0);
           ctx.lineTo(x0, y0 + scale);
         }
-        if (!sd) {
+        if (!sd || (sd && s[down] !== s[i])) {
           const x0 = x * scale;
           const y0 = (y + 1) * scale;
           ctx.moveTo(x0, y0);
