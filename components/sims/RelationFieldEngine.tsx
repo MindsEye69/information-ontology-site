@@ -402,6 +402,41 @@ export default function RelationFieldEngine() {
 
         <Card className="border border-white/10 bg-white/5">
           <CardHeader>
+            <CardTitle className="text-sm">How this simulation works</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm text-slate-200">
+            <p>
+              Each cell has a <strong>state</strong> (a type of difference). There is{" "}
+              <strong>no memory</strong>, <strong>no goal</strong>, and{" "}
+              <strong>no global rule</strong>.
+            </p>
+            <ol className="list-decimal space-y-1 pl-5">
+              <li>
+                <strong>Look locally:</strong> each cell looks only at nearby neighbors (1 or 2
+                cells away).
+              </li>
+              <li>
+                <strong>Apply relation rules:</strong> neighbors exert simple influences (the preset
+                changes this balance).
+              </li>
+              <li>
+                <strong>Update by local constraint:</strong> the cell adopts the state most
+                supported by its neighbors, with some inertia.
+              </li>
+              <li>
+                <strong>Repeat everywhere:</strong> no cell “knows” the whole picture; structure
+                emerges from many local interactions.
+              </li>
+            </ol>
+            <p className="text-slate-300">
+              Nothing here evaluates outcomes, remembers the past, or prefers a pattern. The
+              structure you see is purely the result of <strong>relations between differences</strong>.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="border border-white/10 bg-white/5">
+          <CardHeader>
             <CardTitle className="text-sm">IO note</CardTitle>
           </CardHeader>
           <CardContent className="text-sm text-slate-200">
