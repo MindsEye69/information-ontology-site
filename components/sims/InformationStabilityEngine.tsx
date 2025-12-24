@@ -586,12 +586,13 @@ function Range(props: {
 
 function Tip({ text }: { text: string }) {
   return (
-    <span
-      className="inline-flex h-4 w-4 select-none cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
-      title={text}
-      aria-label={text}
-    >
-      i
+    <span className="group relative inline-flex cursor-pointer select-none items-center">
+      <span className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/20 text-[10px] text-slate-200">
+        i
+      </span>
+      <span className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-xl border border-white/10 bg-black/90 p-3 text-xs text-slate-200 opacity-0 shadow-xl transition group-hover:opacity-100">
+        {text}
+      </span>
     </span>
   );
 }
