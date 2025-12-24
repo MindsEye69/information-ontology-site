@@ -43,10 +43,10 @@ export default function ValueConstraintDiagram() {
               {/* Dangerous zones */}
               <rect x="110" y="90" width="700" height="35" rx="10" fill="rgba(248,113,113,0.10)" stroke="rgba(248,113,113,0.22)" />
               <rect x="110" y="205" width="700" height="35" rx="10" fill="rgba(248,113,113,0.10)" stroke="rgba(248,113,113,0.22)" />
-              <text x="120" y="112" fill="rgba(248,113,113,0.85)" fontSize="13" fontFamily="ui-sans-serif, system-ui">
+              <text x="120" y="112" fill="rgba(248,113,113,0.85)" fontSize="16" fontFamily="ui-sans-serif, system-ui">
                 failure region
               </text>
-              <text x="120" y="227" fill="rgba(248,113,113,0.85)" fontSize="13" fontFamily="ui-sans-serif, system-ui">
+              <text x="120" y="227" fill="rgba(248,113,113,0.85)" fontSize="16" fontFamily="ui-sans-serif, system-ui">
                 failure region
               </text>
 
@@ -82,7 +82,7 @@ export default function ValueConstraintDiagram() {
                 strokeWidth="3"
                 markerEnd="url(#arrow)"
               />
-              <text x="520" y="96" fill="rgba(148,163,184,0.9)" fontSize="13" fontFamily="ui-sans-serif, system-ui">
+              <text x="520" y="96" fill="rgba(148,163,184,0.9)" fontSize="16" fontFamily="ui-sans-serif, system-ui">
                 environment + noise
               </text>
 
@@ -95,11 +95,8 @@ export default function ValueConstraintDiagram() {
                 strokeWidth="3"
                 markerEnd="url(#arrowRed)"
               />
-              <text x="740" y="118" fill="rgba(248,113,113,0.9)" fontSize="14" fontFamily="ui-sans-serif, system-ui">
+              <text x="740" y="118" fill="rgba(248,113,113,0.9)" fontSize="16" fontFamily="ui-sans-serif, system-ui">
                 exits band → fails
-              </text>
-              <text x="740" y="140" fill="rgba(226,232,240,0.75)" fontSize="13" fontFamily="ui-sans-serif, system-ui">
-                (reset, decay, collapse, etc.)
               </text>
 
               {/* Reset arrow back into band */}
@@ -110,12 +107,12 @@ export default function ValueConstraintDiagram() {
                 strokeWidth="3"
                 markerEnd="url(#arrow)"
               />
-              <text x="740" y="280" fill="rgba(226,232,240,0.75)" fontSize="13" fontFamily="ui-sans-serif, system-ui">
+              <text x="740" y="280" fill="rgba(226,232,240,0.75)" fontSize="16" fontFamily="ui-sans-serif, system-ui">
                 after failure, a new attempt may start
               </text>
 
               {/* Caption */}
-              <text x="52" y="318" fill="rgba(148,163,184,0.9)" fontSize="14" fontFamily="ui-sans-serif, system-ui">
+              <text x="52" y="318" fill="rgba(148,163,184,0.9)" fontSize="15" fontFamily="ui-sans-serif, system-ui">
                 IO takeaway: “value” names the constraint, not the feeling.
               </text>
             </svg>
