@@ -41,12 +41,15 @@ export default function DifferenceEngine() {
     const s = new Float32Array(n);
     const t = new Float32Array(n);
 
+    // Seed with sparse random differences so the system has something to work with.
+    const density = 0.08;
+    for (let i = 0; i < n; i++) {
+      s[i] = Math.random() < density ? 1 : 0;
+    }
+
+    // Add a central "difference seed" for a clear starting point.
     const mid = Math.floor(params.size / 2);
     s[mid * params.size + mid] = 1;
-
-    for (let i = 0; i < n; i++) {
-      s[i] = clamp01(s[i] + (Math.random() - 0.5) * params.noise);
-    }
 
     stateRef.current = s;
     tmpRef.current = t;
@@ -89,13 +92,18 @@ export default function DifferenceEngine() {
             const rt = y * N + x1;
 
             const avg = (s[i] + s[up] + s[dn] + s[lf] + s[rt]) / 5;
-            let v = s[i] * (1 - params.diffuse) + avg * params.diffuse;
 
-            if (Math.random() < params.noise) {
-              v = clamp01(v + (Math.random() - 0.5) * 0.8);
-            }
+            // neighborhood decision (threshold around ~0.5)
+            let next = avg >= params.threshold ? 1 : 0;
 
-            t[i] = v >= params.threshold ? 1 : 0;
+            // inertia: keep current state sometimes (lower diffuse => more inertia)
+            const inertia = clamp01(1 - params.diffuse);
+            if (Math.random() < inertia) next = s[i];
+
+            // random injection of difference: occasional flips
+            if (Math.random() < params.noise) next = next ? 0 : 1;
+
+            t[i] = next;
           }
         }
 
@@ -157,6 +165,7 @@ export default function DifferenceEngine() {
       sctx.strokeStyle = "#38bdf8";
       const h = history.current;
       if (h.length > 1) {
+        sctx.strokeStyle = "rgba(255,255,255,0.9)";
         sctx.beginPath();
         for (let i = 0; i < h.length; i++) {
           const x = (i / (h.length - 1)) * (spark.width - 10) + 5;
