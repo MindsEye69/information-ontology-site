@@ -17,6 +17,20 @@ type Params = {
   outlineStrength: number;  // opacity/strength
 };
 
+const DEFAULT_PRESET: PresetId = "settling";
+
+const DEFAULT_PARAMS: Params = {
+  size: 140,
+  // Meditative default: slow enough to watch stabilization build.
+  speed: 12,
+  radius: 2,
+  inertia: 0.78,
+  jitter: 0.004,
+  window: 220,
+  outlineThreshold: 0.12,
+  outlineStrength: 0.85,
+};
+
 function clamp01(x: number) {
   return Math.max(0, Math.min(1, x));
 }
@@ -60,18 +74,10 @@ export default function InformationStabilityEngine() {
   const lastTimeRef = useRef<number>(0);
 
   const [running, setRunning] = useState(true);
-  const [preset, setPreset] = useState<PresetId>("settling");
+  const [preset, setPreset] = useState<PresetId>(DEFAULT_PRESET);
 
-  const [params, setParams] = useState<Params>({
-    size: 140,
-    speed: 20,
-    radius: 2,
-    inertia: 0.78,
-    jitter: 0.004,
-    window: 220,
-    outlineThreshold: 0.12,  // <= 6% flips in window = stable
-    outlineStrength: 0.85,
-  });
+  const [params, setParams] = useState<Params>(DEFAULT_PARAMS);
+  const [resetSignal, setResetSignal] = useState(0);
 
   const scale = 4;
 
@@ -79,6 +85,8 @@ export default function InformationStabilityEngine() {
   const palette = useMemo(() => ["#0b1220", "#f8fafc"], []);
 
   const reset = () => {
+    stepAccRef.current = 0;
+    lastTimeRef.current = 0;
     const N = params.size;
     const n = N * N;
 
@@ -114,7 +122,7 @@ export default function InformationStabilityEngine() {
   useEffect(() => {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.size]);
+  }, [params.size, resetSignal]);
 
   // apply preset parameters (and reseed so effects are visible)
   useEffect(() => {
@@ -362,6 +370,18 @@ export default function InformationStabilityEngine() {
             <Button variant="outline" onClick={reset}>
               Reset
             </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setRunning(true);
+                setPreset(DEFAULT_PRESET);
+                setParams(DEFAULT_PARAMS);
+                setResetSignal((s) => s + 1);
+              }}
+              title="Restore the default slider settings and restart the simulation."
+            >
+              Reset defaults
+            </Button>
           </div>
         </CardHeader>
 
@@ -397,7 +417,10 @@ export default function InformationStabilityEngine() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-200">Regime preset</div>
+              <div className="text-xs font-semibold text-slate-200 flex items-center gap-2">
+                Regime preset
+                <Tip text="Switches between different local-rule balances to illustrate when patterns settle (more stable) versus churn (less stable)." />
+              </div>
               <div className="flex flex-wrap gap-2">
                 <Chip active={preset === "settling"} onClick={() => setPreset("settling")}>
                   Settling
@@ -416,7 +439,10 @@ export default function InformationStabilityEngine() {
 
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-slate-300">
-                <span className="font-semibold text-slate-200">Interaction radius</span>
+                <span className="font-semibold text-slate-200 flex items-center gap-2">
+                  Interaction radius
+                  <Tip text="How far each cell looks. Wider neighborhoods tend to merge and smooth patterns; local neighborhoods preserve sharper boundaries." />
+                </span>
                 <span>{params.radius === 1 ? "1 cell (local)" : "2 cells (wider)"}</span>
               </div>
               <div className="flex gap-2">
@@ -431,6 +457,7 @@ export default function InformationStabilityEngine() {
 
             <Range
               label="Speed"
+              tip="Simulation speed in steps per second. Higher is faster (immediate effect)."
               value={params.speed}
               min={5}
               max={32}
@@ -441,6 +468,7 @@ export default function InformationStabilityEngine() {
 
             <Range
               label="Stability window (steps)"
+              tip="How far back we consider when labeling a cell ‘stable’. Larger windows require longer persistence (watch 10–20s)."
               value={params.window}
               min={80}
               max={600}
@@ -450,6 +478,7 @@ export default function InformationStabilityEngine() {
 
             <Range
               label="Outline sensitivity"
+              tip="Threshold for counting a region as stable. Lower = stricter (fewer stable regions). Adjust, then watch a few seconds."
               value={params.outlineThreshold}
               min={0.03}
               max={0.3}
@@ -460,6 +489,7 @@ export default function InformationStabilityEngine() {
 
             <Range
               label="Outline strength"
+              tip="Visual opacity/strength of the stability outlines (purely visual; does not affect the dynamics)."
               value={params.outlineStrength}
               min={0.2}
               max={1}
@@ -523,6 +553,7 @@ function Chip(props: { active?: boolean; onClick: () => void; children: React.Re
 
 function Range(props: {
   label: string;
+  tip?: string;
   value: number;
   min: number;
   max: number;
@@ -534,7 +565,10 @@ function Range(props: {
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between text-xs text-slate-300">
-        <span className="font-semibold text-slate-200">{props.label}</span>
+        <span className="font-semibold text-slate-200 flex items-center gap-2">
+          {props.label}
+          {props.tip ? <Tip text={props.tip} /> : null}
+        </span>
         <span>{shown}</span>
       </div>
       <input
@@ -547,5 +581,29 @@ function Range(props: {
         onChange={(e) => props.onChange(Number(e.target.value))}
       />
     </div>
+  );
+}
+
+function Tip({ text }: { text: string }) {
+  return (
+    <span
+      className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
+      title={text}
+      aria-label={text}
+    >
+      i
+    </span>
+  );
+}
+
+function Tip({ text }: { text: string }) {
+  return (
+    <span
+      className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
+      title={text}
+      aria-label={text}
+    >
+      i
+    </span>
   );
 }

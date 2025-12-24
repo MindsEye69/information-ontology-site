@@ -12,6 +12,14 @@ type Params = {
   noise: number;
 };
 
+const DEFAULT_PARAMS: Params = {
+  n: 240,
+  feedback: 0.72,
+  drive: 0.35,
+  friction: 0.08,
+  noise: 0.02,
+};
+
 function clamp(x: number, a: number, b: number) {
   return Math.max(a, Math.min(b, x));
 }
@@ -19,13 +27,8 @@ function clamp(x: number, a: number, b: number) {
 export default function AwarenessLoopToy() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [running, setRunning] = useState(true);
-  const [params, setParams] = useState<Params>({
-    n: 240,
-    feedback: 0.72,
-    drive: 0.35,
-    friction: 0.08,
-    noise: 0.02,
-  });
+  const [params, setParams] = useState<Params>(DEFAULT_PARAMS);
+  const [resetSignal, setResetSignal] = useState(0);
 
   const stateRef = useRef<Float32Array | null>(null);
   const velRef = useRef<Float32Array | null>(null);
@@ -44,7 +47,7 @@ export default function AwarenessLoopToy() {
   useEffect(() => {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.n]);
+  }, [params.n, resetSignal]);
 
   useEffect(() => {
     if (!stateRef.current) reset();
@@ -128,6 +131,17 @@ export default function AwarenessLoopToy() {
             <Button variant="outline" onClick={reset}>
               Reset
             </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setRunning(true);
+                setParams(DEFAULT_PARAMS);
+                setResetSignal((s) => s + 1);
+              }}
+              title="Restore the default slider settings and restart the simulation."
+            >
+              Reset defaults
+            </Button>
           </div>
         </CardHeader>
         <CardContent>
@@ -147,6 +161,7 @@ export default function AwarenessLoopToy() {
         <CardContent className="space-y-4 text-sm text-slate-200">
           <Control
             label="Feedback (path dependence)"
+            tip="How much the next state depends on the current state (self-coupling). Higher feedback makes the ribbon ‘remember’ itself more strongly."
             value={params.feedback}
             min={0}
             max={0.92}
@@ -155,6 +170,7 @@ export default function AwarenessLoopToy() {
           />
           <Control
             label="Drive (environment forcing)"
+            tip="How strongly an external oscillation pushes the system. Increase to see the loop track the environment more."
             value={params.drive}
             min={0}
             max={0.8}
@@ -163,6 +179,7 @@ export default function AwarenessLoopToy() {
           />
           <Control
             label="Friction (damping)"
+            tip="How quickly momentum decays. Higher damping smooths and stabilizes; lower damping can overshoot and oscillate."
             value={params.friction}
             min={0}
             max={0.25}
@@ -171,6 +188,7 @@ export default function AwarenessLoopToy() {
           />
           <Control
             label="Noise (perturbations)"
+            tip="Random jolts injected into the dynamics. This is statistical—watch a few seconds after changing."
             value={params.noise}
             min={0}
             max={0.12}
@@ -193,18 +211,22 @@ export default function AwarenessLoopToy() {
 
 function Control(props: {
   label: string;
+  tip?: string;
   value: number;
   min: number;
   max: number;
   step: number;
   onChange: (v: number) => void;
 }) {
-  const { label, value, min, max, step, onChange } = props;
+  const { label, tip, value, min, max, step, onChange } = props;
   const display = value.toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
   return (
     <div>
       <div className="flex items-center justify-between text-xs text-slate-400">
-        <span className="font-semibold text-slate-200">{label}</span>
+        <span className="font-semibold text-slate-200 flex items-center gap-2">
+          {label}
+          {tip ? <Tip text={tip} /> : null}
+        </span>
         <span className="tabular-nums">{display}</span>
       </div>
       <input
@@ -217,5 +239,17 @@ function Control(props: {
         onChange={(e) => onChange(Number(e.target.value))}
       />
     </div>
+  );
+}
+
+function Tip({ text }: { text: string }) {
+  return (
+    <span
+      className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
+      title={text}
+      aria-label={text}
+    >
+      i
+    </span>
   );
 }

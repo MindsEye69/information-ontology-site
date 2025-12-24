@@ -12,6 +12,16 @@ type Params = {
   speed: number;
 };
 
+const DEFAULT_PARAMS: Params = {
+  size: 140,
+  // Tuned for readable, “big blob” pattern formation.
+  noise: 0.05,
+  diffuse: 0.25,
+  threshold: 0.52,
+  // Meditative by default.
+  speed: 0.6,
+};
+
 function clamp01(x: number) {
   return Math.max(0, Math.min(1, x));
 }
@@ -21,13 +31,8 @@ export default function DifferenceEngine() {
   const sparkRef = useRef<HTMLCanvasElement | null>(null);
 
   const [running, setRunning] = useState(true);
-  const [params, setParams] = useState<Params>({
-    size: 140,
-    noise: 0.05,
-    diffuse: 0.25,
-    threshold: 0.52,
-    speed: 0.6,
-  });
+  const [params, setParams] = useState<Params>(DEFAULT_PARAMS);
+  const [resetSignal, setResetSignal] = useState(0);
 
   const history = useRef<number[]>([]);
   const stateRef = useRef<Float32Array | null>(null);
@@ -37,6 +42,7 @@ export default function DifferenceEngine() {
   const scale = useMemo(() => 4, []);
 
   const reset = () => {
+    stepAccRef.current = 0;
     history.current = [];
     const n = params.size * params.size;
     const s = new Float32Array(n);
@@ -59,7 +65,7 @@ export default function DifferenceEngine() {
   useEffect(() => {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.size]);
+  }, [params.size, resetSignal]);
 
   useEffect(() => {
     let raf = 0;
@@ -207,6 +213,17 @@ export default function DifferenceEngine() {
             <Button variant="outline" onClick={reset}>
               Reset
             </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setRunning(true);
+                setParams(DEFAULT_PARAMS);
+                setResetSignal((s) => s + 1);
+              }}
+              title="Restore the default slider settings and restart the simulation."
+            >
+              Reset defaults
+            </Button>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -232,6 +249,7 @@ export default function DifferenceEngine() {
         <CardContent className="space-y-4 text-sm text-slate-200">
           <Control
             label="Grid size"
+            tip="Changes the simulation resolution. Larger grids show finer detail but run slower."
             value={params.size}
             min={80}
             max={200}
@@ -240,6 +258,7 @@ export default function DifferenceEngine() {
           />
           <Control
             label="Noise injection"
+            tip="Random flips that can seed new boundaries or dissolve patterns. This is statistical—watch a few seconds after changing."
             value={params.noise}
             min={0}
             max={0.2}
@@ -248,6 +267,7 @@ export default function DifferenceEngine() {
           />
           <Control
             label="Diffusion"
+            tip="How quickly local differences spread. Higher diffusion tends to smooth/merge regions; lower diffusion preserves blocky structure."
             value={params.diffuse}
             min={0}
             max={0.6}
@@ -256,6 +276,7 @@ export default function DifferenceEngine() {
           />
           <Control
             label="Threshold"
+            tip="The local decision boundary (around 0.5). Small changes can shift the system from blobs to speckle—adjust slowly."
             value={params.threshold}
             min={0.45}
             max={0.6}
@@ -264,6 +285,7 @@ export default function DifferenceEngine() {
           />
           <Control
             label="Speed"
+            tip="Simulation steps per animation frame. Lower is calmer; higher evolves patterns faster (immediate effect)."
             value={params.speed}
             min={0.1}
             max={8}
@@ -287,17 +309,21 @@ export default function DifferenceEngine() {
 
 function Control(props: {
   label: string;
+  tip?: string;
   value: number;
   min: number;
   max: number;
   step: number;
   onChange: (v: number) => void;
 }) {
-  const { label, value, min, max, step, onChange } = props;
+  const { label, tip, value, min, max, step, onChange } = props;
   return (
     <div>
       <div className="flex items-center justify-between text-xs text-slate-400">
-        <span className="font-semibold text-slate-200">{label}</span>
+        <span className="font-semibold text-slate-200 flex items-center gap-2">
+          {label}
+          {tip ? <Tip text={tip} /> : null}
+        </span>
         <span className="tabular-nums">{typeof value === "number" ? value.toFixed(3).replace(/0+$/, "").replace(/\.$/, "") : value}</span>
       </div>
       <input
@@ -310,5 +336,17 @@ function Control(props: {
         onChange={(e) => onChange(Number(e.target.value))}
       />
     </div>
+  );
+}
+
+function Tip({ text }: { text: string }) {
+  return (
+    <span
+      className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
+      title={text}
+      aria-label={text}
+    >
+      i
+    </span>
   );
 }

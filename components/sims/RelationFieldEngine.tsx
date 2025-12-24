@@ -15,6 +15,30 @@ type Params = {
   jitter: number;        // rare random perturbations (kept tiny)
 };
 
+const DEFAULT_PRESET: PresetId = "symmetric";
+const DEFAULT_COMPLEXITY: Complexity = "binary";
+
+const DEFAULT_PARAMS: Params = {
+  size: 140,
+  // Meditative by default: slow enough to see negotiations form.
+  speed: 0.25,
+  radius: 1,
+  inertia: 0.78,
+  jitter: 0.003,
+};
+
+const DEFAULT_PRESET: PresetId = "symmetric";
+const DEFAULT_COMPLEXITY: Complexity = "binary";
+
+const DEFAULT_PARAMS: Params = {
+  size: 140,
+  // Meditative: noticeable evolution without racing.
+  speed: 0.25,
+  radius: 1,
+  inertia: 0.78,
+  jitter: 0.003,
+};
+
 function clamp01(x: number) {
   return Math.max(0, Math.min(1, x));
 }
@@ -92,15 +116,10 @@ export default function RelationFieldEngine() {
   const stepAccRef = useRef(0);
 
   const [running, setRunning] = useState(true);
-  const [preset, setPreset] = useState<PresetId>("symmetric");
-  const [complexity, setComplexity] = useState<Complexity>("binary");
-  const [params, setParams] = useState<Params>({
-    size: 140,
-    speed: 0.25,
-    radius: 1,
-    inertia: 0.78,
-    jitter: 0.003,
-  });
+  const [preset, setPreset] = useState<PresetId>(DEFAULT_PRESET);
+  const [complexity, setComplexity] = useState<Complexity>(DEFAULT_COMPLEXITY);
+  const [params, setParams] = useState<Params>(DEFAULT_PARAMS);
+  const [resetSignal, setResetSignal] = useState(0);
 
   const K = complexity === "binary" ? 2 : 4;
 
@@ -149,7 +168,7 @@ export default function RelationFieldEngine() {
   useEffect(() => {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.size, complexity]);
+  }, [params.size, complexity, resetSignal]);
 
   // When the relation preset changes, re-seed so differences are legible.
   useEffect(() => {
@@ -300,6 +319,19 @@ export default function RelationFieldEngine() {
             <Button variant="outline" onClick={reset}>
               Reset
             </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setRunning(true);
+                setPreset(DEFAULT_PRESET);
+                setComplexity(DEFAULT_COMPLEXITY);
+                setParams(DEFAULT_PARAMS);
+                setResetSignal((s) => s + 1);
+              }}
+              title="Restore the default settings and restart the simulation."
+            >
+              Reset defaults
+            </Button>
           </div>
         </CardHeader>
 
@@ -327,7 +359,10 @@ export default function RelationFieldEngine() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-200">Relation preset</div>
+              <div className="text-xs font-semibold text-slate-200 flex items-center gap-2">
+                Relation preset
+                <Tip text="Changes the relation rule (how neighbor-states influence a cell). This is immediate, but the resulting structure takes a few seconds to settle." />
+              </div>
               <div className="flex flex-wrap gap-2">
                 <Chip active={preset === "symmetric"} onClick={() => setPreset("symmetric")}>
                   Symmetric Attraction
@@ -342,7 +377,10 @@ export default function RelationFieldEngine() {
             </div>
 
             <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-200">State complexity (optional)</div>
+              <div className="text-xs font-semibold text-slate-200 flex items-center gap-2">
+                State complexity (optional)
+                <Tip text="Adds more difference-types (states). The rule is unchanged; only the variety of types increases." />
+              </div>
               <div className="flex gap-2">
                 <Chip active={complexity === "binary"} onClick={() => setComplexity("binary")}>
                   Binary (2)
@@ -358,7 +396,10 @@ export default function RelationFieldEngine() {
 
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-slate-300">
-                <span className="font-semibold text-slate-200">Interaction radius</span>
+                <span className="font-semibold text-slate-200 flex items-center gap-2">
+                  Interaction radius
+                  <Tip text="How far each cell looks. Local (1) tends to form chunkier domains; Wider (2) tends to merge and smooth boundaries." />
+                </span>
                 <span>{params.radius === 1 ? "1 cell (local)" : "2 cells (wider)"}</span>
               </div>
               <div className="flex gap-2">
@@ -382,6 +423,7 @@ export default function RelationFieldEngine() {
 
             <Range
               label="Speed"
+              tip="Simulation steps per animation frame. Lower is calmer; higher evolves patterns faster (immediate effect)."
               value={params.speed}
               min={0.1}
               max={8}
@@ -391,6 +433,7 @@ export default function RelationFieldEngine() {
 
             <Range
               label="Inertia"
+              tip="Chance a cell keeps its current state rather than switching. Higher inertia stabilizes regions; lower inertia makes boundaries more restless (watch 5–10s)."
               value={params.inertia}
               min={0}
               max={0.9}
@@ -469,6 +512,7 @@ function Chip(props: { active?: boolean; onClick: () => void; children: React.Re
 
 function Range(props: {
   label: string;
+  tip?: string;
   value: number;
   min: number;
   max: number;
@@ -480,7 +524,10 @@ function Range(props: {
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between text-xs text-slate-300">
-        <span className="font-semibold text-slate-200">{props.label}</span>
+        <span className="font-semibold text-slate-200 flex items-center gap-2">
+          {props.label}
+          {props.tip ? <Tip text={props.tip} /> : null}
+        </span>
         <span>{shown}</span>
       </div>
       <input
@@ -493,5 +540,17 @@ function Range(props: {
         onChange={(e) => props.onChange(Number(e.target.value))}
       />
     </div>
+  );
+}
+
+function Tip({ text }: { text: string }) {
+  return (
+    <span
+      className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
+      title={text}
+      aria-label={text}
+    >
+      i
+    </span>
   );
 }
