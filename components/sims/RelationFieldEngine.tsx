@@ -27,18 +27,6 @@ const DEFAULT_PARAMS: Params = {
   jitter: 0.003,
 };
 
-const DEFAULT_PRESET: PresetId = "symmetric";
-const DEFAULT_COMPLEXITY: Complexity = "binary";
-
-const DEFAULT_PARAMS: Params = {
-  size: 140,
-  // Meditative: noticeable evolution without racing.
-  speed: 0.25,
-  radius: 1,
-  inertia: 0.78,
-  jitter: 0.003,
-};
-
 function clamp01(x: number) {
   return Math.max(0, Math.min(1, x));
 }
