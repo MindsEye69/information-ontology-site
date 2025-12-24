@@ -52,6 +52,7 @@ export default function AwarenessHomeostasisToy() {
   const scale = 5;
 
   const reset = () => {
+    const P = paramsRef.current;
     const N = P.size;
     const f = new Float32Array(N * N);
 
