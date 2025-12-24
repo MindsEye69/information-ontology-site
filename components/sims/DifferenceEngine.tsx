@@ -26,12 +26,13 @@ export default function DifferenceEngine() {
     noise: 0.05,
     diffuse: 0.25,
     threshold: 0.52,
-    speed: 1.2,
+    speed: 0.6,
   });
 
   const history = useRef<number[]>([]);
   const stateRef = useRef<Float32Array | null>(null);
   const tmpRef = useRef<Float32Array | null>(null);
+  const stepAccRef = useRef(0);
 
   const scale = useMemo(() => 4, []);
 
@@ -75,7 +76,12 @@ export default function DifferenceEngine() {
       }
 
       const N = params.size;
-      const steps = running ? Math.max(1, Math.floor(params.speed * 2)) : 0;
+      // Allow true slow-motion: speed is "simulation steps per animation frame" and may be < 1.
+      if (running) {
+        stepAccRef.current += params.speed;
+      }
+      const steps = running ? Math.floor(stepAccRef.current) : 0;
+      stepAccRef.current -= steps;
 
       for (let step = 0; step < steps; step++) {
         for (let y = 0; y < N; y++) {
@@ -259,8 +265,8 @@ export default function DifferenceEngine() {
           <Control
             label="Speed"
             value={params.speed}
-            min={0.5}
-            max={3}
+            min={0.1}
+            max={8}
             step={0.1}
             onChange={(v) => setParams((p) => ({ ...p, speed: v }))}
           />
