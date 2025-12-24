@@ -186,10 +186,10 @@ export default function DifferenceEngine() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="secondary" onClick={() => setRunning((v) => !v)}>
+            <Button variant="outline" onClick={() => setRunning((v) => !v)}>
               {running ? "Pause" : "Run"}
             </Button>
-            <Button variant="secondary" onClick={reset}>
+            <Button variant="outline" onClick={reset}>
               Reset
             </Button>
           </div>
