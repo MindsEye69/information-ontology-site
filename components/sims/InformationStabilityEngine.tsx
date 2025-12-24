@@ -265,62 +265,34 @@ export default function InformationStabilityEngine() {
 
     const stable = (i: number) => ema[i] <= thr;
 
-    // Filter out tiny "sparkle" islands: outline only stable regions above a minimum size.
-    const minIsland = 50; // cells
-    const comp = new Int32Array(N * N);
-    comp.fill(-1);
-    const compSize: number[] = [];
-    let cid = 0;
+    // Build a stability mask and lightly clean it to avoid single-cell speckles.
+    const mask = new Uint8Array(N * N);
+    for (let i = 0; i < N * N; i++) mask[i] = stable(i) ? 1 : 0;
 
-    const qx = new Int32Array(N * N);
-    const qy = new Int32Array(N * N);
-
+    // One-pass neighborhood cleanup: keep cells that are stable AND have stable support nearby.
+    // (This preserves large stable regions while removing isolated stable dots.)
+    const mask2 = new Uint8Array(N * N);
     for (let y = 0; y < N; y++) {
       for (let x = 0; x < N; x++) {
-        const start = idx(x, y, N);
-        if (!stable(start) || comp[start] !== -1) continue;
-
-        let head = 0;
-        let tail = 0;
-        qx[tail] = x;
-        qy[tail] = y;
-        tail++;
-        comp[start] = cid;
-        let size = 0;
-
-        while (head < tail) {
-          const cx = qx[head];
-          const cy = qy[head];
-          head++;
-          const i = idx(cx, cy, N);
-          size++;
-
-          const n1x = wrap(cx + 1, N), n1y = cy;
-          const n2x = wrap(cx - 1, N), n2y = cy;
-          const n3x = cx, n3y = wrap(cy + 1, N);
-          const n4x = cx, n4y = wrap(cy - 1, N);
-
-          const n1 = idx(n1x, n1y, N);
-          const n2 = idx(n2x, n2y, N);
-          const n3 = idx(n3x, n3y, N);
-          const n4 = idx(n4x, n4y, N);
-
-          if (stable(n1) && comp[n1] === -1) { comp[n1] = cid; qx[tail] = n1x; qy[tail] = n1y; tail++; }
-          if (stable(n2) && comp[n2] === -1) { comp[n2] = cid; qx[tail] = n2x; qy[tail] = n2y; tail++; }
-          if (stable(n3) && comp[n3] === -1) { comp[n3] = cid; qx[tail] = n3x; qy[tail] = n3y; tail++; }
-          if (stable(n4) && comp[n4] === -1) { comp[n4] = cid; qx[tail] = n4x; qy[tail] = n4y; tail++; }
+        const i = idx(x, y, N);
+        if (mask[i] === 0) continue;
+        let support = 0;
+        const r2 = 1;
+        for (let dy = -r2; dy <= r2; dy++) {
+          for (let dx = -r2; dx <= r2; dx++) {
+            if (dx === 0 && dy === 0) continue;
+            if (Math.abs(dx) + Math.abs(dy) > r2) continue;
+            const nx = wrap(x + dx, N);
+            const ny = wrap(y + dy, N);
+            support += mask[idx(nx, ny, N)];
+          }
         }
-
-        compSize[cid] = size;
-        cid++;
+        // require at least 2 stable neighbors to count as part of a stable region
+        if (support >= 2) mask2[i] = 1;
       }
     }
 
-    const stableBig = (i: number) => {
-      if (!stable(i)) return false;
-      const c = comp[i];
-      return c >= 0 && (compSize[c] || 0) >= minIsland;
-    };
+    const stableClean = (i: number) => mask2[i] === 1;
 
     ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
     ctx.lineWidth = 4;
@@ -331,15 +303,15 @@ export default function InformationStabilityEngine() {
     for (let y = 0; y < N; y++) {
       for (let x = 0; x < N; x++) {
         const i = idx(x, y, N);
-        const s0 = stableBig(i);
+        const s0 = stableClean(i);
         if (!s0) continue;
 
         // check 4-neighbors for boundary between stable and unstable (outline only the stable "islands")
         const right = idx(wrap(x + 1, N), y, N);
         const down = idx(x, wrap(y + 1, N), N);
 
-        const sr = stableBig(right);
-        const sd = stableBig(down);
+        const sr = stableClean(right);
+        const sd = stableClean(down);
 
         if (!sr) {
           const x0 = (x + 1) * scale;
