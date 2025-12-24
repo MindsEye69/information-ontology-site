@@ -595,15 +595,3 @@ function Tip({ text }: { text: string }) {
     </span>
   );
 }
-
-function Tip({ text }: { text: string }) {
-  return (
-    <span
-      className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[10px] text-slate-200"
-      title={text}
-      aria-label={text}
-    >
-      i
-    </span>
-  );
-}
