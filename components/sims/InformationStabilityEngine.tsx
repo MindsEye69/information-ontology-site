@@ -8,7 +8,7 @@ type PresetId = "chaotic" | "settling" | "oscillating";
 
 type Params = {
   size: number;
-  speed: number;          // steps per animation frame (may be < 1)
+  speed: number;          // steps per second (time-based, so 1 can be truly slow)
   radius: 1 | 2;
   inertia: number;        // chance to keep current
   jitter: number;         // random flips
@@ -53,17 +53,18 @@ export default function InformationStabilityEngine() {
   const prev2Ref = useRef<Uint8Array | null>(null);
 
   // per-cell change counter within a sliding window
-  const changesRef = useRef<Uint16Array | null>(null);
-  const tickRef = useRef(0);
+  // exponential moving average of "did this cell change" (≈ sliding window without storing history)
+  const changeEmaRef = useRef<Float32Array | null>(null);
 
   const stepAccRef = useRef(0);
+  const lastTimeRef = useRef<number>(0);
 
   const [running, setRunning] = useState(true);
   const [preset, setPreset] = useState<PresetId>("settling");
 
   const [params, setParams] = useState<Params>({
     size: 140,
-    speed: 0.25,
+    speed: 20,
     radius: 2,
     inertia: 0.78,
     jitter: 0.004,
@@ -85,7 +86,7 @@ export default function InformationStabilityEngine() {
     const t = new Uint8Array(n);
     const p1 = new Uint8Array(n);
     const p2 = new Uint8Array(n);
-    const ch = new Uint16Array(n);
+    const ema = new Float32Array(n);
 
     // Seed with blocky patches (readable boundaries)
     const patch = 10;
@@ -104,9 +105,9 @@ export default function InformationStabilityEngine() {
     nextRef.current = t;
     prev1Ref.current = p1;
     prev2Ref.current = p2;
-    changesRef.current = ch;
-    tickRef.current = 0;
+    changeEmaRef.current = ema;
     stepAccRef.current = 0;
+    lastTimeRef.current = 0;
   };
 
   // reset on size changes
@@ -137,8 +138,8 @@ export default function InformationStabilityEngine() {
   const stepOnce = () => {
     const s = stateRef.current;
     const t = nextRef.current;
-    const ch = changesRef.current;
-    if (!s || !t || !ch) return;
+    const ema = changeEmaRef.current;
+    if (!s || !t || !ema) return;
 
     const N = params.size;
 
@@ -189,25 +190,12 @@ export default function InformationStabilityEngine() {
       }
     }
 
-    // update change counters (sliding window)
-    tickRef.current += 1;
-    const tick = tickRef.current;
-
+    // update EMA of per-cell change-rate (≈ change frequency over a window)
+    // alpha ~= 1/window so "window" still behaves intuitively.
+    const alpha = 1 / Math.max(1, params.window);
     for (let i = 0; i < N * N; i++) {
-      if (t[i] !== s[i]) {
-        ch[i] += 1;
-      }
-    }
-
-    // periodic decay to approximate a sliding window
-    // (keeps counters bounded and responsive without storing full history)
-    const decayEvery = 10;
-    if (tick % decayEvery === 0) {
-      const decay = decayEvery / Math.max(1, params.window);
-      const factor = clamp01(1 - decay);
-      for (let i = 0; i < N * N; i++) {
-        ch[i] = Math.floor(ch[i] * factor);
-      }
+      const changed = t[i] !== s[i] ? 1 : 0;
+      ema[i] = ema[i] + alpha * (changed - ema[i]);
     }
 
     // shift prev states for oscillating preset
@@ -224,10 +212,16 @@ export default function InformationStabilityEngine() {
   const draw = () => {
     const canvas = canvasRef.current;
     const s = stateRef.current;
-    const ch = changesRef.current;
-    if (!canvas || !s || !ch) return;
+    const ema = changeEmaRef.current;
+    if (!canvas || !s || !ema) return;
 
-    if (running) stepAccRef.current += params.speed;
+    // time-based stepping so the slow end is truly slow (and consistent across devices)
+    const now = typeof performance !== "undefined" ? performance.now() : Date.now();
+    if (lastTimeRef.current === 0) lastTimeRef.current = now;
+    const dt = Math.min(50, now - lastTimeRef.current); // clamp to avoid huge jumps
+    lastTimeRef.current = now;
+
+    if (running) stepAccRef.current += (dt * params.speed) / 1000;
     const steps = running ? Math.floor(stepAccRef.current) : 0;
     stepAccRef.current -= steps;
 
@@ -265,14 +259,16 @@ export default function InformationStabilityEngine() {
     ctx.putImageData(img, 0, 0);
 
     // Outline stable regions: draw edges where a stable cell borders an unstable cell.
-    // Stability proxy: changeRate = changes / window
+    // Stability proxy: EMA(change) (≈ change frequency over "window")
     const thr = params.outlineThreshold;
     const alpha = clamp01(params.outlineStrength);
 
-    const stable = (i: number) => (ch[i] / Math.max(1, params.window)) <= thr;
+    const stable = (i: number) => ema[i] <= thr;
 
     ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
 
     ctx.beginPath();
     for (let y = 0; y < N; y++) {
@@ -404,9 +400,10 @@ export default function InformationStabilityEngine() {
             <Range
               label="Speed"
               value={params.speed}
-              min={0.1}
-              max={8}
-              step={0.1}
+              min={1}
+              max={240}
+              step={1}
+              format={(v) => `${Math.round(v)} steps/sec`}
               onChange={(v) => setParams((p) => ({ ...p, speed: v }))}
             />
 
