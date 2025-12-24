@@ -417,7 +417,7 @@ export default function ValuePersistenceToy() {
           <div className="flex items-center gap-2">
             <Button
               size="sm"
-              variant={running ? "secondary" : "default"}
+              variant={running ? "outline" : "default"}
               onClick={() => setRunning((v) => !v)}
             >
               {running ? "Pause" : "Run"}
@@ -451,7 +451,7 @@ export default function ValuePersistenceToy() {
                 When the internal value leaves the highlighted band, the agent “fails” and resets.
               </div>
               <div className="mt-3">
-                <Button size="sm" variant="secondary" onClick={shock}>
+                <Button size="sm" variant="outline" onClick={shock}>
                   SHOCK
                 </Button>
               </div>
