@@ -76,12 +76,12 @@ function buildInfluenceMatrix(preset: PresetId, K: number) {
 function couplingStrength(preset: PresetId) {
   switch (preset) {
     case "weak":
-      return 0.55;
+      return 0.35;
     case "asymmetric":
-      return 0.95;
+      return 1.05;
     case "symmetric":
     default:
-      return 0.85;
+      return 0.8;
   }
 }
 
@@ -96,10 +96,10 @@ export default function RelationFieldEngine() {
   const [complexity, setComplexity] = useState<Complexity>("binary");
   const [params, setParams] = useState<Params>({
     size: 140,
-    speed: 0.45,
+    speed: 0.25,
     radius: 1,
-    inertia: 0.72,
-    jitter: 0.005,
+    inertia: 0.78,
+    jitter: 0.003,
   });
 
   const K = complexity === "binary" ? 2 : 4;
@@ -119,9 +119,18 @@ export default function RelationFieldEngine() {
     const s = new Uint8Array(n);
     const t = new Uint8Array(n);
 
-    // Seed: random states (keeps it relational; no special "goal")
-    for (let i = 0; i < n; i++) {
-      s[i] = Math.floor(Math.random() * K);
+    // Seed: blocky patches (makes relational negotiation visible without adding goals).
+    // We assign a random state per patch, then fill the patch.
+    const patch = K === 2 ? 10 : 14;
+    for (let py = 0; py < N; py += patch) {
+      for (let px = 0; px < N; px += patch) {
+        const v = Math.floor(Math.random() * K);
+        for (let y = py; y < Math.min(N, py + patch); y++) {
+          for (let x = px; x < Math.min(N, px + patch); x++) {
+            s[idx(x, y, N)] = v;
+          }
+        }
+      }
     }
 
     // Add a small central patch to make the start visually readable
@@ -141,6 +150,16 @@ export default function RelationFieldEngine() {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.size, complexity]);
+
+  // When the relation preset changes, re-seed so differences are legible.
+  useEffect(() => {
+    const wasRunning = running;
+    setRunning(false);
+    reset();
+    const t = setTimeout(() => setRunning(wasRunning), 250);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [preset]);
 
   useEffect(() => {
     let raf = 0;
@@ -337,15 +356,29 @@ export default function RelationFieldEngine() {
               </div>
             </div>
 
-            <Range
-              label="Interaction radius"
-              value={params.radius}
-              min={1}
-              max={2}
-              step={1}
-              format={(v) => (v === 1 ? "Local" : "Wider")}
-              onChange={(v) => setParams((p) => ({ ...p, radius: v as 1 | 2 }))}
-            />
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-xs text-slate-300">
+                <span className="font-semibold text-slate-200">Interaction radius</span>
+                <span>{params.radius === 1 ? "1 cell (local)" : "2 cells (wider)"}</span>
+              </div>
+              <div className="flex gap-2">
+                <Chip
+                  active={params.radius === 1}
+                  onClick={() => setParams((p) => ({ ...p, radius: 1 }))}
+                >
+                  Local (1)
+                </Chip>
+                <Chip
+                  active={params.radius === 2}
+                  onClick={() => setParams((p) => ({ ...p, radius: 2 }))}
+                >
+                  Wider (2)
+                </Chip>
+              </div>
+              <div className="text-xs text-slate-300">
+                Local uses a Von Neumann neighborhood; Wider uses an extended diamond neighborhood.
+              </div>
+            </div>
 
             <Range
               label="Speed"
