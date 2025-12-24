@@ -418,6 +418,14 @@ export default function RelationFieldEngine() {
               <li>
                 <strong>Apply relation rules:</strong> neighbors exert simple influences (the preset
                 changes this balance).
+				<p className="text-slate-300">
+					<strong>Example (Symmetric Attraction):</strong>{" "}
+					same → supports, different → resists{" "}
+				<span className="whitespace-nowrap">
+					A–A: + A–B: − B–A: − B–B: +
+				</span>
+			</p>
+
               </li>
               <li>
                 <strong>Update by local constraint:</strong> the cell adopts the state most
