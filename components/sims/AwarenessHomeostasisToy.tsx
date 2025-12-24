@@ -30,6 +30,7 @@ export default function AwarenessHomeostasisToy() {
 
   const fieldRef = useRef<Float32Array | null>(null); // environmental resource field (0..1)
   const tickRef = useRef(0);
+  const accumRef = useRef(0); // fractional step accumulator
 
   // agents: positions + internal variable "energy" (0..1) and memory of sensed value
   const agentsRef = useRef<
@@ -106,6 +107,7 @@ export default function AwarenessHomeostasisToy() {
     agentsRef.current = agents;
 
     tickRef.current = 0;
+    accumRef.current = 0;
   };
 
   useEffect(() => {
@@ -225,9 +227,12 @@ export default function AwarenessHomeostasisToy() {
 
     // time-based stepping
     const stepsPerSec = params.speed;
-    const steps = running ? Math.max(0, Math.floor((dt / 1000) * stepsPerSec)) : 0;
-    for (let k = 0; k < steps; k++) stepOnce();
-
+    if (running) {
+      const want = (dt / 1000) * stepsPerSec + accumRef.current;
+      const steps = Math.max(0, Math.floor(want));
+      accumRef.current = want - steps;
+      for (let k = 0; k < steps; k++) stepOnce();
+    }
     const N = params.size;
     canvas.width = N * scale;
     canvas.height = N * scale;
@@ -306,18 +311,19 @@ export default function AwarenessHomeostasisToy() {
   useEffect(() => {
     let raf = 0;
     let last = performance.now();
+
     const loop = (t: number) => {
       const dt = t - last;
       last = t;
       draw(dt);
       raf = requestAnimationFrame(loop);
     };
+
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
-
-  return (
+    // Only restart the render loop when the canvas resolution changes.
+  }, [params.size, running]);
+return (
     <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
       <Card className="border border-white/10 bg-white/5">
         <CardHeader className="flex flex-row items-start justify-between gap-3">
