@@ -399,6 +399,28 @@ export default function AwarenessHomeostasisToy() {
     reset();
   };
 
+  const onShock = () => {
+    // One-time disturbance to make Gain/Memory behavior instantly visible:
+    // - pushes agent energy away from target
+    // - briefly perturbs the local field under each agent
+    const P = paramsRef.current;
+    const field = fieldRef.current;
+    if (!field) return;
+
+    const N = P.size;
+
+    for (const a of agentsRef.current) {
+      // energy shock: random +/- away from target
+      const sign = Math.random() < 0.5 ? -1 : 1;
+      a.e = clamp01(a.e + sign * (0.18 + Math.random() * 0.12));
+
+      // local field nudge (purely for visibility)
+      const i0 = idx(a.x, a.y, N);
+      field[i0] = clamp01(field[i0] + sign * (0.12 + Math.random() * 0.08));
+    }
+  };
+
+
   return (
     <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
       <Card className="border border-white/10 bg-white/5">
@@ -415,6 +437,9 @@ export default function AwarenessHomeostasisToy() {
             </Button>
             <Button variant="outline" onClick={onReset}>
               Reset
+            </Button>
+            <Button variant="outline" onClick={onShock}>
+              Shock
             </Button>
           </div>
         </CardHeader>
@@ -434,6 +459,9 @@ export default function AwarenessHomeostasisToy() {
               <li>Control gain changes how aggressively the agent corrects toward target.</li>
               <li>Noise and drift push the system away from equilibrium; feedback pulls it back.</li>
               <li>“Memory” is just smoothing of recent sensory input—no symbols, meaning, or goals.</li>
+              <li>
+                Press <strong>Shock</strong> to perturb the system and make the effects of Gain and Memory immediately visible.
+              </li>
             </ul>
           </div>
         </CardContent>
@@ -447,7 +475,7 @@ export default function AwarenessHomeostasisToy() {
           <CardContent className="space-y-4">
             <Range
               label="Target"
-              tip="Desired internal energy level the agent tries to maintain. This is the set-point in the feedback loop."
+              tip="Desired internal energy level the agent tries to maintain (the set-point). If the change isn’t obvious immediately, watch ~5 seconds, or increase Drift."
               value={params.target}
               min={0.2}
               max={0.8}
@@ -458,7 +486,7 @@ export default function AwarenessHomeostasisToy() {
 
             <Range
               label="Control gain"
-              tip="How strongly the agent reacts to error (target − energy). Higher gain = more aggressive correction (and possible overshoot)."
+              tip="How strongly the agent reacts to error (target − energy). Higher gain corrects faster (and may overshoot). Most visible after changing Target or pressing Shock."
               value={params.controlGain}
               min={0}
               max={1}
@@ -469,7 +497,7 @@ export default function AwarenessHomeostasisToy() {
 
             <Range
               label="Sensor noise"
-              tip="Random distortion added to sensed environmental input. Higher noise makes regulation less reliable."
+              tip="Random distortion added to sensed environmental input. This effect is statistical—watch 5–10 seconds. Higher noise adds wobble and reduces stability."
               value={params.sensorNoise}
               min={0}
               max={0.2}
@@ -480,7 +508,7 @@ export default function AwarenessHomeostasisToy() {
 
             <Range
               label="Environment drift"
-              tip="Rate at which the environment changes over time. Drift forces the agent to keep regulating to stay near target."
+              tip="Rate at which the environment changes over time. Drift accumulates—compare 0 vs high drift and watch 10–20 seconds."
               value={params.drift}
               min={0}
               max={0.01}
@@ -491,7 +519,7 @@ export default function AwarenessHomeostasisToy() {
 
             <Range
               label="Speed"
-              tip="Simulation steps per second. Higher values advance the system faster."
+              tip="Simulation steps per second. Higher values advance the system faster (immediate effect)."
               value={params.speed}
               min={5}
               max={32}
@@ -503,7 +531,7 @@ export default function AwarenessHomeostasisToy() {
             <div className="space-y-2">
               <div className="text-xs font-semibold text-slate-200">
                 Memory
-                <Tip text="Temporal smoothing of recent sensory input (a low-pass filter). Long memory is more stable but slower to respond." />
+                <Tip text="Temporal smoothing of recent sensory input (a low-pass filter). Best seen when Drift or Noise > 0. Long memory is smoother but responds more slowly (lag)." />
               </div>
               <div className="flex flex-wrap gap-2">
                 <Chip active={params.memory === 0} onClick={() => setParams((p) => ({ ...p, memory: 0 }))}>
@@ -524,7 +552,7 @@ export default function AwarenessHomeostasisToy() {
             <div className="space-y-2">
               <div className="text-xs font-semibold text-slate-200">
                 Agents
-                <Tip text="Adds multiple self-regulating agents. Their trajectories will differ because of local conditions and noise." />
+                <Tip text="Adds multiple self-regulating agents. Differences become clearer with Drift/Noise, or after pressing Shock." />
               </div>
               <div className="flex flex-wrap gap-2">
                 <Chip active={params.nAgents === 1} onClick={() => setParams((p) => ({ ...p, nAgents: 1 }))}>
