@@ -52,7 +52,8 @@ export default function AwarenessHomeostasisToy() {
   const scale = 5;
 
   const reset = () => {
-    const N = params.size;
+    const P = paramsRef.current;
+    const N = P.size;
     const f = new Float32Array(N * N);
 
     // Smooth random field via coarse patches + blur-ish averaging
@@ -117,13 +118,14 @@ export default function AwarenessHomeostasisToy() {
 
   // -------- Simulation step (Awareness = feedback using information about internal state) --------
   const stepOnce = () => {
-    const N = params.size;
+    const P = paramsRef.current;
+    const N = P.size;
     const field = fieldRef.current;
     if (!field) return;
 
     // environment drift: slowly shifts the field (forces regulation to matter)
     // do a gentle "push" toward a random direction each tick, but tiny.
-    const drift = params.drift;
+    const drift = P.drift;
     for (let i = 0; i < N * N; i++) {
       // slight stochastic drift + damping
       const dv = (Math.random() - 0.5) * drift;
@@ -134,19 +136,19 @@ export default function AwarenessHomeostasisToy() {
       const i = idx(a.x, a.y, N);
 
       // sensor reads local environment + noise
-      const sensedEnv = clamp01(field[i] + (Math.random() - 0.5) * params.sensorNoise);
+      const sensedEnv = clamp01(field[i] + (Math.random() - 0.5) * P.sensorNoise);
 
       // sensed internal error (difference from target)
-      const err = params.target - a.e;
+      const err = P.target - a.e;
 
       // memory: low-pass filter over sensed env (info persistence)
-      const memAlpha = params.memory === 0 ? 1 : params.memory === 1 ? 0.25 : 0.08;
+      const memAlpha = P.memory === 0 ? 1 : P.memory === 1 ? 0.25 : 0.08;
       a.m = clamp01(a.m + (sensedEnv - a.m) * memAlpha);
 
       // controller: uses information (error + sensed env) to choose action:
       // - move toward better environment if low energy, away if high (overshoot control)
       // - adjust intake rate via gain on error
-      const gain = params.controlGain;
+      const gain = P.controlGain;
       const drive = clamp01(0.5 + err * gain); // 0..1, stronger drive when below target
       a.v = drive;
 
@@ -226,14 +228,16 @@ export default function AwarenessHomeostasisToy() {
     if (!canvas || !field) return;
 
     // time-based stepping
-    const stepsPerSec = params.speed;
-    if (running) {
+    const P = paramsRef.current;
+    const stepsPerSec = P.speed;
+    if (runningRef.current) {
       const want = (dt / 1000) * stepsPerSec + accumRef.current;
       const steps = Math.max(0, Math.floor(want));
       accumRef.current = want - steps;
       for (let k = 0; k < steps; k++) stepOnce();
     }
-    const N = params.size;
+    const P = paramsRef.current;
+    const N = P.size;
     canvas.width = N * scale;
     canvas.height = N * scale;
     const ctx = canvas.getContext("2d")!;
