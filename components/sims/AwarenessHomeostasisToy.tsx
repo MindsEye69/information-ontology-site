@@ -52,7 +52,6 @@ export default function AwarenessHomeostasisToy() {
   const scale = 5;
 
   const reset = () => {
-    const P = paramsRef.current;
     const N = P.size;
     const f = new Float32Array(N * N);
 
@@ -228,14 +227,6 @@ export default function AwarenessHomeostasisToy() {
     if (!canvas || !field) return;
 
     // time-based stepping
-    const P = paramsRef.current;
-    const stepsPerSec = P.speed;
-    if (runningRef.current) {
-      const want = (dt / 1000) * stepsPerSec + accumRef.current;
-      const steps = Math.max(0, Math.floor(want));
-      accumRef.current = want - steps;
-      for (let k = 0; k < steps; k++) stepOnce();
-    }
     const P = paramsRef.current;
     const N = P.size;
     canvas.width = N * scale;
