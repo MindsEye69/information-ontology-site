@@ -1,7 +1,6 @@
 export default function ValuePage() {
-  // Styling constants so "in-band" text is uniform
   const bandTextFill = "#e6f0ff";
-  const bandTextSize = 20; // matches your current safe band size intent
+  const bandTextSize = 20;
   const bandTextWeight = 600;
 
   return (
@@ -11,12 +10,13 @@ export default function ValuePage() {
         <div className="text-sky-400 text-sm mb-2">Visual aids · V</div>
         <h1 className="text-4xl font-semibold mb-4">V — Value</h1>
         <p className="text-lg text-slate-300 max-w-4xl">
-          In Informational Ontology, <strong>value</strong> is not a preference or moral claim.
-          It is a <strong>persistence constraint</strong>: a condition that must remain
-          satisfied for the system to keep existing.
+          In Informational Ontology, <strong>value</strong> is not a preference or moral
+          claim. It is a <strong>persistence constraint</strong>: a condition that must
+          remain satisfied for the system to keep existing.
         </p>
         <p className="text-slate-400 mt-2">
-          The diagram below is intentionally simple. It is an intuition builder, not a proof.
+          The diagram below is intentionally simple. It is an intuition builder, not a
+          proof.
         </p>
       </div>
 
@@ -31,7 +31,7 @@ export default function ValuePage() {
           className="w-full h-auto"
           aria-label="Value as persistence constraint diagram"
         >
-          {/* Failure regions (touch the safe band directly — no barrier) */}
+          {/* Failure regions */}
           <rect x="0" y="0" width="1000" height="90" fill="#4a1e1e" />
           <rect x="0" y="270" width="1000" height="90" fill="#4a1e1e" />
 
@@ -44,18 +44,6 @@ export default function ValuePage() {
           </text>
           <text x="24" y="325" fill="#ffb4b4" fontSize="18" fontWeight="600">
             failure region
-          </text>
-
-          {/* Safe band label (uniform style) */}
-          <text
-            x="500"
-            y="205"
-            textAnchor="middle"
-            fill={bandTextFill}
-            fontSize={bandTextSize}
-            fontWeight={bandTextWeight}
-          >
-            safe band (persistence satisfied)
           </text>
 
           {/* Internal state trajectory (starts at left edge) */}
@@ -71,10 +59,10 @@ export default function ValuePage() {
             strokeWidth="4"
           />
 
-          {/* "Internal state over time" label (uniform style, white, no black pill) */}
+          {/* Internal state label (uniform white, arrow points to line) */}
           <text
             x="360"
-            y="140"
+            y="138"
             textAnchor="middle"
             fill={bandTextFill}
             fontSize={bandTextSize}
@@ -83,10 +71,9 @@ export default function ValuePage() {
             internal state over time
           </text>
 
-          {/* Clear arrow from label to the line */}
           <line
             x1="360"
-            y1="150"
+            y1="145"
             x2="360"
             y2="176"
             stroke={bandTextFill}
@@ -94,15 +81,34 @@ export default function ValuePage() {
             markerEnd="url(#arrowWhite)"
           />
 
-          {/* Exit annotation (higher, with arrow to exact crossing point) */}
-          {/*
-            The safe band lower boundary is y=270.
-            We point to (950,270) — the curve is crossing into failure around there visually.
-          */}
+          {/* Safe band underline */}
+          <line
+            x1="360"
+            y1="212"
+            x2="640"
+            y2="212"
+            stroke={bandTextFill}
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+
+          {/* Safe band label — moved DOWN to the underline */}
           <text
-            x="820"
-            y="135"
-            textAnchor="start"
+            x="500"
+            y="206"
+            textAnchor="middle"
+            fill={bandTextFill}
+            fontSize={bandTextSize}
+            fontWeight={bandTextWeight}
+          >
+            safe band (persistence satisfied)
+          </text>
+
+          {/* Exit label — arrow lands exactly on boundary crossing */}
+          {/* Crossing point is approximately (950,270) */}
+          <text
+            x="760"
+            y="120"
             fill="#ffb4b4"
             fontSize="18"
             fontWeight="700"
@@ -111,8 +117,8 @@ export default function ValuePage() {
           </text>
 
           <line
-            x1="900"
-            y1="145"
+            x1="830"
+            y1="130"
             x2="950"
             y2="270"
             stroke="#ff6b6b"
