@@ -61,27 +61,29 @@ export default function PurposePage() {
           <text x="112" y="376" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="300" y="290" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
+
+          {/* Safe band label moved UP so it never overlaps the line */}
+          <text x="300" y="258" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Calm drift trajectory: slowly trends downward until it crosses */}
+          {/* Calm drift trajectory moved slightly DOWN for breathing room */}
           <path
             d="
-              M 110 270
-              C 190 250, 260 290, 330 275
-              C 390 262, 430 260, 480 270
-              C 505 276, 515 300, 510 330
-              C 505 360, 490 385, 470 405
+              M 110 285
+              C 190 265, 260 305, 330 290
+              C 390 277, 430 275, 480 285
+              C 505 292, 515 315, 510 340
+              C 503 368, 485 388, 455 402
             "
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Crossing segment emphasized (small, clear) */}
+          {/* Exit segment emphasized — diagonal crossing (clearer than vertical drop) */}
           <path
-            d="M 510 330 C 505 360, 490 385, 470 405"
+            d="M 510 340 C 503 368, 485 388, 455 402"
             fill="none"
             stroke={danger}
             strokeWidth="4"
@@ -103,30 +105,32 @@ export default function PurposePage() {
           <text x="612" y="376" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="800" y="290" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
+
+          {/* Safe band label moved UP so it never overlaps the line */}
+          <text x="800" y="258" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Damped oscillation around the center line (no loops) */}
+          {/* Damped oscillation, placed slightly DOWN */}
           <path
             d="
-              M 610 285
-              C 660 265, 710 305, 760 285
-              C 800 270, 840 295, 880 285
-              C 905 278, 930 288, 955 285
+              M 610 295
+              C 660 278, 710 312, 760 295
+              C 800 283, 840 305, 880 295
+              C 905 290, 930 300, 955 295
             "
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Disturbance nudges (small red arrows) */}
-          <line x1="720" y1="245" x2="740" y2="260" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
-          <line x1="860" y1="318" x2="840" y2="305" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          {/* Disturbance nudges moved ABOVE the line, away from the label */}
+          <line x1="725" y1="250" x2="745" y2="270" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          <line x1="865" y1="250" x2="845" y2="270" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
 
-          {/* Corrections (small sky arrows back toward midline) */}
-          <line x1="740" y1="260" x2="730" y2="280" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
-          <line x1="840" y1="305" x2="850" y2="286" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
+          {/* Corrections moved BELOW the line, away from the label */}
+          <line x1="745" y1="340" x2="735" y2="315" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
+          <line x1="845" y1="340" x2="855" y2="315" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
 
           <text x="612" y="430" fill={textDim} fontSize="15" fontWeight="700">
             repeated return toward a stable region
