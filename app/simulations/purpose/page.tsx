@@ -14,141 +14,133 @@ export default function PurposePage() {
 
   return (
     <main className="min-h-screen px-8 py-12" style={{ background: bg, color: "white" }}>
-      {/* Header */}
       <div className="max-w-6xl mx-auto mb-10">
         <div className="text-sky-400 text-sm mb-2">Visual aids · P</div>
         <h1 className="text-4xl font-semibold mb-4">P — Purpose</h1>
         <p className="text-lg text-slate-300 max-w-4xl">
-          In IO, <strong>purpose</strong> is not a hidden intention or “goal-stuff.”
-          It is the <strong>stable, goal-like pattern</strong> that emerges when a system must satisfy
-          persistence constraints (<strong>V</strong>) and has mechanisms that regulate itself under disturbance.
+          In IO, <strong>purpose</strong> is not an inner intention. It is the{" "}
+          <strong>stable, goal-like pattern</strong> that emerges when a system must satisfy persistence constraints
+          (<strong>V</strong>) and has mechanisms that regulate itself under disturbance.
         </p>
         <p className="text-slate-400 mt-2">
           This diagram is intentionally simple. It is an intuition builder, not a proof.
         </p>
       </div>
 
-      {/* Main Card */}
-      <div
-        className="max-w-6xl mx-auto rounded-xl p-8"
-        style={{ background: card, border: `1px solid ${border}` }}
-      >
+      <div className="max-w-6xl mx-auto rounded-xl p-8" style={{ background: card, border: `1px solid ${border}` }}>
         <h2 className="text-xl font-semibold mb-6">Purpose as a control outcome (not an inner “aim”)</h2>
 
         <svg viewBox="0 0 1100 560" className="w-full h-auto" aria-label="Purpose diagram">
           <rect x="0" y="0" width="1100" height="560" rx="14" fill="#071021" />
 
           {/* Titles */}
-          <text x="90" y="70" fill={textMain} fontSize="22" fontWeight="700">
+          <text x="150" y="80" fill={textMain} fontSize="22" fontWeight="700">
             No regulation
           </text>
-          <text x="690" y="70" fill={textMain} fontSize="22" fontWeight="700">
+          <text x="690" y="80" fill={textMain} fontSize="22" fontWeight="700">
             Regulation under constraint
           </text>
 
           {/* Divider */}
-          <line x1="550" y1="90" x2="550" y2="505" stroke="#1f2a44" strokeWidth="2" />
+          <line x1="550" y1="105" x2="550" y2="470" stroke="#1f2a44" strokeWidth="2" />
 
           {/* Shared note */}
-          <text x="550" y="110" textAnchor="middle" fill={textDim} fontSize="16" fontWeight="600">
+          <text x="550" y="120" textAnchor="middle" fill={textDim} fontSize="16" fontWeight="600">
             Same persistence band + same disturbances — only the feedback loop differs
           </text>
 
-          {/* === LEFT PANEL === */}
-          <rect x="70" y="150" width="420" height="250" rx="12" fill="#08152e" stroke={border} />
-          <rect x="70" y="150" width="420" height="60" fill={failBand} opacity="0.92" />
-          <rect x="70" y="210" width="420" height="130" fill={safeBand} opacity="0.96" />
-          <rect x="70" y="340" width="420" height="60" fill={failBand} opacity="0.92" />
+          {/* === LEFT PANEL (No regulation) === */}
+          <rect x="90" y="160" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
+          <rect x="90" y="160" width="420" height="60" fill={failBand} opacity="0.92" />
+          <rect x="90" y="220" width="420" height="120" fill={safeBand} opacity="0.96" />
+          <rect x="90" y="340" width="420" height="60" fill={failBand} opacity="0.92" />
 
-          <text x="92" y="186" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="112" y="196" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="92" y="378" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="112" y="376" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="280" y="285" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
+          <text x="300" y="290" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Wandering trajectory (no regulation) */}
+          {/* Calm drift trajectory: slowly trends downward until it crosses */}
           <path
             d="
-              M 90 270
-              C 150 250, 200 310, 250 295
-              C 300 280, 330 235, 360 240
-              C 390 245, 420 300, 450 330
-              C 470 350, 455 380, 430 400
+              M 110 270
+              C 190 250, 260 290, 330 275
+              C 390 262, 430 260, 480 270
+              C 505 276, 515 300, 510 330
+              C 505 360, 490 385, 470 405
             "
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Exit segment emphasized */}
+          {/* Crossing segment emphasized (small, clear) */}
           <path
-            d="M 450 330 C 470 350, 455 380, 430 400"
+            d="M 510 330 C 505 360, 490 385, 470 405"
             fill="none"
             stroke={danger}
             strokeWidth="4"
           />
 
-          <text x="92" y="430" fill={textDim} fontSize="15" fontWeight="700">
+          <text x="112" y="430" fill={textDim} fontSize="15" fontWeight="700">
             drift accumulates → exits occur
           </text>
 
-          {/* === RIGHT PANEL === */}
-          <rect x="610" y="150" width="420" height="250" rx="12" fill="#08152e" stroke={border} />
-          <rect x="610" y="150" width="420" height="60" fill={failBand} opacity="0.92" />
-          <rect x="610" y="210" width="420" height="130" fill={safeBand} opacity="0.96" />
-          <rect x="610" y="340" width="420" height="60" fill={failBand} opacity="0.92" />
+          {/* === RIGHT PANEL (Regulation) === */}
+          <rect x="590" y="160" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
+          <rect x="590" y="160" width="420" height="60" fill={failBand} opacity="0.92" />
+          <rect x="590" y="220" width="420" height="120" fill={safeBand} opacity="0.96" />
+          <rect x="590" y="340" width="420" height="60" fill={failBand} opacity="0.92" />
 
-          <text x="632" y="186" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="612" y="196" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="632" y="378" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="612" y="376" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="820" y="285" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
+          <text x="800" y="290" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* "Attractor-like" regulated trajectory: kicked, then corrected back */}
+          {/* Damped oscillation around the center line (no loops) */}
           <path
             d="
-              M 630 285
-              C 700 260, 760 300, 810 285
-              C 860 270, 885 250, 910 240
-              C 935 232, 950 242, 940 260
-              C 928 285, 885 300, 840 295
-              C 780 288, 730 285, 700 285
+              M 610 285
+              C 660 265, 710 305, 760 285
+              C 800 270, 840 295, 880 285
+              C 905 278, 930 288, 955 285
             "
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Disturbance kicks (small red nudges) */}
-          <line x1="840" y1="255" x2="865" y2="240" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
-          <line x1="760" y1="305" x2="785" y2="320" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          {/* Disturbance nudges (small red arrows) */}
+          <line x1="720" y1="245" x2="740" y2="260" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          <line x1="860" y1="318" x2="840" y2="305" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
 
-          {/* Correction arrows (blue/sky) */}
-          <line x1="910" y1="240" x2="890" y2="265" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
-          <line x1="785" y1="320" x2="805" y2="295" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
+          {/* Corrections (small sky arrows back toward midline) */}
+          <line x1="740" y1="260" x2="730" y2="280" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
+          <line x1="840" y1="305" x2="850" y2="286" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
 
-          <text x="632" y="430" fill={textDim} fontSize="15" fontWeight="700">
+          <text x="612" y="430" fill={textDim} fontSize="15" fontWeight="700">
             repeated return toward a stable region
           </text>
 
           {/* Bottom takeaway bar */}
-          <rect x="70" y="470" width="960" height="60" rx="12" fill="#071a33" stroke="#1f2a44" />
+          <rect x="90" y="470" width="920" height="62" rx="12" fill="#071a33" stroke="#1f2a44" />
           <text x="550" y="500" textAnchor="middle" fill={textMain} fontSize="15" fontWeight="800">
             “Purpose” is the stable, goal-like behavior produced by constraint + regulation over time.
           </text>
-          <text x="550" y="522" textAnchor="middle" fill={textDim} fontSize="14" fontWeight="650">
+          <text x="550" y="523" textAnchor="middle" fill={textDim} fontSize="14" fontWeight="650">
             It can look intentional, even when it is just feedback maintaining persistence.
           </text>
 
-          {/* Markers */}
           <defs>
             <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={danger} />
