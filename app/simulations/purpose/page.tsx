@@ -22,9 +22,7 @@ export default function PurposePage() {
           <strong>stable, goal-like pattern</strong> that emerges when a system must satisfy persistence constraints
           (<strong>V</strong>) and has mechanisms that regulate itself under disturbance.
         </p>
-        <p className="text-slate-400 mt-2">
-          This diagram is intentionally simple. It is an intuition builder, not a proof.
-        </p>
+        <p className="text-slate-400 mt-2">This diagram is intentionally simple. It is an intuition builder, not a proof.</p>
       </div>
 
       <div className="max-w-6xl mx-auto rounded-xl p-8" style={{ background: card, border: `1px solid ${border}` }}>
@@ -33,7 +31,6 @@ export default function PurposePage() {
         <svg viewBox="0 0 1100 560" className="w-full h-auto" aria-label="Purpose diagram">
           <rect x="0" y="0" width="1100" height="560" rx="14" fill="#071021" />
 
-          {/* Titles */}
           <text x="150" y="80" fill={textMain} fontSize="22" fontWeight="700">
             No regulation
           </text>
@@ -41,15 +38,13 @@ export default function PurposePage() {
             Regulation under constraint
           </text>
 
-          {/* Divider */}
           <line x1="550" y1="105" x2="550" y2="470" stroke="#1f2a44" strokeWidth="2" />
 
-          {/* Shared note */}
           <text x="550" y="120" textAnchor="middle" fill={textDim} fontSize="16" fontWeight="600">
             Same persistence band + same disturbances — only the feedback loop differs
           </text>
 
-          {/* === LEFT PANEL (No regulation) === */}
+          {/* === LEFT PANEL === */}
           <rect x="90" y="160" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
           <rect x="90" y="160" width="420" height="60" fill={failBand} opacity="0.92" />
           <rect x="90" y="220" width="420" height="120" fill={safeBand} opacity="0.96" />
@@ -62,28 +57,32 @@ export default function PurposePage() {
             failure region
           </text>
 
-          {/* Safe band label moved UP so it never overlaps the line */}
           <text x="300" y="258" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Calm drift trajectory moved slightly DOWN for breathing room */}
+          {/* Edge-to-edge drift trajectory (starts at left edge of panel, ends at right edge) */}
           <path
             d="
-              M 110 285
-              C 190 265, 260 305, 330 290
-              C 390 277, 430 275, 480 285
-              C 505 292, 515 315, 510 340
-              C 503 368, 485 388, 455 402
+              M 90 285
+              C 160 265, 235 305, 310 290
+              C 370 277, 410 275, 455 285
+              C 480 292, 500 315, 505 340
+              C 510 368, 500 388, 485 402
+              L 510 402
             "
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Exit segment emphasized — diagonal crossing (clearer than vertical drop) */}
+          {/* Emphasize the out-of-band portion near the end (diagonal crossing) */}
           <path
-            d="M 510 340 C 503 368, 485 388, 455 402"
+            d="
+              M 505 340
+              C 510 368, 500 388, 485 402
+              L 510 402
+            "
             fill="none"
             stroke={danger}
             strokeWidth="4"
@@ -93,7 +92,7 @@ export default function PurposePage() {
             drift accumulates → exits occur
           </text>
 
-          {/* === RIGHT PANEL (Regulation) === */}
+          {/* === RIGHT PANEL === */}
           <rect x="590" y="160" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
           <rect x="590" y="160" width="420" height="60" fill={failBand} opacity="0.92" />
           <rect x="590" y="220" width="420" height="120" fill={safeBand} opacity="0.96" />
@@ -106,37 +105,68 @@ export default function PurposePage() {
             failure region
           </text>
 
-          {/* Safe band label moved UP so it never overlaps the line */}
           <text x="800" y="258" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Damped oscillation, placed slightly DOWN */}
+          {/* Edge-to-edge damped oscillation (starts at left edge, ends at right edge) */}
           <path
             d="
-              M 610 295
-              C 660 278, 710 312, 760 295
-              C 800 283, 840 305, 880 295
-              C 905 290, 930 300, 955 295
+              M 590 295
+              C 650 278, 710 312, 770 295
+              C 820 283, 870 305, 920 295
+              C 950 290, 980 300, 1010 295
             "
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Disturbance nudges moved ABOVE the line, away from the label */}
-          <line x1="725" y1="250" x2="745" y2="270" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
-          <line x1="865" y1="250" x2="845" y2="270" stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          {/* Disturbance nudges (shifted +15 right, +6 down) */}
+          <line
+            x1="740"
+            y1="256"
+            x2="760"
+            y2="276"
+            stroke={danger}
+            strokeWidth="2.5"
+            markerEnd="url(#arrowRed)"
+          />
+          <line
+            x1="880"
+            y1="256"
+            x2="860"
+            y2="276"
+            stroke={danger}
+            strokeWidth="2.5"
+            markerEnd="url(#arrowRed)"
+          />
 
-          {/* Corrections moved BELOW the line, away from the label */}
-          <line x1="745" y1="340" x2="735" y2="315" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
-          <line x1="845" y1="340" x2="855" y2="315" stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
+          {/* Corrections (kept below, clean) */}
+          <line
+            x1="760"
+            y1="340"
+            x2="750"
+            y2="315"
+            stroke={accent}
+            strokeWidth="2.5"
+            markerEnd="url(#arrowSky)"
+          />
+          <line
+            x1="860"
+            y1="340"
+            x2="870"
+            y2="315"
+            stroke={accent}
+            strokeWidth="2.5"
+            markerEnd="url(#arrowSky)"
+          />
 
           <text x="612" y="430" fill={textDim} fontSize="15" fontWeight="700">
             repeated return toward a stable region
           </text>
 
-          {/* Bottom takeaway bar */}
+          {/* Bottom takeaway */}
           <rect x="90" y="470" width="920" height="62" rx="12" fill="#071a33" stroke="#1f2a44" />
           <text x="550" y="500" textAnchor="middle" fill={textMain} fontSize="15" fontWeight="800">
             “Purpose” is the stable, goal-like behavior produced by constraint + regulation over time.
