@@ -12,6 +12,17 @@ export default function PurposePage() {
   const ok = "#7cb8ff";
   const accent = "#38bdf8";
 
+  // Geometry helpers (so we don't "accidentally" imply a barrier)
+  const leftPanel = { x: 90, y: 160, w: 420, h: 240 };
+  const rightPanel = { x: 590, y: 160, w: 420, h: 240 };
+
+  const safeTop = 220; // panel y where safe band starts
+  const safeH = 120;   // safe band height
+  const safeBottom = safeTop + safeH; // 340
+
+  // Left crossing point (place X exactly on the boundary)
+  const leftCross = { x: 504, y: safeBottom }; // near right edge, on boundary
+
   return (
     <main className="min-h-screen px-8 py-12" style={{ background: bg, color: "white" }}>
       <div className="max-w-6xl mx-auto mb-10">
@@ -45,124 +56,86 @@ export default function PurposePage() {
           </text>
 
           {/* === LEFT PANEL === */}
-          <rect x="90" y="160" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
-          <rect x="90" y="160" width="420" height="60" fill={failBand} opacity="0.92" />
-          <rect x="90" y="220" width="420" height="120" fill={safeBand} opacity="0.96" />
-          <rect x="90" y="340" width="420" height="60" fill={failBand} opacity="0.92" />
+          <rect x={leftPanel.x} y={leftPanel.y} width={leftPanel.w} height={leftPanel.h} rx="12" fill="#08152e" stroke={border} />
+          <rect x={leftPanel.x} y={leftPanel.y} width={leftPanel.w} height="60" fill={failBand} opacity="0.92" />
+          <rect x={leftPanel.x} y={safeTop} width={leftPanel.w} height={safeH} fill={safeBand} opacity="0.96" />
+          <rect x={leftPanel.x} y={safeBottom} width={leftPanel.w} height="60" fill={failBand} opacity="0.92" />
 
-          <text x="112" y="196" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x={leftPanel.x + 22} y={leftPanel.y + 36} fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="112" y="376" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x={leftPanel.x + 22} y={leftPanel.y + 216} fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
 
-          <text x="300" y="258" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
+          <text x={leftPanel.x + leftPanel.w / 2} y={safeTop + 38} textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Edge-to-edge drift trajectory (starts at left edge of panel, ends at right edge) */}
+          {/* Trajectory: terminate at crossing point (no hook) */}
           <path
-            d="
-              M 90 285
-              C 160 265, 235 305, 310 290
-              C 370 277, 410 275, 455 285
-              C 480 292, 500 315, 505 340
-              C 510 368, 500 388, 485 402
-              L 510 402
-            "
+            d={`
+              M ${leftPanel.x} 295
+              C ${leftPanel.x + 70} 275, ${leftPanel.x + 145} 315, ${leftPanel.x + 220} 300
+              C ${leftPanel.x + 280} 287, ${leftPanel.x + 320} 285, ${leftPanel.x + 365} 295
+              C ${leftPanel.x + 405} 305, ${leftPanel.x + 418} 322, ${leftCross.x} ${leftCross.y}
+            `}
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Emphasize the out-of-band portion near the end (diagonal crossing) */}
-          <path
-            d="
-              M 505 340
-              C 510 368, 500 388, 485 402
-              L 510 402
-            "
-            fill="none"
-            stroke={danger}
-            strokeWidth="4"
-          />
+          {/* Crossing marker: red X exactly on boundary */}
+          <line x1={leftCross.x - 10} y1={leftCross.y - 10} x2={leftCross.x + 10} y2={leftCross.y + 10} stroke={danger} strokeWidth="4" />
+          <line x1={leftCross.x - 10} y1={leftCross.y + 10} x2={leftCross.x + 10} y2={leftCross.y - 10} stroke={danger} strokeWidth="4" />
 
-          <text x="112" y="430" fill={textDim} fontSize="15" fontWeight="700">
+          <text x={leftPanel.x + 22} y={leftPanel.y + 270} fill={textDim} fontSize="15" fontWeight="700">
             drift accumulates → exits occur
           </text>
 
           {/* === RIGHT PANEL === */}
-          <rect x="590" y="160" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
-          <rect x="590" y="160" width="420" height="60" fill={failBand} opacity="0.92" />
-          <rect x="590" y="220" width="420" height="120" fill={safeBand} opacity="0.96" />
-          <rect x="590" y="340" width="420" height="60" fill={failBand} opacity="0.92" />
+          <rect x={rightPanel.x} y={rightPanel.y} width={rightPanel.w} height={rightPanel.h} rx="12" fill="#08152e" stroke={border} />
+          <rect x={rightPanel.x} y={rightPanel.y} width={rightPanel.w} height="60" fill={failBand} opacity="0.92" />
+          <rect x={rightPanel.x} y={safeTop} width={rightPanel.w} height={safeH} fill={safeBand} opacity="0.96" />
+          <rect x={rightPanel.x} y={safeBottom} width={rightPanel.w} height="60" fill={failBand} opacity="0.92" />
 
-          <text x="612" y="196" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x={rightPanel.x + 22} y={rightPanel.y + 36} fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="612" y="376" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x={rightPanel.x + 22} y={rightPanel.y + 216} fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
 
-          <text x="800" y="258" textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
+          <text x={rightPanel.x + rightPanel.w / 2} y={safeTop + 38} textAnchor="middle" fill={textMain} fontSize="18" fontWeight="700">
             safe band (persistence)
           </text>
 
-          {/* Edge-to-edge damped oscillation (starts at left edge, ends at right edge) */}
+          {/* Edge-to-edge regulated line: calm oscillation */}
           <path
-            d="
-              M 590 295
-              C 650 278, 710 312, 770 295
-              C 820 283, 870 305, 920 295
-              C 950 290, 980 300, 1010 295
-            "
+            d={`
+              M ${rightPanel.x} 305
+              C ${rightPanel.x + 70} 288, ${rightPanel.x + 135} 322, ${rightPanel.x + 200} 305
+              C ${rightPanel.x + 250} 295, ${rightPanel.x + 300} 315, ${rightPanel.x + 350} 305
+              C ${rightPanel.x + 380} 302, ${rightPanel.x + 400} 308, ${rightPanel.x + 420} 305
+            `}
             fill="none"
             stroke={ok}
             strokeWidth="4"
           />
 
-          {/* Disturbance nudges (shifted +15 right, +6 down) */}
-          <line
-            x1="740"
-            y1="256"
-            x2="760"
-            y2="276"
-            stroke={danger}
-            strokeWidth="2.5"
-            markerEnd="url(#arrowRed)"
-          />
-          <line
-            x1="880"
-            y1="256"
-            x2="860"
-            y2="276"
-            stroke={danger}
-            strokeWidth="2.5"
-            markerEnd="url(#arrowRed)"
-          />
+          {/* Disturbance arrows (red) — positioned like your markup */}
+          {/* left disturbance */}
+          <line x1={rightPanel.x + 175} y1={safeTop + 55} x2={rightPanel.x + 195} y2={safeTop + 75} stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          {/* middle disturbance */}
+          <line x1={rightPanel.x + 245} y1={safeTop + 60} x2={rightPanel.x + 265} y2={safeTop + 80} stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+          {/* right disturbance (new) */}
+          <line x1={rightPanel.x + 350} y1={safeTop + 60} x2={rightPanel.x + 370} y2={safeTop + 80} stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
 
-          {/* Corrections (kept below, clean) */}
-          <line
-            x1="760"
-            y1="340"
-            x2="750"
-            y2="315"
-            stroke={accent}
-            strokeWidth="2.5"
-            markerEnd="url(#arrowSky)"
-          />
-          <line
-            x1="860"
-            y1="340"
-            x2="870"
-            y2="315"
-            stroke={accent}
-            strokeWidth="2.5"
-            markerEnd="url(#arrowSky)"
-          />
+          {/* Corrections (blue) below the line */}
+          <line x1={rightPanel.x + 210} y1={safeTop + 120} x2={rightPanel.x + 200} y2={safeTop + 95} stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
+          <line x1={rightPanel.x + 300} y1={safeTop + 120} x2={rightPanel.x + 310} y2={safeTop + 95} stroke={accent} strokeWidth="2.5" markerEnd="url(#arrowSky)" />
 
-          <text x="612" y="430" fill={textDim} fontSize="15" fontWeight="700">
+          <text x={rightPanel.x + 22} y={rightPanel.y + 270} fill={textDim} fontSize="15" fontWeight="700">
             repeated return toward a stable region
           </text>
 
@@ -191,7 +164,7 @@ export default function PurposePage() {
             it repeatedly returns to a viable region rather than drifting away.
           </p>
           <p className="text-slate-400">
-            IO takeaway: “purpose” is a description of stable control outcomes — not a claim about inner intention.
+            The “failure regions” do not imply any specific sensor (voltage, etc.). They simply mark states outside the persistence constraint.
           </p>
         </div>
       </div>
