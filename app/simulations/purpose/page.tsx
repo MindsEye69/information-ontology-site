@@ -127,8 +127,6 @@ export default function PurposePage() {
           {/* left disturbance */}
           <line x1={rightPanel.x + 175} y1={safeTop + 55} x2={rightPanel.x + 195} y2={safeTop + 75} stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
           {/* middle disturbance */}
-          <line x1={rightPanel.x + 245} y1={safeTop + 60} x2={rightPanel.x + 265} y2={safeTop + 80} stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
-          {/* right disturbance (new) */}
           <line x1={rightPanel.x + 350} y1={safeTop + 60} x2={rightPanel.x + 370} y2={safeTop + 80} stroke={danger} strokeWidth="2.5" markerEnd="url(#arrowRed)" />
 
           {/* Corrections (blue) below the line */}
