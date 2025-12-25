@@ -1,4 +1,9 @@
 export default function ValuePage() {
+  // Styling constants so "in-band" text is uniform
+  const bandTextFill = "#e6f0ff";
+  const bandTextSize = 20; // matches your current safe band size intent
+  const bandTextWeight = 600;
+
   return (
     <main className="min-h-screen bg-[#050914] text-white px-8 py-12">
       {/* Header */}
@@ -26,29 +31,29 @@ export default function ValuePage() {
           className="w-full h-auto"
           aria-label="Value as persistence constraint diagram"
         >
-          {/* Failure regions */}
+          {/* Failure regions (touch the safe band directly — no barrier) */}
           <rect x="0" y="0" width="1000" height="90" fill="#4a1e1e" />
           <rect x="0" y="270" width="1000" height="90" fill="#4a1e1e" />
-
-          {/* Failure labels */}
-          <text x="24" y="55" fill="#ffb4b4" fontSize="18" fontWeight="500">
-            failure region
-          </text>
-          <text x="24" y="325" fill="#ffb4b4" fontSize="18" fontWeight="500">
-            failure region
-          </text>
 
           {/* Safe band */}
           <rect x="0" y="90" width="1000" height="180" fill="#1f3b5f" />
 
-          {/* Safe band label */}
+          {/* Failure labels */}
+          <text x="24" y="55" fill="#ffb4b4" fontSize="18" fontWeight="600">
+            failure region
+          </text>
+          <text x="24" y="325" fill="#ffb4b4" fontSize="18" fontWeight="600">
+            failure region
+          </text>
+
+          {/* Safe band label (uniform style) */}
           <text
             x="500"
-            y="190"
+            y="205"
             textAnchor="middle"
-            fill="#e6f0ff"
-            fontSize="20"
-            fontWeight="500"
+            fill={bandTextFill}
+            fontSize={bandTextSize}
+            fontWeight={bandTextWeight}
           >
             safe band (persistence satisfied)
           </text>
@@ -66,38 +71,79 @@ export default function ValuePage() {
             strokeWidth="4"
           />
 
-          {/* Trajectory callout */}
-          <line x1="360" y1="150" x2="360" y2="175" stroke="#cbd5e1" strokeWidth="1.5" />
-          <rect x="260" y="118" width="200" height="28" rx="6" fill="#020617" stroke="#475569" />
-          <text x="360" y="138" textAnchor="middle" fill="#e5e7eb" fontSize="14">
+          {/* "Internal state over time" label (uniform style, white, no black pill) */}
+          <text
+            x="360"
+            y="140"
+            textAnchor="middle"
+            fill={bandTextFill}
+            fontSize={bandTextSize}
+            fontWeight={bandTextWeight}
+          >
             internal state over time
           </text>
 
-          {/* Exit annotation (far right, no crowding) */}
+          {/* Clear arrow from label to the line */}
           <line
-            x1="900"
-            y1="230"
-            x2="840"
-            y2="205"
-            stroke="#ff6b6b"
+            x1="360"
+            y1="150"
+            x2="360"
+            y2="176"
+            stroke={bandTextFill}
             strokeWidth="2"
-            markerEnd="url(#arrow)"
+            markerEnd="url(#arrowWhite)"
           />
-          <text x="910" y="235" fill="#ffb4b4" fontSize="16" fontWeight="500">
+
+          {/* Exit annotation (higher, with arrow to exact crossing point) */}
+          {/*
+            The safe band lower boundary is y=270.
+            We point to (950,270) — the curve is crossing into failure around there visually.
+          */}
+          <text
+            x="820"
+            y="135"
+            textAnchor="start"
+            fill="#ffb4b4"
+            fontSize="18"
+            fontWeight="700"
+          >
             exits band → fails
           </text>
 
+          <line
+            x1="900"
+            y1="145"
+            x2="950"
+            y2="270"
+            stroke="#ff6b6b"
+            strokeWidth="2.5"
+            markerEnd="url(#arrowRed)"
+          />
+
+          {/* Arrow markers */}
           <defs>
             <marker
-              id="arrow"
+              id="arrowRed"
               viewBox="0 0 10 10"
-              refX="8"
+              refX="9"
               refY="5"
-              markerWidth="6"
-              markerHeight="6"
-              orient="auto-start-reverse"
+              markerWidth="7"
+              markerHeight="7"
+              orient="auto"
             >
               <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff6b6b" />
+            </marker>
+
+            <marker
+              id="arrowWhite"
+              viewBox="0 0 10 10"
+              refX="9"
+              refY="5"
+              markerWidth="7"
+              markerHeight="7"
+              orient="auto"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={bandTextFill} />
             </marker>
           </defs>
         </svg>
