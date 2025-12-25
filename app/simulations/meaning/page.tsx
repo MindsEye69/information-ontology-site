@@ -11,36 +11,30 @@ export default function MeaningPage() {
   const danger = "#ff6b6b";
   const ok = "#7cb8ff";
 
-  const fontSize = 18;
-  const fontWeight = 600;
+  const bandFont = 18;
+  const bandWeight = 650;
 
   return (
     <main className="min-h-screen px-8 py-12" style={{ background: bg, color: "white" }}>
-      {/* Header */}
       <div className="max-w-6xl mx-auto mb-10">
         <div className="text-sky-400 text-sm mb-2">Visual aids · M</div>
         <h1 className="text-4xl font-semibold mb-4">M — Meaning</h1>
         <p className="text-lg text-slate-300 max-w-4xl">
-          In IO, <strong>meaning</strong> is not “in the signal by itself.” Meaning arises when
-          information becomes <strong>relevant to persistence</strong> — relative to a system’s
-          constraint (<strong>V</strong>) and its current situation/context.
+          In IO, <strong>meaning</strong> is not “in the signal by itself.” Meaning arises when information becomes{" "}
+          <strong>relevant to persistence</strong> — relative to a system’s constraint (<strong>V</strong>) and its current
+          situation/context.
         </p>
-        <p className="text-slate-400 mt-2">
-          This diagram is intentionally simple. It is an intuition builder, not a proof.
-        </p>
+        <p className="text-slate-400 mt-2">This diagram is intentionally simple. It is an intuition builder, not a proof.</p>
       </div>
 
-      {/* Main Card */}
       <div
         className="max-w-6xl mx-auto rounded-xl p-8"
         style={{ background: card, border: `1px solid ${border}` }}
       >
         <h2 className="text-xl font-semibold mb-6">Same signal, different meaning</h2>
 
-        {/* Diagram */}
-        <svg viewBox="0 0 1100 520" className="w-full h-auto" aria-label="Meaning diagram">
-          {/* Panel frames */}
-          <rect x="0" y="0" width="1100" height="520" rx="14" fill="#071021" />
+        <svg viewBox="0 0 1100 560" className="w-full h-auto" aria-label="Meaning diagram">
+          <rect x="0" y="0" width="1100" height="560" rx="14" fill="#071021" />
 
           {/* Titles */}
           <text x="80" y="70" fill={textMain} fontSize="22" fontWeight="700">
@@ -51,122 +45,128 @@ export default function MeaningPage() {
           </text>
 
           {/* Divider */}
-          <line x1="550" y1="90" x2="550" y2="460" stroke="#1f2a44" strokeWidth="2" />
+          <line x1="550" y1="90" x2="550" y2="510" stroke="#1f2a44" strokeWidth="2" />
 
-          {/* Common legend header */}
-          <text
-            x="550"
-            y="110"
-            textAnchor="middle"
-            fill={textDim}
-            fontSize="16"
-            fontWeight="600"
-          >
+          {/* Common header */}
+          <text x="550" y="110" textAnchor="middle" fill={textDim} fontSize="16" fontWeight="600">
             Same incoming information (signal): +2°C change
           </text>
 
-          {/* LEFT PANEL — System A */}
-          {/* Temperature band container */}
-          <rect x="70" y="140" width="420" height="220" rx="12" fill="#08152e" stroke={border} />
+          {/* === LEFT PANEL (A) === */}
+          <rect x="70" y="170" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
+          <rect x="70" y="170" width="420" height="60" fill={failBand} opacity="0.92" />
+          <rect x="70" y="230" width="420" height="120" fill={safeBand} opacity="0.96" />
+          <rect x="70" y="350" width="420" height="60" fill={failBand} opacity="0.92" />
 
-          {/* Failure/Safe regions */}
-          <rect x="70" y="140" width="420" height="55" fill={failBand} opacity="0.9" />
-          <rect x="70" y="195" width="420" height="110" fill={safeBand} opacity="0.95" />
-          <rect x="70" y="305" width="420" height="55" fill={failBand} opacity="0.9" />
-
-          <text x="92" y="173" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="92" y="208" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="92" y="338" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="92" y="388" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
 
-          {/* Safe label */}
           <text
             x="280"
-            y="260"
+            y="300"
             textAnchor="middle"
             fill={textMain}
-            fontSize={fontSize}
-            fontWeight={fontWeight}
+            fontSize={bandFont}
+            fontWeight={bandWeight}
           >
             safe band (persistence)
           </text>
 
-          {/* Current state marker (too hot: near top edge of safe band) */}
-          <circle cx="140" cy="210" r="10" fill={danger} />
-          <text x="162" y="214" fill={textDim} fontSize="16" fontWeight="600">
-            current state (near upper boundary)
-          </text>
-
-          {/* Signal arrow: +2°C pushes upward */}
-          <line x1="140" y1="210" x2="140" y2="175" stroke={danger} strokeWidth="3" markerEnd="url(#arrowRed)" />
-          <text x="160" y="182" fill="#ffb4b4" fontSize="16" fontWeight="700">
+          {/* Arrow label moved ABOVE panel (prevents overlap) */}
+          <text x="92" y="150" fill="#ffb4b4" fontSize="16" fontWeight="800">
             +2°C pushes toward failure
           </text>
 
-          {/* Meaning box (left) */}
-          <rect x="70" y="385" width="420" height="75" rx="12" fill="#061025" stroke={border} />
-          <text x="90" y="415" fill={textMain} fontSize="18" fontWeight="800">
-            Meaning (for System A):
-          </text>
-          <text x="90" y="440" fill={textDim} fontSize="16" fontWeight="600">
-            “danger increasing → act to cool / reduce temperature”
+          {/* Current marker (A) */}
+          <circle cx="140" cy="252" r="10" fill={danger} />
+          <text x="166" y="257" fill={textDim} fontSize="15" fontWeight="650">
+            current state (near upper boundary)
           </text>
 
-          {/* RIGHT PANEL — System B */}
-          <rect x="610" y="140" width="420" height="220" rx="12" fill="#08152e" stroke={border} />
+          {/* Arrow (A): upward toward failure */}
+          <line
+            x1="140"
+            y1="252"
+            x2="140"
+            y2="222"
+            stroke={danger}
+            strokeWidth="3"
+            markerEnd="url(#arrowRed)"
+          />
 
-          <rect x="610" y="140" width="420" height="55" fill={failBand} opacity="0.9" />
-          <rect x="610" y="195" width="420" height="110" fill={safeBand} opacity="0.95" />
-          <rect x="610" y="305" width="420" height="55" fill={failBand} opacity="0.9" />
+          {/* === RIGHT PANEL (B) === */}
+          <rect x="610" y="170" width="420" height="240" rx="12" fill="#08152e" stroke={border} />
+          <rect x="610" y="170" width="420" height="60" fill={failBand} opacity="0.92" />
+          <rect x="610" y="230" width="420" height="120" fill={safeBand} opacity="0.96" />
+          <rect x="610" y="350" width="420" height="60" fill={failBand} opacity="0.92" />
 
-          <text x="632" y="173" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="632" y="208" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
-          <text x="632" y="338" fill="#ffb4b4" fontSize="16" fontWeight="650">
+          <text x="632" y="388" fill="#ffb4b4" fontSize="16" fontWeight="650">
             failure region
           </text>
 
           <text
             x="820"
-            y="260"
+            y="300"
             textAnchor="middle"
             fill={textMain}
-            fontSize={fontSize}
-            fontWeight={fontWeight}
+            fontSize={bandFont}
+            fontWeight={bandWeight}
           >
             safe band (persistence)
           </text>
 
-          {/* Current state marker (too cold: near lower edge of safe band) */}
-          <circle cx="680" cy="290" r="10" fill={ok} />
-          <text x="702" y="294" fill={textDim} fontSize="16" fontWeight="600">
-            current state (near lower boundary)
-          </text>
-
-          {/* Same signal arrow: +2°C pushes upward INTO safer area */}
-          <line x1="680" y1="290" x2="680" y2="250" stroke={accent} strokeWidth="3" markerEnd="url(#arrowSky)" />
-          <text x="700" y="255" fill={textDim} fontSize="16" fontWeight="700">
+          {/* Arrow label moved ABOVE panel (prevents overlap) */}
+          <text x="632" y="150" fill={textDim} fontSize="16" fontWeight="800">
             +2°C moves toward stability
           </text>
 
-          {/* Meaning box (right) */}
-          <rect x="610" y="385" width="420" height="75" rx="12" fill="#061025" stroke={border} />
-          <text x="630" y="415" fill={textMain} fontSize="18" fontWeight="800">
+          {/* Current marker (B) */}
+          <circle cx="680" cy="328" r="10" fill={ok} />
+          <text x="706" y="333" fill={textDim} fontSize="15" fontWeight="650">
+            current state (near lower boundary)
+          </text>
+
+          {/* Arrow (B): upward into safer region */}
+          <line
+            x1="680"
+            y1="328"
+            x2="680"
+            y2="288"
+            stroke={accent}
+            strokeWidth="3"
+            markerEnd="url(#arrowSky)"
+          />
+
+          {/* Meaning boxes */}
+          <rect x="70" y="435" width="420" height="70" rx="12" fill="#061025" stroke={border} />
+          <text x="90" y="463" fill={textMain} fontSize="17" fontWeight="800">
+            Meaning (for System A):
+          </text>
+          <text x="90" y="488" fill={textDim} fontSize="15" fontWeight="650">
+            “danger increasing → act to cool / reduce temperature”
+          </text>
+
+          <rect x="610" y="435" width="420" height="70" rx="12" fill="#061025" stroke={border} />
+          <text x="630" y="463" fill={textMain} fontSize="17" fontWeight="800">
             Meaning (for System B):
           </text>
-          <text x="630" y="440" fill={textDim} fontSize="16" fontWeight="600">
+          <text x="630" y="488" fill={textDim} fontSize="15" fontWeight="650">
             “relief / safer → act less (or conserve effort)”
           </text>
 
           {/* Bottom takeaway */}
-          <rect x="70" y="470" width="960" height="36" rx="10" fill="#071a33" stroke="#1f2a44" />
-          <text x="550" y="494" textAnchor="middle" fill={textMain} fontSize="16" fontWeight="700">
+          <rect x="70" y="520" width="960" height="28" rx="10" fill="#071a33" stroke="#1f2a44" />
+          <text x="550" y="540" textAnchor="middle" fill={textMain} fontSize="14" fontWeight="800">
             Meaning is not in the signal alone — it arises from Signal × Value × Context → action relevance.
           </text>
 
-          {/* Arrow markers */}
           <defs>
             <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={danger} />
@@ -177,15 +177,14 @@ export default function MeaningPage() {
           </defs>
         </svg>
 
-        {/* Text under diagram */}
         <div className="mt-6 text-slate-300 text-base max-w-5xl space-y-2">
           <p>
-            The <strong>same</strong> incoming information (“+2°C”) produces different meaning because each
-            system is in a different situation relative to its persistence band.
+            The <strong>same</strong> incoming information (“+2°C”) produces different meaning because each system is in a
+            different situation relative to its persistence band.
           </p>
           <p className="text-slate-400">
-            IO takeaway: meaning is <em>constraint-relative relevance</em> — what a piece of information
-            implies for staying inside (or leaving) the band.
+            IO takeaway: meaning is <em>constraint-relative relevance</em> — what a piece of information implies for
+            staying inside (or leaving) the band.
           </p>
         </div>
       </div>
