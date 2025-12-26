@@ -65,6 +65,17 @@ export default function StartIndexPage() {
           <li>Meaning – patterns weaving into stories and expectations.</li>
           <li>Purpose – how meaning and value guide action.</li>
           <li>Summary – your “toolkit” for the rest of the site.</li>
+		  <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+  <h3 className="text-base font-semibold">
+    <Link href="/start/time-and-direction" className="hover:underline">
+      Why time has a direction
+    </Link>
+       </h3>
+           <p className="mt-1 text-sm text-slate-300">
+           A gentle introduction to time, constraint, and why the future behaves
+           differently from the past.
+           </p>
+		  </li>
         </ol>
       </section>
 
