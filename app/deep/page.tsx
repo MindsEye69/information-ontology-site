@@ -60,6 +60,17 @@ export default function DeepDiveIndexPage() {
               ontological primitive, with propositions and proof sketches.
             </p>
           </li>
+		  <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+            <h3 className="text-base font-semibold">
+              <Link href="/deep/time-constraint-direction" className="hover:underline">
+               Time, Constraint, and Direction — Deep Dive
+          </Link>
+  </h3>
+  <p className="mt-1 text-sm text-slate-300">
+    A lay-friendly deep dive explaining why time has a direction as a
+    consequence of constraint asymmetry and expanding possibility space.
+  </p>
+</li>
 
           {/* You can keep adding entries for other stages as they’re ready */}
         </ul>
