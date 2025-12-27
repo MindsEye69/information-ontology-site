@@ -30,7 +30,7 @@ export default function FormalPlannedPage() {
         <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
           <li>Definitions and notation used in the formal treatment.</li>
           <li>Propositions / lemmas tied directly to the IO derivation chain.</li>
-          <li>Proof sketches (kept readable, but technically honest).</li>
+          <li>Proof sketches (illustrating the formal structure of the argument).</li>
           <li>Optional links to supporting mathematics (sets, graphs, metrics, etc.).</li>
         </ul>
         <p className="text-sm text-slate-300 leading-relaxed">
