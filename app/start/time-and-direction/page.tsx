@@ -89,10 +89,10 @@ export default function TimeAndDirectionStartPage() {
           more detail, with examples, analogies, and careful reasoning.
         </p>
         <Link href="/deep/time-constraint-direction">
-          <Button className="mt-2 bg-emerald-600 hover:bg-emerald-500 text-black">
-            Go deeper: Time, Constraint, and Direction
-          </Button>
-        </Link>
+		<Button variant="outline" className="mt-2 border-slate-700 w-full sm:w-auto">
+			Go deeper: Time, Constraint, and Direction
+		</Button>
+		</Link>
       </section>
 
       <section className="pt-6">
