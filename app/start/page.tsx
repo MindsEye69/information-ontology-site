@@ -54,8 +54,9 @@ export default function StartIndexPage() {
       </section>
 
       {/* Steps list */}
-      <section className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
         <h2 className="text-lg font-semibold">The steps ahead</h2>
+
         <ol className="list-decimal list-inside text-sm text-slate-300 space-y-1">
           <li>Difference – starting from the tiniest possible “something”.</li>
           <li>Relation – how differences lean on each other.</li>
@@ -65,18 +66,26 @@ export default function StartIndexPage() {
           <li>Meaning – patterns weaving into stories and expectations.</li>
           <li>Purpose – how meaning and value guide action.</li>
           <li>Summary – your “toolkit” for the rest of the site.</li>
-		  <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
-  <h3 className="text-base font-semibold">
-    <Link href="/start/time-and-direction" className="hover:underline">
-      Why time has a direction
-    </Link>
-       </h3>
-           <p className="mt-1 text-sm text-slate-300">
-           A gentle introduction to time, constraint, and why the future behaves
-           differently from the past.
-           </p>
-		  </li>
         </ol>
+
+        {/* Optional detour (not part of the numbered path) */}
+        <div className="pt-3 border-t border-slate-800">
+          <p className="text-xs font-semibold tracking-wide text-slate-400">
+            Optional detour
+          </p>
+
+          <div className="mt-2 rounded-xl border border-slate-800 bg-slate-950/30 p-4 hover:bg-slate-900/40 transition-colors">
+            <h3 className="text-sm font-semibold text-slate-100">
+              <Link href="/start/time-and-direction" className="hover:underline">
+                Why time has a direction
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300 leading-relaxed">
+              A gentle introduction to time, constraint, and why the future behaves
+              differently from the past.
+            </p>
+          </div>
+        </div>
       </section>
 
       <StepNav nextHref="/start/difference" nextLabel="Begin with Difference" />
