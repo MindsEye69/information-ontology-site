@@ -12,10 +12,10 @@ export default function DeepDiveIndexPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12">
       <header className="mb-8 border-b border-slate-800 pb-6">
-        <p className="text-sm uppercase tracking-wide text-slate-400">
+        <p className="text-sm font-semibold tracking-wide text-sky-400">
           Deep Dive
         </p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
           Informational Ontology — Technical Exposition
         </h1>
         <p className="mt-4 max-w-3xl text-sm text-slate-300">
@@ -60,17 +60,77 @@ export default function DeepDiveIndexPage() {
               ontological primitive, with propositions and proof sketches.
             </p>
           </li>
-		  <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+
+          <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
             <h3 className="text-base font-semibold">
-              <Link href="/deep/time-constraint-direction" className="hover:underline">
-               Time, Constraint, and Direction — Deep Dive
-          </Link>
-  </h3>
-  <p className="mt-1 text-sm text-slate-300">
-    A lay-friendly deep dive explaining why time has a direction as a
-    consequence of constraint asymmetry and expanding possibility space.
-  </p>
-</li>
+              <Link
+                href="/deep/time-constraint-direction"
+                className="hover:underline"
+              >
+                Time, Constraint, and Direction — Deep Dive
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              A lay-friendly deep dive explaining why time has a direction as a
+              consequence of constraint asymmetry and expanding possibility
+              space.
+            </p>
+          </li>
+
+          {/* Coming soon: placeholders for the rest of the chain */}
+          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
+            <h3 className="text-base font-semibold text-slate-200">
+              Relation (R) — Deep Dive <span className="text-slate-400">(coming soon)</span>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              How differences connect, depend, and form the first stable structure.
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
+            <h3 className="text-base font-semibold text-slate-200">
+              Information (I) — Deep Dive <span className="text-slate-400">(coming soon)</span>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              When relational structure becomes pattern, constraint, and “difference that matters.”
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
+            <h3 className="text-base font-semibold text-slate-200">
+              Awareness (A) — Deep Dive <span className="text-slate-400">(coming soon)</span>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              When information becomes integrated enough to regulate the system that carries it.
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
+            <h3 className="text-base font-semibold text-slate-200">
+              Value (V) — Deep Dive <span className="text-slate-400">(coming soon)</span>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              Why “better/worse” appears naturally once awareness exists.
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
+            <h3 className="text-base font-semibold text-slate-200">
+              Meaning (M) — Deep Dive <span className="text-slate-400">(coming soon)</span>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              How value organizes information into interpretations, stories, and expectations.
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
+            <h3 className="text-base font-semibold text-slate-200">
+              Purpose (P) — Deep Dive <span className="text-slate-400">(coming soon)</span>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              How meaning extended through time becomes directed action.
+            </p>
+          </li>
 
           {/* You can keep adding entries for other stages as they’re ready */}
         </ul>

@@ -14,7 +14,7 @@ export default function TimeAndDirectionStartPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-12 space-y-10">
       <section className="space-y-4">
-        <p className="text-sm font-semibold tracking-wide text-emerald-400">
+        <p className="text-sm font-semibold tracking-wide text-sky-400">
           Start here · Big questions
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -80,7 +80,7 @@ export default function TimeAndDirectionStartPage() {
         </p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-emerald-800/40 bg-emerald-950/30 p-4">
+      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
         <h2 className="text-lg font-semibold">
           Want the full explanation?
         </h2>
@@ -89,10 +89,13 @@ export default function TimeAndDirectionStartPage() {
           more detail, with examples, analogies, and careful reasoning.
         </p>
         <Link href="/deep/time-constraint-direction">
-		<Button variant="outline" className="mt-2 border-slate-700 w-full sm:w-auto">
-			Go deeper: Time, Constraint, and Direction
-		</Button>
-		</Link>
+          <Button
+            variant="outline"
+            className="mt-2 border-slate-700 w-full sm:w-auto"
+          >
+            Go deeper: Time, Constraint, and Direction
+          </Button>
+        </Link>
       </section>
 
       <section className="pt-6">
