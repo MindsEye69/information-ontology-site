@@ -1,139 +1,60 @@
 // app/deep/purpose/formal/page.tsx
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Purpose (P) – Technical notes | Informational Ontology",
+  title: "Purpose (P) — Formal layer (planned) | Informational Ontology",
   description:
-    "Formal exposition of Purpose (P) as teleological structure arising from meaning, value gradients, and informational persistence.",
+    "Placeholder page for the formal/technical layer of Purpose (P) in the Informational Ontology Deep Dive.",
 };
 
-export default function FormalPurposePage() {
+export default function FormalPlannedPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
-
-      {/* Header */}
       <section className="space-y-3">
-        <p className="text-sm font-semibold tracking-wide text-purple-400">
-          Technical notes · Purpose (P)
+        <p className="text-sm font-semibold tracking-wide text-sky-400">
+          Formal layer · P — Purpose
         </p>
-        <h1 className="text-2xl font-semibold tracking-tight text-slate-50">
-          P as Teleological Extension of Meaning
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Purpose (P) — Formal page (planned)
         </h1>
-        <p className="text-sm text-slate-300">
-          This page provides the formal definition of Purpose (P) as the
-          long-horizon teleological orientation of an informational system whose
-          meaning structures guide its trajectory through state space.
+        <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
+          You&apos;re looking at a placeholder. The formal/technical layer for
+          this module is planned for <span className="font-semibold">Revision 5</span>.
         </p>
       </section>
 
-      {/* 1. Preliminaries */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-slate-50">1. Preliminaries</h2>
-        <p className="text-sm text-slate-300">
-          Let S be an informationally-aware system with:
-        </p>
-        <ul className="list-disc pl-5 text-sm text-slate-300">
-          <li>state space Ω</li>
-          <li>transition structure T</li>
-          <li>Value functional V</li>
-          <li>Meaning structure M: Ω → ℳ, where ℳ is a semantic space</li>
+      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+        <h2 className="text-lg font-semibold">What will live here later</h2>
+        <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
+          <li>Definitions and notation used in the formal treatment.</li>
+          <li>Propositions / lemmas tied directly to the IO derivation chain.</li>
+          <li>Proof sketches (kept readable, but technically honest).</li>
+          <li>Optional links to supporting mathematics (sets, graphs, metrics, etc.).</li>
         </ul>
-        <p className="text-sm text-slate-300">
-          Purpose is not reducible to Value or Meaning alone. It is a temporal
-          structure: an orientation of behavior across extended horizons.
+        <p className="text-sm text-slate-300 leading-relaxed">
+          Until Rev 5, use the main Deep Dive page for this topic.
         </p>
       </section>
 
-      {/* 2. Definition */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-slate-50">
-          2. Formal Definition of Purpose
-        </h2>
-
-        <p className="font-mono text-base text-slate-200">
-          Definition (Purpose Functional).  
-          P: Ω × ℕ → ℝ is a functional assigning long-term expected evaluative
-          return to a trajectory beginning in state x₀.
-        </p>
-
-        <p className="text-sm text-slate-300">
-          Purpose extends Value into projected futures; it encodes the system’s
-          teleological orientation.
-        </p>
-
-        <p className="font-mono text-base text-slate-200">
-          P(x₀, τ) = E[ Σₙ γⁿ V(xₙ) | T, M ]
-        </p>
-
-        <p className="text-sm text-slate-300">
-          where γ ∈ (0,1] is a temporal discount factor and τ is a feasible
-          trajectory under the system dynamics. This mirrors decision-theoretic
-          formulations but is grounded in informational ontology rather than
-          external reward.
-        </p>
-      </section>
-
-      {/* 3. Derivation */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-slate-50">
-          3. Deriving Purpose from Meaning
-        </h2>
-
-        <p className="text-sm text-slate-300">
-          Meaning structures M provide semantic relevance over states. Purpose
-          emerges when these semantic relations guide the selection of
-          trajectories in Ω.
-        </p>
-
-        <p className="font-mono text-base text-slate-200">
-          Proposition 1.  
-          If Meaning assigns relevance structures over Ω, and Value assigns
-          evaluative gradients, then Purpose exists as the temporal extension
-          that selects trajectories maximizing long-term coherence.
-        </p>
-
-        <p className="font-mono text-base text-slate-200">
-          Proposition 2 (Teleological Necessity).  
-          In any system with stable meaning structures, purpose is the unique
-          functional that encodes the consistent pursuit of relevance-weighted
-          evaluative futures.
-        </p>
-      </section>
-
-      {/* 4. Purpose as teleological dynamics */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-slate-50">
-          4. Purpose as Informational Teleodynamics
-        </h2>
-        <p className="text-sm text-slate-300">
-          Purpose describes directional behavior that cannot be captured by
-          instantaneous Value alone. It identifies attractors in extended
-          informational dynamics, often corresponding to goals, projects,
-          missions, or long-term stabilizing structures.
-        </p>
-      </section>
-
-      {/* 5. Conclusion */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-slate-50">5. Conclusion</h2>
-        <p className="text-sm text-slate-300">
-          Purpose (P) formalizes the teleological structure at the apex of the
-          IO chain: the long-term orientation of an informational system toward
-          states that preserve or extend its meaning and value structures. This
-          completes the formal Δ → R → I → A → V → M → P hierarchy.
-        </p>
-      </section>
-
-      {/* Back link */}
-      <section className="border-t border-slate-800 pt-6">
-        <Link href="/deep/purpose">
-          <Button variant="outline" className="border-slate-700">
-            ← Back to Purpose deep dive
-          </Button>
-        </Link>
+      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+        <h2 className="text-lg font-semibold">Navigation</h2>
+        <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+          <Link href="/deep/purpose" className="sm:w-1/2 w-full">
+            <Button variant="outline" className="w-full border-slate-700">
+              Back to Purpose (P)
+            </Button>
+          </Link>
+          <Link href="/deep" className="sm:w-1/2 w-full">
+            <Button
+              variant="outline"
+              className="w-full border-sky-700/60 text-sky-300 hover:bg-sky-950/40"
+            >
+              Back to Deep Dive index
+            </Button>
+          </Link>
+        </div>
       </section>
     </main>
   );

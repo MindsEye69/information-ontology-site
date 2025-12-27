@@ -47,17 +47,120 @@ export default function DeepDiveIndexPage() {
               the minimal ontological starting point. Links onward to the
               formal axiomatization.
             </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/delta/formal" className="text-sky-300 hover:underline">
+                Δ — Formal Axiomatization
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
+            </p>
           </li>
 
           <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
             <h3 className="text-base font-semibold">
-              <Link href="/deep/delta/formal" className="hover:underline">
-                Difference (Δ) — Formal Axiomatization
+              <Link href="/deep/relation" className="hover:underline">
+                Relation (R) — Deep Dive
               </Link>
             </h3>
             <p className="mt-1 text-sm text-slate-300">
-              PhD-level, formal treatment of Δ as the unique, non-derivable
-              ontological primitive, with propositions and proof sketches.
+              How differences connect, depend, and form the first stable structure.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/relation/formal" className="text-sky-300 hover:underline">
+                R — Technical notes
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+            <h3 className="text-base font-semibold">
+              <Link href="/deep/information" className="hover:underline">
+                Information (I) — Deep Dive
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              When relational structure becomes pattern, constraint, and “difference that matters.”
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/information/formal" className="text-sky-300 hover:underline">
+                I — Technical notes
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+            <h3 className="text-base font-semibold">
+              <Link href="/deep/awareness" className="hover:underline">
+                Awareness (A) — Deep Dive
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              When information becomes integrated enough to regulate the system that carries it.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/awareness/formal" className="text-sky-300 hover:underline">
+                A — Technical notes
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+            <h3 className="text-base font-semibold">
+              <Link href="/deep/value" className="hover:underline">
+                Value (V) — Deep Dive
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              Why “better/worse” appears naturally once awareness exists.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/value/formal" className="text-sky-300 hover:underline">
+                V — Technical notes
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+            <h3 className="text-base font-semibold">
+              <Link href="/deep/meaning" className="hover:underline">
+                Meaning (M) — Deep Dive
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              How value organizes information into interpretations, stories, and expectations.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/meaning/formal" className="text-sky-300 hover:underline">
+                M — Technical notes
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
+            </p>
+          </li>
+
+          <li className="rounded-lg border border-slate-800 p-4 hover:bg-slate-900/60">
+            <h3 className="text-base font-semibold">
+              <Link href="/deep/purpose" className="hover:underline">
+                Purpose (P) — Deep Dive
+              </Link>
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              How meaning extended through time becomes directed action.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              Formal layer: {" "}
+              <Link href="/deep/purpose/formal" className="text-sky-300 hover:underline">
+                P — Technical notes
+              </Link>{" "}
+              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -76,63 +179,6 @@ export default function DeepDiveIndexPage() {
               space.
             </p>
           </li>
-
-          {/* Coming soon: placeholders for the rest of the chain */}
-          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
-            <h3 className="text-base font-semibold text-slate-200">
-              Relation (R) — Deep Dive <span className="text-slate-400">(coming soon)</span>
-            </h3>
-            <p className="mt-1 text-sm text-slate-300">
-              How differences connect, depend, and form the first stable structure.
-            </p>
-          </li>
-
-          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
-            <h3 className="text-base font-semibold text-slate-200">
-              Information (I) — Deep Dive <span className="text-slate-400">(coming soon)</span>
-            </h3>
-            <p className="mt-1 text-sm text-slate-300">
-              When relational structure becomes pattern, constraint, and “difference that matters.”
-            </p>
-          </li>
-
-          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
-            <h3 className="text-base font-semibold text-slate-200">
-              Awareness (A) — Deep Dive <span className="text-slate-400">(coming soon)</span>
-            </h3>
-            <p className="mt-1 text-sm text-slate-300">
-              When information becomes integrated enough to regulate the system that carries it.
-            </p>
-          </li>
-
-          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
-            <h3 className="text-base font-semibold text-slate-200">
-              Value (V) — Deep Dive <span className="text-slate-400">(coming soon)</span>
-            </h3>
-            <p className="mt-1 text-sm text-slate-300">
-              Why “better/worse” appears naturally once awareness exists.
-            </p>
-          </li>
-
-          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
-            <h3 className="text-base font-semibold text-slate-200">
-              Meaning (M) — Deep Dive <span className="text-slate-400">(coming soon)</span>
-            </h3>
-            <p className="mt-1 text-sm text-slate-300">
-              How value organizes information into interpretations, stories, and expectations.
-            </p>
-          </li>
-
-          <li className="rounded-lg border border-slate-800/60 p-4 opacity-70">
-            <h3 className="text-base font-semibold text-slate-200">
-              Purpose (P) — Deep Dive <span className="text-slate-400">(coming soon)</span>
-            </h3>
-            <p className="mt-1 text-sm text-slate-300">
-              How meaning extended through time becomes directed action.
-            </p>
-          </li>
-
-          {/* You can keep adding entries for other stages as they’re ready */}
         </ul>
       </section>
     </main>
