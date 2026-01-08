@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Mail } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -112,7 +113,31 @@ export default function HomePage() {
           page.
         </p>
       </section>
-    <p className="mt-6 text-sm opacity-70">For philosophical background and positioning, see the <a href="/context" className="underline">Context</a> page.</p>
-</main>
+
+      {/* Context link */}
+      <section>
+        <p className="text-xs text-slate-500">
+          For philosophical background and positioning, see the{" "}
+          <Link
+            href="/context"
+            className="text-sky-400 hover:text-sky-300 font-medium"
+          >
+            Context
+          </Link>{" "}
+          page.
+        </p>
+      </section>
+
+      {/* Contact */}
+      <section className="pt-4">
+        <a
+          href="mailto:info@informationontology.org"
+          className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-slate-300"
+        >
+          <Mail className="h-4 w-4" aria-hidden="true" />
+          info@informationontology.org
+        </a>
+      </section>
+    </main>
   );
 }

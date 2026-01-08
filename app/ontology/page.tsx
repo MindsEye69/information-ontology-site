@@ -131,6 +131,83 @@ export default function OntologyPage() {
           to smuggle in anything else. Each stage deepens what came before.
         </p>
 
+        {/* How the chain derives */}
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 className="text-sm font-semibold">How each step follows</h3>
+          <p className="mt-1 text-xs text-slate-400 leading-relaxed max-w-3xl">
+            These are short, non-technical bridges between stages. The Deep Dive pages
+            give the full argumentation.
+          </p>
+
+          <div className="mt-4 space-y-2">
+            <details className="group rounded-xl border border-slate-800 bg-slate-950/20 p-3">
+              <summary className="cursor-pointer list-none text-sm font-medium text-slate-200">
+                Δ → R: Difference implies relation
+                <span className="ml-2 text-xs text-slate-500 group-open:hidden">(open)</span>
+              </summary>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                A difference is never “alone”: to differ is to stand in contrast. Boundaries,
+                gradients, and contrasts are relations among differences, not additions on top of them.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-slate-800 bg-slate-950/20 p-3">
+              <summary className="cursor-pointer list-none text-sm font-medium text-slate-200">
+                R → I: Structured relation becomes information
+                <span className="ml-2 text-xs text-slate-500 group-open:hidden">(open)</span>
+              </summary>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                When relations form stable patterns, they rule in and rule out possibilities.
+                That constraint is what IO calls information: structured difference with implications.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-slate-800 bg-slate-950/20 p-3">
+              <summary className="cursor-pointer list-none text-sm font-medium text-slate-200">
+                I → A: Awareness is informational reflexivity
+                <span className="ml-2 text-xs text-slate-500 group-open:hidden">(open)</span>
+              </summary>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                A system becomes aware when information is not only present, but internally registered
+                such that the system’s own informational state constrains its future state-space.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-slate-800 bg-slate-950/20 p-3">
+              <summary className="cursor-pointer list-none text-sm font-medium text-slate-200">
+                A → V: Persistence creates preference
+                <span className="ml-2 text-xs text-slate-500 group-open:hidden">(open)</span>
+              </summary>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                Once a system can track alternative states, some states support its continued coherence
+                and others undermine it. That differentiation is value: better and worse outcomes for the system.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-slate-800 bg-slate-950/20 p-3">
+              <summary className="cursor-pointer list-none text-sm font-medium text-slate-200">
+                V → M: Meaning is value structured in context
+                <span className="ml-2 text-xs text-slate-500 group-open:hidden">(open)</span>
+              </summary>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                Meaning is not an inherent property of information. It emerges when information is filtered
+                through value—when what matters is organized across an internal landscape of alternatives and implications.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-slate-800 bg-slate-950/20 p-3">
+              <summary className="cursor-pointer list-none text-sm font-medium text-slate-200">
+                M → P: Purpose projects meaning through time
+                <span className="ml-2 text-xs text-slate-500 group-open:hidden">(open)</span>
+              </summary>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                Purpose is meaning stabilized into directed trajectories. It is value and meaning extended over time,
+                shaping consistent action rather than isolated responses.
+              </p>
+            </details>
+          </div>
+        </div>
+
         <div className="grid gap-4 md:grid-cols-2">
           {stages.map((stage) => (
             <div

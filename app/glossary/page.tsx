@@ -64,6 +64,11 @@ export default function GlossaryPage() {
               Structured differences that rule in or rule out possibilities.
               Information is what patterned difference does when it constrains
               how things can be.
+              {" "}
+              <span className="text-slate-400">
+                In IO, “information” is used in a structural, ontological sense,
+                not in the Shannon/communication sense.
+              </span>
             </dd>
           </div>
 
