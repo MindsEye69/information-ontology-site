@@ -112,6 +112,7 @@ export default function HomePage() {
           page.
         </p>
       </section>
-    </main>
+    <p className="mt-6 text-sm opacity-70">For philosophical background and positioning, see the <a href="/context" className="underline">Context</a> page.</p>
+</main>
   );
 }
