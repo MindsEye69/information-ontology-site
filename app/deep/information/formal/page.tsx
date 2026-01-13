@@ -40,10 +40,10 @@ export default function FormalPage() {
         <h2 className="text-lg font-semibold">Navigation</h2>
         <div className="flex flex-wrap gap-3">
           <Link href="/deep/relation/formal">
-            <Button variant="secondary">← Previous</Button>
+            <Button variant="outline">← Previous</Button>
           </Link>
           <Link href="/deep">
-            <Button variant="secondary">Deep Dive index</Button>
+            <Button variant="outline">Deep Dive index</Button>
           </Link>
           <Link href="/deep/awareness/formal">
             <Button>Next →</Button>

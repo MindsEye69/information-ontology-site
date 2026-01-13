@@ -72,13 +72,13 @@ export default function FAQPage() {
         <h2 className="text-lg font-semibold">Next</h2>
         <div className="flex flex-wrap gap-3">
           <Link href="/abstract">
-            <Button variant="secondary">Abstract</Button>
+            <Button variant="outline">Abstract</Button>
           </Link>
           <Link href="/ontology">
             <Button>Explore the chain</Button>
           </Link>
           <Link href="/deep">
-            <Button variant="secondary">Deep Dive</Button>
+            <Button variant="outline">Deep Dive</Button>
           </Link>
         </div>
       </section>
