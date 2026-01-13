@@ -4,12 +4,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Meaning (M) — Formal layer (planned) | Informational Ontology",
-  description:
-    "Placeholder page for the formal/technical layer of Meaning (M) in the Informational Ontology Deep Dive.",
+  title: "Meaning (M) — Formal layer | Informational Ontology",
+  description: "Meaning as structured value within awareness (V → M) (Rev 5).",
 };
 
-export default function FormalPlannedPage() {
+export default function FormalPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <section className="space-y-3">
@@ -17,42 +16,34 @@ export default function FormalPlannedPage() {
           Formal layer · M — Meaning
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Meaning (M) — Formal page (planned)
+          Meaning (M)
         </h1>
-        <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
-          You&apos;re looking at a placeholder. The formal/technical layer for
-          this module is planned for <span className="font-semibold">Revision 5</span>.
+        <p className="max-w-3xl text-sm text-slate-400 leading-relaxed">
+          This page is a structured extract of the Rev 5 master text (Section 7.1).
+          It is intended as a precise anchor for the “Deep Dive” section, not as an expansion of the ontology.
         </p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-        <h2 className="text-lg font-semibold">What will live here later</h2>
-        <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
-          <li>Definitions and notation used in the formal treatment.</li>
-          <li>Propositions / lemmas tied directly to the IO derivation chain.</li>
-          <li>Proof sketches (illustrating the formal structure of the argument).</li>
-          <li>Optional links to supporting mathematics (sets, graphs, metrics, etc.).</li>
-        </ul>
-        <p className="text-sm text-slate-300 leading-relaxed">
-          Until Rev 5, use the main Deep Dive page for this topic.
-        </p>
+      <section className="space-y-4">
+        <p className="text-base text-slate-300 leading-relaxed">M) Value alone does not yet constitute meaning. Value establishes differential importance within awareness, but meaning arises when those valued distinctions are organized into coherent patterns that relate present states to other states across time, context, or possibility. Meaning is structured value within awareness. Clarification: Terms such as interpretation, reference, understanding, and anticipation are used here as descriptive correspondences to structural organization, not as semantic primitives.</p>
+        <p className="text-base text-slate-300 leading-relaxed">Ontologically, meaning refers to the organization of value across possible system transitions. Semantic vocabulary functions as shorthand for these structural relations and does not introduce representational or linguistic commitments beyond what is structurally specified. A system encounters meaning when informational states are not only weighted, but interpreted relative to other valued states—past, anticipated, or counterfactual. Meaning therefore introduces internal reference.</p>
+        <p className="text-base text-slate-300 leading-relaxed">A given state means something to a system when it stands in an organized relationship to other states that the system values. Meaning is not language-dependent. Linguistic symbols may encode or express meaning, but they do not generate it. Meaning precedes language and is possible wherever values are organized into relational structures that guide interpretation and response. Meaning is likewise not reducible to semantics in the formal sense.</p>
+        <p className="text-base text-slate-300 leading-relaxed">Formal semantics presupposes meaningful distinctions; it does not explain their origin. In the Informational Ontology, meaning emerges when value constrains awareness in a way that produces internally coherent interpretive patterns. Meaning is therefore neither purely subjective nor externally imposed. It arises from the interaction between awareness and value within a system.</p>
+        <p className="text-base text-slate-300 leading-relaxed">Different systems may instantiate different meanings even when exposed to the same information, because meaning depends on the system’s internal value structure. The transition from value to meaning—denoted as V → M—marks the point at which awareness becomes interpretive rather than merely oriented. With meaning, informational states acquire significance beyond immediate salience, enabling understanding, anticipation, and context-sensitive response.</p>
+        <p className="text-base text-slate-300 leading-relaxed">For extended discussion of meaning in relation to language, symbols, interpretation, and cross-system divergence, see Appendix C. Part VIII — Purpose</p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+      <section className="rounded-2xl border border-slate-800 bg-slate-900/30 p-6 space-y-3">
         <h2 className="text-lg font-semibold">Navigation</h2>
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <Link href="/deep/meaning" className="sm:w-1/2 w-full">
-            <Button variant="outline" className="w-full border-slate-700">
-              Back to Meaning (M)
-            </Button>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/deep/value/formal">
+            <Button variant="secondary">← Previous</Button>
           </Link>
-          <Link href="/deep" className="sm:w-1/2 w-full">
-            <Button
-              variant="outline"
-              className="w-full border-sky-700/60 text-sky-300 hover:bg-sky-950/40"
-            >
-              Back to Deep Dive index
-            </Button>
+          <Link href="/deep">
+            <Button variant="secondary">Deep Dive index</Button>
+          </Link>
+          <Link href="/deep/purpose/formal">
+            <Button>Next →</Button>
           </Link>
         </div>
       </section>

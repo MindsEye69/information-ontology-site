@@ -4,12 +4,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Value (V) — Formal layer (planned) | Informational Ontology",
-  description:
-    "Placeholder page for the formal/technical layer of Value (V) in the Informational Ontology Deep Dive.",
+  title: "Value (V) — Formal layer | Informational Ontology",
+  description: "Value as differential constraint on awareness (A → V) (Rev 5).",
 };
 
-export default function FormalPlannedPage() {
+export default function FormalPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <section className="space-y-3">
@@ -17,42 +16,33 @@ export default function FormalPlannedPage() {
           Formal layer · V — Value
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Value (V) — Formal page (planned)
+          Value (V)
         </h1>
-        <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
-          You&apos;re looking at a placeholder. The formal/technical layer for
-          this module is planned for <span className="font-semibold">Revision 5</span>.
+        <p className="max-w-3xl text-sm text-slate-400 leading-relaxed">
+          This page is a structured extract of the Rev 5 master text (Section 6.1).
+          It is intended as a precise anchor for the “Deep Dive” section, not as an expansion of the ontology.
         </p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-        <h2 className="text-lg font-semibold">What will live here later</h2>
-        <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
-          <li>Definitions and notation used in the formal treatment.</li>
-          <li>Propositions / lemmas tied directly to the IO derivation chain.</li>
-          <li>Proof sketches (illustrating the formal structure of the argument).</li>
-          <li>Optional links to supporting mathematics (sets, graphs, metrics, etc.).</li>
-        </ul>
-        <p className="text-sm text-slate-300 leading-relaxed">
-          Until Rev 5, use the main Deep Dive page for this topic.
-        </p>
+      <section className="space-y-4">
+        <p className="text-base text-slate-300 leading-relaxed">Awareness alone does not yet yield value. Awareness registers information from a perspective, but without preference, salience, or constraint, all registered information would be equivalent. Value arises when distinctions within awareness are not merely registered, but weighted. Value is the introduction of differential importance within awareness. It is the condition under which some informational states matter more than others to a system. This “mattering” is not moral, semantic, or cultural by default.</p>
+        <p className="text-base text-slate-300 leading-relaxed">It is structural. Value specifies which differences are favored, avoided, preserved, or suppressed relative to the system’s continued organization. Value therefore introduces constraint. Where awareness opens a field of possible informational states, value shapes that field by biasing transitions within it. A system with values is not merely aware of differences; it is oriented with respect to them. Value is not reducible to desire, emotion, or subjective feeling, though such phenomena may instantiate it.</p>
+        <p className="text-base text-slate-300 leading-relaxed">Nor is value equivalent to external norms or objective prescriptions. At this stage of the ontology, value is defined solely by its structural role: it constrains the dynamics of awareness. Because value arises only once awareness is present, value cannot exist in purely informational systems lacking perspective. Conversely, once awareness exists within a system that persists under ordering, some form of value becomes structurally unavoidable for that system.</p>
+        <p className="text-base text-slate-300 leading-relaxed">To register information from a perspective is already to differentiate relevance, even if only minimally. The transition from awareness to value is therefore necessary rather than optional. It is denoted as A → V. With value, awareness ceases to be neutral and becomes oriented. This orientation is the precondition for meaning, agency, and purpose. For clarifications and boundary conditions concerning value—including neutrality, minimal value systems, moral misinterpretations, and artificial systems—see Appendix B.</p>
+        <p className="text-base text-slate-300 leading-relaxed">Part VII — Meaning</p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+      <section className="rounded-2xl border border-slate-800 bg-slate-900/30 p-6 space-y-3">
         <h2 className="text-lg font-semibold">Navigation</h2>
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <Link href="/deep/value" className="sm:w-1/2 w-full">
-            <Button variant="outline" className="w-full border-slate-700">
-              Back to Value (V)
-            </Button>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/deep/awareness/formal">
+            <Button variant="secondary">← Previous</Button>
           </Link>
-          <Link href="/deep" className="sm:w-1/2 w-full">
-            <Button
-              variant="outline"
-              className="w-full border-sky-700/60 text-sky-300 hover:bg-sky-950/40"
-            >
-              Back to Deep Dive index
-            </Button>
+          <Link href="/deep">
+            <Button variant="secondary">Deep Dive index</Button>
+          </Link>
+          <Link href="/deep/meaning/formal">
+            <Button>Next →</Button>
           </Link>
         </div>
       </section>

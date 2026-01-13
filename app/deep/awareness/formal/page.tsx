@@ -4,12 +4,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Awareness (A) — Formal layer (planned) | Informational Ontology",
-  description:
-    "Placeholder page for the formal/technical layer of Awareness (A) in the Informational Ontology Deep Dive.",
+  title: "Awareness (A) — Formal layer | Informational Ontology",
+  description: "Awareness defined as informational registration (Rev 5).",
 };
 
-export default function FormalPlannedPage() {
+export default function FormalPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <section className="space-y-3">
@@ -17,42 +16,32 @@ export default function FormalPlannedPage() {
           Formal layer · A — Awareness
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Awareness (A) — Formal page (planned)
+          Awareness (A)
         </h1>
-        <p className="text-base text-slate-300 leading-relaxed max-w-3xl">
-          You&apos;re looking at a placeholder. The formal/technical layer for
-          this module is planned for <span className="font-semibold">Revision 5</span>.
+        <p className="max-w-3xl text-sm text-slate-400 leading-relaxed">
+          This page is a structured extract of the Rev 5 master text (Section 5.1).
+          It is intended as a precise anchor for the “Deep Dive” section, not as an expansion of the ontology.
         </p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-        <h2 className="text-lg font-semibold">What will live here later</h2>
-        <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
-          <li>Definitions and notation used in the formal treatment.</li>
-          <li>Propositions / lemmas tied directly to the IO derivation chain.</li>
-          <li>Proof sketches (illustrating the formal structure of the argument).</li>
-          <li>Optional links to supporting mathematics (sets, graphs, metrics, etc.).</li>
-        </ul>
-        <p className="text-sm text-slate-300 leading-relaxed">
-          Until Rev 5, use the main Deep Dive page for this topic.
-        </p>
+      <section className="space-y-4">
+        <p className="text-base text-slate-300 leading-relaxed">Information alone is not awareness. Information exists wherever differences are structured, but awareness arises only when information is registered from a particular perspective. Awareness is therefore not synonymous with complexity, processing, or storage. It is a structural condition in which information is presented to a system rather than merely instantiated within it. Awareness introduces asymmetry.</p>
+        <p className="text-base text-slate-300 leading-relaxed">Where information is symmetric and relational, awareness establishes a distinction between what is registered and that which registers it. This subject–object differentiation is not psychological in origin; it is ontological. The moment information is registered relative to a system’s own state, awareness is present. Awareness does not require language, reflection, or conceptualization. It does not require semantic interpretation or symbolic manipulation.</p>
+        <p className="text-base text-slate-300 leading-relaxed">It requires only that information be available to a system in a way that is internally differentiated from the rest of the informational environment. For this reason, awareness cannot be reduced to information alone. Nor can it be reduced to the quantity or complexity of information. A system may instantiate vast informational structure without awareness if none of that information is registered relative to the system itself. Awareness therefore marks a genuine ontological transition.</p>
+        <p className="text-base text-slate-300 leading-relaxed">It is the point at which informational structure becomes perspectival. This transition is denoted as I → A. For boundary cases, stress tests, and illustrative analyses concerning awareness—including informational registration, zombies, gradualism, and artificial systems—see Appendix A. Part VI — Value</p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+      <section className="rounded-2xl border border-slate-800 bg-slate-900/30 p-6 space-y-3">
         <h2 className="text-lg font-semibold">Navigation</h2>
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <Link href="/deep/awareness" className="sm:w-1/2 w-full">
-            <Button variant="outline" className="w-full border-slate-700">
-              Back to Awareness (A)
-            </Button>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/deep/information/formal">
+            <Button variant="secondary">← Previous</Button>
           </Link>
-          <Link href="/deep" className="sm:w-1/2 w-full">
-            <Button
-              variant="outline"
-              className="w-full border-sky-700/60 text-sky-300 hover:bg-sky-950/40"
-            >
-              Back to Deep Dive index
-            </Button>
+          <Link href="/deep">
+            <Button variant="secondary">Deep Dive index</Button>
+          </Link>
+          <Link href="/deep/value/formal">
+            <Button>Next →</Button>
           </Link>
         </div>
       </section>

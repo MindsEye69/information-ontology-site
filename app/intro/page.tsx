@@ -202,9 +202,9 @@ export default function IntroPage() {
           4. Relation to earlier drafts and future versions
         </h2>
         <p className="text-slate-300 leading-relaxed">
-          This site corresponds to what was previously called{" "}
-          <span className="font-semibold">Revision 4</span> of the
-          Informational Ontology manuscript. The goal is to stabilise the core
+          This site corresponds to what was the canonical{" "}
+          <span className="font-semibold">Revision 5</span> (Jan 2026) of the
+          Informational Ontology master text. The goal is to stabilise the core
           arguments in a public, inspectable form. Earlier drafts and private
           notes are treated as background material, not as canonical sources.
         </p>
@@ -230,7 +230,21 @@ export default function IntroPage() {
           >
             Start here
           </Link>{" "}
-          journey is the safest entry point. If you already like formal
+          journey is the safest entry point. If you want the short canonical statement, read the{" "}
+          <Link
+            href="/abstract"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            Abstract
+          </Link>
+          , and if you want common clarifications, see the{" "}
+          <Link
+            href="/faq"
+            className="font-medium text-sky-400 hover:text-sky-300"
+          >
+            FAQ
+          </Link>
+          . If you already like formal
           structure, you can instead jump to the{" "}
           <Link
             href="/ontology"

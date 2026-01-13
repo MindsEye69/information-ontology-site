@@ -52,7 +52,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/delta/formal" className="text-sky-300 hover:underline">
                 Δ — Formal Axiomatization
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -70,7 +69,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/relation/formal" className="text-sky-300 hover:underline">
                 R — Technical notes
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -88,7 +86,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/information/formal" className="text-sky-300 hover:underline">
                 I — Technical notes
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -106,7 +103,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/awareness/formal" className="text-sky-300 hover:underline">
                 A — Technical notes
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -124,7 +120,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/value/formal" className="text-sky-300 hover:underline">
                 V — Technical notes
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -142,7 +137,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/meaning/formal" className="text-sky-300 hover:underline">
                 M — Technical notes
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 
@@ -160,7 +154,6 @@ export default function DeepDiveIndexPage() {
               <Link href="/deep/purpose/formal" className="text-sky-300 hover:underline">
                 P — Technical notes
               </Link>{" "}
-              <span className="text-slate-500">(planned for Rev 5)</span>
             </p>
           </li>
 

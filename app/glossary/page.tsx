@@ -453,13 +453,13 @@ export default function GlossaryPage() {
             <dd className="text-sm text-slate-300 leading-relaxed">
               The core sequence Δ → R → I → A → V → M → P that defines the
               Informational Ontology. It appears throughout the site and the
-              Rev4 master text.
+              Rev5 master text.
             </dd>
           </div>
           <div>
             <dt className="font-semibold text-slate-100">Master document</dt>
             <dd className="text-sm text-slate-300 leading-relaxed">
-              The canonical Revision 4 text of Informational Ontology, maintained
+              The canonical Revision 5 text of Informational Ontology, maintained
               offline and mirrored on this site. All conceptual changes must
               pass through the master first.
             </dd>
