@@ -37,13 +37,13 @@ export default function AbstractPage() {
         <h2 className="text-lg font-semibold">Next</h2>
         <div className="flex flex-wrap gap-3">
           <Link href="/intro">
-            <Button variant="secondary">How to read the site</Button>
+            <Button variant="outline">How to read the site</Button>
           </Link>
           <Link href="/ontology">
             <Button>Explore the chain</Button>
           </Link>
           <Link href="/faq">
-            <Button variant="secondary">FAQ</Button>
+            <Button variant="outline">FAQ</Button>
           </Link>
         </div>
       </section>
