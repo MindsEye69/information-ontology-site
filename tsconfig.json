@@ -37,6 +37,8 @@
   "exclude": [
     "archive-src",
     "node_modules",
-    "scripts"
+    "scripts",
+    "information-ontology-site-main",
+    "information-ontology-site-main/**"
   ]
 }
