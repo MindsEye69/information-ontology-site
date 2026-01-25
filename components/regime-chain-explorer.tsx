@@ -187,11 +187,18 @@ export default function RegimeChainExplorer() {
         </div>
 
         <div className="mt-6 rounded-3xl border border-black/10 bg-white/60 p-6 md:p-8">
-          <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xl md:text-2xl">
+          {/*
+            Interaction hardening:
+            - ensure symbols remain clickable even if any ancestor introduces overlays
+            - support pointer events consistently across browsers
+            - keep chain ordering + glyphs canonical (do not modify)
+          */}
+          <div className="relative z-10 flex flex-wrap items-center gap-3 md:gap-4 text-xl md:text-2xl pointer-events-auto">
             {NODES.map((n, idx) => (
               <div key={n} className="flex items-center gap-3 md:gap-4">
                 <button
                   type="button"
+                  onPointerDown={() => onNodeClick(n)}
                   onClick={() => onNodeClick(n)}
                   className={[
                     "rounded-2xl px-4 py-2",
