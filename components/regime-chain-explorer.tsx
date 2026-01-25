@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 
 type NodeKey = "Δ" | "R" | "I" | "A" | "V" | "M" | "P";
-type EdgeKey = `${NodeKey}-${NodeKey}`;
+// Only the canonical adjacent transitions exist on the landing-page chain.
+// Do NOT model this as all pairwise combinations.
+type EdgeKey = "Δ-R" | "R-I" | "I-A" | "A-V" | "V-M" | "M-P";
 
 type Pane =
   | { kind: "none" }
@@ -187,18 +189,11 @@ export default function RegimeChainExplorer() {
         </div>
 
         <div className="mt-6 rounded-3xl border border-black/10 bg-white/60 p-6 md:p-8">
-          {/*
-            Interaction hardening:
-            - ensure symbols remain clickable even if any ancestor introduces overlays
-            - support pointer events consistently across browsers
-            - keep chain ordering + glyphs canonical (do not modify)
-          */}
-          <div className="relative z-10 flex flex-wrap items-center gap-3 md:gap-4 text-xl md:text-2xl pointer-events-auto">
+          <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xl md:text-2xl">
             {NODES.map((n, idx) => (
               <div key={n} className="flex items-center gap-3 md:gap-4">
                 <button
                   type="button"
-                  onPointerDown={() => onNodeClick(n)}
                   onClick={() => onNodeClick(n)}
                   className={[
                     "rounded-2xl px-4 py-2",
