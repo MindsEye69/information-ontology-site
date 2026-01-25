@@ -1,20 +1,19 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
   content: [
     "./app/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}"
+    "./components/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
-      borderRadius: {
-        xl: "0.75rem",
-        "2xl": "1rem"
+      colors: {
+        ink: "#0B0F14",
+        paper: "#FBFAF7",
+        accent: "#4C6FFF"
       }
-    }
+    },
   },
-  plugins: []
+  plugins: [],
 };
-
 export default config;

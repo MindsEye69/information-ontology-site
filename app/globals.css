@@ -3,26 +3,17 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark light;
+  color-scheme: light;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
+html, body {
+  height: 100%;
 }
 
 body {
-  @apply bg-slate-950 text-slate-50;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    sans-serif;
+  @apply bg-paper text-ink antialiased;
 }
 
 a {
-  @apply text-sky-400 hover:text-sky-300 underline-offset-4 hover:underline;
-}
-/* Global math formatting for formal IO pages */
-.math {
-  @apply font-mono text-base text-slate-200 leading-relaxed tracking-tight;
-  @apply break-words whitespace-pre-wrap;
+  @apply underline decoration-black/20 underline-offset-4 hover:decoration-black/50;
 }
