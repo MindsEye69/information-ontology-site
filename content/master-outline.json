@@ -1,6 +1,8 @@
 {
   "title": "Informational Ontology \u2014 Master (Rev5+)",
   "note": "This page is a web-readable guide to the Master. Downloads remain on /papers.",
+  "source_pdf": "/papers/2-informational-ontology-master.pdf",
+  "extraction": "fallback",
   "sections": [
     {
       "id": "preface",
@@ -10,7 +12,8 @@
         "scope discipline",
         "canonical",
         "downstream"
-      ]
+      ],
+      "page_start": null
     },
     {
       "id": "regime-chain",
@@ -21,7 +24,19 @@
         "\u0394",
         "salience",
         "purpose"
-      ]
+      ],
+      "page_start": null
+    },
+    {
+      "id": "definitions",
+      "title": "Core Definitions and Commitments",
+      "lay": "The minimal commitments the ontology makes, and how to read its claims.",
+      "terms": [
+        "difference",
+        "constraint",
+        "regime"
+      ],
+      "page_start": null
     },
     {
       "id": "systems",
@@ -31,7 +46,8 @@
         "system",
         "boundary",
         "re-identifiability"
-      ]
+      ],
+      "page_start": null
     },
     {
       "id": "constraint",
@@ -41,7 +57,8 @@
         "constraint",
         "ordering",
         "direction"
-      ]
+      ],
+      "page_start": null
     },
     {
       "id": "meaning",
@@ -50,7 +67,8 @@
       "terms": [
         "meaning",
         "semantics"
-      ]
+      ],
+      "page_start": null
     },
     {
       "id": "agency",
@@ -59,7 +77,8 @@
       "terms": [
         "agency",
         "openness"
-      ]
+      ],
+      "page_start": null
     },
     {
       "id": "ethics",
@@ -68,7 +87,8 @@
       "terms": [
         "ethics",
         "responsibility"
-      ]
+      ],
+      "page_start": null
     },
     {
       "id": "appendices",
@@ -77,7 +97,8 @@
       "terms": [
         "degeneracy",
         "closure"
-      ]
+      ],
+      "page_start": null
     }
   ]
 }

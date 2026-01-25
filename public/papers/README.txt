@@ -18,3 +18,6 @@ Expected filenames (from content/papers.json):
 - 17-can-ai-participate-in-philosophical-method.pdf
 
 You can rename these later; just keep content/papers.json in sync.
+
+
+Master reader page expects the Master PDF at /papers/2-informational-ontology-master.pdf (update content/master-outline.json if different).
