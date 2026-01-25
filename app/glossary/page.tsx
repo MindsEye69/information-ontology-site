@@ -1,65 +1,31 @@
+import glossary from "@/content/glossary.json";
 
-export default function GlossaryPage() {
-  return (
-    <main className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-semibold mb-6">Terminology & Regime Reference</h1>
+type Term = { term: string; definition: string };
 
-      <p className="mb-6 text-sm text-gray-500">
-        This glossary is provided for reader orientation only. It is not part of the
-        canonical Revision 5 master and introduces no definitions or claims.
-      </p>
-
-      <p className="mb-10">
-        Terms below function as labels for structural regimes of organization within
-        the Informational Ontology and should be interpreted by their role in the
-        regime ladder and the constraints governing their emergence.
-      </p>
-
-      <section className="space-y-6">
-        <Entry term="Difference (Δ)">
-          Minimal distinguishability sufficient to support structure. Difference is
-          not a substance, object, or event.
-        </Entry>
-
-        <Entry term="Relation (R)">
-          Structured ordering among differences. Relations articulate differences
-          into persistent patterns.
-        </Entry>
-
-        <Entry term="Information (I)">
-          Re-identifiable structured relations under constraint. Information is not
-          semantic content or representation.
-        </Entry>
-
-        <Entry term="Awareness (A)">
-          Localized informational registration within a system. Awareness does not
-          imply consciousness or experience.
-        </Entry>
-
-        <Entry term="Value (V)">
-          Persistent modulation of informational states under constraint. Value is
-          not moral normativity or preference.
-        </Entry>
-
-        <Entry term="Meaning (M)">
-          Stabilized informational patterns that constrain interpretation or
-          response. Meaning is not linguistic semantics.
-        </Entry>
-
-        <Entry term="Purpose (P)">
-          Sustained directional organization across informational states. Purpose is
-          not intention or teleology-as-primitive.
-        </Entry>
-      </section>
-    </main>
-  );
+function slugify(s: string) {
+  return s.toLowerCase().trim().replace(/\s+/g, "-");
 }
 
-function Entry({ term, children }: { term: string; children: React.ReactNode }) {
+export default function GlossaryPage() {
+  const terms = (glossary as any).terms as Term[];
   return (
-    <div>
-      <h2 className="font-medium">{term}</h2>
-      <p className="text-gray-700">{children}</p>
+    <div className="mx-auto max-w-6xl px-4 py-14">
+      <div className="max-w-4xl">
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Glossary</p>
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Key terms</h1>
+        <p className="mt-4 text-black/70 leading-relaxed">
+          This glossary defines complex terms and terms with special IO meanings. (Placeholder list—will be expanded from the finalized corpus.)
+        </p>
+
+        <div className="mt-10 divide-y divide-black/10 rounded-2xl border border-black/10 bg-white/60">
+          {terms.map((t) => (
+            <div key={t.term} id={slugify(t.term)} className="p-5 scroll-mt-24">
+              <div className="text-base font-medium">{t.term}</div>
+              <div className="mt-2 text-sm text-black/70 leading-relaxed">{t.definition}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

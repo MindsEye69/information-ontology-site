@@ -4,6 +4,7 @@ const nav = [
   { href: "/start-here", label: "Start Here" },
   { href: "/master", label: "The Master" },
   { href: "/papers", label: "Papers" },
+  { href: "/glossary", label: "Glossary" },
   { href: "/ariadne", label: "Ariadne" },
   { href: "/about", label: "About" },
 ];

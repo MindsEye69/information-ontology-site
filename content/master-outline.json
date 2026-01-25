@@ -1,0 +1,83 @@
+{
+  "title": "Informational Ontology \u2014 Master (Rev5+)",
+  "note": "This page is a web-readable guide to the Master. Downloads remain on /papers.",
+  "sections": [
+    {
+      "id": "preface",
+      "title": "Preface and Scope Discipline",
+      "lay": "Plain-language orientation and what the Master is (and isn\u2019t).",
+      "terms": [
+        "scope discipline",
+        "canonical",
+        "downstream"
+      ]
+    },
+    {
+      "id": "regime-chain",
+      "title": "The Regime Chain (\u0394 \u2192 R \u2192 I \u2192 A \u2192 V \u2192 M \u2192 P)",
+      "lay": "A high-level explanation of the regime sequence and what each stage does.",
+      "terms": [
+        "regime",
+        "\u0394",
+        "salience",
+        "purpose"
+      ]
+    },
+    {
+      "id": "systems",
+      "title": "Systems, Boundaries, and Re-Identifiability",
+      "lay": "How systems are carved, tracked, and re-identified without substance metaphysics.",
+      "terms": [
+        "system",
+        "boundary",
+        "re-identifiability"
+      ]
+    },
+    {
+      "id": "constraint",
+      "title": "Constraint, Ordering, and Direction",
+      "lay": "How constraints structure trajectories and generate directionality.",
+      "terms": [
+        "constraint",
+        "ordering",
+        "direction"
+      ]
+    },
+    {
+      "id": "meaning",
+      "title": "Meaning Without Semantics",
+      "lay": "Meaning as structural stabilization, not truth-conditional representation.",
+      "terms": [
+        "meaning",
+        "semantics"
+      ]
+    },
+    {
+      "id": "agency",
+      "title": "Agency and Perspective-Induced Openness",
+      "lay": "Agency as underdetermination in embedded perspectives.",
+      "terms": [
+        "agency",
+        "openness"
+      ]
+    },
+    {
+      "id": "ethics",
+      "title": "Ethics and Responsibility as Constraint Regimes",
+      "lay": "Ethics and responsibility as emergent coordination constraints.",
+      "terms": [
+        "ethics",
+        "responsibility"
+      ]
+    },
+    {
+      "id": "appendices",
+      "title": "Appendices and Worked Examples",
+      "lay": "Examples and clarifications that support the main text.",
+      "terms": [
+        "degeneracy",
+        "closure"
+      ]
+    }
+  ]
+}
