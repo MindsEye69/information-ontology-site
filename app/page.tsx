@@ -27,6 +27,13 @@ export default function HomePage() {
             Ariadne (Offline)
           </Link>
         </div>
+
+        <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-5">
+          <p className="text-sm text-black/70">
+            Looking for the earlier Rev5-era site layout? Use the <span className="font-medium">Archive</span> link in the header.
+            (You’ll set the final archive URL in <code className="text-xs bg-black/5 px-1.5 py-0.5 rounded">components/site-header.tsx</code>.)
+          </p>
+        </div>
       </div>
     </div>
   );
