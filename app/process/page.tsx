@@ -22,8 +22,10 @@ export default function ProcessPage() {
 
           <p className="mt-4 text-base md:text-lg text-black/80 leading-relaxed">
             The collaboration was not planned as a demonstration of alignment;
-            a downstream account of alignment was later developed to explain why
-            the collaboration worked.
+            an account of alignment unfolded organically from the original work.
+            Only in retrospect did it become clear that this account relied on
+            the same constrained methodology through which the project itself
+            had been developed.
           </p>
         </div>
 
