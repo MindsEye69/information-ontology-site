@@ -30,26 +30,30 @@ function Paragraph({
   explanation?: { title?: string; text: string };
 }) {
   const has = !!explanation;
-  return (
-    <div className="relative">
-      <p className="text-black/80 leading-relaxed whitespace-pre-wrap">
-        {text}
-        {has ? <a href={`#${id}`} className="no-underline text-black/45 hover:text-black/70">{" "}▸</a> : null}
-      </p>
 
-      {has ? (
-        <details id={id} className="mt-3 rounded-xl border border-black/10 bg-white/60 p-4">
-          <summary className="cursor-pointer list-none text-sm font-medium text-black/70">
-            Explanation{explanation?.title ? `: ${explanation.title}` : ""}
-          </summary>
-          <div className="mt-2 text-sm text-black/70 leading-relaxed whitespace-pre-wrap">
-            {explanation.text}
-          </div>
-        </details>
-      ) : null}
-    </div>
+  if (!has) {
+    return <p className="text-black/80 leading-relaxed whitespace-pre-wrap">{text}</p>;
+  }
+
+  return (
+    <details className="group rounded-xl">
+      <summary className="list-none cursor-pointer">
+        <p className="text-black/80 leading-relaxed whitespace-pre-wrap">
+          {text}
+          <span className="ml-2 text-black/45 group-open:text-black/70 select-none">▸</span>
+        </p>
+      </summary>
+
+      <div id={id} className="mt-3 rounded-xl border border-black/10 bg-white/60 p-4">
+        <div className="text-sm font-medium text-black/70">
+          Explanation{explanation?.title ? `: ${explanation.title}` : ""}
+        </div>
+        <div className="mt-2 text-sm text-black/70 leading-relaxed whitespace-pre-wrap">{explanation.text}</div>
+      </div>
+    </details>
   );
 }
+
 
 export default function MasterSectionPage({ params }: { params: { slug: string } }) {
   const data = getContent(params.slug);
@@ -81,7 +85,7 @@ export default function MasterSectionPage({ params }: { params: { slug: string }
 
         <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-6">
           <p className="text-sm text-black/70 leading-relaxed">
-            Canonical text is shown verbatim. Optional explanations are collapsed by default and can be opened locally (▸).
+            Canonical text is shown verbatim. Optional explanations are collapsed by default and can be opened by clicking ▸ on any paragraph with an explanation.
           </p>
         </div>
 
