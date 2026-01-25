@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ArchivePage() {
   return (
@@ -10,14 +11,20 @@ export default function ArchivePage() {
         </h1>
 
         <p className="mt-4 text-sm md:text-base text-black/70 leading-relaxed">
-          This is a preserved snapshot of an earlier version of the site, kept as a
-          historical record of the project’s development.
+          This is the preserved Rev5-era site, kept online as a historical record
+          of the project’s development. The current site is the rebuilt Rev5+
+          corpus interface.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href="/archive/index.html" target="_blank" rel="noreferrer" className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm">
+          <Link
+            href="/archive/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+          >
             Open the archived site
-          </a>
+          </Link>
 
           <Link
             href="/"
@@ -27,21 +34,35 @@ export default function ArchivePage() {
           </Link>
         </div>
 
-        <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-4">
-          <p className="text-xs text-black/60 leading-relaxed">
-            If you see a 404 after clicking “Open”, it means the archive snapshot hasn’t been
-            generated or committed yet. Build it locally (once) and commit the contents of
-            <code className="ml-1 rounded bg-black/5 px-1 py-0.5">public/archive</code>.
+        <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-5">
+          <p className="text-sm text-black/70 leading-relaxed">
+            The archive is intentionally frozen. It exists for documentation and
+            reference—not as the primary reading experience.
           </p>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-2xl border border-black/10 bg-white">
-          <iframe
-            src="/archive/index.html"
-            title="Archived site"
-            className="h-[70vh] w-full"
-          />
-        </div>
+        <Link
+          href="/archive/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 block overflow-hidden rounded-2xl border border-black/10 bg-white hover:bg-white/80 transition-colors"
+          aria-label="Open the archived site (preview image)"
+        >
+          <div className="relative w-full">
+            <Image
+              src="/archive-preview.png"
+              alt="Preview of the archived Rev5-era site"
+              width={1600}
+              height={900}
+              priority
+              className="h-auto w-full"
+            />
+          </div>
+        </Link>
+
+        <p className="mt-3 text-xs text-black/55 leading-relaxed">
+          Click the preview to open the archived site in a full window.
+        </p>
       </div>
     </div>
   );
