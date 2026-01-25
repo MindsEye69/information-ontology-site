@@ -27,3 +27,8 @@ This ensures the new site builds without pulling in legacy shadcn/radix componen
 This zip adds the missing dependencies to `package.json` so the build can succeed even if old components remain.
 You can then remove old routes incrementally later.
 
+
+
+## Added in v3.2
+- Excluded `archive-src/` from TypeScript compilation via `tsconfig.json`.
+- Added `.eslintignore` to ignore `archive-src/`.
