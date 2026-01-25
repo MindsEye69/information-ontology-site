@@ -1,0 +1,21 @@
+import ChainNav from "./ChainNav";
+
+export default function SimulationsPage() {
+  return (
+    <main className="mx-auto w-full max-w-6xl px-4 py-10">
+      <h1 className="text-3xl font-bold tracking-tight">
+        Simulations & Visual Aids
+      </h1>
+
+      <p className="mt-3 max-w-3xl text-neutral-700">
+        These are teaching tools: visual aids and interactive toys designed to
+        illustrate IO stages. They do not prove IO and are not presented as
+        scientific models.
+      </p>
+
+      <div className="mt-6">
+        <ChainNav />
+      </div>
+    </main>
+  );
+}

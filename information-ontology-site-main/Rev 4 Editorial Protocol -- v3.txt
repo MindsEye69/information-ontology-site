@@ -1,0 +1,291 @@
+📘 Rev 4 Editorial Protocol — v3 (Final)
+Informational Ontology Project
+0. Purpose of This Protocol
+
+This protocol defines the authoritative workflow for maintaining, updating, and synchronizing all components of the Informational Ontology (IO) project during and after Revision 4.
+
+Its goals are:
+
+To preserve conceptual coherence
+
+To prevent divergence between the text, website, and supporting materials
+
+To maintain a single canonical master document
+
+To ensure safe, reversible editorial practices
+
+To prepare a stable foundation for Revision 5
+
+This document supersedes all prior versions.
+
+1. Canonical Document (“Rev4_Master”)
+
+The sole authoritative version of the ontology during Revision 4 is:
+
+Informational Ontology Rev 4 MASTER.pdf
+
+(uploaded and stored in the project file archive)
+
+This file is the one and only place where conceptual changes originate.
+
+Everything else — the website, diagrams, simulations, documentation — is downstream of this master.
+
+No external source, no website page, and no older file may override it.
+
+2. Update Order (Required)
+
+When any conceptual, terminological, or structural change is made, the following order is mandatory:
+
+1. Rev4_Master
+
+All edits are made here first.
+
+2. Website
+
+Only after the master is updated may changes be propagated into the site:
+
+/app/start
+/app/ontology
+/app/deep
+/app/simulations (descriptions only)
+
+3. Repository Documentation
+
+Update:
+
+README
+
+CONTRIBUTING
+
+CHANGELOG
+
+Terminology reference
+
+Update Protocol (this document)
+
+4. Simulations / Diagrams
+
+Only after textual consistency is achieved.
+
+This prevents conceptual drift and guarantees a single source of truth.
+
+3. Terminology Lock
+
+The IO chain is fixed and canonical:
+
+Δ → R → I → A → V → M → P
+
+Difference → Relation → Information → Awareness → Value → Meaning → Purpose
+
+These stage names may not be altered or replaced except through a future major revision (Revision 5 or later).
+
+Specifically disallowed:
+
+“Valuation” as a stage name
+
+“Practice” as a stage name
+
+Introducing intermediate stages without a formal revision
+
+These terms may appear descriptively, but never structurally.
+
+4. File & Version Management
+4.1 Master Document Storage
+
+The canonical Rev4 master file must always reside in the project’s file archive as:
+
+Informational Ontology Rev 4 MASTER.pdf
+
+Do not rename this file during Rev4.
+
+4.2 Backups
+
+When major updates occur, an additional file may be uploaded with:
+
+date stamp or
+
+version suffix (e.g., “Rev4_Master_v1.1.pdf”)
+
+However, the canonical file must always remain:
+
+Informational Ontology Rev 4 MASTER.pdf
+
+4.3 No Parallel Masters
+
+Under no circumstances may a second “master” file coexist.
+
+Older versions must be clearly marked as archives, not active documents.
+
+5. Website Synchronization Protocol
+5.1 Scope
+
+After updating Rev4_Master, apply changes to:
+
+/app/ontology
+
+/app/start
+
+/app/deep
+
+Navigation (header/footer)
+
+Metadata (titles, descriptions)
+
+The homepage text
+
+Any downloadable assets
+
+5.2 Deployment Integrity
+
+Every update must satisfy:
+
+All routes build cleanly
+
+No leftover directories (e.g. duplicate stage folders)
+
+Stage progression is sequential and unbroken
+
+No old terminology appears in descriptions
+
+Vercel deployment completes without warnings
+
+5.3 Download Page
+
+The website must provide a download link for:
+
+Rev4_Master PDF
+
+Optional TXT/HTML versions
+
+Diagram packs (once created)
+
+6. Simulation Development Protocol
+
+Simulations illustrate concepts but are not themselves conceptual authorities.
+
+Rules:
+
+Simulations must not introduce new conceptual claims.
+
+Each simulation must explicitly state which IO stage(s) it illustrates.
+
+Simulations must be treated as analogies, not models of ontology.
+
+Simulation descriptions must match Rev4_Master terminology.
+
+No simulation may contradict the canonical document.
+
+Simulations are updated only after Rev4_Master and website text are synchronized.
+
+7. Diagram & Visual Asset Protocol
+
+All diagrams must:
+
+Conform to the Δ→R→I→A→V→M→P structure
+
+Avoid speculative or unapproved conceptual framing
+
+Use consistent coloring and stage symbols
+
+Appear both in the Master Document and on the website
+
+Be version-controlled
+
+Carry a version/date in their metadata (optional but recommended)
+
+Examples include:
+
+IO chain overview
+
+Flow diagrams
+
+Awareness–Value–Meaning model
+
+Purpose trajectory diagram
+
+Observer hierarchy schematic
+
+8. External Contributions Policy
+8.1 No Direct GitHub Contributions
+
+External contributors may not:
+
+push branches
+
+open pull requests
+
+modify the master file
+
+8.2 Submission Mechanism
+
+All contribution proposals must be sent via:
+
+contact@informationontology.org
+
+info@informationontology.org
+ (technical suggestions)
+
+editor@informationontology.org
+ (philosophical submissions)
+
+8.3 Internal Review
+
+Accepted contributions are:
+
+Reviewed against Rev4_Master
+
+Integrated manually
+
+Documented in the CHANGELOG
+
+Synced across site + repo
+
+9. Completion Criteria for Revision 4
+
+Rev4 is complete when ALL of the following are true:
+
+Rev4_Master is finalized and stable.
+
+Website text, navigation, and routes fully match the master.
+
+All diagrams and sidebars are added and synchronized.
+
+Simulations are completed, documented, and linked.
+
+All .md files are updated (README, CONTRIBUTING, etc.).
+
+No terminology drift exists anywhere.
+
+Email infrastructure is active.
+
+All historical chats are archived in the project files.
+
+A full deployment is live and verified.
+
+Upon completion, Rev4 becomes the official published edition.
+
+10. Transition to Revision 5
+
+Revision 5 will begin only after Rev4 is fully published.
+
+Rev5 scope includes:
+
+Formal mathematical frameworks
+
+Information-theoretic metrics
+
+Teleology formalization
+
+Cognitive and AI modeling
+
+Category theory grounding
+
+Observer and awareness theory expansion
+
+AI Assistant conceptual framework
+
+Rev5 must begin with a new master document, not an incremental modification of Rev4.
+
+End of Protocol — v3
+
+This is the authoritative editorial policy for the Informational Ontology Project during and after Revision 4.
