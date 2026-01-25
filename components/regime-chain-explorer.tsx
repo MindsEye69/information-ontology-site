@@ -17,16 +17,115 @@ function nodeLabel(n: NodeKey) {
   return n;
 }
 
-function isPilotNode(n: NodeKey) {
-  return n === "Δ";
-}
-
-const PHRASES: Partial<Record<NodeKey, string>> = {
+const PHRASES: Record<NodeKey, string> = {
   "Δ": "to be is to differ",
+  "R": "relations stabilize difference",
+  "I": "information is structured difference",
+  "A": "awareness is constraint-sensitive tracking",
+  "V": "value is selective stability",
+  "M": "meaning is coordinated constraint",
+  "P": "purpose is persistent direction",
+};
+
+const NODE_CONTENT: Record<
+  NodeKey,
+  {
+    title: string;
+    body: string[];
+    links: Array<{ href: string; label: string }>;
+  }
+> = {
+  "Δ": {
+    title: "Δ — Difference",
+    body: [
+      "Everything begins with difference: a world with no difference has nothing to track, nothing to update, and nothing to stabilize.",
+      "Δ names the minimal starting point—before words, before meaning, before interpretation—where variation is present at all.",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/papers", label: "Download the corpus" },
+    ],
+  },
+  "R": {
+    title: "R — Relation",
+    body: [
+      "Placeholder: Relation (R) will be expanded. For now: R captures structured dependencies among differences — what changes with what, and what must hold fixed for anything to persist.",
+      "(Extended explanations are deferred.)",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/start/relation", label: "Start Here: Relation" },
+    ],
+  },
+  "I": {
+    title: "I — Information",
+    body: [
+      "Placeholder: Information (I) will be expanded. For now: I is difference under constraint — differences that can be tracked, updated, and carried forward.",
+      "(Extended explanations are deferred.)",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/start/information", label: "Start Here: Information" },
+    ],
+  },
+  "A": {
+    title: "A — Awareness",
+    body: [
+      "Placeholder: Awareness (A) will be expanded. For now: A is selective sensitivity — the system tracks some informational differences rather than others, due to constraint structure.",
+      "(Extended explanations are deferred.)",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/start/awareness", label: "Start Here: Awareness" },
+    ],
+  },
+  "V": {
+    title: "V — Value",
+    body: [
+      "Placeholder: Value (V) will be expanded. For now: V is structured preference in stabilization — which differences get preserved, amplified, or suppressed across transitions.",
+      "(Extended explanations are deferred.)",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/start/value", label: "Start Here: Value" },
+    ],
+  },
+  "M": {
+    title: "M — Meaning",
+    body: [
+      "Placeholder: Meaning (M) will be expanded. For now: M is coordination under constraint — patterns that function as stable interpretive handles within a system’s regime structure.",
+      "(Extended explanations are deferred.)",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/start/meaning", label: "Start Here: Meaning" },
+    ],
+  },
+  "P": {
+    title: "P — Purpose",
+    body: [
+      "Placeholder: Purpose (P) will be expanded. For now: P is persistent direction — trajectory-level constraint ordering that yields robust continuation patterns without teleology.",
+      "(Extended explanations are deferred.)",
+    ],
+    links: [
+      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/start/purpose", label: "Start Here: Purpose" },
+    ],
+  },
+};
+
+const EDGE_HREFS: Record<EdgeKey, string> = {
+  "Δ-R": "/start/relation",
+  "R-I": "/start/information",
+  "I-A": "/start/awareness",
+  "A-V": "/start/value",
+  "V-M": "/start/meaning",
+  "M-P": "/start/purpose",
 };
 
 export default function RegimeChainExplorer() {
-  const [pane, setPane] = useState<Pane>({ kind: "none" });
+  // Default to Δ so the landing page loads with meaningful content immediately.
+  const [pane, setPane] = useState<Pane>({ kind: "node", key: "Δ" });
 
   const [phrase, setPhrase] = useState<string | null>(null);
   const [phraseVisible, setPhraseVisible] = useState(false);
@@ -34,23 +133,14 @@ export default function RegimeChainExplorer() {
   const fadeTimer = useRef<number | null>(null);
 
   const content = useMemo(() => {
-    if (pane.kind === "node" && pane.key === "Δ") {
-      return {
-        title: "Δ — Difference",
-        body: [
-          "Everything begins with difference: a world with no difference has nothing to track, nothing to update, and nothing to stabilize.",
-          "Δ names the minimal starting point—before words, before meaning, before interpretation—where variation is present at all.",
-        ],
-        links: [
-          { href: "/master/regime-chain", label: "Read this in the Master" },
-          { href: "/papers", label: "Download the corpus" },
-        ],
-      };
-    }
+    if (pane.kind === "node") return NODE_CONTENT[pane.key];
     return null;
   }, [pane]);
 
   useEffect(() => {
+    // Show a short catchphrase above the chain on first load.
+    flashPhraseForNode("Δ");
+
     return () => {
       if (hideTimer.current) window.clearTimeout(hideTimer.current);
       if (fadeTimer.current) window.clearTimeout(fadeTimer.current);
@@ -59,7 +149,6 @@ export default function RegimeChainExplorer() {
 
   function flashPhraseForNode(n: NodeKey) {
     const p = PHRASES[n];
-    if (!p) return;
 
     if (hideTimer.current) window.clearTimeout(hideTimer.current);
     if (fadeTimer.current) window.clearTimeout(fadeTimer.current);
@@ -72,7 +161,6 @@ export default function RegimeChainExplorer() {
   }
 
   function onNodeClick(n: NodeKey) {
-    if (!isPilotNode(n)) return;
     setPane({ kind: "node", key: n });
     flashPhraseForNode(n);
   }
@@ -105,36 +193,34 @@ export default function RegimeChainExplorer() {
                 <button
                   type="button"
                   onClick={() => onNodeClick(n)}
-                  disabled={!isPilotNode(n)}
                   className={[
                     "rounded-2xl px-4 py-2",
                     "border border-black/15",
                     "transition-colors",
-                    isPilotNode(n)
-                      ? "hover:bg-black/5 text-black"
-                      : "text-black/35 border-black/10 cursor-not-allowed",
+                    pane.kind === "node" && pane.key === n
+                      ? "bg-black/5 text-black"
+                      : "hover:bg-black/5 text-black",
                   ].join(" ")}
                   aria-label={`Open ${nodeLabel(n)}`}
                 >
                   {nodeLabel(n)}
                 </button>
                 {idx < NODES.length - 1 ? (
-                  <button
-                    type="button"
-                    disabled
-                    className="text-black/30 select-none cursor-default"
-                    aria-hidden="true"
-                    title="Transition pages will be added"
+                  <Link
+                    href={EDGE_HREFS[`${NODES[idx]}-${NODES[idx + 1]}` as EdgeKey]}
+                    className="text-black/45 hover:text-black/80 transition-colors select-none"
+                    aria-label={`Open transition ${NODES[idx]} to ${NODES[idx + 1]}`}
+                    title={`Transition ${NODES[idx]} → ${NODES[idx + 1]}`}
                   >
                     →
-                  </button>
+                  </Link>
                 ) : null}
               </div>
             ))}
           </div>
 
           <p className="mt-5 text-sm text-black/55 leading-relaxed">
-            Click a symbol to explore. (Pilot: Δ is live today; the rest will come next.)
+            Click a regime symbol to update the panel. Click an arrow to open the transition page.
           </p>
         </div>
 
