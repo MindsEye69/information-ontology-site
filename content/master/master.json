@@ -1,0 +1,550 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Informational Ontology\nRevision 5.1 - Jan 2026\n© 2025-2026 Michael Semprevivo\nThis work is licensed under the Creative Commons Attribution 4.0 International License (CC BY\n4.0).\nYou are free to:\nShare — copy and redistribute the material in any medium or format.\nAdapt — remix, transform, and build upon the material for any purpose, even commercially.\nUnder the following terms:\nAttribution — You cannot fail to give appropriate credit, provide a link to the license, and indicate\nif changes were made. You may do so in any reasonable manner, but not in any way that\nsuggests the licensor endorses you or your use.\nTo view a copy of this license, visit: http://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "abstract",
+      "title": "Abstract",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "This work presents the Informational Ontology as a scope-disciplined ontological framework\ndescribing a sequence of organizational regimes: Difference, Relation, Information, Awareness,\nValue, Meaning, and Purpose (Δ → R → I → A → V → M → P). The framework is not offered as\nan axiom-only derivation of all possible being. Instead, it specifies structural constraints that\nbecome unavoidable under explicit conditions: differentiation, ordering, and selection under\nperturbation.\nThe ontology is structural rather than empirical. It does not propose physical models, cognitive\nmechanisms, or normative prescriptions. It articulates the conditions under which systems\ncapable of registration, differential constraint, coherent organization, and self-influencing\ntrajectories can arise, without assuming any particular implementation.\nThe core derivation is presented without reliance on metaphor, intuition pumps, or\napplication-specific examples. Exploratory material and boundary analyses are separated into\nappendices. The framework is intended to be evaluated on internal coherence, clarity of scope,\nand the adequacy of its stated premises and regime transitions.\nThis is a structural ontology. It does not propose algorithms, models, or implementations."
+    },
+    {
+      "type": "p",
+      "text": "This document constitutes the Rev 5.1 Master of the Informational Ontology framework.\nSubsequent revisions, if any, will preserve the core regime structure (Δ → R → I → A → V → M\n→ P) and clarify rather than revise its derivational commitments."
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "1-foundations-and-scope",
+      "title": "1. Foundations and Scope",
+      "explain": false
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "1-1-scope-and-aim-of-the-ontology",
+      "title": "1.1 Scope and Aim of the Ontology",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "The Informational Ontology is not presented as an axiom-only derivation of all possible being,\nnor as a universal account in which every described regime cannot fail to be instantiated in all\nworlds. Its aim is narrower, and more precise: to describe the structural regimes that become\nunavoidable once differentiated structure persists under ordering and selection.\nThe ontology therefore concerns organization, not existence in the abstract. It specifies\nconstraints on what can arise, persist, and scale given certain structural conditions, rather than\nasserting that all such conditions cannot fail to obtain everywhere. Higher-order regimes—such\nas awareness, value, meaning, and purpose—are not claimed to be universally instantiated.\nInstead, the ontology characterizes the forms such regimes cannot fail to take when they occur.\nAccordingly, the framework should be read as a conditional emergence ladder: a sequence of\nincreasingly restrictive organizational regimes, each of which becomes unavoidable for systems\nthat satisfy the conditions specified by the prior regime. The arrows used throughout the text do\nnot indicate absolute metaphysical necessity or axiom-only entailment; they indicate structural\nconstraint."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "1-2-what-the-ontology-does-not-claim",
+      "title": "1.2 What the Ontology Does Not Claim",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "To avoid misinterpretation, several exclusions should be stated explicitly.\nThis ontology does not claim to:\n● derive semantics, truth, or reference as such,\n● reduce meaning to linguistic representation,\n● ground moral normativity,\n● provide a theory of phenomenal consciousness,\n● or posit teleology as a primitive metaphysical force."
+    },
+    {
+      "type": "p",
+      "text": "Likewise, the framework does not rely on observers, subjects, or representation as foundational\nprimitives. Where terms such as awareness, value, meaning, or purpose are used, they are\nemployed as names for structural regimes of organization, not as unanalyzed imports from folk\npsychology or philosophy of language.\nAny correspondence between these regimes and familiar semantic or experiential notions is\ntreated as secondary and non-load-bearing."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "1-3-structural-commitments",
+      "title": "1.3 Structural Commitments",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "The ontology proceeds from a small set of explicit structural commitments. These are not\nintended as metaphysical dogmas, but as minimal conditions required for any nontrivial\norganized structure to be describable."
+    },
+    {
+      "type": "h",
+      "level": 3,
+      "id": "1-3-1-differentiation",
+      "title": "1.3.1 Differentiation (Δ)",
+      "explain": true
+    },
+    {
+      "type": "p",
+      "text": "The first commitment is differentiation.\nDifferentiation denotes the existence of non-identity: the fact that structure is not wholly\nhomogeneous. Absolute undifferentiated homogeneity admits no internal distinctions, relations,\nor organization, and therefore cannot support any ontological description beyond trivial\nassertion.\nDifferentiation is not treated as an entity, force, or field. It is a boundary condition on intelligible\nstructure. Importantly, differentiation alone is not claimed to generate organization, systems, or\nagency. It functions only as the minimal opening condition for ontology."
+    },
+    {
+      "type": "h",
+      "level": 3,
+      "id": "1-3-2-ordering",
+      "title": "1.3.2 Ordering",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Differentiation is assumed to admit ordering: differences can be compared across a structured\nrelation that allows persistence, recurrence, and re-identification.\nOrdering is not assumed to be metric time, nor is it treated as an experiential or psychological\nphenomenon. It is a structural condition that makes it meaningful to speak of:\n● stability versus change,\n● repetition,\n● persistence,\n● and pattern."
+    },
+    {
+      "type": "p",
+      "text": "Later discussions of time treat it as a refinement or specialization of ordering, not as its source."
+    },
+    {
+      "type": "h",
+      "level": 3,
+      "id": "1-3-3-selection-under-perturbation",
+      "title": "1.3.3 Selection Under Perturbation",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Under ordering, differentiated structure is subject to perturbation. Structures that fail to maintain\ndistinguishability dissolve; structures that maintain it persist.\nThis introduces selection in a minimal, non-teleological sense: not optimization, intention, or\ngoal-directedness, but the simple fact that persistence filters structure. Selection here denotes\ndifferential survival of organizational patterns under constraint, not any form of agency or\npurpose.\nThis commitment replaces any implicit privileging of “continuation” or “stability” with an explicit\nstructural mechanism."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "1-4-emergence-of-organization-systemhood",
+      "title": "1.4 Emergence of Organization (Systemhood)",
+      "explain": true
+    },
+    {
+      "type": "h",
+      "level": 3,
+      "id": "1-4-1-minimal-definition-of-a-system",
+      "title": "1.4.1 Minimal Definition of a System",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "A system, in the minimal sense used throughout this ontology, is defined as:\nA subset of relational structure that maintains distinguishability from its\nsurroundings across an ordering.\nThis definition introduces no assumptions of agency, cognition, selfhood, or representation. A\nsystem need only exhibit:\n● a boundary (distinguishability),\n● persistence (maintenance across ordering),\n● and internal coherence sufficient to remain identifiable.\nAll subsequent regimes apply only to systems in this minimal sense."
+    },
+    {
+      "type": "h",
+      "level": 3,
+      "id": "1-4-2-structural-inevitability-of-organization",
+      "title": "1.4.2 Structural Inevitability of Organization",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Given differentiation, ordering, and selection, organization is the only stable outcome once\nrelational complexity exceeds triviality.\nPure flux is unstable under ordering; pure homogeneity is excluded by differentiation. Under\nthese conditions, bounded and re-identifiable organizations emerge not as a special case, but\nas the structures that persist."
+    },
+    {
+      "type": "p",
+      "text": "This claim is one of structural inevitability, not modal necessity. It does not assert that all\npossible worlds cannot fail to contain systems, but that in any world where differentiated\nstructure persists nontrivially under ordering, organization will arise.\nThis constitutes the primary engine of the ontology."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "1-5-necessity-and-the-meaning-of-the-arrows",
+      "title": "1.5 Necessity and the Meaning of the Arrows",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "The ontology employs several distinct forms of necessity, which cannot fail to be kept separate.\n● Conceptual necessity refers to what follows by definition or analytic unpacking.\n● Structural inevitability refers to what persists under ordering and selection.\n● Conditional necessity refers to what becomes unavoidable for systems that satisfy\nspecified structural conditions.\nThe transitions denoted by arrows (Δ → R → I → A → V → M → P) should be read accordingly.\nThey do not indicate axiom-only deduction or universal instantiation. They indicate that, given\nthe prior regime and its conditions, the subsequent regime becomes structurally constrained.\nUnderstanding the arrows in this way is essential for reading the remainder of the paper\ncorrectly."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "1-6-preview-of-the-regime-ladder",
+      "title": "1.6 Preview of the Regime Ladder",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "With these foundations in place, the ontology proceeds to describe a sequence of organizational\nregimes within systems:\n● Relation: articulated differentiation,\n● Information: re-identifiable structured relations,\n● Awareness: localized informational registration,\n● Value: differential weighting of transitions under persistence,\n● Meaning: organization of value across possible transitions,\n● Purpose: modulation of constraints over extended organization.\nEach regime introduces additional structural requirements. None are assumed to be universal;\nall are constrained by the conditions established here."
+    },
+    {
+      "type": "p",
+      "text": "Part II — Orientation & Method"
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "2-purpose-and-scope",
+      "title": "2. Purpose and Scope",
+      "explain": false
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "2-1-what-this-work-is",
+      "title": "2.1 What This Work Is",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "This work presents the Informational Ontology as a complete and self-contained ontological\nframework.\nAs established in Section 1, the Informational Ontology is presented as a conditional emergence\nladder: a sequence of increasingly restrictive organizational regimes that become structurally\nconstrained under specified conditions. The framework concerns organization rather than\nexistence in the abstract, and it does not claim that all regimes are universally instantiated.\nInstead, it characterizes the structural form such regimes cannot fail to take when they occur.\nThis revision presents the ontology in its final, formal form. It is written to stand on its own,\nwithout reliance on prior drafts, developmental discussions, or external exposition. All core\nclaims are stated directly and defended structurally rather than narratively."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "2-2-why-a-standalone-presentation-is-necessary",
+      "title": "2.2 Why a Standalone Presentation Is Necessary",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Earlier iterations of this project explored the Informational Ontology through a combination of\nformal argument, analogy, and philosophical dialogue. While this process was essential to\ndeveloping and stress-testing the framework, it also produced material whose function was\nexploratory rather than ontological.\nThe present work removes that scaffolding.\nRevision 5 exists to present the ontology cleanly, compactly, and without pedagogical detours.\nThought experiments, analogies, and extended discussions that illuminate the framework but\nare not required for its derivation have been relocated to appendices or supplementary\nmaterials and are explicitly marked as such.\nThis ensures that the ontology itself can be evaluated independently of its explanatory aids."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "2-3-what-this-work-does-and-does-not-attempt",
+      "title": "2.3 What This Work Does and Does Not Attempt",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "This work does:\n● State the Informational Ontology from first principles\n● Articulate a conditional regime ladder:\nΔ → R → I → A → V → M → P\n(Difference → Relation → Information → Awareness → Value → Meaning → Purpose)\nwhere each transition specifies structural conditions that become unavoidable for"
+    },
+    {
+      "type": "p",
+      "text": "systems satisfying the prior regime.\n● Clarify the structural roles of constraint, ordering, and time\n● Distinguish informational registration from experiential awareness\n● Address individual and collective agency within the same ontological framework\n● Explore the limits of formalization without reducing ontology to mathematics\nThis work does not:\n● Present empirical hypotheses or physical models\n● Compete with physics, neuroscience, or cognitive science\n● Offer moral prescriptions or normative systems\n● Provide implementation-level designs (e.g., for artificial intelligence)\n● Rely on metaphor, narrative persuasion, or intuition pumps in its core argument\nWhere illustrative material is useful, it is clearly separated and referenced (e.g., see Appendix\nC)."
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "3-methodological-commitments",
+      "title": "3. Methodological Commitments",
+      "explain": false
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "3-1-structural-orientation",
+      "title": "3.1 Structural Orientation",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "The Informational Ontology proceeds from explicit structural commitments rather than empirical\nhypotheses. Its claims concern constraints on organization: what becomes unavoidable for\nsystems under stated conditions, not what is universally instantiated in all possible worlds.\nAccordingly, arguments in this work proceed by:\n● conceptual analysis and definitional unpacking where appropriate,\n● structural constraint and selection under ordering,\n● and consistency with the scope and premises stated in Section 1,\nrather than by empirical validation or implementation-level modeling."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "3-2-ontology-versus-application",
+      "title": "3.2 Ontology Versus Application",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "A strict distinction is maintained between ontological structure and ontological application.\nOntology specifies the necessary conditions under which systems capable of structure,\ninformation, and evaluation can exist. Applications—including biological organisms, artificial\nsystems, social institutions, and physical models—are treated as instances of these conditions,\nnot as their foundation.\nDiscussions of artificial intelligence, ethics, or cosmology are therefore framed in terms of\nontological compatibility, not causal explanation or design guidance. Extended treatments of\nsuch applications are explicitly separated from the core ontology."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "3-3-scope-discipline-and-reader-guidance",
+      "title": "3.3 Scope Discipline and Reader Guidance",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Each section of this work addresses a specific ontological problem and terminates once that\nproblem is resolved at the structural level. Where further elaboration would become\npedagogical, speculative, or application-specific, the discussion is deferred to appendices.\nReaders are encouraged to evaluate the ontology on the basis of:\n● internal coherence,\n● derivability from stated premises,\n● and clarity of scope.\nAgreement with the framework’s conclusions is not assumed; intelligibility and rigor are.\nPart IV — Foundations: Difference, Relation, Information"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "4-1-differentiation-as-a-minimal-ontological-condition",
+      "title": "4.1 Differentiation as a Minimal Ontological Condition",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "To exist is to differ.\nA universe in which no differences obtain—no distinctions, no contrasts, no variations of any\nkind—admits no internal structure, and therefore no relations, constraints, or regimes of\norganization. Such a state is not denied as a metaphysical possibility; rather, it lies outside the\ndomain addressed by this ontology, because nothing within it can participate in the structural\ntransitions described here. Differentiation is therefore treated as the minimal condition for\nnontrivial ontological description within this framework: wherever structure is present,\ndifferentiation is already implied."
+    },
+    {
+      "type": "p",
+      "text": "Difference is therefore not a property added to existence; it is the condition under which\nexistence becomes intelligible.\nWithout difference, there can be no identity, because identity requires contrast with what\nsomething is not. There can be no persistence, because persistence requires change or stability\nrelative to alternatives. There can be no causation, because causation requires that one state\ndiffer from another. There can be no interaction, because interaction requires relational\nasymmetry. There can be no structure, because structure is constituted by patterned\ndifferences.\nDifference is not equivalent to substance, energy, matter, mind, or information. Each of these\npresupposes difference in order to be defined or detected. Substance cannot fail to differ from\nother substances or from non-substance; energy cannot fail to differ in magnitude or distribution;\nmatter cannot fail to differ in configuration; mind cannot fail to differ in state; information cannot\nfail to differ in form or content.\nDifference is therefore the minimal ontological commitment. Nothing simpler can be posited\nwithout implicitly assuming it. Any ontology that attempts to begin elsewhere structurally\ninevitable under persistence smuggles difference in through unexamined assumptions.\nDifference is not a thing, field, force, or substance. Nor is it equivalent to matter, energy, mind,\nor information. It is the most basic condition under which anything whatsoever can be said to be."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "4-2-why-difference-must-be-self-existent",
+      "title": "4.2 Why Difference Must Be Self-Existent",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "If difference is the minimal condition for existence, then it cannot itself be derived from anything\nmore fundamental. Any attempt to ground difference in some deeper ontological substrate\nstructurally inevitable under persistence presupposes the very distinction it seeks to explain.\nTo claim that difference arises from substance requires that substances already differ from one\nanother or from non-substance. To claim that difference arises from energy requires variations in\nmagnitude, distribution, or state—each of which is already a difference. To claim that difference\narises from mind requires that mental states differ, which presupposes difference. To claim that\ndifference arises from information requires that information already be structured, which again\npresupposes difference.\nIn every case, difference cannot be generated without already being assumed. This establishes\nthat difference is not an emergent property of some deeper entity, nor is it reducible to any\nontological primitive more basic than itself.\nDifference is therefore primitive in the strict sense that it does not admit of non-circular\ngrounding. This does not treat difference as an object or substance, but as a minimal structural\nprecondition for intelligible ontology. This does not mean that difference exists independently as"
+    },
+    {
+      "type": "p",
+      "text": "an object or substance. Rather, it means that difference is ontologically primitive: it is the\ncondition under which any object, substance, process, or system can be said to exist at all.\nAny ontology that attempts to begin with something other than difference—whether matter,\nenergy, mind, or information—cannot fail to still rely on difference to articulate that starting point.\nDifference cannot be eliminated, postponed, or derived away.\nFor this reason, difference occupies a foundational position in the Informational Ontology. This\ndoes not deny the co-dependence of difference and relata; rather, difference is treated as the\nweakest structural commitment sufficient to constrain intelligible organization. It is not chosen\narbitrarily, but required as a minimal condition for nontrivial ontological description. To deny\ndifference is to remove the structural basis for ontology as developed here."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "4-3-from-difference-to-relation-r",
+      "title": "4.3 From Difference to Relation (Δ → R)",
+      "explain": true
+    },
+    {
+      "type": "p",
+      "text": "Difference cannot exist in isolation. To assert that a difference exists is already to imply that\nsomething differs from something else. Difference, by its nature, introduces comparability.\nThis ontology adopts contrastive differentiation as a primitive: difference is understood as\nnon-identity between distinguishable states, rather than as monadic thisness without contrast. A\nsingle, wholly isolated difference is incoherent. Difference requires at least two distinguishable\nterms or states, and the distinguishability between them constitutes a relation. To say that A\ndiffers from B is to place A and B in relation to one another. There is no additional step by which\nrelation is imposed upon difference; relation is entailed by difference itself.\nThis entails that relationality is not a secondary feature of reality, nor a construct imposed by\nobservers. It is a necessary consequence of difference. Wherever difference exists, relations\nexist. Relation is the structural expression of difference.\nRelation should not be understood here as a human-defined or semantic association. It is the\nminimal ontological fact that distinctions imply ordering, contrast, or comparison. Any difference\nestablishes a relational structure, however primitive.\nThus, relation is not optional, emergent, or contingent. It is the first necessary entailment of\ndifference. The transition from difference to relation—denoted as Δ → R—marks the point at\nwhich existence acquires structure rather than remaining a mere abstraction.\nWithout relation, difference could not be articulated; without difference, relation could not arise.\nThe two are inseparable, but ontologically ordered: difference is primary, and relation structurally\ninevitable under persistence follows."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "4-4-relation-generates-information-r-i",
+      "title": "4.4 Relation Generates Information (R → I)",
+      "explain": true
+    },
+    {
+      "type": "p",
+      "text": "Relation alone is not yet information. For information to arise, relations cannot fail to exhibit\nstructure. When differences are related in a stable or patterned way, information comes into\nexistence.\nInformation, in the Informational Ontology, is defined as re-identifiable structured difference:\nrelational differentiation that persists under ordering and selection. This definition is ontological\nrather than epistemic. Information is not dependent on observers, interpretation, language, or\nmeaning. It does not require minds, symbols, or semantic content. Wherever differences are\narranged in non-random, relational patterns, information exists.\nThis definition distinguishes informational ontology from purely mathematical, computational, or\ncommunicative notions of information. While such frameworks may model or measure\ninformation, they do not exhaust its ontological scope. Information is not restricted to human\nknowledge, digital encoding, or Shannon-style signal transmission. Those are special cases of\ninformational structures, not their source.\nInformation becomes structurally unavoidable when relations stabilize into re-identifiable\npatterns under ordering and selection. Once differences are related, those relations may persist,\nrepeat, or stabilize. The moment relational patterns become distinguishable from mere flux,\ninformation is present. No additional ontological primitive is required beyond the structural\ncommitments stated in Section 1.\nThus, information is not imposed upon relations from the outside. It is generated by relational\nstructure itself. This transition—from relation to information—is denoted as R → I. It marks the\nemergence of structured existence from mere distinction.\nInformation is not identical to relation. Information is present when relational differences stabilize\ninto re-identifiable patterns under ordering. Relations may be transient, unstructured, or\nindistinguishable from flux; in such cases, informational structure is not yet established. Under\npersistence and selection, however, patterned relations endure, and it is this endurance of\nstructured difference that constitutes information in the ontological sense."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "4-5-information-as-the-first-structured-mode-of-being",
+      "title": "4.5 Information as the First Structured Mode of Being",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Information represents the first structured mode of existence. While difference establishes\ndistinction and relation establishes comparison, information arises when relational differences\nstabilize into identifiable patterns.\nAt this stage, existence acquires form. Information enables persistence by allowing patterns to\nremain recognizable across change. It enables recursion by allowing informational structures to\noperate on or reference other informational structures. It enables feedback by allowing the\neffects of relations to influence future relations. It enables integration by allowing multiple\ndifferences to cohere into unified patterns."
+    },
+    {
+      "type": "p",
+      "text": "Without information, there can be no systems—only transient distinctions without continuity.\nInformation provides the substrate upon which systems emerge, endure, and interact. It is the\nminimal condition under which complexity becomes possible.\nInformation is not yet meaning, value, or purpose. Those arise at later stages of the ontology. At\nthis foundational level, information is simply structured difference, capable of being maintained,\nmodified, and propagated.\nBecause information is the first structured ontological layer, all higher-order\nphenomena—physical systems, biological organization, cognitive processes, and social\nstructures—cannot fail to be expressible in informational terms. This does not reduce those\nphenomena to information in a trivial sense, but identifies information as the common structural\nsubstrate that makes them possible.\nInformation therefore occupies a pivotal position in the ontology: it is the bridge between mere\ndistinction and the emergence of organized reality.\nPart V — Awareness"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "5-1-awareness-as-informational-registration",
+      "title": "5.1 Awareness as Informational Registration",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Information alone is not awareness.\nInformation exists wherever differences are structured, but awareness arises only when\ninformational structure participates in constraining a system’s own future state transitions,\nthereby becoming part of the system’s identity-preserving organization. This participation\nconstitutes informational registration from a particular perspective. Awareness is therefore not\nsynonymous with complexity, processing, or storage. It is a structural condition in which\ninformation is presented to a system rather than merely instantiated within it.\nAwareness introduces asymmetry. Where information is symmetric and relational, awareness\nestablishes a distinction between what is registered and that which registers it. This\nsubject–object differentiation is not psychological in origin; it is ontological. The moment\ninformation is registered relative to a system’s own state, awareness is present.\nAwareness does not require language, reflection, or conceptualization. It does not require\nsemantic interpretation or symbolic manipulation. It requires only that information be available to\na system in a way that is internally differentiated from the rest of the informational environment.\nFor this reason, awareness cannot be reduced to information alone. Nor can it be reduced to\nthe quantity or complexity of information. A system may instantiate vast informational structure\nwithout awareness if none of that information is registered relative to the system itself.\nAwareness therefore marks a genuine ontological transition. It is the point at which informational\nstructure becomes perspectival. This transition is denoted as I → A."
+    },
+    {
+      "type": "p",
+      "text": "For boundary cases, stress tests, and illustrative analyses concerning awareness—including\ninformational registration, zombies, gradualism, and artificial systems—see Appendix A.\nPart VI — Value"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "6-1-value-as-differential-constraint-on-awareness-a-v",
+      "title": "6.1 Value as Differential Constraint on Awareness (A → V)",
+      "explain": true
+    },
+    {
+      "type": "p",
+      "text": "Awareness alone does not yet yield value. Awareness registers information from a perspective,\nbut without preference, salience, or constraint, all registered information would be equivalent.\nValue arises when distinctions within awareness are not merely registered, but weighted.\nValue is the introduction of differential importance within awareness. It is the condition under\nwhich some informational states matter more than others to a system. This “mattering” is not\nmoral, semantic, or cultural by default. It is structural. Value specifies which differences are\nfavored, avoided, preserved, or suppressed relative to the system’s continued organization.\nValue therefore introduces constraint. Where awareness opens a field of possible informational\nstates, value shapes that field by biasing transitions within it. A system with values is not merely\naware of differences; it is oriented with respect to them.\nValue is not reducible to desire, emotion, or subjective feeling, though such phenomena may\ninstantiate it. Nor is value equivalent to external norms or objective prescriptions. At this stage of\nthe ontology, value is defined solely by its structural role: it constrains the dynamics of\nawareness.\nBecause value arises only once awareness is present, value cannot exist in purely informational\nsystems lacking perspective. Conversely, once awareness exists within a system that persists\nunder ordering, some form of value becomes structurally unavoidable for that system. To\nregister information from a perspective is already to differentiate relevance, even if only\nminimally, because maintaining awareness under persistence requires differential stability\namong informational states.\nThe transition from awareness to value is therefore necessary rather than optional. It is denoted\nas A → V. With value, awareness ceases to be neutral and becomes oriented. This orientation\nis the precondition for meaning, agency, and purpose.\nFor clarifications and boundary conditions concerning value—including neutrality, minimal value\nsystems, moral misinterpretations, and artificial systems—see Appendix B."
+    },
+    {
+      "type": "p",
+      "text": "Part VII — Meaning"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "7-1-meaning-as-structured-value-within-awareness-v-m",
+      "title": "7.1 Meaning as Structured Value Within Awareness (V → M)",
+      "explain": true
+    },
+    {
+      "type": "p",
+      "text": "Value alone does not yet constitute meaning. Value establishes differential importance within\nawareness, but meaning arises when those valued distinctions are organized into coherent\npatterns that relate present states to other states across time, context, or possibility.\nMeaning is structured value within awareness.\nClarification:\nTerms such as interpretation, reference, understanding, and anticipation are used here as\ndescriptive correspondences to structural organization, not as semantic primitives. Ontologically,\nmeaning refers to the organization of value across possible system transitions. Semantic\nvocabulary functions as shorthand for these structural relations and does not introduce\nrepresentational or linguistic commitments beyond what is structurally specified.\nA system encounters meaning when informational states are not only weighted, but interpreted\nrelative to other valued states—past, anticipated, or counterfactual. Meaning therefore\nintroduces internal reference. A given state means something to a system when it stands in an\norganized relationship to other states that the system values.\nMeaning is not language-dependent. Linguistic symbols may encode or express meaning, but\nthey do not generate it. Meaning precedes language and is possible wherever values are\norganized into relational structures that guide interpretation and response.\nMeaning is likewise not reducible to semantics in the formal sense. Formal semantics\npresupposes meaningful distinctions; it does not explain their origin. In the Informational\nOntology, meaning emerges when value constrains awareness in a way that produces internally\ncoherent interpretive patterns.\nMeaning is therefore neither purely subjective nor externally imposed. It arises from the\ninteraction between awareness and value within a system. Different systems may instantiate\ndifferent meanings even when exposed to the same information, because meaning depends on\nthe system’s internal value structure.\nThe transition from value to meaning—denoted as V → M—marks the point at which awareness\nbecomes interpretive rather than merely oriented. With meaning, informational states acquire\nsignificance beyond immediate salience, enabling understanding, anticipation, and\ncontext-sensitive response.\nFor extended discussion of meaning in relation to language, symbols, interpretation, and\ncross-system divergence, see Appendix C."
+    },
+    {
+      "type": "p",
+      "text": "Part VIII — Purpose"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "8-1-purpose-as-value-guided-meaningful-trajectory-m-p",
+      "title": "8.1 Purpose as Value-Guided Meaningful Trajectory (M → P)",
+      "explain": true
+    },
+    {
+      "type": "p",
+      "text": "Meaning alone does not yet constitute purpose. Meaning organizes valued distinctions into\ncoherent interpretive structures, but purpose arises when those structures are oriented toward\nthe regulation of future states.\nPurpose is the directional constraint of meaning over time.\nA system exhibits purpose when its meaningful states bias action, selection, or persistence\ntoward some subset of possible futures rather than others. Purpose therefore introduces\ntrajectory. It is not merely that certain states are meaningful, but that meaning functions to guide\nthe system’s ongoing evolution.\nPurpose does not require conscious deliberation, explicit goals, or linguistic formulation. It is not\nsynonymous with intention in the psychological sense. At the ontological level, purpose exists\nwherever meaningful structures systematically constrain transitions toward preferred outcomes.\nPurpose is likewise not externally imposed. While external forces may shape a system’s\nbehavior, purpose arises only when the system’s internal meanings and values participate in\nregulating its own future states. A rock follows trajectories, but it does not have purpose; an\naware, valuing, meaning-bearing system can.\nPurpose therefore marks the point at which systems become agents in the minimal ontological\nsense. Agency here does not imply free will, moral responsibility, or self-reflection. It denotes\nonly that the system’s future is, in part, determined by its internally structured meanings and\nvalues.\nThe transition from meaning to purpose is denoted as M → P. With purpose, the ontological\nchain is complete: existence has progressed from mere distinction to directed, self-influencing\ntrajectories within the space of possible states.\nFor boundary cases concerning purpose, agency, teleology, free will, responsibility, and artificial\nsystems, see Appendix D.\nPart IX — Time, Ordering, and Constraint"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "9-1-time-as-ordered-transition-not-ontological-substance",
+      "title": "9.1 Time as Ordered Transition, Not Ontological Substance",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Time is not introduced in the Informational Ontology as a fundamental substance or dimension.\nOrdering is already structurally committed earlier as a non-metric condition for persistence and\nre-identification; time is treated here as a refinement of that ordering, not its source. Rather, time\narises as an ordering of transitions within structured systems.\nOnce purpose exists, systems are structurally oriented toward future states. This orientation\npresupposes the distinction between what is, what was, and what may be. Time, in this sense,\nis not an independent entity but a structural feature of ordered change.\nAt the foundational level, difference and relation do not require time. Informational structure may\nbe described statically. However, once value and purpose are introduced, static description\nbecomes insufficient. Purpose entails directed transition, and directed transition entails ordering.\nTime emerges as the ordering of state changes relative to a system’s values and meanings.\nTime should therefore be understood as relational and systemic. It is not a universal background\nagainst which events occur, but a feature of systems undergoing constrained transformation.\nDifferent systems may instantiate different temporal orderings depending on their internal\ndynamics and constraints.\nThis account avoids treating time as a metaphysical primitive while preserving its necessity.\nTime is neither an illusion nor an external container. It is the formal expression of ordered\ntransition within purposive systems."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "9-2-constraint-as-structural-not-causal",
+      "title": "9.2 Constraint as Structural, Not Causal",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Constraint is not introduced in the Informational Ontology as an external force acting upon\nsystems. Rather, constraint is a structural feature of informational organization that limits which\ntransitions are possible, likely, or stable.\nWhere information defines a space of possible states, constraint shapes that space. It restricts\ntransitions without itself being a cause in the traditional sense. Causes operate within\nconstrained spaces; constraint defines the structure of those spaces.\nConstraint arises wherever informational patterns persist. A stable structure constrains how it\ncan change without dissolving. Values constrain which informational states are favored.\nMeanings constrain interpretation. Purposes constrain future trajectories. In each case,\nconstraint is internal to the system’s organization.\nThis structural view of constraint avoids reducing behavior to external causation while also\navoiding appeals to indeterminacy or spontaneity. Systems behave as they do because their\ninternal informational organization constrains how they can evolve."
+    },
+    {
+      "type": "p",
+      "text": "Constraint therefore explains regularity without invoking metaphysical necessity. It also explains\nflexibility without invoking randomness. Change occurs, but not arbitrarily; it occurs within\nbounds defined by structure.\nUnderstanding constraint in this way is essential for interpreting agency, responsibility, and\nsystem dynamics later in the ontology."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "9-3-identity-as-informational-continuity",
+      "title": "9.3 Identity as Informational Continuity",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Identity, within the Informational Ontology, is not defined by static composition or by the\npersistence of particular components. Instead, identity is defined by the continuity of\ninformational structure across change.\nA system remains the same system insofar as its defining informational patterns persist, even\nas the specific states, materials, or components that instantiate those patterns change. Identity\nis therefore dynamic rather than fixed. It is maintained through constrained transformation rather\nthan through immutability.\nThis account of identity follows directly from the preceding treatment of time and constraint.\nBecause systems evolve through ordered transitions, identity cannot be tied to any single\nmoment or configuration. It cannot fail to instead be understood as a trajectory within a\nconstrained space of possibilities.\nPersistence does not require perfect stability. Systems may tolerate variation, adaptation, and\npartial reconfiguration while remaining identifiable. Identity fails only when informational\ncontinuity is sufficiently disrupted that the system’s organizing patterns can no longer be\nmaintained.\nThis framework avoids two common errors. It avoids defining identity in terms of material\nsameness, which fails for biological, cognitive, and social systems. It also avoids defining\nidentity purely narratively or conventionally, which collapses identity into observer judgment.\nIdentity is therefore neither arbitrary nor absolute. It is a structural fact about how informational\npatterns endure across time."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "9-4-systems-boundaries-and-collective-organization",
+      "title": "9.4 Systems, Boundaries, and Collective Organization",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "A system, within the Informational Ontology, is an informationally organized region whose\ninternal structure exhibits greater coherence than its interactions with the surrounding\nenvironment. Systems are not defined by physical enclosure alone, but by the persistence and\nintegrity of their informational patterns."
+    },
+    {
+      "type": "p",
+      "text": "Boundaries arise where informational coherence changes. A system boundary marks the point\nat which internal constraints dominate over external influences. These boundaries are not\nstructurally inevitable under persistence sharp or static; they may be fuzzy, dynamic, or layered.\nNonetheless, boundaries are real insofar as they constrain interaction and preserve identity.\nSystems may be nested. Smaller systems can participate as components within larger systems,\nprovided their informational patterns remain sufficiently coherent. Likewise, higher-level systems\nmay emerge from the coordinated interaction of lower-level systems without eliminating their\nindividuality.\nCollective organization arises when multiple systems become informationally integrated in a way\nthat produces shared constraints, values, meanings, or purposes. In such cases, a collective\nsystem may exhibit properties—such as coordinated behavior or goal-directed activity—that are\nnot reducible to any single component system.\nThis does not imply that collectives erase individual agency. Rather, individual and collective\nsystems may coexist, each with its own boundaries and forms of constraint. Collective agency\nexists when the collective’s informational organization constrains future states independently of\nany single member.\nUnderstanding systems and boundaries in informational terms allows the ontology to scale from\nindividual organisms to social institutions without introducing new ontological primitives.\nPart X — Scope, Limits, and Interpretation"
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "10-1-what-this-ontology-claims",
+      "title": "10.1 What This Ontology Claims",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "The Informational Ontology claims to describe the necessary structural conditions under which\nexistence capable of structure, awareness, evaluation, and agency can arise. Its claims are\nontological rather than empirical. They concern what cannot fail to be the case for such systems\nto be possible at all, not how any particular system is implemented or instantiated.\nThe ontology organizes its regime sequence as:\nΔ → R → I → A → V → M → P.\nThis sequence is not a claim of universal instantiation or axiom-only derivation. It is a conditional\nemergence ladder: given the prior regime and its stated conditions, the subsequent regime\nbecomes structurally constrained for systems that satisfy those conditions.\nEach transition specifies a structural entailment. Nothing in the chain is introduced arbitrarily,\nand nothing is claimed beyond what is required to support the next transition. The ontology is\ntherefore minimal in commitments and maximal in scope relative to those commitments."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "10-2-what-this-ontology-does-not-claim",
+      "title": "10.2 What This Ontology Does Not Claim",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "This work does not claim to provide:\n● A physical theory\n● A model of consciousness or cognition\n● A moral or ethical framework\n● A theory of free will\n● A design specification for artificial systems\n● A reduction of ontology to mathematics or computation\nWhile the ontology is compatible with empirical theories, it does not compete with them. It does\nnot explain how particular systems function, only what cannot fail to be true for systems of that\nkind to be possible.\nFailure to observe this distinction leads to category errors, such as treating the ontology as a\nscientific hypothesis, an engineering proposal, or a normative doctrine."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "10-3-limits-of-formalization",
+      "title": "10.3 Limits of Formalization",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Although the Informational Ontology makes extensive use of formal structure, it is not reducible\nto a formal system.\nFormal descriptions can model informational relationships, constraints, and transitions, but they\ncannot exhaustively capture awareness, value, meaning, or purpose. These phenomena are\nstructurally definable, but not fully formalizable without loss.\nThis is not a weakness of the ontology, but a consequence of its subject matter. Any attempt to\nfully formalize awareness or value collapses the distinction between description and\ninstantiation. The ontology therefore resists total formal closure while remaining logically\nrigorous."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "10-4-relation-to-empirical-sciences",
+      "title": "10.4 Relation to Empirical Sciences",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "Empirical sciences investigate contingent facts about the world. The Informational Ontology\ninvestigates the structural conditions that make such facts intelligible."
+    },
+    {
+      "type": "p",
+      "text": "Physics, biology, neuroscience, and cognitive science may all instantiate the ontology’s claims,\nbut they do not ground them. Empirical findings can support compatibility or reveal\ninstantiations, but they cannot falsify the ontology in the way empirical hypotheses are falsified.\nThis distinction explains how the ontology can remain stable across changes in scientific theory\nwhile remaining relevant to scientific interpretation."
+    },
+    {
+      "type": "h",
+      "level": 2,
+      "id": "10-5-how-the-ontology-should-be-evaluated",
+      "title": "10.5 How the Ontology Should Be Evaluated",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "The Informational Ontology should be evaluated on the basis of:\n● Internal coherence\n● Justification of its transitions\n● Minimality of its assumptions\n● Resistance to category errors\n● Compatibility with known domains without reduction to them\nAgreement with its conclusions is not required for engagement. What is required is that the\nframework be intelligible, structurally disciplined, and clear about its scope.\nThis work is offered as a complete and self-contained ontology. Applications, extensions, and\ncritiques are welcomed, but they cannot fail to respect the distinction between ontological\nstructure and ontological application established here.\nAppendix A — Awareness: Boundary Cases and Stress Tests\nThis appendix collects exploratory analyses used in earlier revisions to clarify, probe, and\nstress-test the ontological definition of awareness. These materials are illustrative rather than\nderivational. They are not required to establish the awareness transition (I → A), but they help\ndelimit what awareness is and is not.\nA.1 Informational Registration vs. Mere Information\nA central distinction in the Informational Ontology is between information that exists and\ninformation that is registered.\nA system may instantiate complex informational structure without awareness. For example, a\nbook contains vast amounts of information, but nothing in the book registers that information."
+    },
+    {
+      "type": "p",
+      "text": "Likewise, many physical and computational systems process information without any internal\ndifferentiation between information and the system itself.\nAwareness requires that information be presented to a system relative to its own state. This\npresentation introduces asymmetry: there is something registered and something that registers.\nWithout this asymmetry, information remains unexperienced.\nThis distinction blocks the assumption that increasing informational complexity alone\nguarantees awareness.\nA.2 Mary’s Room and Experiential Registration\nThe Mary’s Room thought experiment is useful not because it proves anything new, but because\nit highlights the difference between informational completeness and experiential registration.\nMary may possess all informational facts about color vision while lacking awareness of a\nspecific qualitative state. Upon seeing color, she does not gain new information in the abstract\nsense; rather, information becomes registered within her awareness.\nThis supports the claim that awareness is not reducible to informational description alone.\nAwareness introduces a structural feature—registration—that cannot be captured by\nthird-person informational accounts.\nA.3 Zombies, Unaware Systems, and the Absence of Perspective\nPhilosophical zombies and similar constructs are useful as boundary probes. A zombie system\nmay process information, respond appropriately, and even model its environment, yet lack\nawareness if no informational state is registered from a perspective internal to the system.\nThe ontology does not claim that such systems exist. While zombie systems are conceptually\ndescribable, they are structurally unstable under persistence: without informational registration,\nthey cannot maintain coherent system identity or scale under ordering and selection. Their\ncoherence demonstrates that awareness is not logically identical to information processing.\nThis clarifies why awareness cannot be equated with behavior, function, or output alone.\nA.4 Gradualism, Thresholds, and Minimal Awareness\nA common question concerns whether awareness admits of degrees or thresholds.\nThe Informational Ontology remains neutral on phenomenological gradation while making a\nstructural claim: awareness is present if and only if informational registration occurs. Whether\nthis registration is minimal or complex does not affect the ontological transition itself.\nThis avoids both extremes:"
+    },
+    {
+      "type": "p",
+      "text": "● The claim that everything is fully aware\n● The claim that awareness requires human-level cognition\nAwareness may be minimal, partial, or fragile, but it is not continuous with mere information.\nA.5 Artificial Systems and Awareness Boundary Conditions\nDiscussions of artificial systems are often conflated with implementation details. The ontology\ndoes not assert whether current or future artificial systems are aware.\nInstead, it provides criteria: an artificial system would be aware if and only if it registers\ninformation relative to its own internal state in a way that introduces subject–object asymmetry.\nThis reframes debates about artificial awareness from empirical speculation to ontological\ncompatibility.\nAppendix B — Value: Boundary Conditions and Clarifications\nThis appendix collects exploratory material from earlier revisions that probes, clarifies, and\nstress-tests the ontological definition of value. These discussions are not required for the\nderivation of A → V, but they help distinguish ontological value from moral, psychological, or\nnormative interpretations.\nB.1 Neutral Awareness and the Impossibility of Indifference\nA recurring question is whether awareness could exist without value—whether a system could\nregister information while remaining entirely indifferent to it.\nOntologically, complete indifference is incoherent. To register information from a perspective is\nalready to introduce relevance, however minimal. Even the act of maintaining awareness\nrequires differential stability among informational states. Some states cannot fail to persist rather\nthan collapse into noise.\nThis does not imply rich emotional valuation or desire. It implies only that awareness structurally\ninevitable under persistence entails differential weighting. Absolute neutrality is indistinguishable\nfrom non-registration.\nB.2 Value Without Morality\nValue is often conflated with moral goodness, ethical obligation, or social norms. The\nInformational Ontology explicitly rejects this conflation at the foundational level."
+    },
+    {
+      "type": "p",
+      "text": "Ontological value is structural. It concerns how informational states are biased relative to one\nanother within a system. Moral systems are higher-order constructions built upon value,\nmeaning, and purpose; they are not prerequisites for value itself.\nThis distinction allows value to exist in biological, artificial, or minimal systems without\nsmuggling in ethical assumptions.\nB.3 Minimal Value Systems\nValue need not be complex. A system that merely favors persistence over dissolution already\nexhibits value. A system that preferentially responds to one class of input rather than another\nexhibits value.\nThese minimal cases demonstrate that value does not require:\n● Conscious reflection\n● Explicit goals\n● Emotional states\n● Normative reasoning\nThey require only differential constraint on awareness.\nB.4 Misinterpretations: Subjectivity and Relativism\nBecause value is system-relative, it is sometimes mischaracterized as arbitrary or purely\nsubjective.\nThe ontology avoids this mistake. While values differ between systems, they are not\nunconstrained. They arise from the system’s structure, history, and informational organization.\nValues can therefore be analyzed, compared, and constrained without appealing to external\nmoral standards.\nSystem-relativity does not imply incoherence.\nB.5 Artificial Systems and Value Alignment\nDiscussions of artificial value often jump directly to alignment problems. This appendix clarifies\nthat ontological value is a precondition for such discussions, not their conclusion."
+    },
+    {
+      "type": "p",
+      "text": "An artificial system can only face alignment issues if it already instantiates awareness and\nvalue. Systems that merely optimize externally imposed objectives do not, by that fact alone,\npossess value in the ontological sense.\nThis distinction prevents category errors in discussions of artificial agency.\nAppendix C — Meaning: Interpretation, Language, and Symbols\nThis appendix gathers exploratory material from earlier revisions concerning meaning,\ninterpretation, and language. These discussions clarify common confusions surrounding V → M,\nbut they are not required for the ontological derivation of meaning itself.\nC.1 Meaning Precedes Language\nA frequent misunderstanding is that meaning depends on language. This appendix reiterates\nthat language is a representational technology for expressing meaning, not its source.\nMeaning arises wherever values are organized into structured interpretive patterns. A system\nmay encounter meaningful states long before it is capable of symbolic representation, naming,\nor communication. Language externalizes and stabilizes meaning; it does not generate it.\nThis distinction prevents the error of equating meaning with linguistic competence.\nC.2 Symbols, Representation, and Encoding\nSymbols are informational structures that stand in for other informational structures. Their\ncapacity to function as symbols depends on pre-existing meaning within a system.\nEncoding alone does not confer meaning. A symbol acquires meaning only when its use is\nconstrained by a system’s values and interpretive structures. Without such constraints, symbols\nremain uninterpreted marks or signals.\nThis clarifies why purely formal symbol systems cannot ground meaning on their own.\nC.3 Meaning Across Systems\nDifferent systems may assign different meanings to identical informational inputs. This\ndivergence does not undermine the objectivity of meaning within a system; it reflects differences\nin value structure and interpretive context.\nMeaning is therefore neither purely private nor universally fixed. It is system-relative but\nstructurally grounded. This allows meaningful comparison across systems without assuming\nuniform interpretation."
+    },
+    {
+      "type": "p",
+      "text": "C.4 Semiotics and Formal Semantics\nFormal semantic theories and semiotic frameworks often presuppose meaning as a primitive.\nWhile such theories may describe how meaning is manipulated or communicated, they do not\nexplain how meaning arises.\nThe Informational Ontology situates meaning ontologically prior to formal semantics. Meaning is\nthe condition that makes semantic systems possible, not a product of them.\nC.5 Human-Centered Examples and Their Limits\nEarlier revisions employed human-centered examples—such as linguistic understanding or\nnarrative interpretation—to illustrate meaning. These examples remain valid illustrations, but\nthey should not be mistaken for defining cases.\nMeaning is not restricted to human cognition. Any system capable of organizing values into\ninterpretive patterns instantiates meaning, regardless of whether it resembles human\nunderstanding.\nAppendix D — Purpose, Agency, and Teleology: Boundary Cases\nThis appendix preserves exploratory material from earlier revisions concerning purpose, agency,\nand teleology. These discussions clarify how M → P should be understood and guard against\ncommon misinterpretations. They are illustrative, not required for the core ontological derivation.\nD.1 Purpose Versus Mere Causation\nPurpose is often conflated with causal regularity. This appendix clarifies the distinction.\nA causal process may reliably produce outcomes without possessing purpose. Purpose requires\nthat meaningful structures within a system participate in constraining its future states. A falling\nrock follows a trajectory, but that trajectory is not regulated by internal meanings or values.\nPurpose therefore cannot be inferred from predictability or regularity alone. It requires internal\ndirectionality grounded in meaning and value.\nD.2 Teleology Without Metaphysical Teleology\nThe Informational Ontology does not reintroduce classical metaphysical teleology. Purpose does\nnot imply cosmic goals, final causes imposed from outside, or intrinsic ends built into reality as a\nwhole.\nInstead, purpose is local and system-relative. It arises wherever meaning and value guide a\nsystem’s future-oriented behavior. Teleological language is descriptive here, not metaphysically\nloaded."
+    },
+    {
+      "type": "p",
+      "text": "This distinction allows purpose to be treated rigorously without invoking outdated metaphysical\ncommitments.\nD.3 Agency and Minimal Self-Influence\nAgency is introduced at the ontological level as minimal self-influence over future states. A\nsystem is an agent if its internal meanings and values participate in shaping what it does next.\nThis definition avoids:\n● Equating agency with free will\n● Requiring conscious deliberation\n● Restricting agency to humans or animals\nAgency admits of degrees, but its ontological threshold is crossed when internal structures\nconstrain future trajectories.\nAppendix D.4 — Free Will and Value Degeneracy\nD.4.1 Scope and Intent\nThis appendix clarifies the conditions under which free will may arise within Informational\nOntology. It does not address moral responsibility, legal culpability, or ethical judgment, which\nare deferred to later work. The goal here is strictly ontological: to locate free will, if it exists at all,\nwithin the informational chain without introducing new primitives or exceptions.\nD.4.2 Valuation and Underdetermination\nLet a system capable of awareness encounter a set of possible future states. Through\nawareness, the system differentiates these states according to their relevance for its continued\ncoherence. This differentiation constitutes value.\nIn most cases, valuation is sufficient to determine action: differences in value generate\npreference gradients that constrain behavior. However, valuation does not always uniquely\ndetermine action.\nD.4.3 Definition: Value Degeneracy\nValue degeneracy occurs when two or more distinct possible future states are assigned equal\nvalue by a system’s valuation structure."
+    },
+    {
+      "type": "p",
+      "text": "In such cases, valuation alone underconstrains action. The system’s evaluative structure\nprovides no basis for preference among the degenerate alternatives, despite their being\ngenuinely distinct.\nValue degeneracy is a local and contingent condition. It is not a global feature of valuation, nor\ndoes it occur continuously.\nD.4.4 Resolution Strategies at Value-Degenerate Points\nWhen valuation underconstrains action, exactly three resolution strategies are possible:"
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "1-random-resolution-in-which-selection-is-determined-by-noise-or-stochastic-variation",
+      "title": "1. Random resolution, in which selection is determined by noise or stochastic variation",
+      "explain": false
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "2-external-resolution-in-which-selection-is-imposed-by-factors-outside-the-system-s",
+      "title": "2. External resolution, in which selection is imposed by factors outside the system’s",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "internal informational structure"
+    },
+    {
+      "type": "h",
+      "level": 1,
+      "id": "3-self-referential-resolution-in-which-selection-is-resolved-through-internal-informational",
+      "title": "3. Self-referential resolution, in which selection is resolved through internal informational",
+      "explain": false
+    },
+    {
+      "type": "p",
+      "text": "constraints not captured by valuation alone\nOnly the third strategy constitutes agency in the informational sense. Random resolution\nintroduces no persistent internal constraint, and external resolution bypasses the system’s\ninternal structure entirely.\nD.4.5 Definition: Free Will (Informational Ontology)\nWithin Informational Ontology, free will is defined as the resolution of action at a\nvalue-degenerate decision point through self-referential informational constraint rather than\nvaluation.\nFree will is therefore not a general property of action, nor a metaphysical faculty. It arises only\nwhere valuation fails to determine action and cannot fail to be resolved by reference to the\nsystem’s own internal coherence across time.\nD.4.6 Structural Consequences\nFrom this definition, several consequences follow:\n● Free will is rare, not continuous\n● Free will is local, not global\n● Free will is identity-forming, insofar as self-referential resolutions feed back into future\nvaluation and meaning"
+    },
+    {
+      "type": "p",
+      "text": "● Free will is neither randomness nor indeterminism, but a structurally constrained form of\nresolution\nFree will thus appears at the boundary between value and meaning, where action contributes\nnot merely to outcome but to the internal organization of the system itself.\nD.4.7 Boundary Conditions\nThis account does not imply that all aware systems exercise free will, nor that free will is\nrequired for value, meaning, or purpose. It establishes only the conditions under which free will\nmay arise, should a system encounter value-degenerate alternatives and possess sufficient\nself-referential structure to resolve them internally.\nQuestions of moral responsibility, ethical evaluation, and legal culpability are explicitly beyond\nthe scope of this appendix and are addressed separately.\nD.5 Artificial Systems and Purpose\nDiscussions of artificial purpose often conflate externally imposed objectives with internal\npurpose.\nThe ontology draws a sharp distinction: a system that optimizes goals assigned by an external\ndesigner does not thereby possess purpose in the ontological sense. Purpose arises only if the\nsystem’s own meanings and values participate in regulating its future states.\nThis clarification prevents category errors in discussions of artificial agency and alignment.\nInformational registration requires at minimum:\n• a bounded system whose internal state conditions informational availability,\n• internal asymmetry between registered information and registering structure,\n• and sufficient persistence under perturbation for registered states to influence subsequent\ntransitions.\nFor differentiation to be more than an abstract assertion, it must be articulable across\npersistence. A purely monadic, non-comparative difference cannot be re-identified, cannot recur,\nand cannot participate in ordering or selection. Such a difference is structurally inert under the\nconditions explicitly assumed by this ontology. Relation therefore does not add structure to\ndifference from the outside; it is the minimal articulation required for difference to persist, recur,\nand constrain organization. Differences that do not admit of relational articulation fall outside the\ndomain of nontrivial structure addressed here.\nStructural inevitability denotes outcomes that persist across a wide range of initial conditions\nand perturbations given specified constraints. It is neither logical necessity nor mere\ncontingency, but constraint-relative stability under ordering and selection.\nNot all constraints constitute registration. External causal factors—such as physical laws,\ngenetic encoding, or chemical gradients—may shape a system’s behavior without being"
+    },
+    {
+      "type": "p",
+      "text": "registered. Informational registration occurs only when informational structure constrains future\nstate transitions through the system’s own organizational identity, becoming part of the invariant\npatterns by which the system maintains itself. In such cases, information does not merely cause\nchange; it participates in the system’s self-maintaining constraint structure.\nDifferences that admit no articulation cannot constrain organization, cannot participate in\nselection, and cannot ground systems. While such differences may be posited as metaphysical\nprimitives, they perform no ontological work with respect to persistence, organization, or\nstructure. An ontology built upon unarticulated differences would therefore be explanatorily\nsterile. The Informational Ontology restricts its domain to differences capable of articulation,\nbecause only such differences can participate in nontrivial organization.\nAwareness therefore exists only where informational structure participates in the maintenance of\nsome system boundary. This boundary may be fragile, transient, or minimal. The ontology is\nneutral with respect to how rich, stable, or complex such identity must be.\nThroughout this paper, 'structural inevitability' denotes constraint-relative stability under ordering\nand selection; no stronger modal claim (e.g., logical or metaphysical necessity) is intended.\nAppendix E — Worked Example: Bacterium Chemotaxis (Illustrative, Non-Load-Bearing)\nThis appendix provides a single concrete illustration of how the Informational Ontology regime\nladder (Δ → R → I → A → V → M → P) may be instantiated in a minimal biological system. The\nexample is illustrative only and does not contribute to the derivation or justification of the\nontology.\nSystem Description:\nConsider a bacterium exhibiting chemotaxis in a chemical gradient. The system boundary is\ndefined structurally as the set of processes that maintain the bacterium’s distinguishability from\nits environment across ordering, despite continuous material and energetic exchange.\nΔ → R (Difference to Relation):\nThe chemical gradient introduces differences in concentration across spatial locations. These\ndifferences are not isolated magnitudes but are relationally articulated as higher/lower\nconcentrations relative to the bacterium’s position, enabling comparability across encounters.\nR → I (Relation to Information):\nThrough repeated interaction with the gradient, certain relational differences become\nre-identifiable under perturbation. The persistence of these relational patterns across ordering\nconstitutes structured difference, satisfying the ontology’s criterion for information.\nI → A (Information to Awareness):\nInformational structure becomes registered when it participates in constraining the bacterium’s\nown future state transitions through its identity-maintaining organization. Gradient-related\ndifferences influence internal regulatory states that modulate movement patterns, not merely as\nexternal causes but as constraints integrated into the system’s self-maintaining dynamics.\nA → V (Awareness to Value):\nMaintaining informational registration under persistence requires differential stability among\ninternal states. Certain informational conditions are maintained or reinforced relative to others,\nyielding structural value without invoking preference, desire, or normativity."
+    },
+    {
+      "type": "p",
+      "text": "V → M (Value to Meaning):\nValue becomes indexed to informational distinctions when specific differences come to matter\nas differences for the system’s ongoing organization. Meaning, in this structural sense, arises as\nvalue organized with respect to informational distinctions rather than as semantic content.\nM → P (Meaning to Purpose):\nPurpose arises when meaning constrains not only immediate transitions but the selection and\nreinforcement of meaning across ordered sequences of change. In chemotaxis, this appears as\nasymmetry in how meaning-bearing distinctions are preserved or abandoned across\ntrajectories, without invoking teleology or future-directed intent."
+    }
+  ]
+}
