@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DefinedTerm from "@/components/glossary/DefinedTerm";
 
 export default function ProcessPage() {
   return (
@@ -21,7 +22,7 @@ export default function ProcessPage() {
           </p>
 
           <p className="mt-4 text-base md:text-lg text-black/80 leading-relaxed">
-            The collaboration was not planned as a demonstration of alignment;
+            The collaboration was not planned as a demonstration of <DefinedTerm slug="alignment" tooltip="Here, “alignment” means structural compatibility under shared constraints—not shared goals or values.">alignment</DefinedTerm>;
             an account of alignment unfolded organically from the original work.
             Only in retrospect did it become clear that this account relied on
             the same constrained methodology through which the project itself
