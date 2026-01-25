@@ -15,12 +15,9 @@ export default function ArchivePage() {
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/archive/index.html"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
-          >
+          <a href="/archive/index.html" target="_blank" rel="noreferrer" className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm">
             Open the archived site
-          </Link>
+          </a>
 
           <Link
             href="/"
