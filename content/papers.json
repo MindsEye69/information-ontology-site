@@ -2,8 +2,8 @@
   "executive_summary": {
     "title": "Executive Summary",
     "slug": "executive-summary",
-    "pdf": "/papers/executive-summary.pdf",
-    "note": "Executive summary PDF not detected. Add it to public/papers/.",
+    "pdf": "/papers/IO Executive Summary.pdf",
+    "note": "",
     "category": "front"
   },
   "sections": [
