@@ -3,7 +3,8 @@
     "title": "IO Executive Summary",
     "slug": "io-executive-summary",
     "pdf": "/papers/IO Executive Summary.pdf",
-    "category": "front"
+    "category": "front",
+    "details": "This document provides a high-level structural orientation to the Informational Ontology project as a whole. It summarizes the core framework, the regime ordering, and the role of the major papers without argumentation, serving as a map rather than a substitute for the corpus."
   },
   "sections": [
     {
@@ -15,7 +16,8 @@
           "title": "Informational Ontology — Condensed Master",
           "slug": "informational-ontology-condensed-master",
           "pdf": "/papers/1. Informational Ontology - Condensed Master-FINAL.pdf",
-          "blurb": "A condensed on-ramp to the core regime structure and the minimal commitments of Informational Ontology."
+          "blurb": "A condensed on-ramp to the core regime structure and the minimal commitments of Informational Ontology.",
+          "details": "This paper provides a compressed orientation to the full Informational Ontology framework. It introduces the regime chain and core structural commitments without extended argumentation, serving as an entry point before the full master account."
         },
         {
           "id": "paper-2",
@@ -23,7 +25,8 @@
           "title": "Informational Ontology — Full Master",
           "slug": "informational-ontology-full-master",
           "pdf": "/papers/2. Informational_Ontology_Rev5.1d_MASTER-FINAL.pdf",
-          "blurb": "The authoritative statement of Informational Ontology as a single, continuous structural account."
+          "blurb": "The authoritative statement of Informational Ontology as a single, continuous structural account.",
+          "details": "This paper is the authoritative statement of Informational Ontology. It presents the complete structural framework as a single, continuous account and serves as the fixed ontological foundation for all downstream papers."
         }
       ]
     },
@@ -36,7 +39,8 @@
           "title": "Resolution Under Degeneracy",
           "slug": "resolution-under-degeneracy",
           "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
-          "blurb": "Shows how systems continue when constraints underdetermine immediate transitions without invoking selection or choice."
+          "blurb": "Shows how systems continue when constraints underdetermine immediate transitions without invoking selection or choice.",
+          "details": "This paper addresses how systems continue when constraints do not uniquely determine the next state. It introduces resolution as a structural phenomenon, explaining continuity without appeal to selection, randomness, or executive control."
         },
         {
           "id": "paper-4",
@@ -44,7 +48,8 @@
           "title": "Systems, Boundaries, and Re-Identifiability",
           "slug": "systems-boundaries-and-re-identifiability",
           "pdf": "/papers/4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL.pdf",
-          "blurb": "Gives a structural account of identity persistence across change without substance or essence assumptions."
+          "blurb": "Gives a structural account of identity persistence across change without substance or essence assumptions.",
+          "details": "This paper develops a structural account of system identity across change. It explains how systems remain re-identifiable without stable components, essences, or sharply defined boundaries."
         },
         {
           "id": "paper-5",
@@ -52,7 +57,8 @@
           "title": "Constraint, Ordering, and Direction",
           "slug": "constraint-ordering-and-direction",
           "pdf": "/papers/5. Constraint_Ordering_and_Direction_v2-FINAL.pdf",
-          "blurb": "Develops how directional asymmetry arises from constraint structure rather than goals, optimization, or teleology."
+          "blurb": "Develops how directional asymmetry arises from constraint structure rather than goals, optimization, or teleology.",
+          "details": "This paper explains how directional structure arises from constraint ordering rather than goals or optimization. It establishes direction as a structural feature of constrained transitions, not a teleological one."
         }
       ]
     },
@@ -65,7 +71,8 @@
           "title": "Perspective-Induced Openness in Deterministic Systems",
           "slug": "perspective-induced-openness-in-deterministic-systems",
           "pdf": "/papers/6. Perspective-Induced Openness in Deterministic Systems-FINAL.pdf",
-          "blurb": "Explains local underdetermination for embedded systems without requiring metaphysical indeterminism."
+          "blurb": "Explains local underdetermination for embedded systems without requiring metaphysical indeterminism.",
+          "details": "This paper explains how local openness can arise for embedded systems even in globally deterministic settings, due to self-referential intervention limits. It distinguishes this structural openness from randomness, ignorance, or metaphysical indeterminism."
         },
         {
           "id": "paper-7",
@@ -73,7 +80,8 @@
           "title": "Agency, Salience, and Free Will",
           "slug": "agency-salience-and-free-will",
           "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
-          "blurb": "Accounts for agency structurally in terms of constrained openness rather than will, intention, or executive control."
+          "blurb": "Accounts for agency structurally in terms of constrained openness rather than will, intention, or executive control.",
+          "details": "This paper gives a constraint-based account of agency and free will in which freedom appears only under underdetermination and disappears under saturation. It treats salience as a pre-interpretive mechanism that can close action spaces without invoking an executive controller."
         },
         {
           "id": "paper-8",
@@ -81,7 +89,8 @@
           "title": "Salience, Manipulation, and Control",
           "slug": "salience-manipulation-and-control",
           "pdf": "/papers/8. Salience, Manipulation, and Control_REVISED-FINAL.pdf",
-          "blurb": "Shows how salience shaping can structurally narrow available transitions and produce control without coercive metaphysics."
+          "blurb": "Shows how salience shaping can structurally narrow available transitions and produce control without coercive metaphysics.",
+          "details": "This paper analyzes manipulation and control as salience restructuring and constraint shaping rather than deception or preference replacement. It shows how action spaces can be narrowed while agency remains the locus of transition."
         }
       ]
     },
@@ -94,7 +103,8 @@
           "title": "Responsibility, Law, and Moral Practice",
           "slug": "responsibility-law-and-moral-practice",
           "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
-          "blurb": "Reconstructs responsibility and accountability as coordination practices grounded in constrained underdetermination."
+          "blurb": "Reconstructs responsibility and accountability as coordination practices grounded in constrained underdetermination.",
+          "details": "This paper develops a constraint-scaled account of responsibility in which attribution varies with the openness of the action space. It separates causal explanation, responsibility attribution, and policy justification without invoking desert or metaphysical free will."
         },
         {
           "id": "paper-10",
@@ -102,7 +112,8 @@
           "title": "Meaning Without Semantics",
           "slug": "meaning-without-semantics",
           "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
-          "blurb": "Develops meaning structurally without representation, truth-conditions, or semantic primitives."
+          "blurb": "Develops meaning structurally without representation, truth-conditions, or semantic primitives.",
+          "details": "This paper situates meaning as a downstream regime in which value-guided organization constrains interpretation across transitions without requiring symbols, representations, or truth-conditions."
         },
         {
           "id": "paper-11",
@@ -110,7 +121,8 @@
           "title": "Purpose Without Teleology",
           "slug": "purpose-without-teleology",
           "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
-          "blurb": "Explains purpose as downstream constraint stabilization without ends, goals, or final causes."
+          "blurb": "Explains purpose as downstream constraint stabilization without ends, goals, or final causes.",
+          "details": "This paper explains purpose as a structural consequence of meaning constraining future transitions in a directionally stable way, without invoking goals, ends, functions, or optimization."
         },
         {
           "id": "paper-12",
@@ -118,7 +130,8 @@
           "title": "Ethics as Emergent Constraint Regimes",
           "slug": "ethics-as-emergent-constraint-regimes",
           "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
-          "blurb": "Accounts for ethics structurally as emergent coordination constraints among meaning-bearing systems."
+          "blurb": "Accounts for ethics structurally as emergent coordination constraints among meaning-bearing systems.",
+          "details": "This paper treats ethics as an emergent coordination regime among purposive systems under shared constraint, rather than as moral authority, obligation, or normative truth."
         },
         {
           "id": "paper-13",
@@ -126,7 +139,8 @@
           "title": "Logic as a Regime, Not a Foundation",
           "slug": "logic-as-a-regime-not-a-foundation",
           "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
-          "blurb": "Treats logical practice as a stabilized regime within meaning-bearing systems rather than an external foundation."
+          "blurb": "Treats logical practice as a stabilized regime within meaning-bearing systems rather than an external foundation.",
+          "details": "This paper analyzes logic as a stabilized regime of commitment coordination that emerges at the meaning regime, rather than as a metaphysical foundation imposed from outside."
         }
       ]
     },
@@ -139,7 +153,8 @@
           "title": "Informational Ontology and AI Alignment",
           "slug": "informational-ontology-and-ai-alignment",
           "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
-          "blurb": "Frames alignment as structural compatibility between constraint regimes rather than value specification or optimization."
+          "blurb": "Frames alignment as structural compatibility between constraint regimes rather than value specification or optimization.",
+          "details": "This paper reframes alignment as structural compatibility between purposive systems rather than value specification or control optimization, and identifies alignment framings that become structurally inadmissible."
         },
         {
           "id": "paper-15",
@@ -147,7 +162,8 @@
           "title": "Saturation and Sovereignty — Addiction as a Structural Constraint Regime",
           "slug": "saturation-and-sovereignty-addiction",
           "pdf": "/papers/15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL.pdf",
-          "blurb": "Models addiction as a structural monopoly over salience that collapses the practical action space."
+          "blurb": "Models addiction as a structural monopoly over salience that collapses the practical action space.",
+          "details": "This paper models addiction as a structural regime in which salience becomes monopolized, collapsing the practical action space without invoking akrasia or weakness of will."
         },
         {
           "id": "paper-16",
@@ -155,7 +171,8 @@
           "title": "Markets as Multi-Agent Constraint Stabilizers",
           "slug": "markets-as-multi-agent-constraint-stabilizers",
           "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
-          "blurb": "Describes markets as coordination regimes that stabilize multi-agent constraints without centralized control."
+          "blurb": "Describes markets as coordination regimes that stabilize multi-agent constraints without centralized control.",
+          "details": "This paper treats markets as distributed coordination regimes that stabilize multi-agent interaction under constraint without centralized planning or market-as-agent metaphysics."
         }
       ]
     },
@@ -168,7 +185,8 @@
           "title": "Constraint Carriers Before Codes",
           "slug": "constraint-carriers-before-codes",
           "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
-          "blurb": "Argues that biological inheritance depends on stabilized structural constraint carriers prior to genetic coding."
+          "blurb": "Argues that biological inheritance depends on stabilized structural constraint carriers prior to genetic coding.",
+          "details": "This paper argues that biological inheritance depends on distributed structural constraint carriers prior to genetic coding, treating inheritance as structural continuation rather than symbolic encoding."
         }
       ]
     },
@@ -181,7 +199,8 @@
           "title": "Can AI Participate in Philosophical Method?",
           "slug": "can-ai-participate-in-philosophical-method",
           "pdf": "/papers/18. Can_AI_Participate_in_Philosophical_Method_FINAL.pdf",
-          "blurb": "Reflects on the human–AI co-construction of the corpus as a methodological case study."
+          "blurb": "Reflects on the human–AI co-construction of the corpus as a methodological case study.",
+          "details": "This paper reflects on the human–AI co-construction of the IO corpus as a constrained methodological practice rather than as automation, inspiration, or epistemic authority."
         }
       ]
     }
