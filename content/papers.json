@@ -1,144 +1,187 @@
 {
   "executive_summary": {
-    "title": "Executive Summary",
-    "slug": "executive-summary",
+    "title": "IO Executive Summary",
+    "slug": "io-executive-summary",
     "pdf": "/papers/IO Executive Summary.pdf",
-    "note": "",
     "category": "front"
   },
   "sections": [
     {
-      "title": "Papers (auto-detected)",
-      "items": []
-    },
-    {
-      "title": "Unnumbered PDFs",
+      "title": "Ontological Core",
       "items": [
         {
-          "id": "file-1-informational-ontology-condensed-master-final-pdf",
-          "title": "1. Informational Ontology - Condensed Master-FINAL",
-          "slug": "1-informational-ontology-condensed-master-final",
+          "id": "paper-1",
+          "paper_no": 1,
+          "title": "Informational Ontology — Condensed Master",
+          "slug": "informational-ontology-condensed-master",
           "pdf": "/papers/1. Informational Ontology - Condensed Master-FINAL.pdf",
-          "blurb": ""
+          "blurb": "A condensed on-ramp to the core regime structure and the minimal commitments of Informational Ontology."
         },
         {
-          "id": "file-2-informational-ontology-rev5-1d-master-final-pdf",
-          "title": "2. Informational_Ontology_Rev5.1d_MASTER-FINAL",
-          "slug": "2-informational-ontology-rev5-1d-master-final",
+          "id": "paper-2",
+          "paper_no": 2,
+          "title": "Informational Ontology — Full Master",
+          "slug": "informational-ontology-full-master",
           "pdf": "/papers/2. Informational_Ontology_Rev5.1d_MASTER-FINAL.pdf",
-          "blurb": ""
-        },
+          "blurb": "The authoritative statement of Informational Ontology as a single, continuous structural account."
+        }
+      ]
+    },
+    {
+      "title": "Structural Mechanics",
+      "items": [
         {
-          "id": "file-3-resolution-under-degeneracy-v2-final-pdf",
-          "title": "3. Resolution Under Degeneracy_v2_FINAL",
-          "slug": "3-resolution-under-degeneracy-v2-final",
+          "id": "paper-3",
+          "paper_no": 3,
+          "title": "Resolution Under Degeneracy",
+          "slug": "resolution-under-degeneracy",
           "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
-          "blurb": ""
+          "blurb": "Shows how systems continue when constraints underdetermine immediate transitions without invoking selection or choice."
         },
         {
-          "id": "file-4-systems-boundaries-and-re-identifiability-v2-final-pdf",
-          "title": "4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL",
-          "slug": "4-systems-boundaries-and-re-identifiability-v2-final",
+          "id": "paper-4",
+          "paper_no": 4,
+          "title": "Systems, Boundaries, and Re-Identifiability",
+          "slug": "systems-boundaries-and-re-identifiability",
           "pdf": "/papers/4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL.pdf",
-          "blurb": ""
+          "blurb": "Gives a structural account of identity persistence across change without substance or essence assumptions."
         },
         {
-          "id": "file-5-constraint-ordering-and-direction-v2-final-pdf",
-          "title": "5. Constraint_Ordering_and_Direction_v2-FINAL",
-          "slug": "5-constraint-ordering-and-direction-v2-final",
+          "id": "paper-5",
+          "paper_no": 5,
+          "title": "Constraint, Ordering, and Direction",
+          "slug": "constraint-ordering-and-direction",
           "pdf": "/papers/5. Constraint_Ordering_and_Direction_v2-FINAL.pdf",
-          "blurb": ""
-        },
+          "blurb": "Develops how directional asymmetry arises from constraint structure rather than goals, optimization, or teleology."
+        }
+      ]
+    },
+    {
+      "title": "Openness, Agency, Control",
+      "items": [
         {
-          "id": "file-6-perspective-induced-openness-in-deterministic-systems-final-pdf",
-          "title": "6. Perspective-Induced Openness in Deterministic Systems-FINAL",
-          "slug": "6-perspective-induced-openness-in-deterministic-systems-final",
+          "id": "paper-6",
+          "paper_no": 6,
+          "title": "Perspective-Induced Openness in Deterministic Systems",
+          "slug": "perspective-induced-openness-in-deterministic-systems",
           "pdf": "/papers/6. Perspective-Induced Openness in Deterministic Systems-FINAL.pdf",
-          "blurb": ""
+          "blurb": "Explains local underdetermination for embedded systems without requiring metaphysical indeterminism."
         },
         {
-          "id": "file-7-agency-salience-and-free-will-revised-final-pdf",
-          "title": "7. Agency, Salience, and Free Will_REVISED-FINAL",
-          "slug": "7-agency-salience-and-free-will-revised-final",
+          "id": "paper-7",
+          "paper_no": 7,
+          "title": "Agency, Salience, and Free Will",
+          "slug": "agency-salience-and-free-will",
           "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
-          "blurb": ""
+          "blurb": "Accounts for agency structurally in terms of constrained openness rather than will, intention, or executive control."
         },
         {
-          "id": "file-8-salience-manipulation-and-control-revised-final-pdf",
-          "title": "8. Salience, Manipulation, and Control_REVISED-FINAL",
-          "slug": "8-salience-manipulation-and-control-revised-final",
+          "id": "paper-8",
+          "paper_no": 8,
+          "title": "Salience, Manipulation, and Control",
+          "slug": "salience-manipulation-and-control",
           "pdf": "/papers/8. Salience, Manipulation, and Control_REVISED-FINAL.pdf",
-          "blurb": ""
-        },
+          "blurb": "Shows how salience shaping can structurally narrow available transitions and produce control without coercive metaphysics."
+        }
+      ]
+    },
+    {
+      "title": "Normative-Adjacent Regimes (Still Structural)",
+      "items": [
         {
-          "id": "file-9-responsibility-law-and-moral-practice-revised-final-pdf",
-          "title": "9. Responsibility, Law, and Moral Practice_REVISED-FINAL",
-          "slug": "9-responsibility-law-and-moral-practice-revised-final",
+          "id": "paper-9",
+          "paper_no": 9,
+          "title": "Responsibility, Law, and Moral Practice",
+          "slug": "responsibility-law-and-moral-practice",
           "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
-          "blurb": ""
+          "blurb": "Reconstructs responsibility and accountability as coordination practices grounded in constrained underdetermination."
         },
         {
-          "id": "file-10-meaning-without-semantics-final-pdf",
-          "title": "10. Meaning_Without_Semantics-FINAL",
-          "slug": "10-meaning-without-semantics-final",
+          "id": "paper-10",
+          "paper_no": 10,
+          "title": "Meaning Without Semantics",
+          "slug": "meaning-without-semantics",
           "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
-          "blurb": ""
+          "blurb": "Develops meaning structurally without representation, truth-conditions, or semantic primitives."
         },
         {
-          "id": "file-11-purpose-without-teleology-final-pdf",
-          "title": "11. Purpose_Without_Teleology_FINAL",
-          "slug": "11-purpose-without-teleology-final",
+          "id": "paper-11",
+          "paper_no": 11,
+          "title": "Purpose Without Teleology",
+          "slug": "purpose-without-teleology",
           "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
-          "blurb": ""
+          "blurb": "Explains purpose as downstream constraint stabilization without ends, goals, or final causes."
         },
         {
-          "id": "file-12-ethics-as-emergent-constraint-regimes-final-pdf",
-          "title": "12. Ethics_as_Emergent_Constraint_Regimes_FINAL",
-          "slug": "12-ethics-as-emergent-constraint-regimes-final",
+          "id": "paper-12",
+          "paper_no": 12,
+          "title": "Ethics as Emergent Constraint Regimes",
+          "slug": "ethics-as-emergent-constraint-regimes",
           "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
-          "blurb": ""
+          "blurb": "Accounts for ethics structurally as emergent coordination constraints among meaning-bearing systems."
         },
         {
-          "id": "file-13-logic-as-a-regime-not-a-foundation-revised-final-pdf",
-          "title": "13. Logic as a Regime, Not a Foundation_REVISED-FINAL",
-          "slug": "13-logic-as-a-regime-not-a-foundation-revised-final",
+          "id": "paper-13",
+          "paper_no": 13,
+          "title": "Logic as a Regime, Not a Foundation",
+          "slug": "logic-as-a-regime-not-a-foundation",
           "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
-          "blurb": ""
-        },
+          "blurb": "Treats logical practice as a stabilized regime within meaning-bearing systems rather than an external foundation."
+        }
+      ]
+    },
+    {
+      "title": "Applications / Stress Tests",
+      "items": [
         {
-          "id": "file-14-informational-ontology-and-ai-alignment-final-pdf",
-          "title": "14. Informational_Ontology_and_AI_Alignment_FINAL",
-          "slug": "14-informational-ontology-and-ai-alignment-final",
+          "id": "paper-14",
+          "paper_no": 14,
+          "title": "Informational Ontology and AI Alignment",
+          "slug": "informational-ontology-and-ai-alignment",
           "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
-          "blurb": ""
+          "blurb": "Frames alignment as structural compatibility between constraint regimes rather than value specification or optimization."
         },
         {
-          "id": "file-15-saturation-and-sovereignty-addiction-as-a-structural-constraint-regime-final-pdf",
-          "title": "15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL",
-          "slug": "15-saturation-and-sovereignty-addiction-as-a-structural-constraint-regime-final",
+          "id": "paper-15",
+          "paper_no": 15,
+          "title": "Saturation and Sovereignty — Addiction as a Structural Constraint Regime",
+          "slug": "saturation-and-sovereignty-addiction",
           "pdf": "/papers/15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL.pdf",
-          "blurb": ""
+          "blurb": "Models addiction as a structural monopoly over salience that collapses the practical action space."
         },
         {
-          "id": "file-16-markets-as-multi-agent-constraint-stabilizers-v2-revised-final-pdf",
-          "title": "16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL",
-          "slug": "16-markets-as-multi-agent-constraint-stabilizers-v2-revised-final",
+          "id": "paper-16",
+          "paper_no": 16,
+          "title": "Markets as Multi-Agent Constraint Stabilizers",
+          "slug": "markets-as-multi-agent-constraint-stabilizers",
           "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
-          "blurb": ""
-        },
+          "blurb": "Describes markets as coordination regimes that stabilize multi-agent constraints without centralized control."
+        }
+      ]
+    },
+    {
+      "title": "Late Structural Clarification",
+      "items": [
         {
-          "id": "file-17-constraint-carriers-before-codes-final-locked-pdf",
-          "title": "17. Constraint_Carriers_Before_Codes_FINAL_LOCKED",
-          "slug": "17-constraint-carriers-before-codes-final-locked",
+          "id": "paper-17",
+          "paper_no": 17,
+          "title": "Constraint Carriers Before Codes",
+          "slug": "constraint-carriers-before-codes",
           "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
-          "blurb": ""
-        },
+          "blurb": "Argues that biological inheritance depends on stabilized structural constraint carriers prior to genetic coding."
+        }
+      ]
+    },
+    {
+      "title": "Project Meta Paper",
+      "items": [
         {
-          "id": "file-18-can-ai-participate-in-philosophical-method-final-pdf",
-          "title": "18. Can_AI_Participate_in_Philosophical_Method_FINAL",
-          "slug": "18-can-ai-participate-in-philosophical-method-final",
+          "id": "paper-18",
+          "paper_no": 18,
+          "title": "Can AI Participate in Philosophical Method?",
+          "slug": "can-ai-participate-in-philosophical-method",
           "pdf": "/papers/18. Can_AI_Participate_in_Philosophical_Method_FINAL.pdf",
-          "blurb": ""
+          "blurb": "Reflects on the human–AI co-construction of the corpus as a methodological case study."
         }
       ]
     }
