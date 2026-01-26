@@ -3,12 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "build-archive": "node scripts/build-archive.mjs",
+  "sync-papers": "node scripts/sync-papers.mjs"
+},
   "dependencies": {
     "next": "14.2.5",
     "react": "18.3.1",
