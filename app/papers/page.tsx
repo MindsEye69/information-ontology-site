@@ -80,7 +80,7 @@ export default function PapersPage() {
                         href={`/papers/${item.slug}`}
                         className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm text-black/70 hover:text-black"
                       >
-                        View Abstract
+                        Details
                       </Link>
                     </div>
                   </div>
