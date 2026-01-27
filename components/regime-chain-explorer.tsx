@@ -270,7 +270,37 @@ export default function RegimeChainExplorer() {
               </div>
             </div>
           ) : (
-            <div className="text-sm md:text-base text-black/55 leading-relaxed">
+            <div className="mt-10 flex flex-wrap gap-3">
+			  <Link
+				href="/master"
+				className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+			  >
+				The Master (web reader)
+			  </Link>
+
+			  <Link
+				href="/papers"
+				className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+			  >
+				Papers (downloads)
+			  </Link>
+
+			  <Link
+				href="/orientation/how-to-build-a-someone"
+				className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+			  >
+				Orientation Guide
+			  </Link>
+
+			  <Link
+				href="/archive"
+				className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+				>
+				Archived site
+				</Link>
+			</div>
+
+			<div className="text-sm md:text-base text-black/55 leading-relaxed">
               Select a symbol to begin.
             </div>
           )}
