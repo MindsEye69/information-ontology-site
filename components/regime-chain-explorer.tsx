@@ -202,15 +202,33 @@ export default function RegimeChainExplorer() {
                     pane.kind === "node" && pane.key === n
                       ? "bg-black/5 text-black"
                       : "hover:bg-black/5 text-black",
+                    // Accessibility focus ring (neutral) for keyboard users.
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20",
                   ].join(" ")}
                   aria-label={`Open ${nodeLabel(n)}`}
                 >
                   {nodeLabel(n)}
                 </button>
+
                 {idx < NODES.length - 1 ? (
                   <Link
-                    href={EDGE_HREFS[`${NODES[idx]}-${NODES[idx + 1]}` as EdgeKey]}
-                    className="text-black/45 hover:text-black/80 transition-colors select-none"
+                    href={
+                      EDGE_HREFS[
+                        `${NODES[idx]}-${NODES[idx + 1]}` as EdgeKey
+                      ]
+                    }
+                    className={[
+                      // Kill any default underline/link decoration artifacts.
+                      "no-underline",
+                      // Keep arrow visually quiet but clearly interactive.
+                      "text-black/45 hover:text-black/80",
+                      // Subtle neutral hover affordance without “link” styling.
+                      "rounded px-1 hover:bg-black/5",
+                      "transition-colors",
+                      "select-none",
+                      // Accessible focus treatment (neutral, non-underlined).
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20",
+                    ].join(" ")}
                     aria-label={`Open transition ${NODES[idx]} to ${NODES[idx + 1]}`}
                     title={`Transition ${NODES[idx]} → ${NODES[idx + 1]}`}
                   >
@@ -222,14 +240,17 @@ export default function RegimeChainExplorer() {
           </div>
 
           <p className="mt-5 text-sm text-black/55 leading-relaxed">
-            Click a regime symbol to update the panel. Click an arrow to open the transition page.
+            Click a regime symbol to update the panel. Click an arrow to open the
+            transition page.
           </p>
         </div>
 
         <div className="mt-10 min-h-[220px] rounded-3xl border border-black/10 bg-paper p-6 md:p-8">
           {content ? (
             <div>
-              <h2 className="text-lg md:text-xl font-semibold">{content.title}</h2>
+              <h2 className="text-lg md:text-xl font-semibold">
+                {content.title}
+              </h2>
               <div className="mt-3 space-y-3 text-sm md:text-base text-black/75 leading-relaxed">
                 {content.body.map((p) => (
                   <p key={p}>{p}</p>
