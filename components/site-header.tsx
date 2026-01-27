@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const nav = [
   { href: "/start-here", label: "Start Here" },
+  { href: "/orientation/how-to-build-a-someone", label: "Orientation Guide" },
   { href: "/master", label: "The Master" },
   { href: "/papers", label: "Papers" },
     { href: "/process", label: "Process" },
@@ -39,3 +40,5 @@ export function SiteHeader() {
     </header>
   );
 }
+
+
