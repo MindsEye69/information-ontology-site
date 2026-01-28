@@ -26,8 +26,88 @@ async function loadOrientationText(): Promise<string> {
   return decodeBasicEntities(raw).trim();
 }
 
+type Block =
+  | { kind: "h2"; text: string }
+  | { kind: "h3"; text: string }
+  | { kind: "subtitle"; text: string }
+  | { kind: "p"; text: string };
+
+function isPageNumberLine(line: string): boolean {
+  // PDF exports often leak standalone page numbers like "1" / "2".
+  // Strip only lines that are *just* digits.
+  return /^\d+$/.test(line.trim());
+}
+
+function parseOrientationText(raw: string): Block[] {
+  const lines = raw
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((l) => l.trimEnd())
+    .filter((l) => !isPageNumberLine(l));
+
+  const blocks: Block[] = [];
+  let i = 0;
+
+  const pushParagraph = (startIdx: number): number => {
+    const parts: string[] = [];
+    let j = startIdx;
+    while (j < lines.length && lines[j].trim() !== "") {
+      parts.push(lines[j].trim());
+      j++;
+    }
+    const text = parts.join(" ").replace(/\s+/g, " ").trim();
+    if (text) blocks.push({ kind: "p", text });
+    return j;
+  };
+
+  while (i < lines.length) {
+    const line = lines[i].trim();
+    if (!line) {
+      i++;
+      continue;
+    }
+
+    // Section headers like: "Part 1: The Engine Room"
+    if (/^Part\s+\d+\s*:/i.test(line)) {
+      blocks.push({ kind: "h2", text: line });
+      // Optional parenthetical subtitle line right after.
+      const maybeSub = (lines[i + 1] ?? "").trim();
+      if (/^\(.+\)$/.test(maybeSub)) {
+        blocks.push({ kind: "subtitle", text: maybeSub.replace(/^\(|\)$/g, "") });
+        i += 2;
+        continue;
+      }
+      i++;
+      continue;
+    }
+
+    // Numbered entry title like: "1. The 7-Step Ladder"
+    const m = line.match(/^(\d+)\.\s+(.*)$/);
+    if (m) {
+      blocks.push({ kind: "h3", text: `${m[1]}. ${m[2]}` });
+      // Optional parenthetical subtitle like: "(The Master Paper)"
+      const maybeSub = (lines[i + 1] ?? "").trim();
+      if (/^\(.+\)$/.test(maybeSub)) {
+        blocks.push({ kind: "subtitle", text: maybeSub.replace(/^\(|\)$/g, "") });
+        i += 2;
+      } else {
+        i += 1;
+      }
+      // Body paragraph(s) until next blank line.
+      i = pushParagraph(i);
+      continue;
+    }
+
+    // Fallback paragraph.
+    i = pushParagraph(i);
+  }
+
+  return blocks;
+}
+
 export default async function OrientationGuidePage() {
   const text = await loadOrientationText();
+  const blocks = parseOrientationText(text);
   return (
     <main className="mx-auto max-w-4xl px-4 py-14">
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
@@ -39,9 +119,19 @@ export default async function OrientationGuidePage() {
       </p>
 
       <section className="mt-8 rounded-2xl border border-black/10 bg-white p-6 md:p-8">
-        <pre className="whitespace-pre-wrap font-sans text-[15px] leading-7 text-black/90">
-          {text}
-        </pre>
+        <article className="prose prose-neutral max-w-none prose-headings:tracking-tight prose-h2:mt-10 prose-h2:mb-2 prose-h3:mt-8 prose-h3:mb-2">
+          {blocks.map((b, idx) => {
+            if (b.kind === "h2") return <h2 key={idx}>{b.text}</h2>;
+            if (b.kind === "h3") return <h3 key={idx}>{b.text}</h3>;
+            if (b.kind === "subtitle")
+              return (
+                <p key={idx} className="-mt-1 text-sm text-black/55">
+                  {b.text}
+                </p>
+              );
+            return <p key={idx}>{b.text}</p>;
+          })}
+        </article>
       </section>
 
       <div className="mt-6 flex flex-wrap gap-3">
