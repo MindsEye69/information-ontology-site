@@ -29,6 +29,11 @@ export default function MinimalPdfViewer({
 
         // Dynamic import keeps pdfjs off the server bundle.
         const pdfjs = await import("pdfjs-dist");
+		// Worker: resolve URL via bundler (avoids TS declaration issues)
+			(pdfjs as any).GlobalWorkerOptions.workerSrc = new URL(
+			"pdfjs-dist/build/pdf.worker.min.mjs",
+			import.meta.url
+	).toString();
         // Worker (bundled) — required for parsing.
         const worker = await import("pdfjs-dist/build/pdf.worker.min.mjs");
 
