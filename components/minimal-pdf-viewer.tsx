@@ -27,12 +27,12 @@ export default function MinimalPdfViewer({
       try {
         setStatus({ kind: "loading" });
 
-        // Dynamic import keeps pdfjs off the server bundle.
-        const pdfjs = (await import("pdfjs-dist")) as any;
+        // Use the legacy build to avoid .mjs worker bundling/minify issues in Next/Vercel.
+        const pdfjs = (await import("pdfjs-dist/legacy/build/pdf")) as any;
 
-        // Worker: resolve URL via bundler (avoids TS declaration issues)
+        // Worker: legacy worker is .js (avoids Terser import/export module errors)
         pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-          "pdfjs-dist/build/pdf.worker.min.mjs",
+          "pdfjs-dist/legacy/build/pdf.worker.min.js",
           import.meta.url
         ).toString();
 
