@@ -23,22 +23,21 @@ export default function MinimalPdfViewer({
   useEffect(() => {
     let cancelled = false;
 
-    async function run() {
-      try {
-        setStatus({ kind: "loading" });
+async function run() {
+  try {
+    setStatus({ kind: "loading" });
 
-        // Dynamic import keeps pdfjs off the server bundle.
-        const pdfjs = await import("pdfjs-dist");
-		// Worker: resolve URL via bundler (avoids TS declaration issues)
-			(pdfjs as any).GlobalWorkerOptions.workerSrc = new URL(
-			"pdfjs-dist/build/pdf.worker.min.mjs",
-			import.meta.url
-	).toString();
-        // Worker (bundled) — required for parsing.
-        const worker = await import("pdfjs-dist/build/pdf.worker.min.mjs");
+    // Dynamic import keeps pdfjs off the server bundle.
+    const pdfjs = await import("pdfjs-dist");
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (pdfjs as any).GlobalWorkerOptions.workerSrc = worker.default;
+    // Worker: resolve URL via bundler (avoids TS declaration issues)
+    (pdfjs as any).GlobalWorkerOptions.workerSrc = new URL(
+      "pdfjs-dist/build/pdf.worker.min.mjs",
+      import.meta.url
+    ).toString();
+
+    // ...continue with getDocument/render logic...
+
 
         const loadingTask = pdfjs.getDocument(src);
         const pdf = await loadingTask.promise;
