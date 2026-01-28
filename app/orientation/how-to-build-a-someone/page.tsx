@@ -13,9 +13,9 @@ export default function OrientationGuidePage() {
 
       <div className="mt-8 rounded-2xl border border-black/10 bg-white">
         <iframe
-          src="/orientation/How To Build A Someone - A Guide to IO.pdf"
+          src="/orientation/how-to-build-a-someone.text.html"
           className="w-full h-[80vh] rounded-2xl"
-          title="How to Build a Someone — Orientation Guide"
+          title="How to Build a Someone — Text"
         />
       </div>
 

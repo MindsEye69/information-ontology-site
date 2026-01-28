@@ -1,5 +1,4 @@
 import Link from "next/link";
-import MinimalPdfViewer from "@/components/minimal-pdf-viewer";
 
 export default function OrientationGuidePage() {
   return (
@@ -12,8 +11,12 @@ export default function OrientationGuidePage() {
         Orientation Guide — Non-canonical, explanatory only
       </p>
 
-      <div className="mt-8">
-        <MinimalPdfViewer src="/orientation/How To Build A Someone - A Guide to IO.pdf" />
+      <div className="mt-8 rounded-2xl border border-black/10 bg-white">
+        <iframe
+          src="/orientation/how-to-build-a-someone.text.html"
+          className="w-full h-[80vh] rounded-2xl"
+          title="How to Build a Someone — Text"
+        />
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -26,7 +29,7 @@ export default function OrientationGuidePage() {
         </a>
 
         <Link
-          href="/start"
+          href="/start-here"
           className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
         >
           Back to Start Here

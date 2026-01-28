@@ -14,6 +14,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 const CURRENT_SITE_ROUTES = new Set([
   "", // home
+  // Core navigation
+  "start",
+  "start-here",
+  "deep",
+  "intro",
+  "abstract",
+  "faq",
+  "ontology",
+  "simulations",
+  "context",
+  "orientation",
   "master",
   "papers",
   "process",
@@ -24,8 +35,33 @@ const CURRENT_SITE_ROUTES = new Set([
   "contact",
 ]);
 
+// Known legacy top-level routes that exist in /public/archive as .html snapshots.
+// These were historically served at the domain root (e.g. /faq) and appear as
+// absolute links inside the archived HTML.
+const LEGACY_ARCHIVE_ROUTES = new Set([
+  "index",
+  "start",
+  "intro",
+  "abstract",
+  "faq",
+  "ontology",
+  "simulations",
+  "context",
+  "deep",
+  "glossary",
+]);
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const referer = req.headers.get("referer") || "";
+  const fromArchive = (() => {
+    try {
+      const u = new URL(referer);
+      return u.pathname.startsWith("/archive/");
+    } catch {
+      return false;
+    }
+  })();
 
   // Ignore Next internals / assets
   if (
@@ -59,8 +95,15 @@ export function middleware(req: NextRequest) {
   const seg = pathname.replace(/^\/+|\/+$/g, "");
   if (!seg || seg.includes("/") || seg.includes(".")) return NextResponse.next();
 
-  // Do not rewrite known current-site routes
-  if (CURRENT_SITE_ROUTES.has(seg)) return NextResponse.next();
+  // If this is a known current-site route, normally do NOT rewrite.
+  if (CURRENT_SITE_ROUTES.has(seg) && !fromArchive) return NextResponse.next();
+
+  // If navigating from within the archive, rewrite only the legacy routes that
+  // actually exist as archived HTML. This prevents archive pages from hijacking
+  // newer site-only routes (e.g. /start-here).
+  if (fromArchive && CURRENT_SITE_ROUTES.has(seg) && !LEGACY_ARCHIVE_ROUTES.has(seg)) {
+    return NextResponse.next();
+  }
 
   // Rewrite legacy route -> archive html
   const url = req.nextUrl.clone();
