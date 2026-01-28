@@ -23,21 +23,18 @@ export default function MinimalPdfViewer({
   useEffect(() => {
     let cancelled = false;
 
-async function run() {
-  try {
-    setStatus({ kind: "loading" });
+    async function run() {
+      try {
+        setStatus({ kind: "loading" });
 
-    // Dynamic import keeps pdfjs off the server bundle.
-    const pdfjs = await import("pdfjs-dist");
+        // Dynamic import keeps pdfjs off the server bundle.
+        const pdfjs = (await import("pdfjs-dist")) as any;
 
-    // Worker: resolve URL via bundler (avoids TS declaration issues)
-    (pdfjs as any).GlobalWorkerOptions.workerSrc = new URL(
-      "pdfjs-dist/build/pdf.worker.min.mjs",
-      import.meta.url
-    ).toString();
-
-    // ...continue with getDocument/render logic...
-
+        // Worker: resolve URL via bundler (avoids TS declaration issues)
+        pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+          "pdfjs-dist/build/pdf.worker.min.mjs",
+          import.meta.url
+        ).toString();
 
         const loadingTask = pdfjs.getDocument(src);
         const pdf = await loadingTask.promise;
@@ -50,6 +47,7 @@ async function run() {
         // Render sequentially to keep memory predictable.
         for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
           if (cancelled) return;
+
           const page = await pdf.getPage(pageNum);
 
           // Base viewport at scale=1; we'll scale to fit maxWidth.
@@ -72,6 +70,7 @@ async function run() {
 
           const ctx = canvas.getContext("2d");
           if (!ctx) continue;
+
           wrap.appendChild(canvas);
           host.appendChild(wrap);
 
