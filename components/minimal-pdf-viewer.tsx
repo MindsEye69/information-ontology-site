@@ -9,8 +9,6 @@ type MinimalPdfViewerProps = {
   maxWidth?: number;
 };
 
-// A deliberately minimal PDF renderer (no thumbnails, no toolbar).
-// Renders all pages into a single vertical scroll column.
 export default function MinimalPdfViewer({
   src,
   maxWidth = 920,
@@ -27,14 +25,14 @@ export default function MinimalPdfViewer({
       try {
         setStatus({ kind: "loading" });
 
-        // Use the legacy build to avoid .mjs worker bundling/minify issues in Next/Vercel.
-        const pdfjs = (await import("pdfjs-dist/legacy/build/pdf")) as any;
+        // Dynamic import keeps pdfjs off the server bundle.
+        const pdfjs = (await import("pdfjs-dist")) as any;
 
-        // Worker: legacy worker is .js (avoids Terser import/export module errors)
-        pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-          "pdfjs-dist/legacy/build/pdf.worker.min.js",
-          import.meta.url
-        ).toString();
+        // ✅ Use CDN worker to avoid Next/Vercel bundling/minify issues.
+        // Uses the same version as the installed pdfjs-dist package.
+        const v = pdfjs.version || "4.0.379";
+        pdfjs.GlobalWorkerOptions.workerSrc =
+          `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${v}/pdf.worker.min.js`;
 
         const loadingTask = pdfjs.getDocument(src);
         const pdf = await loadingTask.promise;
@@ -44,15 +42,13 @@ export default function MinimalPdfViewer({
         if (!host) return;
         host.innerHTML = "";
 
-        // Render sequentially to keep memory predictable.
         for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
           if (cancelled) return;
 
           const page = await pdf.getPage(pageNum);
 
-          // Base viewport at scale=1; we'll scale to fit maxWidth.
           const vp1 = page.getViewport({ scale: 1 });
-          const scale = Math.min(maxWidth / vp1.width, 2); // cap for performance
+          const scale = Math.min(maxWidth / vp1.width, 2);
           const viewport = page.getViewport({ scale });
 
           const canvas = document.createElement("canvas");
