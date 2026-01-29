@@ -12,7 +12,7 @@ export const metadata = {
 export default function DeepDiveIndexPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12">
-      <ExplanatoryBanner className=\"mb-8\" />
+      <ExplanatoryBanner className="mb-8" />
       <header className="mb-8 border-b border-slate-800 pb-6">
         <p className="text-sm font-semibold tracking-wide text-sky-400">
           Deep Dive

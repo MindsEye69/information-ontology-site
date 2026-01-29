@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function FormalPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
-      <ExplanatoryBanner className=\"mb-8\" />
+      <ExplanatoryBanner className="mb-8" />
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-sky-400">
           Formal layer · A — Awareness

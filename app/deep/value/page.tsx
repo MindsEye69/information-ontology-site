@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ValueDeepDivePage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-12">
-      <ExplanatoryBanner className=\"mb-8\" />
+      <ExplanatoryBanner className="mb-8" />
       {/* Header */}
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-green-400">
