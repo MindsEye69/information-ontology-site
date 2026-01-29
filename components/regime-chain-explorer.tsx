@@ -158,6 +158,9 @@ export default function RegimeChainExplorer() {
               </div>
             ))}
           </div>
+          <p className="mt-3 text-sm text-black/45 text-center">
+            Click the symbols or arrows to explore the chain.
+          </p>
         </div>
 
         <div className="mt-10 min-h-[220px] rounded-3xl border border-black/10 bg-paper p-6 md:p-8">
