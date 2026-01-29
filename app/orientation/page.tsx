@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
 import { readFile } from "fs/promises";
 import path from "path";
 
@@ -140,7 +141,21 @@ export default async function OrientationGuidePage() {
         Orientation Guide — Non-canonical, explanatory only
       </p>
 
-      <section className="mt-8 rounded-2xl border border-black/10 bg-white p-6 md:p-8">
+      
+
+      <div className="mt-6">
+        <ExplanatoryBanner />
+      </div>
+
+      <div className="mt-6 rounded-2xl border border-black/10 bg-white/60 p-5 text-sm text-black/70 leading-relaxed">
+        <p>
+          Notes: This guide uses metaphors (e.g., “code”, “video game”, “build a someone”) as reader aids only. They are not ontological claims.
+        </p>
+        <p className="mt-2">
+          When the guide discusses “slack” or “wiggle room”, it refers to perspectival openness under constraint (local underdetermination for embedded systems), compatible with global determinism.
+        </p>
+      </div>
+<section className="mt-8 rounded-2xl border border-black/10 bg-white p-6 md:p-8">
         <article className="max-w-none">
           {blocks.map((b, idx) => {
             if (b.kind === "lede")

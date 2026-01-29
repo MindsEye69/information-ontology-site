@@ -1,11 +1,19 @@
 import Link from "next/link";
 
 const TERMS = [
-  {
-    slug: "alignment",
-    term: "Alignment",
-    short: "Here: structural compatibility between systems, not shared goals or values.",
-  },
+  { slug: "difference", term: "Difference (Δ)", short: "Minimal ontological starting point: to exist is to differ." },
+  { slug: "relation", term: "Relation (R)", short: "Differences articulated together: contrasts, boundaries, gradients, patterns." },
+  { slug: "information", term: "Information (I)", short: "Re-identifiable structured difference: patterns that persist under selection/ordering." },
+  { slug: "awareness", term: "Awareness (A)", short: "Constraint-sensitive tracking: integrated information that updates across states." },
+  { slug: "value", term: "Value (V)", short: "Selective stability: better/worse emerges for a system relative to persistence." },
+  { slug: "meaning", term: "Meaning (M)", short: "Coordinated constraint: value-structured patterns that guide expectation and action." },
+  { slug: "purpose", term: "Purpose (P)", short: "Trajectory-level direction: meaning and value constraining future states without teleology." },
+  { slug: "constraint", term: "Constraint", short: "Structure that limits possible transitions; internal to organization, not an external force." },
+  { slug: "regime", term: "Regime", short: "A stable constraint-pattern that organizes transitions (e.g., epistemic, ethical, salience regimes)." },
+  { slug: "salience", term: "Salience", short: "A constraint over attention/availability: what gets registered, amplified, and acted on." },
+  { slug: "degeneracy", term: "Degeneracy", short: "Underdetermination where multiple distinct configurations are equally viable under constraints." },
+  { slug: "underdetermination", term: "Underdetermination", short: "Local non-uniqueness: constraints do not uniquely fix the next state or interpretation." },
+  { slug: "alignment", term: "Alignment", short: "Here: structural compatibility between systems, not shared goals or values." },
 ];
 
 export default function GlossaryIndex() {

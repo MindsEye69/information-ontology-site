@@ -1,6 +1,7 @@
 // app/start/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
 import { StepNav } from "./StepNav";
 
 export const metadata: Metadata = {
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 export default function StartIndexPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
+
+      <ExplanatoryBanner />
       {/* Header */}
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-neutral-500">

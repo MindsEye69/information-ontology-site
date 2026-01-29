@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
 
 export const metadata: Metadata = {
   title: "Time, Constraint, and Direction – Deep dive | Informational Ontology",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function TimeConstraintDirectionPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
+      <ExplanatoryBanner className=\"mb-8\" />
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-sky-400">
           Deep section · Time · Constraint · Direction

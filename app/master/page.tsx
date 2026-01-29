@@ -28,17 +28,17 @@ function ExplainPlaceholder() {
   return (
     <details className="mt-3 rounded-2xl border border-black/10 bg-white/60 px-4 py-3">
       <summary className="cursor-pointer text-sm text-black/65 select-none">
-        Explanation (placeholder)
+        Explanation forthcoming
       </summary>
       <div className="mt-2 text-sm leading-relaxed text-black/70">
         <p>
-          This drop-down will hold a plain-language explanation, examples, and cross-links.
-          For now it is intentionally blank.
+          Plain-language explanations, examples, and cross-links will be added here in a future update.
         </p>
       </div>
     </details>
   );
 }
+
 
 export default function MasterPage() {
   const blocks = (masterData as any).blocks as Block[];

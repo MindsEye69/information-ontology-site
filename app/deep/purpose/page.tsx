@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
 
 export const metadata: Metadata = {
   title: "Purpose (P) – Deep dive | Informational Ontology",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function PurposeDeepDivePage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-12">
+      <ExplanatoryBanner className=\"mb-8\" />
       {/* Header */}
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-purple-400">
@@ -26,7 +28,7 @@ export default function PurposeDeepDivePage() {
           Instead of asking &quot;Which state is better right now?&quot; a
           purposive system asks &quot;Which unfolding of states should I steer
           toward?&quot; IO treats purpose as the highest-level pattern in the
-          Δ → R → I → A → V → M → P chain: the teleological shape of
+          Δ → R → I → A → V → M → P chain: the structural shape of
           value-laden information as it drives action.
         </p>
       </section>
@@ -54,7 +56,7 @@ export default function PurposeDeepDivePage() {
           </li>
           <li>
             meaning (M) weaves value and information into a network of
-            representations that stand for what matters.
+            structures that encode what the system treats as significant.
           </li>
         </ul>
         <p className="text-sm text-slate-300 leading-relaxed">
@@ -72,7 +74,7 @@ export default function PurposeDeepDivePage() {
           Purposes as preferred trajectories
         </h2>
         <p className="text-sm text-slate-300 leading-relaxed">
-          Instead of thinking about a single &quot;goal state,&quot; IO
+          Instead of imagining a single externally specified “goal state,” IO
           emphasizes <span className="italic">trajectories</span> — sequences of
           states a system tends to follow. A purpose can then be seen as a
           cluster of such trajectories that share a common shape: staying
@@ -95,7 +97,7 @@ export default function PurposeDeepDivePage() {
         <p className="mt-1 text-sm text-slate-400 leading-relaxed">
           This page is the deeper, non-technical treatment of Purpose (P). For a
           more technical take—purpose functionals, policies, attractors, and
-          teleodynamic structure—use the technical layer.
+          time-extended constraint structure—use the technical layer.
         </p>
 
         <div className="mt-4 flex flex-col gap-3 sm:flex-row">

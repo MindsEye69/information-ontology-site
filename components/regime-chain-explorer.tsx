@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
 
 type NodeKey = "Δ" | "R" | "I" | "A" | "V" | "M" | "P";
 type EdgeKey = "Δ-R" | "R-I" | "I-A" | "A-V" | "V-M" | "M-P";
@@ -37,7 +38,7 @@ const NODE_CONTENT: Record<
       "Δ names the minimal starting point—before words, before meaning, before interpretation—where variation is present at all.",
     ],
     links: [
-      { href: "/master/regime-chain", label: "Read this in the Master" },
+      { href: "/master", label: "Read the Master" },
       { href: "/papers", label: "Download the corpus" },
     ],
   },
@@ -117,6 +118,7 @@ export default function RegimeChainExplorer() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-4xl">
+        <ExplanatoryBanner className="mb-6" />
         <div className="h-12 md:h-14 flex items-end">
           {phrase && (
             <div
@@ -158,7 +160,7 @@ export default function RegimeChainExplorer() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-black/45 text-center">
+          <p className="mt-3 text-sm text-black/45 text-center">
             Click the symbols or arrows to explore the chain.
           </p>
         </div>

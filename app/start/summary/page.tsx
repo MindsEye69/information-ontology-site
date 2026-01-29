@@ -1,6 +1,7 @@
 // app/start/summary/page.tsx
 import type { Metadata } from "next";
 import { StepNav } from "../StepNav";
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
 
 export const metadata: Metadata = {
   title: "Start here – Summary & toolkit | Informational Ontology",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function StartSummaryPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
+      <ExplanatoryBanner className="mb-8" />
       {/* Header */}
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-neutral-500">

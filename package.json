@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint",
-  "build-archive": "node scripts/build-archive.mjs",
-  "sync-papers": "node scripts/sync-papers.mjs"
-},
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run check:placeholders && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build-archive": "node scripts/build-archive.mjs",
+    "sync-papers": "node scripts/sync-papers.mjs",
+    "check:placeholders": "node scripts/check-placeholders.cjs"
+  },
   "dependencies": {
     "next": "14.2.35",
     "react": "18.3.1",

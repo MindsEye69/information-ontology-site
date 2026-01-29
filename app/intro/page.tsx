@@ -8,9 +8,12 @@ export const metadata: Metadata = {
     "How to read the Informational Ontology site, who it is for, and what problem it tries to solve.",
 };
 
+import { ExplanatoryBanner } from "@/components/ExplanatoryBanner";
+
 export default function IntroPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-12">
+      <ExplanatoryBanner className="mb-8" />
       {/* Page header */}
       <section className="space-y-4">
         <p className="text-sm font-semibold tracking-wide text-sky-400">

@@ -40,7 +40,7 @@ const stages = [
     overview:
       "Information is what we get when differences are organized into patterns. Order, correlation, and structure are all forms of information.",
     detail: [
-      "On this view, physics itself can be understood as the dynamics of information—structured differences evolving under lawful constraints.",
+      "On this view, physics can be compatibly describable as dynamics of information—structured differences evolving under lawful constraints.",
     ],
   },
   {
@@ -82,7 +82,7 @@ const stages = [
     label: "Purpose",
     tagline: "Meaning extended through time.",
     overview:
-      "Purpose is what happens when meaning is stabilized and projected into the future. It is the directed, goal-like structure of a system’s meaningful organization.",
+      "Purpose is what happens when meaning is stabilized and projected into the future. It is the directed, trajectory-level structure of a system’s meaningful organization.",
     detail: [
       "On this view, purpose is not something mysteriously added to reality. It is the long-term shape of meaning in action: how a system consistently leans toward certain patterns of value.",
     ],
