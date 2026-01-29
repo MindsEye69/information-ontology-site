@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 function PrimaryLink({ href, label }: { href: string; label: string }) {
   return (
@@ -7,7 +6,7 @@ function PrimaryLink({ href, label }: { href: string; label: string }) {
       href={href}
       className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-black text-white px-5 py-3 text-sm font-medium no-underline hover:bg-black/90"
     >
-      {label} <ArrowRight className="h-4 w-4" />
+      {label} <span aria-hidden className="text-base leading-none">→</span>
     </Link>
   );
 }
