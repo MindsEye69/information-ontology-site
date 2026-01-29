@@ -30,6 +30,7 @@ type Block =
   | { kind: "h2"; text: string }
   | { kind: "h3"; text: string }
   | { kind: "subtitle"; text: string }
+  | { kind: "lede"; text: string }
   | { kind: "p"; text: string };
 
 function isPageNumberLine(line: string): boolean {
@@ -47,6 +48,20 @@ function parseOrientationText(raw: string): Block[] {
 
   const blocks: Block[] = [];
   let i = 0;
+
+  // The exported text file contains a duplicated title block at the top.
+  // We already have the page title in the layout, so we:
+  // - drop the first line if it starts with the guide title
+  // - treat the next line as a short lede/subtitle if present
+  const first = (lines[0] ?? "").trim();
+  if (/^How\s+to\s+Build\s+a\s+Someone\s*:/i.test(first)) {
+    i = 1;
+    const maybeLede = (lines[1] ?? "").trim();
+    if (maybeLede && maybeLede.length < 120 && !/^Introduction\s*:/i.test(maybeLede)) {
+      blocks.push({ kind: "lede", text: maybeLede });
+      i = 2;
+    }
+  }
 
   const pushParagraph = (startIdx: number): number => {
     const parts: string[] = [];
@@ -77,6 +92,13 @@ function parseOrientationText(raw: string): Block[] {
         i += 2;
         continue;
       }
+      i++;
+      continue;
+    }
+
+    // Intro-style headers like: "Introduction: The Code of Reality"
+    if (/^[A-Za-z].*:\s+/.test(line) && line.length < 90) {
+      blocks.push({ kind: "h2", text: line });
       i++;
       continue;
     }
@@ -119,17 +141,47 @@ export default async function OrientationGuidePage() {
       </p>
 
       <section className="mt-8 rounded-2xl border border-black/10 bg-white p-6 md:p-8">
-        <article className="prose prose-neutral max-w-none prose-headings:tracking-tight prose-h2:mt-10 prose-h2:mb-2 prose-h3:mt-8 prose-h3:mb-2">
+        <article className="max-w-none">
           {blocks.map((b, idx) => {
-            if (b.kind === "h2") return <h2 key={idx}>{b.text}</h2>;
-            if (b.kind === "h3") return <h3 key={idx}>{b.text}</h3>;
-            if (b.kind === "subtitle")
+            if (b.kind === "lede")
               return (
-                <p key={idx} className="-mt-1 text-sm text-black/55">
+                <p key={idx} className="mt-2 text-base text-black/70 leading-7">
                   {b.text}
                 </p>
               );
-            return <p key={idx}>{b.text}</p>;
+
+            if (b.kind === "h2")
+              return (
+                <h2
+                  key={idx}
+                  className="mt-10 text-xl md:text-2xl font-semibold tracking-tight"
+                >
+                  {b.text}
+                </h2>
+              );
+
+            if (b.kind === "h3")
+              return (
+                <h3
+                  key={idx}
+                  className="mt-7 text-lg md:text-xl font-semibold tracking-tight"
+                >
+                  {b.text}
+                </h3>
+              );
+
+            if (b.kind === "subtitle")
+              return (
+                <p key={idx} className="mt-1 text-sm text-black/55">
+                  {b.text}
+                </p>
+              );
+
+            return (
+              <p key={idx} className="mt-3 text-base leading-7">
+                {b.text}
+              </p>
+            );
           })}
         </article>
       </section>
