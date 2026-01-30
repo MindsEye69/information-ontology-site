@@ -3,37 +3,55 @@ export default function Page() {
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55">About</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">About this project</h1>
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">About Informational Ontology</h1>
 
         <div className="mt-6 text-black/75 leading-relaxed space-y-5">
           <p>
-            Informational Ontology (IO) is a structural framework that treats information—re-identifiable structured difference—and constraint as the primary explanatory currency.
-            It is written as a compact Master text plus a set of derivative papers that extend the same architecture into specific domains.
+            Informational Ontology (IO) is a scope-disciplined structural framework describing how increasingly rich kinds of organization can arise
+            without assuming meaning, minds, goals, or teleology as primitives.
           </p>
-
-          <div className="rounded-2xl border border-black/10 bg-white/60 p-5">
-            <p className="font-medium">How the site is layered</p>
-            <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-black/70">
-              <li><span className="font-medium">Canonical layer</span>: the Master and the PDFs (/master, /papers).</li>
-              <li><span className="font-medium">Explanatory layer</span>: guides, tours, and deep-dives that help you read the canon (clearly labeled “Not Canonical”).</li>
-              <li><span className="font-medium">Archive</span>: a frozen snapshot of older drafts, isolated under /archive.</li>
-            </ul>
-          </div>
 
           <p>
-            Scope limits: IO is not a replacement for physics, biology, or cognitive science. It is an ontological and structural vocabulary intended to remain compatible with those disciplines while clarifying how stability, agency, meaning, and purpose can arise without importing teleology or observer-dependence.
+            The core ladder is: Difference → Relation → Information → Awareness → Value → Meaning → Purpose (Δ → R → I → A → V → M → P). IO does not
+            claim these regimes are universally instantiated; it characterizes the forms they cannot fail to take when the stated structural conditions
+            obtain.
           </p>
 
-          <div className="rounded-2xl border border-black/10 bg-white/60 p-5 text-sm text-black/70">
-            <p className="font-medium">License</p>
-            <p className="mt-2">
-              © 2025–2026 Michael Semprevivo. This work is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+          <section className="space-y-2">
+            <h2 className="text-lg font-semibold tracking-tight text-black/85">What this site is</h2>
+            <ul className="list-disc pl-6 space-y-1">
+              <li>A public interface to the canonical Master text and the full paper corpus (PDF).</li>
+              <li>A layered reading experience: fast intuition, guided tour, and canonical documents.</li>
+            </ul>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="text-lg font-semibold tracking-tight text-black/85">What this site is not</h2>
+            <p>
+              IO is not a physics theory, a cognitive mechanism, a semantic theory of truth/representation, or a moral prescription. “Awareness”,
+              “meaning”, and “purpose” are used as names for structural regimes, not as folk-psychological imports.
             </p>
-          </div>
+          </section>
 
-          <p className="text-sm text-black/65">
-            If you are new: start with <span className="font-medium">Start Here</span>, then read the Master, then choose derivative papers by topic.
-          </p>
+          <section className="space-y-2">
+            <h2 className="text-lg font-semibold tracking-tight text-black/85">How to read</h2>
+            <ol className="list-decimal pl-6 space-y-1">
+              <li>If you want the authoritative statement: read the Master (PDF or web reader).</li>
+              <li>If you want a gentle introduction: use Start Here and the guided path (/start).</li>
+              <li>If you want details of specific transitions: use the Papers page and the relevant derivative paper.</li>
+            </ol>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="text-lg font-semibold tracking-tight text-black/85">License</h2>
+            <p>© 2025–2026 Michael Semprevivo. Licensed CC BY 4.0 (see Master / PDFs for full text).</p>
+            <p>
+              Contact:{" "}
+              <a className="underline underline-offset-4" href="mailto:info@informationontology.org">
+                info@informationontology.org
+              </a>
+            </p>
+          </section>
         </div>
       </div>
     </div>

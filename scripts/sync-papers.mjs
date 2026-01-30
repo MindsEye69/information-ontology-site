@@ -1,6 +1,28 @@
 import fs from "fs";
 import path from "path";
 
+
+function cleanTitle(filename) {
+  // Drop extension
+  let base = filename.replace(/\.pdf$/i, "");
+
+  // Remove leading numbering like "7. " / "7-" / "7_"
+  base = base.replace(/^\d+\s*[._-]?\s*/, "");
+
+  // Remove common build suffixes
+  base = base.replace(/(_|-)?REVISED(_|-)?FINAL/gi, "");
+  base = base.replace(/(_|-)?FINAL(_|-)?LOCKED/gi, "");
+  base = base.replace(/(_|-)?FINAL/gi, "");
+  base = base.replace(/(_|-)?LOCKED/gi, "");
+  base = base.replace(/_v\d+(\.\d+)?/gi, "");
+  base = base.replace(/-v\d+(\.\d+)?/gi, "");
+
+  // Normalize separators
+  base = base.replace(/_/g, " ").replace(/\s{2,}/g, " ").trim();
+
+  return base || filename.replace(/\.pdf$/i, "");
+}
+
 const ROOT = process.cwd();
 const PAPERS_DIR = path.join(ROOT, "public", "papers");
 const OUT = path.join(ROOT, "content", "papers.json");
@@ -50,7 +72,7 @@ const payload = {
       items: numbered.map(({ n, f }) => ({
         id: `paper-${n}`,
         paper_no: n,
-        title: `Paper ${n}`,
+        title: cleanTitle(f),
         slug: `paper-${n}`,
         pdf: `/papers/${f}`,
         blurb: "",

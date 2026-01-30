@@ -1,152 +1,118 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-const TERMS: Record<
-  string,
-  { term: string; short: string; body: string[] }
-> = {
-  difference: {
-    term: "Difference (\u0394)",
-    short: "Minimal ontological starting point: to exist is to differ.",
-    body: [
-      "Difference (\u0394) is the minimal condition for anything to be at all. A world with no difference contains no distinctions, no structure, and no persistence.",
-      "In IO, difference is not a concept about observers or measurement. It is the structural precondition for any further articulation.",
-    ],
+const TERMS: Record<string, { term: string; short: string; body: string[] }> = {
+  "difference": {
+    "term": "Difference (Δ)",
+    "short": "The minimal condition of non-identity: if nothing differs, nothing can be tracked, related, stabilized, or described.",
+    "body": [
+      "The minimal condition of non-identity: if nothing differs, nothing can be tracked, related, stabilized, or described."
+    ]
   },
-  relation: {
-    term: "Relation (R)",
-    short: "Differences articulated together: contrasts, boundaries, gradients, patterns.",
-    body: [
-      "Relation (R) names the minimal articulation of differences together: contrasts, boundaries, gradients, and patterned co-variation.",
-      "Relation is not an extra ingredient added to difference; it is what it means for differences to stand in contrast and constrain each other.",
-    ],
+  "relation": {
+    "term": "Relation (R)",
+    "short": "The structured contrasts, boundaries, and gradients among differences. Relation is not added to difference; it is what it means for diffe…",
+    "body": [
+      "The structured contrasts, boundaries, and gradients among differences. Relation is not added to difference; it is what it means for differences to stand in contrast."
+    ]
   },
-  information: {
-    term: "Information (I)",
-    short: "Re-identifiable structured difference: patterns that persist under selection/ordering.",
-    body: [
-      "Information (I) is re-identifiable structured difference: relational patterns stable enough to be distinguished from flux and to persist under ordering/selection.",
-      "This is an ontological use of \u2018information\u2019\u2014not limited to minds, symbols, or communication.",
-    ],
+  "information": {
+    "term": "Information (I)",
+    "short": "Structured difference that rules in and rules out possibilities. Information is structural: it does not require an observer, language, or…",
+    "body": [
+      "Structured difference that rules in and rules out possibilities. Information is structural: it does not require an observer, language, or semantic interpretation."
+    ]
   },
-  awareness: {
-    term: "Awareness (A)",
-    short: "Constraint-sensitive tracking: integrated information that updates across states.",
-    body: [
-      "Awareness (A) is constraint-sensitive tracking: information integrated such that it updates across states and conditions what happens next.",
-      "This is a minimal structural notion (not human-level consciousness).",
-    ],
+  "awareness": {
+    "term": "Awareness (A)",
+    "short": "Informational registration: information is taken up internally so that the system’s informational state constrains its future state-space…",
+    "body": [
+      "Informational registration: information is taken up internally so that the system’s informational state constrains its future state-space. This is a minimal structural notion (not a theory of phenomenal consciousness)."
+    ]
   },
-  value: {
-    term: "Value (V)",
-    short: "Selective stability: better/worse emerges for a system relative to persistence.",
-    body: [
-      "Value (V) arises when some states are better or worse for a system\u2019s continued organization and persistence.",
-      "In IO, value is not mere preference-talk; it is a structural tilt over possible states relative to stability.",
-    ],
+  "value": {
+    "term": "Value (V)",
+    "short": "Differential constraint on awareness: some continuations preserve a system’s organization and others degrade it. Value is “better/worse f…",
+    "body": [
+      "Differential constraint on awareness: some continuations preserve a system’s organization and others degrade it. Value is “better/worse for the system” before morality."
+    ]
   },
-  meaning: {
-    term: "Meaning (M)",
-    short: "Coordinated constraint: value-structured patterns that guide expectation and action.",
-    body: [
-      "Meaning (M) is value structured into stable patterns that coordinate expectation and action.",
-      "Meaning can exist without language or semantics: it is a way a system organizes what matters, when, and in which contexts.",
-    ],
+  "meaning": {
+    "term": "Meaning (M)",
+    "short": "Structured value within awareness: patterns of value and expectation organized across contexts and over time. Meaning is not assumed to b…",
+    "body": [
+      "Structured value within awareness: patterns of value and expectation organized across contexts and over time. Meaning is not assumed to be representation or truth-conditions; those are later, optional specializations."
+    ]
   },
-  purpose: {
-    term: "Purpose (P)",
-    short: "Trajectory-level direction: meaning and value constraining future states without teleology.",
-    body: [
-      "Purpose (P) is trajectory-level direction: meaning and value constraining future states over time.",
-      "IO rejects teleology: purpose is not the future \u2018pulling\u2019 the present, but present structure steering trajectories.",
-    ],
+  "purpose": {
+    "term": "Purpose (P)",
+    "short": "Value-guided meaningful trajectory: stable tendencies/projects in which meaning and value shape a system’s action over time without invok…",
+    "body": [
+      "Value-guided meaningful trajectory: stable tendencies/projects in which meaning and value shape a system’s action over time without invoking final causes or teleology as primitives."
+    ]
   },
-  constraint: {
-    term: "Constraint",
-    short: "Structure that limits possible transitions; internal to organization, not an external force.",
-    body: [
-      "Constraint is the structural limitation of possible transitions: what can change without dissolving, and which transitions are stable.",
-      "Constraints are internal to organization; they are not an external \u2018force\u2019 added on top of physics.",
-    ],
+  "constraint": {
+    "term": "Constraint",
+    "short": "Structural restriction on what transitions are possible. In IO, constraint is not “a cause”; it is a shape of the state-space that filter…",
+    "body": [
+      "Structural restriction on what transitions are possible. In IO, constraint is not “a cause”; it is a shape of the state-space that filters continuation."
+    ]
   },
-  regime: {
-    term: "Regime",
-    short: "A stable constraint-pattern that organizes transitions (e.g., epistemic, ethical, salience regimes).",
-    body: [
-      "A regime is a relatively stable pattern of constraints that organizes transitions across time (e.g., an epistemic regime, ethical regime, or salience regime).",
-      "Regimes are how higher-order stability is maintained: they filter, prioritize, and stabilize behavior.",
-    ],
+  "ordering": {
+    "term": "Ordering",
+    "short": "A structural before/after relation that enables persistence and re-identification. Ordering is not assumed to be time as a substance; tim…",
+    "body": [
+      "A structural before/after relation that enables persistence and re-identification. Ordering is not assumed to be time as a substance; time is treated as a refinement of ordering under asymmetric constraint."
+    ]
   },
-  salience: {
-    term: "Salience",
-    short: "A constraint over attention/availability: what gets registered, amplified, and acted on.",
-    body: [
-      "Salience is the constraint structure that determines what becomes available for registration, attention, and action.",
-      "High-salience channels can dominate downstream value/meaning, producing control, manipulation, or addiction-like lock-in.",
-    ],
+  "degeneracy": {
+    "term": "Degeneracy",
+    "short": "Multiple distinct configurations that are equally viable under the current constraints (underdetermined next-step). Degeneracy forces res…",
+    "body": [
+      "Multiple distinct configurations that are equally viable under the current constraints (underdetermined next-step). Degeneracy forces resolution without smuggling in randomness, external choice, or goal-optimization."
+    ]
   },
-  degeneracy: {
-    term: "Degeneracy",
-    short: "Underdetermination where multiple distinct configurations are equally viable under constraints.",
-    body: [
-      "Degeneracy is underdetermination where multiple distinct configurations are equally viable relative to the constraints in play.",
-      "Resolution under degeneracy explains continuity without appealing to randomness or executive choice.",
-    ],
+  "salience": {
+    "term": "Salience",
+    "short": "What becomes selectable/noticeable inside awareness. Salience shaping can structurally narrow an agent’s available transitions without co…",
+    "body": [
+      "What becomes selectable/noticeable inside awareness. Salience shaping can structurally narrow an agent’s available transitions without coercion."
+    ]
   },
-  underdetermination: {
-    term: "Underdetermination",
-    short: "Local non-uniqueness: constraints do not uniquely fix the next state or interpretation.",
-    body: [
-      "Underdetermination is local non-uniqueness: constraints do not uniquely fix a next state, interpretation, or selection.",
-      "IO treats many \u2018open\u2019 phenomena as perspectival openness under constraint, compatible with global determinism.",
-    ],
+  "regime": {
+    "term": "Regime",
+    "short": "A stabilized level of organization defined by what constraints must hold for the system to persist and function at that level (e.g., info…",
+    "body": [
+      "A stabilized level of organization defined by what constraints must hold for the system to persist and function at that level (e.g., informational, awareness, value regimes)."
+    ]
   },
-  alignment: {
-    term: "Alignment",
-    short: "Here: structural compatibility between systems, not shared goals or values.",
-    body: [
-      "In this project, \u201calignment\u201d is used in a restricted sense: whether two systems can operate under compatible constraints without loss of coherence.",
-      "This is not a claim that alignment is solved in general, nor a claim about shared intentions, values, or goals.",
-    ],
-  },
+  "alignment": {
+    "term": "Structural compatibility (Alignment)",
+    "short": "Compatibility between constraint regimes, not shared goals/values. Two systems are aligned when they can operate under mutually compatibl…",
+    "body": [
+      "Compatibility between constraint regimes, not shared goals/values. Two systems are aligned when they can operate under mutually compatible constraints without collapsing coherence or erasing the other’s action space."
+    ]
+  }
 };
 
-export default function GlossaryEntry({ params }: { params: { slug: string } }) {
+export default function GlossaryTermPage({ params }: { params: { slug: string } }) {
   const entry = TERMS[params.slug];
   if (!entry) return notFound();
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
-      <div className="max-w-4xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Glossary</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-          {entry.term}
-        </h1>
-        <p className="mt-4 text-sm md:text-base text-black/70 leading-relaxed">
-          {entry.short}
-        </p>
+    <div className="mx-auto max-w-6xl px-4 py-14">
+      <div className="max-w-3xl">
+        <Link href="/glossary" className="text-sm text-black/60 underline underline-offset-4">
+          ← Back to glossary
+        </Link>
 
-        <div className="mt-10 space-y-4 rounded-2xl border border-black/10 bg-paper p-6 md:p-8">
-          {entry.body.map((p) => (
-            <p key={p} className="text-sm md:text-base text-black/75 leading-relaxed">
-              {p}
-            </p>
+        <h1 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight">{entry.term}</h1>
+        <p className="mt-4 text-black/70 leading-relaxed">{entry.short}</p>
+
+        <div className="mt-6 space-y-4 text-black/75 leading-relaxed">
+          {entry.body.map((p, i) => (
+            <p key={i}>{p}</p>
           ))}
-        </div>
-
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="/glossary"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
-          >
-            Back to glossary
-          </Link>
-          <Link
-            href="/process"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
-          >
-            The Project as Process
-          </Link>
         </div>
       </div>
     </div>

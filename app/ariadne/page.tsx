@@ -7,14 +7,18 @@ export default function Page() {
 
         <div className="mt-6 text-black/75 leading-relaxed space-y-4">
           <p>
-            Ariadne is an interactive assistant planned for a future update. Its role will be to help readers navigate
-            the IO corpus without blurring the boundary between canonical text and explanatory material.
+            Ariadne will be a constrained interface for navigating the Informational Ontology corpus. It is designed to help readers locate the relevant
+            paper, section, or regime transition without turning the ontology into a “chatty” paraphrase that risks drift.
           </p>
 
-          <div className="rounded-2xl border border-black/10 bg-white/60 p-5">
-            <p className="font-medium">Status: Offline (coming soon)</p>
-            <p className="mt-2 text-sm text-black/65">
-              When Ariadne is released, this page will describe its constraints, safety posture, and how to use it.
+          <div className="rounded-2xl border border-black/10 bg-white/60 p-5 space-y-2">
+            <p className="font-medium">Status: Planned for a future update (offline for now).</p>
+            <p className="text-sm text-black/65">
+              If you have feedback on what you’d want from an interactive navigator, email:{" "}
+              <a className="underline underline-offset-4" href="mailto:info@informationontology.org">
+                info@informationontology.org
+              </a>
+              .
             </p>
           </div>
         </div>

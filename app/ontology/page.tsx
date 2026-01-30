@@ -40,7 +40,7 @@ const stages = [
     overview:
       "Information is what we get when differences are organized into patterns. Order, correlation, and structure are all forms of information.",
     detail: [
-      "On this view, physics can be compatibly describable as dynamics of information—structured differences evolving under lawful constraints.",
+      "On this view, Many physical descriptions can be framed as dynamics of structured differences evolving under constraints. IO does not offer a physical model; it offers a structural lens that can sit alongside empirical theories.",
     ],
   },
   {
@@ -49,7 +49,7 @@ const stages = [
     label: "Awareness",
     tagline: "When information refers to itself.",
     overview:
-      "Awareness arises when information is integrated and recursively related to itself. A system becomes aware when it not only carries information, but tracks and updates it.",
+      "Awareness arises when information is internally registered such that the system’s informational state constrains its future state-space. A system becomes aware when it not only carries information, but uses it to update what it can do next.",
     detail: [
       "This is a minimal, structural notion of awareness: no human-level cognition is required. Any system that internally models its own informational state has at least some degree of awareness.",
     ],
