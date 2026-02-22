@@ -59,9 +59,12 @@ function ExplainPlaceholder() {
 export default function MasterPage() {
   const blocks = (masterData as any).blocks as Block[];
 
+  // IMPORTANT: do the heading narrowing in a dedicated filter so TypeScript
+  // correctly understands that `id/title/level` exist on the mapped items.
   const toc = blocks
-    .filter((b) => isHeading(b) && isTocEligibleHeading(b))
-    .map((b) => ({ id: b.id, title: b.title, level: b.level }));
+    .filter(isHeading)
+    .filter(isTocEligibleHeading)
+    .map((h) => ({ id: h.id, title: h.title, level: h.level }));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
