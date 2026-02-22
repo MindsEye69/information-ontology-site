@@ -23,11 +23,11 @@ type Group = {
   items: PaperItem[];
 };
 
-function hasPdf(item: PaperItem) {
+function hasPdf(item: PaperItem): item is PaperItem & { pdf: string } {
   return typeof item.pdf === "string" && item.pdf.trim().length > 0;
 }
 
-function hasZenodo(item: PaperItem) {
+function hasZenodo(item: PaperItem): item is PaperItem & { zenodo: string } {
   return typeof item.zenodo === "string" && item.zenodo.trim().length > 0;
 }
 
@@ -100,7 +100,7 @@ export default function PapersPage() {
             <div className="flex items-center gap-2">
               {hasZenodo(exec) ? (
                 <a
-                  href={exec.zenodo as string}
+                  href={exec.zenodo}
                   className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
                   target="_blank"
                   rel="noreferrer"
@@ -111,7 +111,7 @@ export default function PapersPage() {
 
               {hasPdf(exec) ? (
                 <a
-                  href={exec.pdf as string}
+                  href={exec.pdf}
                   className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
                   target="_blank"
                   rel="noreferrer"
@@ -122,7 +122,7 @@ export default function PapersPage() {
 
               {hasPdf(exec) ? (
                 <a
-                  href={exec.pdf as string}
+                  href={exec.pdf}
                   className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
                   download
                 >
@@ -182,7 +182,7 @@ export default function PapersPage() {
 
                       {hasPdf(item) ? (
                         <a
-                          href={item.pdf as string}
+                          href={item.pdf}
                           className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
                           target="_blank"
                           rel="noreferrer"

@@ -24,11 +24,11 @@ type Group = {
   items: PaperItem[];
 };
 
-function hasPdf(p: PaperItem) {
+function hasPdf(p: PaperItem): p is PaperItem & { pdf: string } {
   return typeof p.pdf === "string" && p.pdf.trim().length > 0;
 }
 
-function hasZenodo(p: PaperItem) {
+function hasZenodo(p: PaperItem): p is PaperItem & { zenodo: string } {
   return typeof p.zenodo === "string" && p.zenodo.trim().length > 0;
 }
 
@@ -85,7 +85,7 @@ export default function PaperDetailPage({ params }: { params: { slug: string } }
 
           {hasPdf(paper) ? (
             <a
-              href={paper.pdf as string}
+              href={paper.pdf}
               className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15"
               target="_blank"
               rel="noreferrer"
