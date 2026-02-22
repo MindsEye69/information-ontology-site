@@ -369,7 +369,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18602897",
           "zenodo": "https://zenodo.org/records/18602897",
-          "pdf": "Vulnerability as a Structural Condition - v1c.pdf",
+          "pdf": "/papers/Vulnerability as a Structural Condition - v1c.pdf",
           "summary": "Defines vulnerability as lineage-relevant susceptibility to irreversible loss.",
           "function": "Grounds consequence and responsibility."
         },
@@ -382,7 +382,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18602797",
           "zenodo": "https://zenodo.org/records/18602797",
-          "pdf": "Witnessing Under Vulnerability - rev1b.pdf",
+          "pdf": "/papers/Witnessing Under Vulnerability - rev1b.pdf",
           "summary": "Formalizes witnessing as termination of consequence within vulnerable loci.",
           "function": "Load-bearing bridge to governance."
         },
@@ -447,7 +447,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18603017",
           "zenodo": "https://zenodo.org/records/18603017",
-          "pdf": "From Law to Logistics- How AI Thins Coercive Regimes - v2c.pdf",
+          "pdf": "/papers/From Law to Logistics- How AI Thins Coercive Regimes - v2c.pdf",
           "summary": "Diagnoses AI-mediated thinning of coercive regimes.",
           "function": "Governance collapse diagnostic."
         },
@@ -460,7 +460,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18615343",
           "zenodo": "https://zenodo.org/records/18615343",
-          "pdf": "Handover_Protocol_v2h_Feb2026_Semprevivo.pdf",
+          "pdf": "/papers/Handover_Protocol_v2h_Feb2026_Semprevivo.pdf",
           "summary": "Distinguishes legitimate automation from degenerative thinning.",
           "function": "Automation transition framework."
         },
