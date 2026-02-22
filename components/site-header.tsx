@@ -1,14 +1,18 @@
 import Link from "next/link";
 
+// Feature flags
+// Default: hidden unless explicitly enabled.
+const SHOW_ARIADNE = process.env.NEXT_PUBLIC_SHOW_ARIADNE === "true";
+
 const nav = [
   { href: "/start-here", label: "Start Here" },
   { href: "/orientation/how-to-build-a-someone", label: "Orientation Guide" },
   { href: "/master", label: "The Master" },
   { href: "/papers", label: "Papers" },
-    { href: "/process", label: "Process" },
-    { href: "/glossary", label: "Glossary" },
-    
-  { href: "/ariadne", label: "Ariadne" },
+  { href: "/simulations", label: "Simulations" },
+  { href: "/process", label: "Process" },
+  { href: "/glossary", label: "Glossary" },
+  ...(SHOW_ARIADNE ? [{ href: "/ariadne", label: "Ariadne" }] : []),
   { href: "/about", label: "About" },
 ];
 

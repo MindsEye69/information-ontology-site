@@ -37,6 +37,50 @@ export default function SimulationsPage() {
         </CardContent>
       </Card>
 
+      <Card>
+        <CardHeader>
+          <CardTitle>Archived simulations (Rev4 snapshot)</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3 text-sm text-slate-200">
+          <p>
+            The older site included a set of lightweight HTML simulations for each regime stage.
+            They are still available as a historical snapshot. Use them as intuition aids; they are
+            not presented as proofs, and the UI/wording may not match the current Rev5+ corpus.
+          </p>
+
+          <div className="grid gap-2 sm:grid-cols-2">
+            <a className="text-sky-400" href="/archive/simulations/delta.html" target="_blank" rel="noreferrer">
+              Open archived Δ →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/relation.html" target="_blank" rel="noreferrer">
+              Open archived R →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/information.html" target="_blank" rel="noreferrer">
+              Open archived I →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/awareness.html" target="_blank" rel="noreferrer">
+              Open archived A →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/value.html" target="_blank" rel="noreferrer">
+              Open archived V →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/meaning.html" target="_blank" rel="noreferrer">
+              Open archived M →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/purpose.html" target="_blank" rel="noreferrer">
+              Open archived P →
+            </a>
+            <a className="text-sky-400" href="/archive/simulations/delta-relation.html" target="_blank" rel="noreferrer">
+              Open archived Δ → R →
+            </a>
+          </div>
+
+          <p className="text-xs text-slate-400">
+            If you prefer a single entry point, the full archived site is available at /archive.
+          </p>
+        </CardContent>
+      </Card>
+
       <div className="text-xs text-slate-400">
         Tip: the chain above links to per-stage simulation pages (Δ, R, I, A,
         V, M, P).

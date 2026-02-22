@@ -9,6 +9,22 @@ function isHeading(b: Block): b is Extract<Block, { type: "h" }> {
   return b.type === "h";
 }
 
+function isTocEligibleHeading(h: Extract<Block, { type: "h" }>): boolean {
+  // The web-reader is generated from extracted text. Occasionally, inline enumerations
+  // (e.g., "1. X, in which …") are mis-tagged as headings. We keep the TOC strictly
+  // navigational by excluding those list-like artifacts.
+  const title = (h.title ?? "").trim();
+  if (!(h.level === 1 || h.level === 2)) return false;
+  if (!title) return false;
+
+  // Exclude list-like "in which" enumerations (commonly misclassified as headings).
+  if (/^\d+\.\s+.+,\s+in which\s+/i.test(title)) return false;
+  // Exclude resolution enumeration artifacts (defensive; overlaps the rule above).
+  if (/^\d+\.\s+.+\s+resolution,\s+/i.test(title)) return false;
+
+  return true;
+}
+
 function Paragraph({ text }: { text: string }) {
   // Preserve line breaks inside paragraphs (the PDF extraction uses hard wraps).
   const parts = text.split("\n");
@@ -44,8 +60,8 @@ export default function MasterPage() {
   const blocks = (masterData as any).blocks as Block[];
 
   const toc = blocks
-    .filter((b) => isHeading(b) && (b.level === 1 || b.level === 2))
-    .map((b) => ({ id: (b as any).id, title: (b as any).title, level: (b as any).level }));
+    .filter((b) => isHeading(b) && isTocEligibleHeading(b))
+    .map((b) => ({ id: b.id, title: b.title, level: b.level }));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
