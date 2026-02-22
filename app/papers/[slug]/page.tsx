@@ -85,7 +85,7 @@ export default function PaperDetailPage({ params }: { params: { slug: string } }
 
           {hasPdf(paper) ? (
             <a
-              href={paper.pdf}
+              href={paper.pdf as string}
               className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15"
               target="_blank"
               rel="noreferrer"
@@ -123,6 +123,15 @@ export default function PaperDetailPage({ params }: { params: { slug: string } }
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-black/55">Function in corpus</p>
               <p className="mt-2 text-sm text-black/70 leading-relaxed">{paper.function}</p>
+            </div>
+          ) : null}
+
+          
+
+          {paper.details ? (
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-black/55">Details</p>
+              <p className="mt-2 text-sm text-black/70 leading-relaxed whitespace-pre-line">{paper.details}</p>
             </div>
           ) : null}
 

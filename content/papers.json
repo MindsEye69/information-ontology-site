@@ -17,7 +17,7 @@
     "pdf": "/papers/IO Executive Summary.pdf",
     "summary": "High-level structural orientation to the project and corpus map.",
     "function": "Orientation / map document (non-numbered).",
-    "details": "This document provides a high-level structural orientation to the Informational Ontology project as a whole. It summarizes the core framework, the regime ordering, and the role of the major papers without argumentation, serving as a map rather than a substitute for the corpus."
+    "details": "• Key move: Provides a high-level orientation to the corpus, its groups, and how the papers relate.\n• Corpus role: Entry point for new readers; navigation map for the full project.\n• Scope note: Summarizes structure and reading paths; it is not a substitute for individual paper arguments."
   },
   "groups": [
     {
@@ -35,7 +35,8 @@
           "zenodo": "https://zenodo.org/records/18602429",
           "pdf": "/papers/2. Informational_Ontology_Rev5.1d_MASTER-FINAL.pdf",
           "summary": "Defines difference, relation, information, awareness, value, meaning, and purpose as a structural regime sequence (Δ → R → I → A → V → M → P).",
-          "function": "Foundational ontology. All definitions and downstream constraints derive from this framework."
+          "function": "Foundational ontology. All definitions and downstream constraints derive from this framework.",
+          "details": "• Key move: The seven regimes form an ordered conditional sequence, not a contingent ladder.\n• Corpus role: The master source for all definitions.\n• Scope note: Without a shared vocabulary for what information, awareness, value, meaning, and purpose actually are - stripped of psychological and normative assumptions - every downs…"
         },
         {
           "id": "paper-02",
@@ -48,7 +49,8 @@
           "zenodo": null,
           "pdf": "/papers/1. Informational Ontology - Condensed Master-FINAL.pdf",
           "summary": "Condensed articulation of the master ontology with reduced exploratory scaffolding.",
-          "function": "Accessible entry point and compatibility reference."
+          "function": "Accessible entry point and compatibility reference.",
+          "details": "• Key move: The same core claims as Paper 1, stated more compactly.\n• Corpus role: A companion to Paper 1 rather than an independent derivational source.\n• Scope note: To serve two functions: as an accessible entry point for readers new to the framework, and as a quick compatibility reference for specialists checking whether a downstre…"
         },
         {
           "id": "paper-03",
@@ -61,7 +63,8 @@
           "zenodo": null,
           "pdf": "/papers/4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL.pdf",
           "summary": "Defines systemhood, boundary coherence, and criteria for identity persistence.",
-          "function": "Load-bearing identity mechanics for all lineage, drift, and collapse analyses."
+          "function": "Load-bearing identity mechanics for all lineage, drift, and collapse analyses.",
+          "details": "• Key move: That systemhood, boundaries, and identity are all real without being intrinsic or absolute.\n• Corpus role: central for everything downstream that involves identity under change.\n• Scope note: Without this, every downstream concept that involves a system doing something over time - lineage, drift, degradation, recovery, vulnerability - is undefined."
         },
         {
           "id": "paper-04",
@@ -74,7 +77,8 @@
           "zenodo": null,
           "pdf": "/papers/5. Constraint_Ordering_and_Direction_v2-FINAL.pdf",
           "summary": "Formalizes ordering relations and directional asymmetry between constraints.",
-          "function": "Grounds irreversibility and persistence geometry downstream."
+          "function": "Grounds irreversibility and persistence geometry downstream.",
+          "details": "• Key move: That direction, irreversibility, and the distinction between \"before\" and \"after\" are structural consequences of constraint propagation within persistent systems, not features imp…\n• Corpus role: A structural bridge in Group I that grounds the geometry of persistence for downstream papers.\n• Scope note: Irreversibility is foundational for vulnerability, consequence, sedimentation, and collapse - all of which appear throughout the corpus."
         },
         {
           "id": "paper-05",
@@ -87,7 +91,8 @@
           "zenodo": null,
           "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
           "summary": "Explains how underdetermined systems resolve without structural collapse.",
-          "function": "Stabilizes transitions in agency, free will, and salience models."
+          "function": "Stabilizes transitions in agency, free will, and salience models.",
+          "details": "• Key move: That degeneracy is not an anomaly to be eliminated but a structural feature of sufficiently complex informational systems.\n• Corpus role: Directly upstream of Paper 6 (Perspective-Induced Openness), Paper 18 (Agency, Salience, and Free Will), and Paper 20 (Addiction).\n• Scope note: Agency, free will, and purposive action all involve systems operating where multiple futures are reachable."
         },
         {
           "id": "paper-06",
@@ -100,7 +105,8 @@
           "zenodo": null,
           "pdf": "/papers/6. Perspective-Induced Openness in Deterministic Systems-FINAL.pdf",
           "summary": "Demonstrates structural openness without metaphysical indeterminism.",
-          "function": "Bridges determinism and agency architecture."
+          "function": "Bridges determinism and agency architecture.",
+          "details": "• Key move: That perspective-induced openness is a structural condition arising from embedded self-reference - distinct from value degeneracy (Paper 5), epistemic uncertainty, and metaphysica…\n• Corpus role: Completes the structural architecture for agency that Paper 5 begins.\n• Scope note: Paper 5 explains how underdetermined states resolve."
         },
         {
           "id": "paper-07",
@@ -113,7 +119,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Defends structural differentiation against quantum indeterminacy objections.",
-          "function": "Physics-facing stabilization of the ontology."
+          "function": "Physics-facing stabilization of the ontology.",
+          "details": "• Key move: Quantum theory, across all its interpretations, never licenses a structureless ontology.\n• Corpus role: A defensive stabilization paper for Group I.\n• Scope note: The IO framework builds from Difference (Δ) as its foundational regime."
         }
       ]
     },
@@ -132,7 +139,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Establishes structural persistence prior to Darwinian selection.",
-          "function": "Clarifies that lineage continuity precedes evolutionary optimization."
+          "function": "Clarifies that lineage continuity precedes evolutionary optimization.",
+          "details": "• Key move: Darwinian selection presupposes lineage-capable systems - systems able to preserve organizational identity across bifurcation via reconstructive inheritance.\n• Corpus role: Establishes lineage as structurally prior to selection, creating the analytical gap that Paper 9 fills.\n• Scope note: The standard framing of evolution as explanatorily primitive leads to circular origin stories that the IO framework is designed to avoid."
         },
         {
           "id": "paper-09",
@@ -145,7 +153,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Analyzes the emergence of self-maintaining constraint systems.",
-          "function": "Grounds biological lineage within the regime ladder."
+          "function": "Grounds biological lineage within the regime ladder.",
+          "details": "• Key move: Abiogenesis is the emergence of reconstructive inheritance, not the emergence of life.\n• Corpus role: Grounds the biological sequence by identifying the origin of lineage and the structural thresholds involved.\n• Scope note: Paper 8 establishes that lineage precedes selection."
         },
         {
           "id": "paper-10",
@@ -158,7 +167,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Explains differential persistence across structural levels.",
-          "function": "Connects evolutionary theory to regime architecture."
+          "function": "Connects evolutionary theory to regime architecture.",
+          "details": "• Key move: Evolution is the temporal population mechanism of the IO regime ladder.\n• Corpus role: Bridges the biological foundation (Papers 8-9) with the persistence geometry papers (Group III) and the agency papers (Group IV).\n• Scope note: The ontology defines what organizational forms are possible; this paper explains why anything ever occupies the higher rungs."
         },
         {
           "id": "paper-11",
@@ -171,7 +181,8 @@
           "zenodo": null,
           "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
           "summary": "Identifies pre-symbolic structural carriers of constraint.",
-          "function": "Grounds biological organization prior to genetic coding."
+          "function": "Grounds biological organization prior to genetic coding.",
+          "details": "• Key move: Inheritance precedes replication, and fidelity precedes semantics.\n• Corpus role: Completes the biological foundation group (Papers 8-11) by explaining how constraint persistence gets localized and stabilized across lineage bifurcation.\n• Scope note: The corpus rejects representational accounts of meaning throughout (Paper 23) and grounding explanations in symbolic codes would undermine that structural discipline fro…"
         }
       ]
     },
@@ -190,7 +201,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Defines sedimentation as retained constraint accumulation across lineage without invoking purpose.",
-          "function": "Canonical model of irreversible structural buildup."
+          "function": "Canonical model of irreversible structural buildup.",
+          "details": "• Key move: Retained constraint modifications recursively close over one another, reshaping reachable state topology without teleology.\n• Corpus role: The foundational mechanism paper for Group III.\n• Scope note: The corpus analyzes how systems persist, fail, and change - but needed a precise formal account of how history accumulates structurally."
         },
         {
           "id": "paper-13",
@@ -203,7 +215,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Analyzes gradual modification of identity-maintaining constraints.",
-          "function": "Clarifies how identity evolves without reset."
+          "function": "Clarifies how identity evolves without reset.",
+          "details": "• Key move: Gradual boundary evolution does not automatically erase accumulated constraint, but it alters the frame within which sedimentation is analyzed.\n• Corpus role: A technical extension of Paper 12, enabling application of sedimentation analysis to systems whose identity conditions evolve.\n• Scope note: The original sedimentation framework assumed invariant stability for formal tractability."
         },
         {
           "id": "paper-14",
@@ -216,7 +229,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Formal inverse of sedimentation; examines unwinding and restoration limits.",
-          "function": "Completes the geometry of persistence and recovery."
+          "function": "Completes the geometry of persistence and recovery.",
+          "details": "• Key move: Not all accumulated structure is permanent, but unwinding has structural limits governed by dependency depth and invariant stability.\n• Corpus role: Completes the sedimentation trilogy (Papers 12–14) by addressing its structural inverse.\n• Scope note: The governance and alignment arcs repeatedly confront situations where systems need to change deeply - governance regimes need to be reformed, institutions restructured,…"
         },
         {
           "id": "paper-15",
@@ -229,7 +243,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Identifies topology-based thresholds where recall collapses under replication.",
-          "function": "Replication containment diagnostic framework."
+          "function": "Replication containment diagnostic framework.",
+          "details": "• Key move: There is a structural threshold in replicating systems at which B0 restoration becomes practically infeasible under bounded enumeration, coordination, access, and verification cap…\n• Corpus role: An applied instantiation of the irreversibility framework from Papers 12–14, bringing the abstract constraint topology into contact with a concrete and practically signi…\n• Scope note: The replication–recall asymmetry is widely observed in cybersecurity, information governance, and AI model distribution, but has lacked a precise structural characteriza…"
         },
         {
           "id": "paper-16",
@@ -242,7 +257,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Demonstrates identity-bound reachability collapse under differential scaling.",
-          "function": "Formal collapse model under acceleration; replaces Execution–Intervention."
+          "function": "Formal collapse model under acceleration; replaces Execution–Intervention.",
+          "details": "• Key move: Acceleration alone does not produce collapse.\n• Corpus role: Closes Group III by integrating the sedimentation framework with the question of operational tempo.\n• Scope note: Many sociotechnical systems - financial markets, public health systems, distributed software infrastructure - now operate under accelerated propagation regimes where per…"
         },
         {
           "id": "paper-17",
@@ -255,7 +271,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Argues purposive constraint cannot persist absent living originators.",
-          "function": "Teleological boundary condition of automation regimes."
+          "function": "Teleological boundary condition of automation regimes.",
+          "details": "• Key move: Purpose cannot arise or persist in purely informational systems absent participation in a living constraint ecology capable of originating non-surrogable stakes, loss, and irrever…\n• Corpus role: The teleological boundary condition for the entire governance and AI alignment arc.\n• Scope note: The corpus builds to this point methodically through Groups I–IV."
         }
       ]
     },
@@ -274,7 +291,8 @@
           "zenodo": null,
           "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
           "summary": "Structural account of underdetermination and valuation resolution.",
-          "function": "Defines architecture of action spaces."
+          "function": "Defines architecture of action spaces.",
+          "details": "• Key move: Agency is real, structurally definable, and doesn't require psychology or metaphysical indeterminism.\n• Corpus role: Central to Group IV.\n• Scope note: Agency and free will are among the most contested concepts in philosophy, precisely because they are usually defined either through psychology (felt experience of choosi…"
         },
         {
           "id": "paper-19",
@@ -287,7 +305,8 @@
           "zenodo": "https://zenodo.org/records/18615483",
           "pdf": "/papers/8. Salience, Manipulation, and Control_REVISED-FINAL.pdf",
           "summary": "Analyzes manipulation as salience restructuring rather than agency bypass.",
-          "function": "Influence mechanics under AI mediation."
+          "function": "Influence mechanics under AI mediation.",
+          "details": "• Key move: Manipulation is salience restructuring, not deception.\n• Corpus role: Released (DOI available).\n• Scope note: As AI systems become the primary mediators of information environments, the salience-restructuring mode of influence becomes dominant."
         },
         {
           "id": "paper-20",
@@ -300,7 +319,8 @@
           "zenodo": "https://zenodo.org/records/18615577",
           "pdf": "/papers/15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL.pdf",
           "summary": "Models addiction as trajectory-level salience monopoly.",
-          "function": "Demonstrates local constraint saturation dynamics."
+          "function": "Demonstrates local constraint saturation dynamics.",
+          "details": "• Key move: Addiction is constraint saturation realized through salience monopoly.\n• Corpus role: Released (DOI available).\n• Scope note: Addiction is one of the most contested and practically consequential domains where standard explanations systematically fail."
         },
         {
           "id": "paper-21",
@@ -313,7 +333,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Diagnoses systemic degradation of meaningful differentiation under overload.",
-          "function": "Macro-level salience destabilization model."
+          "function": "Macro-level salience destabilization model.",
+          "details": "• Key move: Salience collapse is a distinct structural failure mode - recognizable ex ante through the collapse of backgrounding, staging, and deferral mechanisms - that produces reactive, br…\n• Corpus role: Generalizes Paper 20's saturation mechanism to field-wide and collective contexts.\n• Scope note: The corpus needed a macro-level account to pair with the individual-level account in Paper 20."
         },
         {
           "id": "paper-22",
@@ -326,7 +347,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Explains persistent misalignment without malfunction.",
-          "function": "Structural explanation of alignment failure."
+          "function": "Structural explanation of alignment failure.",
+          "details": "• Key move: Salience misalignment is not malfunction.\n• Corpus role: A diagnostic framework connecting the salience mechanics (Papers 18-21) to the governance arc.\n• Scope note: Many governance failure analyses focus on error, corruption, or misaligned incentives."
         },
         {
           "id": "paper-23",
@@ -339,7 +361,8 @@
           "zenodo": null,
           "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
           "summary": "Treats meaning as structural constraint effect rather than representation.",
-          "function": "Non-representational theory of meaning."
+          "function": "Non-representational theory of meaning.",
+          "details": "• Key move: Meaning does not begin with symbols, reference, truth, or norms.\n• Corpus role: Completes the V → M transition in the regime ladder (Paper 1).\n• Scope note: The corpus rejects representational accounts at every level."
         },
         {
           "id": "paper-24",
@@ -352,7 +375,8 @@
           "zenodo": null,
           "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
           "summary": "Explains purpose as emergent trajectory constraint without final causes.",
-          "function": "Prepares Silence Limit boundary argument."
+          "function": "Prepares Silence Limit boundary argument.",
+          "details": "• Key move: Once meaning exists in a system that persists under constraint and ordering, purpose is structurally structurally stabilized.\n• Corpus role: Completes the M → P transition and thereby completes the regime ladder derivation begun in Paper 1.\n• Scope note: Without a non-teleological account of purpose, the corpus cannot explain purposive behavior in organisms, institutions, and agents without importing assumptions it's des…"
         }
       ]
     },
@@ -371,7 +395,8 @@
           "zenodo": "https://zenodo.org/records/18602897",
           "pdf": null,
           "summary": "Defines vulnerability as lineage-relevant susceptibility to irreversible loss.",
-          "function": "Grounds consequence and responsibility."
+          "function": "Grounds consequence and responsibility.",
+          "details": "• Key move: Consequence is structurally prior to ethics.\n• Corpus role: The foundational definitions paper for the entire governance arc.\n• Scope note: Papers on responsibility, witnessing, legitimacy, and governance all presuppose that consequences land somewhere - that loss is real and matters to a system's future."
         },
         {
           "id": "paper-26",
@@ -384,7 +409,8 @@
           "zenodo": "https://zenodo.org/records/18602797",
           "pdf": null,
           "summary": "Formalizes witnessing as termination of consequence within vulnerable loci.",
-          "function": "Load-bearing bridge to governance."
+          "function": "Load-bearing bridge to governance.",
+          "details": "• Key move: The consolidation paper for the witnessing concept across the IO corpus.\n• Corpus role: The pivotal paper for the applied governance arc.\n• Scope note: Witnessing was implicit across many prior papers but never formally isolated."
         },
         {
           "id": "paper-27",
@@ -397,7 +423,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Specifies structural requirements for witnessing under scale and AI mediation.",
-          "function": "Clarifies termination mechanics."
+          "function": "Clarifies termination mechanics.",
+          "details": "• Key move: Responsibility is structurally scaled, not metaphysically absolute.\n• Corpus role: Connects the agency mechanics of Group IV to the governance architecture of Group V.\n• Scope note: The corpus needed a bridge between its structural account of agency (Group IV) and its analysis of governance regimes (Group V)."
         },
         {
           "id": "paper-28",
@@ -410,7 +437,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Analyzes distributed constraint contribution under scale.",
-          "function": "Extends responsibility into hybrid systems."
+          "function": "Extends responsibility into hybrid systems.",
+          "details": "• Key move: Ethical regimes are coordination regimes, not normative authorities.\n• Corpus role: Bridges the purpose and agency papers (Group IV) with the institutional analysis of governance.\n• Scope note: Without a structural account of ethics, the corpus would need either to treat ethics as normatively primitive (which would violate the non-normative discipline throughou…"
         },
         {
           "id": "paper-29",
@@ -423,7 +451,8 @@
           "zenodo": null,
           "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
           "summary": "Explains ethics as stabilized structural regimes.",
-          "function": "Connects ontology to moral structure."
+          "function": "Connects ontology to moral structure.",
+          "details": "• Key move: Markets are neither ethical nor unethical.\n• Corpus role: An application paper demonstrating the framework's reach into economic analysis.\n• Scope note: Markets appear throughout governance analysis as the default non-state coordination regime."
         },
         {
           "id": "paper-30",
@@ -436,7 +465,8 @@
           "zenodo": null,
           "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
           "summary": "Bridges structural responsibility and institutional practice.",
-          "function": "Institutional application layer."
+          "function": "Institutional application layer.",
+          "details": "• Key move: Legitimacy is finite, exhaustible, and consumed through use rather than error.\n• Corpus role: The connective paper linking the witnessing framework (Paper 26) to the applied governance papers on law-to-logistics (Paper 31), the handover protocol (Paper 32), and t…\n• Scope note: Legitimacy is a key concept throughout governance theory but is typically treated as a matter of belief, consent, or normative justification."
         },
         {
           "id": "paper-31",
@@ -449,7 +479,8 @@
           "zenodo": "https://zenodo.org/records/18603017",
           "pdf": null,
           "summary": "Diagnoses AI-mediated thinning of coercive regimes.",
-          "function": "Governance collapse diagnostic."
+          "function": "Governance collapse diagnostic.",
+          "details": "• Key move: The paper is explicitly a structural map rather than a completed argument - an orienting reference frame that stabilizes key distinctions (commitment, discretion, attribution, log…\n• Corpus role: The architectural reference document for the governance and alignment sub-arc.\n• Scope note: The governance arc needed a stable conceptual map that could orient the cascade of more specific papers."
         },
         {
           "id": "paper-32",
@@ -462,7 +493,8 @@
           "zenodo": "https://zenodo.org/records/18615343",
           "pdf": null,
           "summary": "Distinguishes legitimate automation from degenerative thinning.",
-          "function": "Automation transition framework."
+          "function": "Automation transition framework.",
+          "details": "• Key move: AI does not abolish coercive regimes - it thins them.\n• Corpus role: The first major applied governance paper, grounding the abstract witnessing and legitimacy framework in a concrete and consequential domain.\n• Scope note: Coercive AI systems - risk-scoring for bail, sentencing, parole; automated screening and flagging; algorithmic enforcement - are among the most practically significant g…"
         },
         {
           "id": "paper-33",
@@ -475,7 +507,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Analyzes structural depletion of legitimacy.",
-          "function": "Explains regime fragility."
+          "function": "Explains regime fragility.",
+          "details": "• Key move: Automation itself does not constitute regime failure.\n• Corpus role: Released (DOI available).\n• Scope note: The corpus diagnoses regime thinning extensively; this paper asks what legitimate thinning looks like."
         },
         {
           "id": "paper-34",
@@ -488,7 +521,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Maps authority topology after constraint commitment.",
-          "function": "Authority mechanics."
+          "function": "Authority mechanics.",
+          "details": "• Key move: structurally constrained handover is not sufficient for accountability preservation across regime boundaries.\n• Corpus role: Operates immediately downstream of Paper 33 (The Handover Protocol).\n• Scope note: The governance arc needed to go beyond diagnosing thinning and to analyze what happens after legitimate thinning - the structural residues and second-order failures that…"
         },
         {
           "id": "paper-35",
@@ -501,7 +535,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Explains escalation when witnessing collapses.",
-          "function": "Force substitution model."
+          "function": "Force substitution model.",
+          "details": "• Key move: The diagnostic test is witnessing: when specific constraint-events are contested, can the regime produce a terminal locus that identifies the commitment-event that authorized the…\n• Corpus role: Completes the governance arc that runs from Paper 26 (Witnessing) through Papers 31–34.\n• Scope note: This paper is the governance arc's culminating diagnostic - the account that explains why every mechanism designed to preserve accountability (audits, transparency, huma…"
         },
         {
           "id": "paper-36",
@@ -514,7 +549,8 @@
           "zenodo": null,
           "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
           "summary": "Treats markets as distributed constraint coordination systems.",
-          "function": "Large-scale stabilization without central authority."
+          "function": "Large-scale stabilization without central authority.",
+          "details": "• Key move: Responsibility, liability, and risk ownership can persist after authority-bearing justification has disappeared, but they cannot preserve alignment in the authority-bearing sense.\n• Corpus role: Completes the governance conceptual framework.\n• Scope note: The governance arc needed to close the conceptual gap between structural authority and legal/institutional accountability mechanisms."
         }
       ]
     },
@@ -533,7 +569,8 @@
           "zenodo": null,
           "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
           "summary": "Applies ontology to alignment constraints.",
-          "function": "Structural reframing of AI alignment."
+          "function": "Structural reframing of AI alignment.",
+          "details": "• Key move: Alignment is a question of structural compatibility among interacting systems, not primarily a problem of value specification, preference matching, or control optimization.\n• Corpus role: The entry point into the AI alignment arc.\n• Scope note: Serves as a bridge paper, applying the IO framework's agency and salience mechanics to the alignment domain before the full alignment arc develops."
         },
         {
           "id": "paper-38",
@@ -546,7 +583,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Identifies necessary structural coherence conditions.",
-          "function": "Constrains alignment discourse."
+          "function": "Constrains alignment discourse.",
+          "details": "• Key move: Many alignment intuitions are structurally inadmissible prior to implementation because they presuppose conditions that are mutually incompatible once meaning, purpose, and ethics…\n• Corpus role: The entry point into Group VI for readers coming from alignment backgrounds.\n• Scope note: As the primary survey-level application paper in the AI alignment arc, this paper situates the entire arc relative to existing alignment discourse and establishes why st…"
         },
         {
           "id": "paper-39",
@@ -559,7 +597,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Diagnostic framework for tracing consequence chains.",
-          "function": "Applied alignment auditing tool."
+          "function": "Applied alignment auditing tool.",
+          "details": "• Key move: Alignment remains an open modal question.\n• Corpus role: Sits between the critical work of Paper 38 and the governance-level analysis of Paper 40.\n• Scope note: The alignment arc needed a paper that examined the problem space before proposing diagnostics or governance responses."
         },
         {
           "id": "paper-40",
@@ -572,7 +611,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Explains alignment failure without malfunction.",
-          "function": "Corrects common AI safety misdiagnosis."
+          "function": "Corrects common AI safety misdiagnosis.",
+          "details": "• Key move: \"Alignment\" is a regime-relative concept whose coherence depends on the continued presence - or explicit relocation - of witnessing and answerability.\n• Corpus role: The convergence paper for the governance and alignment arcs.\n• Scope note: The governance and alignment arcs needed a terminal paper that stated the structural limit clearly."
         },
         {
           "id": "paper-41",
@@ -585,7 +625,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Explores governance after witnessing collapse.",
-          "function": "Edge-of-intelligibility boundary analysis."
+          "function": "Edge-of-intelligibility boundary analysis.",
+          "details": "• Key move: Epistemic practices within IO arise as structural necessities, not normative aspirations.\n• Corpus role: The epistemological completion paper for the entire corpus.\n• Scope note: A systematic philosophical framework needs an explicit account of its own epistemic status."
         },
         {
           "id": "paper-42",
@@ -598,7 +639,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Diagnoses trajectory compatibility between human and AI systems.",
-          "function": "Clarifies feasibility constraints."
+          "function": "Clarifies feasibility constraints.",
+          "details": "• Key move: Logic is not dethroned or weakened - it is correctly located.\n• Corpus role: The methodological completion paper, paired with Paper 41 (Epistemic Regimes) to close the framework's self-accounting arc.\n• Scope note: An ontological framework that makes structural claims needs to address its relationship to logic explicitly - particularly one that refuses to treat logic as foundationa…"
         },
         {
           "id": "paper-43",
@@ -611,7 +653,8 @@
           "zenodo": null,
           "pdf": "/papers/18. Can_AI_Participate_in_Philosophical_Method_FINAL.pdf",
           "summary": "Analyzes AI’s structural role in philosophical reasoning.",
-          "function": "Defines limits of AI participation in theory construction."
+          "function": "Defines limits of AI participation in theory construction.",
+          "details": "• Key move: Analyzes where AI can contribute to philosophical work (search, compression, adversarial testing, formalization support) without being treated as an authority.\n• Corpus role: Methodological boundary-setting for AI-assisted theory construction.\n• Scope note: Focuses on structural participation conditions and failure modes, not on marketing claims about AI capability."
         }
       ]
     },
@@ -630,7 +673,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Structural account of truth-diagnostic regimes.",
-          "function": "Knowledge stabilization framework."
+          "function": "Knowledge stabilization framework.",
+          "details": "• Key move: Defines epistemic regimes as stabilized truth-diagnostic practices with identifiable success and failure surfaces.\n• Corpus role: Provides the knowledge-stabilization layer that the methodology and governance papers rely on when they diagnose rather than prescribe.\n• Scope note: Structural account of how truth-tracking is maintained under stress; not a general theory of justification."
         },
         {
           "id": "paper-45",
@@ -643,7 +687,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Formal maintenance doctrine for epistemic regimes under stress.",
-          "function": "Ensures self-vulnerability and diagnostic rigor."
+          "function": "Ensures self-vulnerability and diagnostic rigor.",
+          "details": "• Key move: Specifies maintenance constraints for epistemic regimes (self-vulnerability, auditability, and controlled exposure to error signals).\n• Corpus role: Operational doctrine for keeping epistemic machinery honest as scale, speed, and incentives increase.\n• Scope note: Focuses on regime upkeep and diagnostic rigor rather than on proving first principles."
         },
         {
           "id": "paper-46",
@@ -656,7 +701,8 @@
           "zenodo": null,
           "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
           "summary": "Treats logic as stabilized regime rather than metaphysical primitive.",
-          "function": "Meta-epistemic stabilization of reasoning itself."
+          "function": "Meta-epistemic stabilization of reasoning itself.",
+          "details": "• Key move: Treats logic as a regime (a stabilized constraint practice) rather than as a metaphysical foundation.\n• Corpus role: Closes the self-accounting arc by locating how logical validity functions inside an IO-style structural framework.\n• Scope note: Reframes the status of logic for this corpus; it is not an anti-logic argument."
         }
       ]
     }
