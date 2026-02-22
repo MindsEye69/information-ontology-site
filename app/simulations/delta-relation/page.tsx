@@ -157,7 +157,7 @@ export default function DeltaRelationSimulationPage() {
   };
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
+    <div className="space-y-10">
       {/* Header */}
       <section className="space-y-3">
         <p className="text-sm font-semibold tracking-wide text-sky-400">
@@ -290,6 +290,6 @@ export default function DeltaRelationSimulationPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
