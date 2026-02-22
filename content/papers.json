@@ -1,206 +1,662 @@
 {
+  "meta": {
+    "title": "Informational Ontology — Complete Corpus",
+    "subtitle": "Canonical 7-group structure (v2)",
+    "total_papers": 46,
+    "released_papers": 7,
+    "policy": {
+      "released": "Download links and Zenodo links are provided for released papers.",
+      "in_production": "In-production papers are catalogued with summaries and corpus function, but PDFs are not linked from the site."
+    }
+  },
   "executive_summary": {
+    "id": "executive-summary",
     "title": "IO Executive Summary",
     "slug": "io-executive-summary",
+    "status": "in_production",
     "pdf": "/papers/IO Executive Summary.pdf",
-    "category": "front",
+    "summary": "High-level structural orientation to the project and corpus map.",
+    "function": "Orientation / map document (non-numbered).",
     "details": "This document provides a high-level structural orientation to the Informational Ontology project as a whole. It summarizes the core framework, the regime ordering, and the role of the major papers without argumentation, serving as a map rather than a substitute for the corpus."
   },
-  "sections": [
+  "groups": [
     {
-      "title": "Ontological Core",
+      "id": "I",
+      "title": "I. Ontological Substrate",
       "items": [
         {
-          "id": "paper-1",
+          "id": "paper-01",
           "paper_no": 1,
-          "title": "Informational Ontology — Condensed Master",
-          "slug": "informational-ontology-condensed-master",
-          "pdf": "/papers/1. Informational Ontology - Condensed Master-FINAL.pdf",
-          "blurb": "A condensed on-ramp to the core regime structure and the minimal commitments of Informational Ontology.",
-          "details": "This paper provides a compressed orientation to the full Informational Ontology framework. It introduces the regime chain and core structural commitments without extended argumentation, serving as an entry point before the full master account."
-        },
-        {
-          "id": "paper-2",
-          "paper_no": 2,
-          "title": "Informational Ontology — Full Master",
+          "title": "Informational Ontology: A Structural Framework for Organizational Regimes",
           "slug": "informational-ontology-full-master",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18602429",
+          "zenodo": "https://zenodo.org/records/18602429",
           "pdf": "/papers/2. Informational_Ontology_Rev5.1d_MASTER-FINAL.pdf",
-          "blurb": "The authoritative statement of Informational Ontology as a single, continuous structural account.",
-          "details": "This paper is the authoritative statement of Informational Ontology. It presents the complete structural framework as a single, continuous account and serves as the fixed ontological foundation for all downstream papers."
-        }
-      ]
-    },
-    {
-      "title": "Structural Mechanics",
-      "items": [
-        {
-          "id": "paper-3",
-          "paper_no": 3,
-          "title": "Resolution Under Degeneracy",
-          "slug": "resolution-under-degeneracy",
-          "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
-          "blurb": "Shows how systems continue when constraints underdetermine immediate transitions without invoking selection or choice.",
-          "details": "This paper addresses how systems continue when constraints do not uniquely determine the next state. It introduces resolution as a structural phenomenon, explaining continuity without appeal to selection, randomness, or executive control."
+          "summary": "Defines difference, relation, information, awareness, value, meaning, and purpose as a structural regime sequence (Δ → R → I → A → V → M → P).",
+          "function": "Foundational ontology. All definitions and downstream constraints derive from this framework."
         },
         {
-          "id": "paper-4",
-          "paper_no": 4,
+          "id": "paper-02",
+          "paper_no": 2,
+          "title": "Informational Ontology (Condensed Master)",
+          "slug": "informational-ontology-condensed-master",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/1. Informational Ontology - Condensed Master-FINAL.pdf",
+          "summary": "Condensed articulation of the master ontology with reduced exploratory scaffolding.",
+          "function": "Accessible entry point and compatibility reference."
+        },
+        {
+          "id": "paper-03",
+          "paper_no": 3,
           "title": "Systems, Boundaries, and Re-Identifiability",
           "slug": "systems-boundaries-and-re-identifiability",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
           "pdf": "/papers/4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL.pdf",
-          "blurb": "Gives a structural account of identity persistence across change without substance or essence assumptions.",
-          "details": "This paper develops a structural account of system identity across change. It explains how systems remain re-identifiable without stable components, essences, or sharply defined boundaries."
+          "summary": "Defines systemhood, boundary coherence, and criteria for identity persistence.",
+          "function": "Load-bearing identity mechanics for all lineage, drift, and collapse analyses."
         },
         {
-          "id": "paper-5",
-          "paper_no": 5,
-          "title": "Constraint, Ordering, and Direction",
+          "id": "paper-04",
+          "paper_no": 4,
+          "title": "Constraint Ordering and Direction",
           "slug": "constraint-ordering-and-direction",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
           "pdf": "/papers/5. Constraint_Ordering_and_Direction_v2-FINAL.pdf",
-          "blurb": "Develops how directional asymmetry arises from constraint structure rather than goals, optimization, or teleology.",
-          "details": "This paper explains how directional structure arises from constraint ordering rather than goals or optimization. It establishes direction as a structural feature of constrained transitions, not a teleological one."
-        }
-      ]
-    },
-    {
-      "title": "Openness, Agency, Control",
-      "items": [
+          "summary": "Formalizes ordering relations and directional asymmetry between constraints.",
+          "function": "Grounds irreversibility and persistence geometry downstream."
+        },
         {
-          "id": "paper-6",
+          "id": "paper-05",
+          "paper_no": 5,
+          "title": "Resolution Under Degeneracy",
+          "slug": "resolution-under-degeneracy",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
+          "summary": "Explains how underdetermined systems resolve without structural collapse.",
+          "function": "Stabilizes transitions in agency, free will, and salience models."
+        },
+        {
+          "id": "paper-06",
           "paper_no": 6,
           "title": "Perspective-Induced Openness in Deterministic Systems",
           "slug": "perspective-induced-openness-in-deterministic-systems",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
           "pdf": "/papers/6. Perspective-Induced Openness in Deterministic Systems-FINAL.pdf",
-          "blurb": "Explains local underdetermination for embedded systems without requiring metaphysical indeterminism.",
-          "details": "This paper explains how local openness can arise for embedded systems even in globally deterministic settings, due to self-referential intervention limits. It distinguishes this structural openness from randomness, ignorance, or metaphysical indeterminism."
+          "summary": "Demonstrates structural openness without metaphysical indeterminism.",
+          "function": "Bridges determinism and agency architecture."
         },
         {
-          "id": "paper-7",
+          "id": "paper-07",
           "paper_no": 7,
-          "title": "Agency, Salience, and Free Will",
-          "slug": "agency-salience-and-free-will",
-          "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
-          "blurb": "Accounts for agency structurally in terms of constrained openness rather than will, intention, or executive control.",
-          "details": "This paper gives a constraint-based account of agency and free will in which freedom appears only under underdetermination and disappears under saturation. It treats salience as a pre-interpretive mechanism that can close action spaces without invoking an executive controller."
-        },
-        {
-          "id": "paper-8",
-          "paper_no": 8,
-          "title": "Salience, Manipulation, and Control",
-          "slug": "salience-manipulation-and-control",
-          "pdf": "/papers/8. Salience, Manipulation, and Control_REVISED-FINAL.pdf",
-          "blurb": "Shows how salience shaping can structurally narrow available transitions and produce control without coercive metaphysics.",
-          "details": "This paper analyzes manipulation and control as salience restructuring and constraint shaping rather than deception or preference replacement. It shows how action spaces can be narrowed while agency remains the locus of transition."
+          "title": "Differentiation and Quantum Theory (IO-Compatible Note)",
+          "slug": "differentiation-and-quantum-theory-io-compatible-note",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Defends structural differentiation against quantum indeterminacy objections.",
+          "function": "Physics-facing stabilization of the ontology."
         }
       ]
     },
     {
-      "title": "Normative-Adjacent Regimes (Still Structural)",
+      "id": "II",
+      "title": "II. Lineage & Biological Emergence",
       "items": [
         {
-          "id": "paper-9",
+          "id": "paper-08",
+          "paper_no": 8,
+          "title": "Lineage Before Selection",
+          "slug": "lineage-before-selection",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Establishes structural persistence prior to Darwinian selection.",
+          "function": "Clarifies that lineage continuity precedes evolutionary optimization."
+        },
+        {
+          "id": "paper-09",
           "paper_no": 9,
-          "title": "Responsibility, Law, and Moral Practice",
-          "slug": "responsibility-law-and-moral-practice",
-          "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
-          "blurb": "Reconstructs responsibility and accountability as coordination practices grounded in constrained underdetermination.",
-          "details": "This paper develops a constraint-scaled account of responsibility in which attribution varies with the openness of the action space. It separates causal explanation, responsibility attribution, and policy justification without invoking desert or metaphysical free will."
+          "title": "Abiogenesis: Origin of Lineage",
+          "slug": "abiogenesis-origin-of-lineage",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Analyzes the emergence of self-maintaining constraint systems.",
+          "function": "Grounds biological lineage within the regime ladder."
         },
         {
           "id": "paper-10",
           "paper_no": 10,
-          "title": "Meaning Without Semantics",
-          "slug": "meaning-without-semantics",
-          "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
-          "blurb": "Develops meaning structurally without representation, truth-conditions, or semantic primitives.",
-          "details": "This paper situates meaning as a downstream regime in which value-guided organization constrains interpretation across transitions without requiring symbols, representations, or truth-conditions."
+          "title": "Evolution and the Ontological Ladder",
+          "slug": "evolution-and-the-ontological-ladder",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Explains differential persistence across structural levels.",
+          "function": "Connects evolutionary theory to regime architecture."
         },
         {
           "id": "paper-11",
           "paper_no": 11,
-          "title": "Purpose Without Teleology",
-          "slug": "purpose-without-teleology",
-          "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
-          "blurb": "Explains purpose as downstream constraint stabilization without ends, goals, or final causes.",
-          "details": "This paper explains purpose as a structural consequence of meaning constraining future transitions in a directionally stable way, without invoking goals, ends, functions, or optimization."
-        },
+          "title": "Constraint Carriers Before Codes",
+          "slug": "constraint-carriers-before-codes",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
+          "summary": "Identifies pre-symbolic structural carriers of constraint.",
+          "function": "Grounds biological organization prior to genetic coding."
+        }
+      ]
+    },
+    {
+      "id": "III",
+      "title": "III. Irreversibility & Persistence Geometry",
+      "items": [
         {
           "id": "paper-12",
           "paper_no": 12,
-          "title": "Ethics as Emergent Constraint Regimes",
-          "slug": "ethics-as-emergent-constraint-regimes",
-          "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
-          "blurb": "Accounts for ethics structurally as emergent coordination constraints among meaning-bearing systems.",
-          "details": "This paper treats ethics as an emergent coordination regime among purposive systems under shared constraint, rather than as moral authority, obligation, or normative truth."
+          "title": "Accumulation Without Teleology",
+          "slug": "accumulation-without-teleology",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Defines sedimentation as retained constraint accumulation across lineage without invoking purpose.",
+          "function": "Canonical model of irreversible structural buildup."
         },
         {
           "id": "paper-13",
           "paper_no": 13,
-          "title": "Logic as a Regime, Not a Foundation",
-          "slug": "logic-as-a-regime-not-a-foundation",
-          "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
-          "blurb": "Treats logical practice as a stabilized regime within meaning-bearing systems rather than an external foundation.",
-          "details": "This paper analyzes logic as a stabilized regime of commitment coordination that emerges at the meaning regime, rather than as a metaphysical foundation imposed from outside."
-        }
-      ]
-    },
-    {
-      "title": "Applications / Stress Tests",
-      "items": [
+          "title": "Invariant Drift and Sedimentation",
+          "slug": "invariant-drift-and-sedimentation",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Analyzes gradual modification of identity-maintaining constraints.",
+          "function": "Clarifies how identity evolves without reset."
+        },
         {
           "id": "paper-14",
           "paper_no": 14,
-          "title": "Informational Ontology and AI Alignment",
-          "slug": "informational-ontology-and-ai-alignment",
-          "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
-          "blurb": "Frames alignment as structural compatibility between constraint regimes rather than value specification or optimization.",
-          "details": "This paper reframes alignment as structural compatibility between purposive systems rather than value specification or control optimization, and identifies alignment framings that become structurally inadmissible."
+          "title": "Constraint Dissolution",
+          "slug": "constraint-dissolution",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Formal inverse of sedimentation; examines unwinding and restoration limits.",
+          "function": "Completes the geometry of persistence and recovery."
         },
         {
           "id": "paper-15",
           "paper_no": 15,
-          "title": "Saturation and Sovereignty — Addiction as a Structural Constraint Regime",
-          "slug": "saturation-and-sovereignty-addiction",
-          "pdf": "/papers/15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL.pdf",
-          "blurb": "Models addiction as a structural monopoly over salience that collapses the practical action space.",
-          "details": "This paper models addiction as a structural regime in which salience becomes monopolized, collapsing the practical action space without invoking akrasia or weakness of will."
+          "title": "Irreversibility Thresholds in Replicating Systems",
+          "slug": "irreversibility-thresholds-in-replicating-systems",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Identifies topology-based thresholds where recall collapses under replication.",
+          "function": "Replication containment diagnostic framework."
         },
         {
           "id": "paper-16",
           "paper_no": 16,
-          "title": "Markets as Multi-Agent Constraint Stabilizers",
-          "slug": "markets-as-multi-agent-constraint-stabilizers",
-          "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
-          "blurb": "Describes markets as coordination regimes that stabilize multi-agent constraints without centralized control.",
-          "details": "This paper treats markets as distributed coordination regimes that stabilize multi-agent interaction under constraint without centralized planning or market-as-agent metaphysics."
-        }
-      ]
-    },
-    {
-      "title": "Late Structural Clarification",
-      "items": [
+          "title": "Acceleration and Degeneracy",
+          "slug": "acceleration-and-degeneracy",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Demonstrates identity-bound reachability collapse under differential scaling.",
+          "function": "Formal collapse model under acceleration; replaces Execution–Intervention."
+        },
         {
           "id": "paper-17",
           "paper_no": 17,
-          "title": "Constraint Carriers Before Codes",
-          "slug": "constraint-carriers-before-codes",
-          "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
-          "blurb": "Argues that biological inheritance depends on stabilized structural constraint carriers prior to genetic coding.",
-          "details": "This paper argues that biological inheritance depends on distributed structural constraint carriers prior to genetic coding, treating inheritance as structural continuation rather than symbolic encoding."
+          "title": "The Silence Limit",
+          "slug": "the-silence-limit",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Argues purposive constraint cannot persist absent living originators.",
+          "function": "Teleological boundary condition of automation regimes."
         }
       ]
     },
     {
-      "title": "Project Meta Paper",
+      "id": "IV",
+      "title": "IV. Agency & Salience Mechanics",
       "items": [
         {
           "id": "paper-18",
           "paper_no": 18,
-          "title": "Can AI Participate in Philosophical Method?",
+          "title": "Agency, Salience, and Free Will",
+          "slug": "agency-salience-and-free-will",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
+          "summary": "Structural account of underdetermination and valuation resolution.",
+          "function": "Defines architecture of action spaces."
+        },
+        {
+          "id": "paper-19",
+          "paper_no": 19,
+          "title": "Salience, Manipulation, and Control — A Structural Account",
+          "slug": "salience-manipulation-and-control",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18615483",
+          "zenodo": "https://zenodo.org/records/18615483",
+          "pdf": "/papers/8. Salience, Manipulation, and Control_REVISED-FINAL.pdf",
+          "summary": "Analyzes manipulation as salience restructuring rather than agency bypass.",
+          "function": "Influence mechanics under AI mediation."
+        },
+        {
+          "id": "paper-20",
+          "paper_no": 20,
+          "title": "Saturation and Sovereignty: Addiction as a Structural Constraint Regime",
+          "slug": "saturation-and-sovereignty-addiction",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18615577",
+          "zenodo": "https://zenodo.org/records/18615577",
+          "pdf": "/papers/15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL.pdf",
+          "summary": "Models addiction as trajectory-level salience monopoly.",
+          "function": "Demonstrates local constraint saturation dynamics."
+        },
+        {
+          "id": "paper-21",
+          "paper_no": 21,
+          "title": "Salience Collapse and Meaning Saturation",
+          "slug": "salience-collapse-and-meaning-saturation",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Diagnoses systemic degradation of meaningful differentiation under overload.",
+          "function": "Macro-level salience destabilization model."
+        },
+        {
+          "id": "paper-22",
+          "paper_no": 22,
+          "title": "Salience Misalignment",
+          "slug": "salience-misalignment",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Explains persistent misalignment without malfunction.",
+          "function": "Structural explanation of alignment failure."
+        },
+        {
+          "id": "paper-23",
+          "paper_no": 23,
+          "title": "Meaning Without Semantics",
+          "slug": "meaning-without-semantics",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
+          "summary": "Treats meaning as structural constraint effect rather than representation.",
+          "function": "Non-representational theory of meaning."
+        },
+        {
+          "id": "paper-24",
+          "paper_no": 24,
+          "title": "Purpose Without Teleology",
+          "slug": "purpose-without-teleology",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
+          "summary": "Explains purpose as emergent trajectory constraint without final causes.",
+          "function": "Prepares Silence Limit boundary argument."
+        }
+      ]
+    },
+    {
+      "id": "V",
+      "title": "V. Consequence, Responsibility & Governance",
+      "items": [
+        {
+          "id": "paper-25",
+          "paper_no": 25,
+          "title": "Vulnerability as a Structural Condition: Consequence Without Normativity",
+          "slug": "vulnerability-as-a-structural-condition",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18602897",
+          "zenodo": "https://zenodo.org/records/18602897",
+          "pdf": null,
+          "summary": "Defines vulnerability as lineage-relevant susceptibility to irreversible loss.",
+          "function": "Grounds consequence and responsibility."
+        },
+        {
+          "id": "paper-26",
+          "paper_no": 26,
+          "title": "Witnessing Under Vulnerability: Consequence Termination Under Scale and Tempo",
+          "slug": "witnessing-under-vulnerability",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18602797",
+          "zenodo": "https://zenodo.org/records/18602797",
+          "pdf": null,
+          "summary": "Formalizes witnessing as termination of consequence within vulnerable loci.",
+          "function": "Load-bearing bridge to governance."
+        },
+        {
+          "id": "paper-27",
+          "paper_no": 27,
+          "title": "Witness Conditions",
+          "slug": "witness-conditions",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Specifies structural requirements for witnessing under scale and AI mediation.",
+          "function": "Clarifies termination mechanics."
+        },
+        {
+          "id": "paper-28",
+          "paper_no": 28,
+          "title": "Partial Agency and Mixed Responsibility",
+          "slug": "partial-agency-and-mixed-responsibility",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Analyzes distributed constraint contribution under scale.",
+          "function": "Extends responsibility into hybrid systems."
+        },
+        {
+          "id": "paper-29",
+          "paper_no": 29,
+          "title": "Ethics as Emergent Constraint Regimes",
+          "slug": "ethics-as-emergent-constraint-regimes",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
+          "summary": "Explains ethics as stabilized structural regimes.",
+          "function": "Connects ontology to moral structure."
+        },
+        {
+          "id": "paper-30",
+          "paper_no": 30,
+          "title": "Responsibility, Law, and Moral Practice",
+          "slug": "responsibility-law-and-moral-practice",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
+          "summary": "Bridges structural responsibility and institutional practice.",
+          "function": "Institutional application layer."
+        },
+        {
+          "id": "paper-31",
+          "paper_no": 31,
+          "title": "From Law to Logistics: How AI Thins Coercive Regimes",
+          "slug": "from-law-to-logistics",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18603017",
+          "zenodo": "https://zenodo.org/records/18603017",
+          "pdf": null,
+          "summary": "Diagnoses AI-mediated thinning of coercive regimes.",
+          "function": "Governance collapse diagnostic."
+        },
+        {
+          "id": "paper-32",
+          "paper_no": 32,
+          "title": "The Handover Protocol: Formalizing Necessary Regime Thinning Under Automation",
+          "slug": "the-handover-protocol",
+          "status": "released",
+          "state": "published",
+          "doi": "10.5281/zenodo.18615343",
+          "zenodo": "https://zenodo.org/records/18615343",
+          "pdf": null,
+          "summary": "Distinguishes legitimate automation from degenerative thinning.",
+          "function": "Automation transition framework."
+        },
+        {
+          "id": "paper-33",
+          "paper_no": 33,
+          "title": "Legitimacy as a Finite Structural Resource",
+          "slug": "legitimacy-as-a-finite-structural-resource",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Analyzes structural depletion of legitimacy.",
+          "function": "Explains regime fragility."
+        },
+        {
+          "id": "paper-34",
+          "paper_no": 34,
+          "title": "Authority After Commitment",
+          "slug": "authority-after-commitment",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Maps authority topology after constraint commitment.",
+          "function": "Authority mechanics."
+        },
+        {
+          "id": "paper-35",
+          "paper_no": 35,
+          "title": "Authority, Responsibility, and Force",
+          "slug": "authority-responsibility-and-force",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Explains escalation when witnessing collapses.",
+          "function": "Force substitution model."
+        },
+        {
+          "id": "paper-36",
+          "paper_no": 36,
+          "title": "Markets as Multi-Agent Constraint Stabilizers",
+          "slug": "markets-as-multi-agent-constraint-stabilizers",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
+          "summary": "Treats markets as distributed constraint coordination systems.",
+          "function": "Large-scale stabilization without central authority."
+        }
+      ]
+    },
+    {
+      "id": "VI",
+      "title": "VI. AI Alignment & Structural Limits",
+      "items": [
+        {
+          "id": "paper-37",
+          "paper_no": 37,
+          "title": "Informational Ontology and AI Alignment",
+          "slug": "informational-ontology-and-ai-alignment",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
+          "summary": "Applies ontology to alignment constraints.",
+          "function": "Structural reframing of AI alignment."
+        },
+        {
+          "id": "paper-38",
+          "paper_no": 38,
+          "title": "Conditions of Possibility for Human–AI Alignment",
+          "slug": "conditions-of-possibility-for-human-ai-alignment",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Identifies necessary structural coherence conditions.",
+          "function": "Constrains alignment discourse."
+        },
+        {
+          "id": "paper-39",
+          "paper_no": 39,
+          "title": "Consequence Path Audits",
+          "slug": "consequence-path-audits",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Diagnostic framework for tracing consequence chains.",
+          "function": "Applied alignment auditing tool."
+        },
+        {
+          "id": "paper-40",
+          "paper_no": 40,
+          "title": "Working as Designed",
+          "slug": "working-as-designed",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Explains alignment failure without malfunction.",
+          "function": "Corrects common AI safety misdiagnosis."
+        },
+        {
+          "id": "paper-41",
+          "paper_no": 41,
+          "title": "Alignment After Witnessing",
+          "slug": "alignment-after-witnessing",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Explores governance after witnessing collapse.",
+          "function": "Edge-of-intelligibility boundary analysis."
+        },
+        {
+          "id": "paper-42",
+          "paper_no": 42,
+          "title": "Structural Compatibility — Diagnostic Essay",
+          "slug": "structural-compatibility-diagnostic-essay",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Diagnoses trajectory compatibility between human and AI systems.",
+          "function": "Clarifies feasibility constraints."
+        },
+        {
+          "id": "paper-43",
+          "paper_no": 43,
+          "title": "Can AI Participate in Philosophical Method",
           "slug": "can-ai-participate-in-philosophical-method",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
           "pdf": "/papers/18. Can_AI_Participate_in_Philosophical_Method_FINAL.pdf",
-          "blurb": "Reflects on the human–AI co-construction of the corpus as a methodological case study.",
-          "details": "This paper reflects on the human–AI co-construction of the IO corpus as a constrained methodological practice rather than as automation, inspiration, or epistemic authority."
+          "summary": "Analyzes AI’s structural role in philosophical reasoning.",
+          "function": "Defines limits of AI participation in theory construction."
+        }
+      ]
+    },
+    {
+      "id": "VII",
+      "title": "VII. Epistemics & Meta-Method",
+      "items": [
+        {
+          "id": "paper-44",
+          "paper_no": 44,
+          "title": "Epistemic Regimes",
+          "slug": "epistemic-regimes",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Structural account of truth-diagnostic regimes.",
+          "function": "Knowledge stabilization framework."
+        },
+        {
+          "id": "paper-45",
+          "paper_no": 45,
+          "title": "The Truth Protocol",
+          "slug": "the-truth-protocol",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Formal maintenance doctrine for epistemic regimes under stress.",
+          "function": "Ensures self-vulnerability and diagnostic rigor."
+        },
+        {
+          "id": "paper-46",
+          "paper_no": 46,
+          "title": "Logic as a Regime, Not a Foundation",
+          "slug": "logic-as-a-regime-not-a-foundation",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
+          "summary": "Treats logic as stabilized regime rather than metaphysical primitive.",
+          "function": "Meta-epistemic stabilization of reasoning itself."
         }
       ]
     }

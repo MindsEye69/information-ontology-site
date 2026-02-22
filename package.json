@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:placeholders && next build",
+    "build": "npm run check:placeholders && npm run check:papers && next build",
     "start": "next start",
     "lint": "next lint",
     "build-archive": "node scripts/build-archive.mjs",
     "sync-papers": "node scripts/sync-papers.mjs",
-    "check:placeholders": "node scripts/check-placeholders.cjs"
+    "check:placeholders": "node scripts/check-placeholders.cjs",
+    "check:papers": "node scripts/check-papers.mjs"
   },
   "dependencies": {
     "next": "14.2.35",

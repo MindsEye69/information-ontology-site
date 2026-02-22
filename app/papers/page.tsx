@@ -1,81 +1,155 @@
 import Link from "next/link";
 import papersData from "@/content/papers.json";
 
+type PaperStatus = "released" | "in_production";
+
 type PaperItem = {
   id: string;
   paper_no?: number;
   title: string;
   slug: string;
-  pdf: string;
-  blurb?: string;
+  status: PaperStatus;
+  state?: string;
+  doi?: string | null;
+  zenodo?: string | null;
+  pdf?: string | null;
+  summary?: string;
+  function?: string;
 };
 
-type Section = {
+type Group = {
+  id: string;
   title: string;
   items: PaperItem[];
 };
 
+function StatusPill({ status, state }: { status: PaperStatus; state?: string }) {
+  const label =
+    status === "released"
+      ? "Released"
+      : state === "complete_unpublished"
+      ? "In production (complete)"
+      : "In production";
+
+  return (
+    <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs text-black/70">
+      {label}
+    </span>
+  );
+}
+
 export default function PapersPage() {
-  const exec = (papersData as any).executive_summary as { title: string; pdf: string; note?: string };
-  const sections = (papersData as any).sections as Section[];
+  const meta = (papersData as any).meta as {
+    title: string;
+    subtitle?: string;
+    total_papers?: number;
+    released_papers?: number;
+  };
+  const exec = (papersData as any).executive_summary as PaperItem;
+  const groups = (papersData as any).groups as Group[];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-4xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Downloads</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">The Corpus</h1>
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Corpus</p>
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+          {meta?.title ?? "The Corpus"}
+        </h1>
+        {meta?.subtitle ? <p className="mt-2 text-sm text-black/60">{meta.subtitle}</p> : null}
+
         <p className="mt-4 text-black/70 leading-relaxed">
-          This page is the canonical download hub for the full Informational Ontology corpus. Titles link directly to PDFs.
+          The corpus is in active production. Only released papers are downloadable here; the rest are listed as{" "}
+          <span className="font-medium">In production</span> with their summary and role in the corpus.
         </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {typeof meta?.released_papers === "number" ? (
+            <span className="text-xs text-black/55 rounded-full border border-black/10 bg-white/60 px-3 py-1">
+              {meta.released_papers} released
+            </span>
+          ) : null}
+          {typeof meta?.total_papers === "number" ? (
+            <span className="text-xs text-black/55 rounded-full border border-black/10 bg-white/60 px-3 py-1">
+              {meta.total_papers} total
+            </span>
+          ) : null}
+        </div>
 
         <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-6">
           <div className="flex items-start justify-between gap-6 flex-wrap">
-            <div>
-              <h2 className="text-lg font-semibold">Executive Summary</h2>
-              <p className="mt-1 text-sm text-black/65">
-                A short orientation and overview of the whole project.
+            <div className="min-w-[16rem]">
+              <div className="flex items-center gap-3 flex-wrap">
+                <h2 className="text-lg font-semibold">Executive Summary</h2>
+                <StatusPill status={exec.status} state={exec.state} />
+              </div>
+              <p className="mt-2 text-sm text-black/65 leading-relaxed">
+                {exec.summary ??
+                  "High-level structural orientation to the project and corpus map (non-numbered)."}
               </p>
-              {exec?.note ? <p className="mt-2 text-xs text-black/45">{exec.note}</p> : null}
+              {exec.function ? <p className="mt-2 text-xs text-black/50">{exec.function}</p> : null}
             </div>
-            <a
-              href={exec.pdf}
-              className="no-underline inline-flex items-center rounded-2xl px-4 py-2 bg-ink text-paper"
-              download
-            >
-              Download PDF
-            </a>
+
+            <div className="flex items-center gap-2">
+              <Link
+                href={`/papers/${exec.slug}`}
+                className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm text-black/70 hover:text-black"
+              >
+                Details
+              </Link>
+            </div>
           </div>
         </div>
 
         <div className="mt-12 space-y-10">
-          {sections.map((section) => (
-            <section key={section.title} className="space-y-4">
+          {groups.map((group) => (
+            <section key={group.id} className="space-y-4">
               <div className="flex items-baseline justify-between gap-6 flex-wrap">
-                <h2 className="text-xl font-semibold">{section.title}</h2>
-                <span className="text-xs text-black/45">PDF downloads</span>
+                <h2 className="text-xl font-semibold">{group.title}</h2>
+                <span className="text-xs text-black/45">{group.items.length} items</span>
               </div>
 
               <div className="divide-y divide-black/10 rounded-2xl border border-black/10 bg-white/60">
-                {section.items.map((item) => (
+                {group.items.map((item) => (
                   <div key={item.id} className="p-5 flex items-start justify-between gap-6 flex-wrap">
                     <div className="min-w-[16rem]">
-                      <div className="text-sm text-black/45">{item.paper_no ? `Paper ${item.paper_no}` : "Paper"}</div>
-                      <div className="mt-1">
-                        <a href={item.pdf} className="no-underline text-base font-medium text-ink hover:underline" download>
-                          {item.title}
-                        </a>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <div className="text-sm text-black/45">{item.paper_no ? `Paper ${item.paper_no}` : "Paper"}</div>
+                        <StatusPill status={item.status} state={item.state} />
                       </div>
-                      {item.blurb ? <p className="mt-2 text-sm text-black/65 leading-relaxed">{item.blurb}</p> : null}
+
+                      <div className="mt-1">
+                        <Link href={`/papers/${item.slug}`} className="no-underline text-base font-medium text-ink hover:underline">
+                          {item.title}
+                        </Link>
+                      </div>
+
+                      {item.summary ? <p className="mt-2 text-sm text-black/65 leading-relaxed">{item.summary}</p> : null}
+                      {item.function ? <p className="mt-2 text-xs text-black/50">{item.function}</p> : null}
+                      {item.status === "released" && item.doi ? <p className="mt-2 text-xs text-black/45">DOI: {item.doi}</p> : null}
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <a
-                        href={item.pdf}
-                        className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
-                        download
-                      >
-                        Download
-                      </a>
+                      {item.status === "released" && item.zenodo ? (
+                        <a
+                          href={item.zenodo}
+                          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Zenodo
+                        </a>
+                      ) : null}
+
+                      {item.status === "released" && item.pdf ? (
+                        <a
+                          href={item.pdf}
+                          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                          download
+                        >
+                          Download
+                        </a>
+                      ) : null}
+
                       <Link
                         href={`/papers/${item.slug}`}
                         className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm text-black/70 hover:text-black"
@@ -91,8 +165,9 @@ export default function PapersPage() {
         </div>
 
         <p className="mt-12 text-xs text-black/45">
-          If a download 404s, the PDF file has not yet been placed in{" "}
-          <code className="bg-black/5 px-1.5 py-0.5 rounded">site/public/papers/</code>.
+          Note: anything placed under <code className="bg-black/5 px-1.5 py-0.5 rounded">public/</code> is publicly accessible
+          by URL on Vercel even if it is not linked here. If you want unreleased PDFs offline, don’t deploy them inside{" "}
+          <code className="bg-black/5 px-1.5 py-0.5 rounded">public/papers/</code>.
         </p>
       </div>
     </div>
