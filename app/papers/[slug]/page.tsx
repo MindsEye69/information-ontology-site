@@ -24,6 +24,14 @@ type Group = {
   items: PaperItem[];
 };
 
+function hasPdf(p: PaperItem) {
+  return typeof p.pdf === "string" && p.pdf.trim().length > 0;
+}
+
+function hasZenodo(p: PaperItem) {
+  return typeof p.zenodo === "string" && p.zenodo.trim().length > 0;
+}
+
 function StatusPill({ status, state }: { status: PaperStatus; state?: string }) {
   const label =
     status === "released"
@@ -64,7 +72,7 @@ export default function PaperDetailPage({ params }: { params: { slug: string } }
         {paper.summary ? <p className="mt-5 text-lg text-black/70 leading-relaxed">{paper.summary}</p> : null}
 
         <div className="mt-8 flex flex-wrap gap-3">
-          {paper.status === "released" && paper.zenodo ? (
+          {hasZenodo(paper) ? (
             <a
               href={paper.zenodo}
               className="no-underline inline-flex items-center rounded-2xl px-4 py-2 bg-ink text-paper"
@@ -75,7 +83,18 @@ export default function PaperDetailPage({ params }: { params: { slug: string } }
             </a>
           ) : null}
 
-          {paper.status === "released" && paper.pdf ? (
+          {hasPdf(paper) ? (
+            <a
+              href={paper.pdf as string}
+              className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View PDF
+            </a>
+          ) : null}
+
+          {hasPdf(paper) ? (
             <a
               href={paper.pdf}
               className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15"
@@ -107,11 +126,11 @@ export default function PaperDetailPage({ params }: { params: { slug: string } }
             </div>
           ) : null}
 
-          {paper.status !== "released" ? (
+          {!hasPdf(paper) && !hasZenodo(paper) ? (
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-black/55">Availability</p>
               <p className="mt-2 text-sm text-black/70 leading-relaxed">
-                This paper is listed for orientation and dependency tracking. The PDF is not linked on the public site yet.
+                This paper is listed for orientation and dependency tracking. No public PDF or Zenodo record is linked yet.
               </p>
             </div>
           ) : null}

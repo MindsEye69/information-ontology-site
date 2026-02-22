@@ -23,6 +23,14 @@ type Group = {
   items: PaperItem[];
 };
 
+function hasPdf(item: PaperItem) {
+  return typeof item.pdf === "string" && item.pdf.trim().length > 0;
+}
+
+function hasZenodo(item: PaperItem) {
+  return typeof item.zenodo === "string" && item.zenodo.trim().length > 0;
+}
+
 function StatusPill({ status, state }: { status: PaperStatus; state?: string }) {
   const label =
     status === "released"
@@ -58,8 +66,8 @@ export default function PapersPage() {
         {meta?.subtitle ? <p className="mt-2 text-sm text-black/60">{meta.subtitle}</p> : null}
 
         <p className="mt-4 text-black/70 leading-relaxed">
-          The corpus is in active production. Only released papers are downloadable here; the rest are listed as{" "}
-          <span className="font-medium">In production</span> with their summary and role in the corpus.
+          The corpus is in active production. Action buttons appear automatically when a PDF and/or Zenodo record is
+          available.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-2">
@@ -90,6 +98,38 @@ export default function PapersPage() {
             </div>
 
             <div className="flex items-center gap-2">
+              {hasZenodo(exec) ? (
+                <a
+                  href={exec.zenodo as string}
+                  className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Zenodo
+                </a>
+              ) : null}
+
+              {hasPdf(exec) ? (
+                <a
+                  href={exec.pdf as string}
+                  className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View
+                </a>
+              ) : null}
+
+              {hasPdf(exec) ? (
+                <a
+                  href={exec.pdf as string}
+                  className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                  download
+                >
+                  Download
+                </a>
+              ) : null}
+
               <Link
                 href={`/papers/${exec.slug}`}
                 className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm text-black/70 hover:text-black"
@@ -129,7 +169,7 @@ export default function PapersPage() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      {item.status === "released" && item.zenodo ? (
+                      {hasZenodo(item) ? (
                         <a
                           href={item.zenodo}
                           className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
@@ -140,7 +180,18 @@ export default function PapersPage() {
                         </a>
                       ) : null}
 
-                      {item.status === "released" && item.pdf ? (
+                      {hasPdf(item) ? (
+                        <a
+                          href={item.pdf as string}
+                          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          View
+                        </a>
+                      ) : null}
+
+                      {hasPdf(item) ? (
                         <a
                           href={item.pdf}
                           className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"

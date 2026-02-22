@@ -33,7 +33,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18602429",
           "zenodo": "https://zenodo.org/records/18602429",
-          "pdf": "/papers/Informational_Ontology_Rev5i_Jan2026_Semprevivo.pdf",
+          "pdf": "/papers/2. Informational_Ontology_Rev5.1d_MASTER-FINAL.pdf",
           "summary": "Defines difference, relation, information, awareness, value, meaning, and purpose as a structural regime sequence (Δ → R → I → A → V → M → P).",
           "function": "Foundational ontology. All definitions and downstream constraints derive from this framework."
         },
@@ -46,7 +46,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Informational Ontology - Condensed Master- revision 5.1a.pdf",
+          "pdf": "/papers/1. Informational Ontology - Condensed Master-FINAL.pdf",
           "summary": "Condensed articulation of the master ontology with reduced exploratory scaffolding.",
           "function": "Accessible entry point and compatibility reference."
         },
@@ -59,7 +59,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Systems_Boundaries_and_Re-Identifiability_v2a.pdf",
+          "pdf": "/papers/4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL.pdf",
           "summary": "Defines systemhood, boundary coherence, and criteria for identity persistence.",
           "function": "Load-bearing identity mechanics for all lineage, drift, and collapse analyses."
         },
@@ -72,7 +72,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Constraint_Ordering_and_Direction_v2a.pdf",
+          "pdf": "/papers/5. Constraint_Ordering_and_Direction_v2-FINAL.pdf",
           "summary": "Formalizes ordering relations and directional asymmetry between constraints.",
           "function": "Grounds irreversibility and persistence geometry downstream."
         },
@@ -85,7 +85,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Resolution_Under_Degeneracy_revision2c.pdf",
+          "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
           "summary": "Explains how underdetermined systems resolve without structural collapse.",
           "function": "Stabilizes transitions in agency, free will, and salience models."
         },
@@ -98,7 +98,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Perspective-Induced Openness in Deterministic Systems-revision_2a.pdf",
+          "pdf": "/papers/6. Perspective-Induced Openness in Deterministic Systems-FINAL.pdf",
           "summary": "Demonstrates structural openness without metaphysical indeterminism.",
           "function": "Bridges determinism and agency architecture."
         },
@@ -111,7 +111,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "Differentiation_and_Quantum_Theory_v1a_IO_Compatible_NOTE.pdf",
+          "pdf": null,
           "summary": "Defends structural differentiation against quantum indeterminacy objections.",
           "function": "Physics-facing stabilization of the ontology."
         }
@@ -169,7 +169,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Constraint_Carriers_Before_Codes_revision2a.pdf",
+          "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
           "summary": "Identifies pre-symbolic structural carriers of constraint.",
           "function": "Grounds biological organization prior to genetic coding."
         }
@@ -272,7 +272,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Agency,Salience_and_Free_Will_revision2a.pdf",
+          "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
           "summary": "Structural account of underdetermination and valuation resolution.",
           "function": "Defines architecture of action spaces."
         },
@@ -285,7 +285,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18615483",
           "zenodo": "https://zenodo.org/records/18615483",
-          "pdf": "/papers/Salience_Manipulation_and_Control_v2c_Feb2026_Semprevivo.pdf",
+          "pdf": "/papers/8. Salience, Manipulation, and Control_REVISED-FINAL.pdf",
           "summary": "Analyzes manipulation as salience restructuring rather than agency bypass.",
           "function": "Influence mechanics under AI mediation."
         },
@@ -298,7 +298,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18615577",
           "zenodo": "https://zenodo.org/records/18615577",
-          "pdf": "/papers/Saturation_And_Sovereignty-Addiction_As_A_Structural_Constraint_Regime-revision2c_Feb2026_Semprevivo.pdf",
+          "pdf": "/papers/15. Saturation And Sovereignty - Addiction As A Structural Constraint Regime-FINAL.pdf",
           "summary": "Models addiction as trajectory-level salience monopoly.",
           "function": "Demonstrates local constraint saturation dynamics."
         },
@@ -337,7 +337,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Meaning_Without_Semantics_revision2a.pdf",
+          "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
           "summary": "Treats meaning as structural constraint effect rather than representation.",
           "function": "Non-representational theory of meaning."
         },
@@ -350,7 +350,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Purpose_Without_Teleology_revision2a",
+          "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
           "summary": "Explains purpose as emergent trajectory constraint without final causes.",
           "function": "Prepares Silence Limit boundary argument."
         }
@@ -369,7 +369,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18602897",
           "zenodo": "https://zenodo.org/records/18602897",
-          "pdf": "/papers/Vulnerability as a Structural Condition - v1c.pdf",
+          "pdf": null,
           "summary": "Defines vulnerability as lineage-relevant susceptibility to irreversible loss.",
           "function": "Grounds consequence and responsibility."
         },
@@ -382,7 +382,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18602797",
           "zenodo": "https://zenodo.org/records/18602797",
-          "pdf": "/papers/Witnessing Under Vulnerability - rev1b.pdf",
+          "pdf": null,
           "summary": "Formalizes witnessing as termination of consequence within vulnerable loci.",
           "function": "Load-bearing bridge to governance."
         },
@@ -421,7 +421,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Ethics_as_Emergent_Constraint_Regimes_revision2a.pdf",
+          "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
           "summary": "Explains ethics as stabilized structural regimes.",
           "function": "Connects ontology to moral structure."
         },
@@ -434,7 +434,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Responsibility, Law, and Moral Practice_revision2a.pdf",
+          "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
           "summary": "Bridges structural responsibility and institutional practice.",
           "function": "Institutional application layer."
         },
@@ -447,7 +447,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18603017",
           "zenodo": "https://zenodo.org/records/18603017",
-          "pdf": "/papers/From Law to Logistics- How AI Thins Coercive Regimes - v2c.pdf",
+          "pdf": null,
           "summary": "Diagnoses AI-mediated thinning of coercive regimes.",
           "function": "Governance collapse diagnostic."
         },
@@ -460,7 +460,7 @@
           "state": "published",
           "doi": "10.5281/zenodo.18615343",
           "zenodo": "https://zenodo.org/records/18615343",
-          "pdf": "/papers/Handover_Protocol_v2h_Feb2026_Semprevivo.pdf",
+          "pdf": null,
           "summary": "Distinguishes legitimate automation from degenerative thinning.",
           "function": "Automation transition framework."
         },
@@ -512,7 +512,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Markets_as_Multi-Agent_Constraint_Stabilizers_revision2a.pdf",
+          "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
           "summary": "Treats markets as distributed constraint coordination systems.",
           "function": "Large-scale stabilization without central authority."
         }
@@ -531,7 +531,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Informational_Ontology_and_AI_Alignment_revision2a.pdf",
+          "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
           "summary": "Applies ontology to alignment constraints.",
           "function": "Structural reframing of AI alignment."
         },
@@ -609,7 +609,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Can_AI_Participate_in_Philosophical_Method_revision2a.pdf",
+          "pdf": "/papers/18. Can_AI_Participate_in_Philosophical_Method_FINAL.pdf",
           "summary": "Analyzes AI’s structural role in philosophical reasoning.",
           "function": "Defines limits of AI participation in theory construction."
         }
@@ -654,7 +654,7 @@
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
-          "pdf": "/papers/Logic as a Regime, Not a Foundation_revision2a.pdf",
+          "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
           "summary": "Treats logic as stabilized regime rather than metaphysical primitive.",
           "function": "Meta-epistemic stabilization of reasoning itself."
         }
