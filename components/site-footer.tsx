@@ -11,6 +11,16 @@ export function SiteFooter() {
           >
             info@informationontology.org
           </a>
+          <span className="text-black/40">•</span>
+          <a
+            className="inline-flex items-center gap-2 no-underline hover:opacity-80"
+            href="https://michaelsemprevivo.substack.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="IO Substack"
+          >
+            <img src="/brand/io-substack.png" alt="IO Substack" className="h-4 w-auto" />
+          </a>
         </div>
       </div>
     </footer>

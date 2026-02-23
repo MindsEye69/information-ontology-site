@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const SUBSTACK_URL = "https://michaelsemprevivo.substack.com/";
+
 function PrimaryLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
@@ -19,6 +21,27 @@ function SecondaryLink({ href, label }: { href: string; label: string }) {
     >
       {label}
     </Link>
+  );
+}
+
+function ExternalSecondaryLink({
+  href,
+  imgSrc,
+  imgAlt,
+}: {
+  href: string;
+  imgSrc: string;
+  imgAlt: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
+    >
+      <img src={imgSrc} alt={imgAlt} className="h-5 w-auto" />
+    </a>
   );
 }
 
@@ -67,6 +90,11 @@ export default function HomePage() {
           <PrimaryLink href="/start-here" label="Start Here" />
           <SecondaryLink href="/orientation" label="Orientation Guide" />
           <SecondaryLink href="/papers" label="Papers" />
+          <ExternalSecondaryLink
+            href={SUBSTACK_URL}
+            imgSrc="/brand/io-substack.png"
+            imgAlt="IO Substack"
+          />
         </div>
 
         <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-5">
