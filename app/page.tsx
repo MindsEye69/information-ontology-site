@@ -26,21 +26,28 @@ function SecondaryLink({ href, label }: { href: string; label: string }) {
 
 function ExternalSecondaryLink({
   href,
-  imgSrc,
-  imgAlt,
+  label,
 }: {
   href: string;
-  imgSrc: string;
-  imgAlt: string;
+  label: string;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
+      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
     >
-      <img src={imgSrc} alt={imgAlt} className="h-5 w-auto" />
+      <span
+        aria-hidden
+        className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#FF6719] text-white"
+      >
+        {/* Substack-inspired mark */}
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+          <path d="M6 5.5h12v2H6v-2Zm0 4h12v2H6v-2Zm0 4h12v8.5L12 19.8 6 22v-8.5Z" />
+        </svg>
+      </span>
+      <span className="text-[15px] leading-none">{label}</span>
     </a>
   );
 }
@@ -92,8 +99,7 @@ export default function HomePage() {
           <SecondaryLink href="/papers" label="Papers" />
           <ExternalSecondaryLink
             href={SUBSTACK_URL}
-            imgSrc="/brand/io-substack.png"
-            imgAlt="IO Substack"
+            label="IO Substack"
           />
         </div>
 

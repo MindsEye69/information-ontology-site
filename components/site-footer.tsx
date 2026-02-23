@@ -13,13 +13,20 @@ export function SiteFooter() {
           </a>
           <span className="text-black/40">•</span>
           <a
-            className="inline-flex items-center gap-2 no-underline hover:opacity-80"
+            className="inline-flex items-center gap-2 underline decoration-black/20 underline-offset-4 hover:decoration-black/40"
             href="https://michaelsemprevivo.substack.com/"
             target="_blank"
             rel="noreferrer"
-            aria-label="IO Substack"
           >
-            <img src="/brand/io-substack.png" alt="IO Substack" className="h-4 w-auto" />
+            <span
+              aria-hidden
+              className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-[#FF6719] text-white"
+            >
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+                <path d="M6 5.5h12v2H6v-2Zm0 4h12v2H6v-2Zm0 4h12v8.5L12 19.8 6 22v-8.5Z" />
+              </svg>
+            </span>
+            <span>IO Substack</span>
           </a>
         </div>
       </div>
