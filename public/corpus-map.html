@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Corpus Map • Informational Ontology</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f3ee;
+      --panel: #ffffff;
+      --text: #16110c;
+      --muted: rgba(22, 17, 12, 0.72);
+      --soft: rgba(22, 17, 12, 0.1);
+      --soft-2: rgba(22, 17, 12, 0.06);
+      --shadow: 0 10px 30px rgba(22, 17, 12, 0.08);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 16px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(22, 17, 12, 0.55);
+    }
+    h1 {
+      margin: 12px 0 0;
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      line-height: 1.1;
+    }
+    .lede {
+      max-width: 760px;
+      margin-top: 24px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+    .controls {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    button, a.action {
+      appearance: none;
+      border: 1px solid var(--soft);
+      background: var(--panel);
+      color: rgba(22, 17, 12, 0.82);
+      padding: 14px 18px;
+      border-radius: 18px;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+      box-shadow: none;
+    }
+    button.mode {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      min-width: 110px;
+    }
+    button.mode .label {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    button.mode .note {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+    button.mode.active {
+      background: #16110c;
+      color: #fff;
+      border-color: #16110c;
+    }
+    button:hover, a.action:hover { background: var(--soft-2); }
+    button.mode.active:hover { background: #16110c; }
+    .frame-wrap {
+      margin-top: 32px;
+      border: 1px solid var(--soft);
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    iframe {
+      display: block;
+      width: 100%;
+      height: 78vh;
+      min-height: 720px;
+      border: 0;
+      background: var(--panel);
+    }
+    @media (max-width: 720px) {
+      main { padding: 32px 12px; }
+      iframe { min-height: 560px; height: 72vh; }
+      .controls { align-items: stretch; }
+      button, a.action { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Corpus navigation</div>
+    <h1>Interactive Corpus Map</h1>
+    <p class="lede">
+      Explore the full IO corpus architecture visually. The light map opens by default, and you can switch to the dark version at any time.
+    </p>
+
+    <div class="controls">
+      <button class="mode active" type="button" data-map="light">
+        <span class="label">Light</span>
+        <span class="note">Default</span>
+      </button>
+      <button class="mode" type="button" data-map="dark">
+        <span class="label">Dark</span>
+        <span class="note">Alternate view</span>
+      </button>
+      <a class="action" id="open-tab" href="/IO_Corpus_Map_light_v12.html" target="_blank" rel="noreferrer">Open current view in a new tab</a>
+      <a class="action" href="/papers">Back to papers</a>
+    </div>
+
+    <div class="frame-wrap">
+      <iframe id="map-frame" src="/IO_Corpus_Map_light_v12.html" title="Interactive Corpus Map"></iframe>
+    </div>
+  </main>
+
+  <script>
+    const MAPS = {
+      light: '/IO_Corpus_Map_light_v12.html',
+      dark: '/IO_Corpus_Map_v12.html'
+    };
+    const buttons = Array.from(document.querySelectorAll('button.mode'));
+    const frame = document.getElementById('map-frame');
+    const openTab = document.getElementById('open-tab');
+
+    function setMode(mode) {
+      const src = MAPS[mode] || MAPS.light;
+      frame.src = src;
+      openTab.href = src;
+      buttons.forEach((btn) => btn.classList.toggle('active', btn.dataset.map === mode));
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => setMode(btn.dataset.map));
+    });
+  </script>
+</body>
+</html>

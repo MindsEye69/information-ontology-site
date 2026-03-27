@@ -115,7 +115,7 @@ export default function HomePage() {
           <PrimaryLink href="/start-here" label="Start Here" />
           <SecondaryLink href="/orientation" label="Orientation Guide" />
           <SecondaryLink href="/papers" label="Papers" />
-          <SecondaryLink href="/corpus-map" label="Interactive Corpus Map" />
+          <SecondaryLink href="/corpus-map.html" label="Interactive Corpus Map" />
           <ExternalSecondaryLink
             href={SUBSTACK_URL}
             label="IO Substack"
