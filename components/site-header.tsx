@@ -9,6 +9,7 @@ const nav = [
   { href: "/orientation/how-to-build-a-someone", label: "Orientation Guide" },
   { href: "/master", label: "The Master" },
   { href: "/papers", label: "Papers" },
+  { href: "/corpus-map", label: "Corpus Map" },
   { href: "/simulations", label: "Simulations" },
   { href: "/process", label: "Process" },
   { href: "/glossary", label: "Glossary" },

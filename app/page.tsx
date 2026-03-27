@@ -74,6 +74,19 @@ export default function HomePage() {
           </p>
 
           <p>
+            This corpus did not begin as an attempt to produce a large number of papers. It
+            grew because Informational Ontology repeatedly demonstrated explanatory reach
+            beyond its initial statement. As one argument was clarified, further claims,
+            implications, and applications became visible—often important enough that they
+            could not be left implicit, yet distinct enough that they required separate
+            treatment. Many of the later papers were written to address questions that
+            earlier papers had made newly available, but had not themselves set out to
+            resolve. The series therefore expanded in a disciplined way: not by pursuing
+            volume, but by following the consequences of the framework until its most
+            important open paths had been worked through.
+          </p>
+
+          <p>
             The site is layered for different readers:
           </p>
 
@@ -90,6 +103,11 @@ export default function HomePage() {
               <span className="font-semibold text-black">Papers</span> — the full master and
               extended/derivative papers (downloadable PDFs).
             </li>
+            <li>
+              <span className="font-semibold text-black">Interactive Corpus Map</span> — a
+              visual map of the full corpus architecture, with light mode by default and a
+              dark-mode option on the map page.
+            </li>
           </ul>
         </div>
 
@@ -97,6 +115,7 @@ export default function HomePage() {
           <PrimaryLink href="/start-here" label="Start Here" />
           <SecondaryLink href="/orientation" label="Orientation Guide" />
           <SecondaryLink href="/papers" label="Papers" />
+          <SecondaryLink href="/corpus-map" label="Interactive Corpus Map" />
           <ExternalSecondaryLink
             href={SUBSTACK_URL}
             label="IO Substack"
