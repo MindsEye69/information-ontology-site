@@ -1357,7 +1357,8 @@ function showPanel(paper){
   document.querySelector('.p-connections').textContent=hasPd&&pd.connections?pd.connections:'';
   document.querySelector('.p-sh-role').style.display=hasPd&&pd.role?'':'none';
   document.querySelector('.p-role').textContent=hasPd&&pd.role?pd.role:'';
-  document.querySelector('.p-link').href=paper.url||'https://informationontology.org';
+  const _paperLink=(paper.url && !/^https?:\/\/informationontology\.org\/?$/.test(paper.url)) ? paper.url : '/papers';
+  document.querySelector('.p-link').href=_paperLink;
   panelEl.classList.add('open');
   if(panelPaper&&pnodes[panelPaper]){const prev=pnodes[panelPaper];setC(prev,prev.bfo,prev.bso,prev.c.color);}
   panelPaper=paper.id;
