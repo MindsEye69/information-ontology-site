@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Informational Ontology — Complete Corpus",
-    "subtitle": "Canonical 7-group structure (v2)",
-    "total_papers": 46,
+    "subtitle": "Expanded corpus catalog (v3)",
+    "total_papers": 66,
     "released_papers": 7,
     "policy": {
       "released": "Download links and Zenodo links are provided for released papers.",
@@ -703,6 +703,310 @@
           "summary": "Treats logic as stabilized regime rather than metaphysical primitive.",
           "function": "Meta-epistemic stabilization of reasoning itself.",
           "details": "• Key move: Treats logic as a regime (a stabilized constraint practice) rather than as a metaphysical foundation.\n• Corpus role: Closes the self-accounting arc by locating how logical validity functions inside an IO-style structural framework.\n• Scope note: Reframes the status of logic for this corpus; it is not an anti-logic argument."
+        },
+        {
+          "id": "paper-47",
+          "paper_no": 47,
+          "title": "Constraint-Type and Explanatory Levels",
+          "slug": "constraint-type-and-explanatory-levels",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A clarification of different constraint types and of what counts as an explanatory level in the IO framework.",
+          "function": "Methodological stabilizer for the corpus. It prevents state-space, scale, and dynamical-systems readings from flattening the regime ladder into a single-level story.",
+          "details": "Connected papers: Informational Ontology; Regime Predicates and the Limits of State-Space Reduction; Constraint, Reachability, and Regime Structure in Informational Ontology; What the System Cannot See — Why AI Fails Without Error\n\nThe paper addresses a common interpretive risk: later regime transitions can look like mere increases in descriptive complexity unless one distinguishes trajectory constraints from persistence-rule architecture and other constraint forms. By doing so, it formalizes why explanatory levels in IO are not simply scales of the same thing."
+        },
+        {
+          "id": "paper-48",
+          "paper_no": 48,
+          "title": "Regime Predicates and the Limits of State-Space Reduction",
+          "slug": "regime-predicates-and-the-limits-of-state-space-reduction",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A lemma defending regime-level predicates against the strategy of “explaining them away” by expanding a lower-level state space.",
+          "function": "Methodological shield for the entire corpus. It protects higher-regime analysis from flattening into brute state-space description.",
+          "details": "Connected papers: Constraint-Type and Explanatory Levels; Logic as a Regime, Not a Foundation; Informational Ontology; Working as Designed: Diagnosing Alignment Failure Without Error\n\nThe paper targets a familiar reduction move: if one adds enough variables or recursive machinery, higher-order predicates seem to disappear. It argues that trajectory reproduction alone is insufficient for reduction when persistence conditions and regime predicates are what actually carry the explanatory burden."
+        },
+        {
+          "id": "paper-65",
+          "paper_no": 65,
+          "title": "Iterative Constraint Construction: A Replicable Human–AI Workflow for Structured Theoretical Development",
+          "slug": "iterative-constraint-construction-a-replicable-human-ai-workflow-for-structured-theoretical-development",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A disciplined theory does not build itself. This paper explains the human–AI workflow used to construct the corpus while preventing drift, hidden assumptions, and silent revision.",
+          "function": "The methodological specification for the corpus's own construction process — upgraded from a working note (N1) to a full paper. Makes the human-AI workflow replicable by any researcher attempting similar constraint-disciplined theoretical development, and documents the governance architecture that kept the IO corpus coherent across 65 papers.",
+          "details": "Connected papers: Informational Ontology: A Structural Framework for Organizational Regimes; The Truth Protocol; Can AI Participate in Philosophical Method? A Case Study in Human–AI Co-Construction Through Informational Ontology\n\nHow do you build a rigorous philosophical corpus without letting it drift? This paper formalizes the methodology used to construct Informational Ontology itself — a replicable human-AI workflow for developing constraint-disciplined theoretical systems that remain coherent across dozens of papers and hundreds of revision cycles.\\n\\nThe workflow is constraint-first throughout. It begins with explicit primitive declaration (what the framework assumes as given) and explicit exclusions (what it refuses to explain), then proceeds through structured iterative expansion, adversarial pressure, and version-controlled amendment discipline. Every extension must be dependency-traceable back to declared primitives. Every revision must be classified — as extension, repair, or revision — and versioned. Silent changes are not permitted.\\n\\nA key architectural principle: the human retains all epistemic authority. Primitive declaration, scope enforcement, drift adjudication, amendment classification, and final stabilization are human functions. AI participation is operational — variation generator, adversarial simulator, large-scale consistency amplifier — not normative. The AI does not determine what counts as a valid primitive or an acceptable explanatory cost. It helps enforce whatever the human has declared valid, at a scale and consistency no individual could maintain manually.\\n\\nThe paper also formalizes why theoretical incoherence characteristically arises: implicit primitive inflation, vocabulary drift, scope creep, silent revision, and patch accumulation without structural audit. The workflow is designed to surface and neutralize each of these failure modes systematically. It is domain-agnostic — applicable to philosophy, legal theory, systems design, policy modeling, or any constraint-sensitive discipline where coherence across a large body of work is required."
+        }
+      ]
+    },
+    {
+      "id": "VIII",
+      "title": "VIII. Later Regime Extensions & Structural Synthesis",
+      "items": [
+        {
+          "id": "paper-49",
+          "paper_no": 49,
+          "title": "Value Without Normativity",
+          "slug": "value-without-normativity",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A clarification of value as a structural phenomenon that precedes morality, duty, and full normativity.",
+          "function": "Stabilizes one of the most easily misunderstood transitions in the ladder. It is a key bridge from awareness to meaning and from salience to ethics.",
+          "details": "Connected papers: Agency, Salience, and Free Will; Meaning Without Semantics; Ethics as Emergent Constraint Regimes — A Structural Account; Vulnerability as a Structural Condition: Consequence Without Normativity\n\nThe paper’s core claim is that value is differential constraint within awareness: certain states become weighted or oriented before any moral or evaluative doctrine enters. This keeps the A → V transition from being confused with ethics, utility theory, or desire satisfaction and provides a disciplined way to talk about value without normative inflation."
+        },
+        {
+          "id": "paper-50",
+          "paper_no": 50,
+          "title": "Freedom, Drift, and Renewal: Long-Horizon Constraint Geometry in Informational Ontology",
+          "slug": "freedom-drift-and-renewal-long-horizon-constraint-geometry-in-informational-ontology",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A long-horizon account of how freedom, sedimentation, fragility, and renewal interact across time.",
+          "function": "Long-horizon synthesis paper for the dynamics arc. It links agency to sedimentation and drift, and helps explain why restoration and renewal are different structural tasks.",
+          "details": "Connected papers: Agency, Salience, and Free Will; Invariant Drift and Sedimentation: Identity Continuity Under Boundary Evolution; Accumulation Without Teleology: Constraint Sedimentation Across Lineage; Restoration Geometry\n\nBuilding on free-resolution and invariant drift, the paper studies how repeated resolutions reshape future possibility spaces. Freedom is not a static stock but part of a changing geometry: it can contract, sediment, and sometimes renew. The paper therefore tracks the temporal life of openness rather than treating it as a fixed condition."
+        },
+        {
+          "id": "paper-51",
+          "paper_no": 51,
+          "title": "Logistics as a Distinct Regime",
+          "slug": "logistics-as-a-distinct-regime",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A positive formalization of logistics as its own regime within the governance architecture rather than merely the degraded endpoint of other regimes.",
+          "function": "Clarifying paper for the governance stack. It sharpens the law-to-logistics analysis and gives the corpus a more precise vocabulary for automation-mediated regime change.",
+          "details": "Connected papers: From Law to Logistics: How AI Thins Coercive Regimes; Authority After Commitment; Markets as Multi-Agent Constraint Stabilizers\n\nThe paper defines logistics structurally, focusing on the stabilization, ordering, and reproduction of flows. This matters because earlier governance papers use “logistics” diagnostically to describe thinning outcomes; this paper supplies the positive formal account needed to avoid category confusion and to distinguish logistics as a regime in its own right from logistics as a result of transition."
+        },
+        {
+          "id": "paper-52",
+          "paper_no": 52,
+          "title": "Restoration Geometry",
+          "slug": "restoration-geometry",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A unifying account of restoration, drift, dissolution, and irreversibility in terms of invariant-indexed reachability.",
+          "function": "Major synthesis paper for the corpus’s dynamic side. It becomes the common reference point for restoration, rollback, dissolution, and irreversibility questions.",
+          "details": "Connected papers: Invariant Drift and Sedimentation: Identity Continuity Under Boundary Evolution; Constraint Dissolution: The Geometry of De-Sedimentation and Structural Unwinding; Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems\n\nThe paper consolidates previously distributed results into a single framework for asking whether prior configurations remain reachable under present constraints. Its key distinction is between endpoint description and path feasibility: a prior state may be definable or even desirable without there existing any admissible trajectory back to it."
+        },
+        {
+          "id": "paper-53",
+          "paper_no": 53,
+          "title": "Constraint Propagation Across Organizational Layers",
+          "slug": "constraint-propagation-across-organizational-layers",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A unifying paper on how failures, distortions, and substitutions propagate across multiple organizational layers.",
+          "function": "Major synthesis paper linking ontology, dynamics, and governance. It helps readers see the corpus as one continuous argument about how constrained systems fail across layers.",
+          "details": "Connected papers: Constraint, Reachability, and Regime Structure in Informational Ontology; Witnessing Under Vulnerability: Consequence Termination Under Scale and Tempo; The Handover Protocol: Formalizing Necessary Regime Thinning Under Automation; What the System Cannot See — Why AI Fails Without Error\n\nThe paper integrates the lineage dynamics arc with vulnerability, witnessing, and governance results. It argues that when consequence can no longer terminate coherently within one layer, pressure propagates upward or outward, often yielding representational expansion, responsibility drift, or logistical substitution. The result is a common structural pattern across domains that initially looked unrelated."
+        },
+        {
+          "id": "paper-54",
+          "paper_no": 54,
+          "title": "Constraint, Reachability, and Regime Structure in Informational Ontology",
+          "slug": "constraint-reachability-and-regime-structure-in-informational-ontology",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A reflective synthesis of relationships that become visible only once the ontology and lineage papers are considered together.",
+          "function": "Corpus-level integration note. It helps readers see the master framework and the dynamics papers as parts of one architecture rather than as isolated essays.",
+          "details": "Connected papers: Informational Ontology; Evolution and the Ontological Ladder: Differential Persistence and the Population of Informational Ontology; Restoration Geometry; Constraint Propagation Across Organizational Layers\n\nThis paper does not revise the ontology; it records structural relations that emerge across the built corpus. It emphasizes how regime structure, reachability, and constraint density interact, and highlights an asymmetry between the accumulation of constraints and the practical difficulty of removing them once they become historically distributed."
+        },
+        {
+          "id": "paper-55",
+          "paper_no": 55,
+          "title": "Irreversibility in Knowledge Systems",
+          "slug": "irreversibility-in-knowledge-systems",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A distinct irreversibility analysis focused on epistemic diffusion rather than artifact replication.",
+          "function": "Defines epistemic irreversibility as a separate analytical domain. It complements the replication paper by shifting attention from persistence of copies to persistence of reconstructability.",
+          "details": "Connected papers: Constraint Carriers Before Codes; Irreversibility Thresholds in Replicating Systems; Restoration Geometry; Epistemic Regimes: Truth, Diagnosis, and Structural Warrant in Informational Ontology\n\nThe paper distinguishes artifact possession, operational capability, and reconstructive knowledge, then argues that containment can fail even when no complete artifact or active system remains. Once reconstructive capacity becomes distributed across documents, fragments, tacit practices, institutions, and inference pathways, removing all admissible reconstruction routes may exceed feasible limits of coordination, access, and verification."
+        },
+        {
+          "id": "paper-56",
+          "paper_no": 56,
+          "title": "Restoration as Multi-Boundary Reachability in Informational Ontology",
+          "slug": "restoration-as-multi-boundary-reachability-in-informational-ontology",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Restoring a prior state can fail in more than one way at once. This paper explains how different forms of irreversibility combine, so fixing one boundary does not automatically restore the whole system.",
+          "function": "The unifying paper for the corpus's irreversibility analyses. Shows that configuration irreversibility (Paper 15) and epistemic irreversibility (Paper 55) are instances of a single multi-boundary restoration framework, and that full restoration requires jointly satisfying all boundary conditions — establishing an irreversibility taxonomy the corpus previously lacked.",
+          "details": "Connected papers: Restoration Geometry; Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems\n\nEarlier papers in the corpus established two distinct irreversibility results: replication-based irreversibility (Paper 15), where artifact containment fails when distribution exceeds what bounded recovery operations can address; and epistemic irreversibility (Paper 55), where reconstructive capacity persists across knowledge-bearing systems even after artifacts are removed. This paper asks: what is the structural relationship between these two results?\n\nThe answer is a compositional formulation. Restoration does not consist in the removal of artifacts or the cessation of active systems. It consists in the re-achievement of a prior reachable condition across all structurally required restoration boundaries — and these boundaries are conjunctive, not disjunctive. Failing any one of them is sufficient for irreversibility.\n\nA restoration boundary is defined as a condition necessary for identity-preserving restoration of a prior system state. Two boundaries are drawn from prior corpus work: B₀ (configuration recoverability — re-establishment of the prior containment configuration over artifact carriers) and E₀ (epistemic recoverability — re-establishment of the prior epistemic condition in which reconstruction is not possible). These are structurally independent: a system can restore B₀ while failing E₀ (artifacts contained but reconstructive capacity persists), or fail B₀ while E₀ remains satisfied (artifacts proliferate but don't preserve the generative principles needed for reconstruction)."
+        }
+      ]
+    },
+    {
+      "id": "IX",
+      "title": "IX. Language, Symbol & Participation",
+      "items": [
+        {
+          "id": "paper-57",
+          "paper_no": 57,
+          "title": "Language as a Self-Organizing Constraint Regime",
+          "slug": "language-as-a-self-organizing-constraint-regime",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Language does not start with meaning. It starts when patterns become stable enough to be recognized, reused, and combined across situations.",
+          "function": "The entry point and foundational derivation note for the Language & Symbol cluster. Establishes conditions under which a linguistic regime can emerge from structural coupling without semantic primitives, and explicitly defers constraint reproduction and symbol emergence to its sequels.",
+          "details": "Connected papers: Systems, Boundaries, and Re-Identifiability; Meaning Without Semantics; Constraint Reproduction and Regime Self-Maintenance; Symbol Emergence from Structural Coupling\n\nCan a linguistic system emerge without presupposing semantic reference? This paper shows it can, deriving linguistic regime emergence purely from structural coupling between constraint systems.\\n\\nThe argument proceeds from IO primitives. Any system with recurrent differentiable states and non-random transitions has a constraint structure. When two such regimes are structurally coupled, repeated interaction stabilizes re-identifiable tokens: differentiations that can be recognized, reused, and recombined across contexts. As coupling deepens, the system begins to generate trajectory structure from its own internal organization.\\n\\nA linguistic regime achieves partial closure when this becomes self-sustaining: generating new trajectories from existing token combinations without requiring fresh external coupling for each instance. The apparent semantics of such a system arise from the structural coupling history, not from any intrinsic reference relation.\\n\\nThe paper draws a critical distinction: internal linguistic closure is structurally different from participating in consequence-bearing cross-regime dynamics. This explains how systems can exhibit coherent linguistic behavior without satisfying IO's conditions for meaning.\\n\\nThis paper defers two key derivations — constraint reproduction and symbol-like operation — explicitly to Papers 58 and 59."
+        },
+        {
+          "id": "paper-58",
+          "paper_no": 58,
+          "title": "Constraint Reproduction and Regime Self-Maintenance",
+          "slug": "constraint-reproduction-and-regime-self-maintenance",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "For any organized system to last, it has to keep remaking the conditions that let it exist. This paper explains how regimes preserve themselves by restoring the constraints they depend on.",
+          "function": "Derives the necessity of constraint restoration for non-invariant regimes — the structural condition that makes self-sustaining linguistic and organizational regimes possible. Fills the first gap explicitly deferred by Paper 57.",
+          "details": "Connected papers: Systems, Boundaries, and Re-Identifiability; Language as a Self-Organizing Constraint Regime; Closure vs Participation: Structural Distinctions in Constraint Regimes\n\nA constraint regime is defined by its governing constraints. But what if the dynamics a regime permits alter that very structure? For constraint-non-invariant regimes — those where some trajectories modify governing constraints — persistence requires the regime to restore or reproduce its own defining constraints.\\n\\nThis paper derives that necessity. For constraint-invariant regimes, persistence follows automatically. For non-invariant regimes, every trajectory that alters identity-defining constraints must eventually be counteracted, or re-identifiability degrades and the regime dissolves.\\n\\nThe paper distinguishes external restoration (constraints maintained by recurrent external input) from internal restoration, called constraint reproduction. The necessity of restoration is derived; the full derivation of constraint reproduction as a purely internal mechanism is flagged as the harder problem and deferred.\\n\\nThis result is essential for understanding how linguistic regimes (Paper 57) can be self-sustaining rather than dependent on continuous external coupling. It also generalizes beyond language — any organizational regime operating in dynamic environments where operation modifies constraints faces the same structural necessity."
+        },
+        {
+          "id": "paper-59",
+          "paper_no": 59,
+          "title": "Symbol Emergence from Structural Coupling",
+          "slug": "symbol-emergence-from-structural-coupling",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Symbols do not need meaning in order to emerge. They appear when stable patterns can stand in for one another across different contexts without breaking the system.",
+          "function": "Derives symbol-like substitution structure from multi-context token participation without semantic primitives. Fills the second gap deferred by Paper 57 and provides the structural account of symbolic equivalence that Paper 60 uses to distinguish closure from genuine participation.",
+          "details": "Connected papers: Systems, Boundaries, and Re-Identifiability; Language as a Self-Organizing Constraint Regime; Closure vs Participation: Structural Distinctions in Constraint Regimes\n\nTokens can be recognized and reused across contexts. But symbol-like structure requires more: the capacity for substitution — for one token to stand in for another across constraint contexts while preserving constraint satisfaction. This paper derives how that capacity emerges structurally, without invoking representation or reference.\\n\\nThe argument proceeds from multi-context participation. When tokens participate in multiple structurally coupled constraint contexts, recurring configurations appear where different tokens occupy overlapping structural roles. Where two tokens can substitute for each other in a shared context without violating its constraints, they are structurally interchangeable in that context — constraint-equivalent, not semantically equivalent.\\n\\nThis local interchangeability grounds context-grounded equivalence classes: sets of tokens substitutable for each other within specific constraint contexts. These are the structural analog of symbols: enabling systematic substitution without any underlying referential meaning.\\n\\nThe paper depends on the stronger re-identifiability conditions from Paper 3 — mere token distinguishability sufficient for Paper 57 is not enough for symbol emergence."
+        },
+        {
+          "id": "paper-60",
+          "paper_no": 60,
+          "title": "Closure vs Participation: Structural Distinctions in Constraint Regimes",
+          "slug": "closure-vs-participation-structural-distinctions-in-constraint-regimes",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Some systems can generate coherent internal outputs without those outputs mattering outside the system. This paper explains the difference between internal closure and real participation in consequence-bearing dynamics.",
+          "function": "The integrative capstone of the Language & Symbol cluster. Establishes the structural distinction between internal closure and consequence-bearing participation — explaining why linguistic competence and meaning are not the same thing, and grounding the cluster's relevance to the AI alignment arc.",
+          "details": "Connected papers: Language as a Self-Organizing Constraint Regime; Constraint Reproduction and Regime Self-Maintenance; Symbol Emergence from Structural Coupling; Meaning Without Semantics\n\nA system can generate perfectly coherent, context-sensitive, constraint-satisfying linguistic trajectories — and still not mean anything. This is the central claim: internal closure is structurally distinct from participation in consequence-bearing cross-regime dynamics.\\n\\nClosure concerns whether a system's trajectories remain within its own reachable state space and preserve its governing constraints. A system can exhibit sophisticated, generative, even symbol-structured closure without any trajectory propagating consequences beyond its own regime boundary.\\n\\nParticipation requires that the system's trajectories enter consequence-paths: propagation sequences that extend beyond the originating regime, alter reachable state spaces in other regimes, and preserve identity conditions across those transitions. This is the condition for meaning in IO's sense (Paper 23): value-structured transitions in awareness that participate in trajectories whose consequences extend and constrain the future.\\n\\nThe paper develops two structural classes — closure without participation, and closure with participation — and derives their properties. The distinction explains why AI language systems can exhibit remarkable linguistic behavior without satisfying conditions for meaning: they exhibit closure, potentially with sophisticated symbol structure, but without the cross-regime consequence embedding that participation requires."
+        }
+      ]
+    },
+    {
+      "id": "X",
+      "title": "X. Lineage Thresholds & Agency Origins",
+      "items": [
+        {
+          "id": "paper-61",
+          "paper_no": 61,
+          "title": "Reduced and Parasitic Lineages: Boundary Cases in the Structural Analysis of Lineage",
+          "slug": "reduced-and-parasitic-lineages-boundary-cases-in-the-structural-analysis-of-lineage",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Not every repeating structure is a true lineage. This paper maps the gray zone between full lineage, host-dependent lineage, and mere recurrence.",
+          "function": "Extends the Lineage cluster's structural analysis to boundary cases — reduced, parasitic, and scaffolded lineage forms. Provides the discriminating framework needed for early-evolution cases where simple living/non-living distinctions break down, and where the corpus's account of inheritance must be applied to structurally thin or host-dependent continuity.",
+          "details": "Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes\n\nThe lineage arc of IO establishes that selection presupposes lineage, that abiogenesis is the emergence of lineage-capable continuity, and that inheritance is operative constraint preservation rather than symbolic code transfer. But what counts as lineage when reconstructive burden is unusually thin, heavily scaffolded, or partly exported to another organized regime? This paper draws that boundary with structural precision.\\n\\nThe central claim: lineage does not require full reconstructive autonomy, but it does require lineage-indexed constraint transfer — the continuation must propagate constraints that are specifically indexed to the prior lineage, not merely re-induced under similar background conditions. This criterion excludes recurrent crystallization (where the same structure reforms under regenerated environmental conditions, with no lineage-indexed transfer) while affirming parasitic lineage as fully real: a parasite's continuation depends on a host's organized capacities, but it still propagates its own lineage-indexed constraints through that scaffolded environment.\\n\\nBetween full lineage and non-lineage sits what the paper calls reduced lineage: structural cases where inherited organizational package is thinner or more heavily scaffolded than in rich reconstructive cases, but where genuine lineage-indexed transfer still occurs. Prions are treated as the canonical boundary case — not as a settled paradigm, but as structurally indeterminate cases that demonstrate exactly why the reduced region must be recognized. They challenge any sharp binary between full lineage and mere recurrence.\\n\\nThe paper introduces no new biological primitives and does not revise the corpus's treatment of constraint or inheritance. Its contribution is taxonomic: a sharper structural map for difficult cases in early evolution, heredity, and biological dependence."
+        },
+        {
+          "id": "paper-62",
+          "paper_no": 62,
+          "title": "Artificial Abiogenesis: Artificially Induced Lineage-Capable Continuity",
+          "slug": "artificial-abiogenesis-artificially-induced-lineage-capable-continuity",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Artificially produced systems are not excluded from becoming real lineages. What matters is whether continuity is later carried forward by the lineage itself rather than re-authored from outside each time.",
+          "function": "Extends the lineage arc to the question of artificial initiation — closing a gap that the prior papers left open. Establishes that the artificial/natural distinction is structurally irrelevant to lineage, and that the lineage-indexed constraint transfer criterion applies identically regardless of how a system's organization was first induced.",
+          "details": "Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Reduced and Parasitic Lineages\n\nCan artificial intervention originate lineage — or does it only ever produce artifacts that must be reconstructed from scratch each time? This paper answers with structural precision: artificial origin does not disqualify lineage, but repeated external authorship does.\\n\\nThe criterion it applies is the one established in Paper 61: what distinguishes genuine lineage from mere recurrence is lineage-indexed constraint transfer. If externally induced organization becomes a historically transmissible persistence package — one whose specific transferred content remains load-bearing in descendant reachability — then artificial intervention has initiated lineage. If instead similar organization must be externally re-authored each cycle under similar conditions, then only recurring artifacts are being produced, not lineage.\\n\\nThe paper identifies three structural cases. Fabricated artifacts and recurrent artificial production are excluded: the organization is re-imposed from outside each time, not transmitted through successors. Assisted proto-lineages occupy a genuine boundary region: externally scaffolded systems that are approaching but have not yet crossed the threshold of self-transmitting continuity. Artificially induced lineage-capable continuity is affirmed as structurally possible: the artificial origin of the initiating conditions is irrelevant once the resulting organization begins transmitting its own persistence package across bifurcations.\\n\\nThe paper explicitly excludes design rhetoric and code-first descriptions of heredity. Whether a human intended the system, whether it was \"programmed,\" and whether it resembles human technology are all irrelevant to the structural question. The only question is whether the specific transferred organizational content remains causally load-bearing in descendants — or whether the next generation's organization is effectively re-authored from outside."
+        },
+        {
+          "id": "paper-63",
+          "paper_no": 63,
+          "title": "The Origin of Agency: A Lineage-Based Account of Internal Modulation in Living Systems",
+          "slug": "the-origin-of-agency-a-lineage-based-account-of-internal-modulation-in-living-systems",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Agency does not appear the moment life appears. This paper identifies the threshold where a living system begins to participate in shaping which of its own futures becomes actual.",
+          "function": "The bridge paper between the Lineage and Agency clusters. Establishes why agency requires a lineage-based origin account — lineage is necessary but not sufficient — and identifies the structural threshold at which persistence becomes participation in the resolution of underdetermined continuation. Closes the explanatory gap between the lineage arc and the agency ladder.",
+          "details": "Connected papers: Resolution Under Degeneracy; Perspective-Induced Openness in Deterministic Systems; Lineage Before Selection; Agency, Salience, and Free Will\n\nLineage establishes that organized continuity can persist across variation and bifurcation — but persistence alone doesn't make a system an agent. A lineage-capable system may persist, reproduce, and vary while its continuation remains fully determined by external conditions, local recurrence, or stochastic processes. This paper locates the precise structural threshold at which lineage-capable continuity first becomes capable of participating in the resolution of its own future.\\n\\nThe paper explicitly frames itself as a placement paper rather than a fresh derivation. Agency is already defined in the IO corpus as structured modulation of possible futures under persistent constraints. Degeneracy is already established as the condition under which multiple continuations remain admissible. The task here is to identify when, within biological systems, the already-defined conditions for agency first become structurally satisfiable.\\n\\nThe answer turns on the connection between lineage-based persistence and resolution under degeneracy (Paper 5). For agency to be possible, lineage-transmitted internal organization must contribute to the selection among admissible futures — such that what becomes actual is not exhausted by external specification, recurrence, or unstructured stochastic processes. Randomness is explicitly distinguished from degeneracy: stochastic processes don't constitute agency because they don't involve internally structured modulation. They just add noise.\\n\\nThe paper also defines the boundary cases: systems where this threshold cannot yet be determined, and what discriminating criteria would settle them. By connecting the lineage arc directly to the agency arc, it explains why agency doesn't arise from scratch but requires historically transmitted organization as its precondition."
+        },
+        {
+          "id": "paper-64",
+          "paper_no": 64,
+          "title": "Why Lineage Is the Threshold Substrate for Responsibility",
+          "slug": "why-lineage-is-the-threshold-substrate-for-responsibility",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "Responsibility needs more than action or consequence. This paper argues that lineage is the minimum structural basis that makes responsibility genuinely possible.",
+          "function": "The capstone of the Lineage cluster. Closes the lineage arc by identifying lineage as the threshold condition for responsibility itself — not just for agency or persistence. Bridges the lineage arc to the governance cluster by establishing the structural precondition that downstream papers on responsibility, witnessing, and authority all presuppose but do not derive.",
+          "details": "Connected papers: Lineage Before Selection; Constraint Carriers Before Codes; Vulnerability as a Structural Condition: Consequence Without Normativity; Witnessing Under Vulnerability: Consequence Termination Under Scale and Tempo; Responsibility, Law, and Moral Practice: A Constraint-Scaled Account\n\nResponsibility is not a primitive. It is a structural property whose conditions of possibility must be specified. The IO corpus already establishes responsibility as dependent on agency, vulnerability, and witnessing — but those accounts presuppose that responsibility can arise at all. This paper establishes the prior condition: what structural threshold must be crossed before responsibility becomes possible?\\n\\nThe answer is lineage. Not persistence alone (a system can remain re-identifiable across transitions without supporting attribution), not consequence propagation alone (effects can extend beyond a moment without being retained in any continuing organization), and not agency alone (agency can be local; responsibility is necessarily historical). The decisive condition is whether the lineage discriminator is satisfied — whether a system participates in a continuous chain of organization within which consequences can propagate, accumulate through sedimentation, and terminate within vulnerability.\\n\\nThe paper builds a five-element structural chain: persistence → lineage → accumulation → propagation → vulnerable termination. Each element is necessary but insufficient on its own. Lineage is the activation condition under which the other elements become jointly load-bearing. Below the lineage threshold, these conditions may all be present but do not form a stable attributional structure. The boundary is not scalar but categorical.\\n\\nA striking downstream implication: this result connects directly to artificial abiogenesis (Paper 62). Before a lineage crosses the discriminator threshold, the initiating system cannot bear full structural responsibility for it — no stable attributional structure yet exists. At the moment the threshold is crossed, responsibility becomes attributable within the lineage itself, and the locus of responsibility shifts from initiator to lineage. This has direct consequences for governance and legal frameworks dealing with AI systems, synthetic organisms, and other artificially initiated lineages."
+        }
+      ]
+    },
+    {
+      "id": "XI",
+      "title": "XI. Architectural Containment & Interruption",
+      "items": [
+        {
+          "id": "paper-66",
+          "paper_no": 66,
+          "title": "Interruption Authority Under Scale: Architectural Containment Beyond Monitoring",
+          "slug": "interruption-authority-under-scale-architectural-containment-beyond-monitoring",
+          "status": "in_production",
+          "state": "complete_unpublished",
+          "doi": null,
+          "zenodo": null,
+          "pdf": null,
+          "summary": "A structural account of interruption authority showing that shutdown interfaces and monitoring do not amount to real containment once propagation outruns bounded intervention.",
+          "function": "Bridges irreversibility and governance by isolating interruption authority as the prior architectural condition beneath witnessing, handover, and alignment claims.",
+          "details": "Connected papers: Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems; Restoration Geometry; Restoration as Multi-Boundary Reachability in Informational Ontology; Acceleration and Degeneracy; Witnessing Under Vulnerability; Witness Conditions; The Handover Protocol; Consequence-Path Audits; Working as Designed.\n\nThis paper isolates a structural problem not yet treated as a standalone object in the Informational Ontology corpus: whether systems retain enforceable interruption and containment paths once operative propagation becomes fast, distributed, and partially self-preserving. Existing papers already establish replication-based irreversibility, epistemic irreversibility, restoration limits, tempo-sensitive witnessing failure, and necessary regime thinning under automation. What remains under-isolated is the prior architectural question of whether a live operative process still remains interruptible under the same conditions in which it is allowed to propagate.\n\nThe central claim is that interruption authority is not identical with the presence of a shutdown interface, rollback machinery, policy authorization, retained liability, or monitoring visibility. A system retains real interruption authority only where its architecture preserves non-bypassable interruption and containment paths that can halt or bound the relevant operative propagation before that propagation crosses the next materially irreversible threshold. Once execution velocity outruns bounded intervention, or once operative propagation disperses across loci capable of replication, modification, redeployment, or coordination, nominal control surfaces may remain while interruption authority has already failed. Monitoring does not restore such authority; it renders its loss legible.\n\nThe paper therefore distinguishes architectural control from reactive oversight. Control in the strong sense exists only where hard constraint asymmetries are embedded upstream of scale. The result is a pre-policy diagnostic for systems whose apparent governability depends on pathways that no longer reach the operative propagation they are meant to interrupt."
         }
       ]
     }
