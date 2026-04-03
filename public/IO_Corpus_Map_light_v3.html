@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Informational Ontology — Corpus Architecture (Light)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:rgb(251,250,247);--surface:#f0ede8;--border:#d8d3cb;--bright:#1a1814;
+  --font:Arial,'Helvetica Neue',Helvetica,sans-serif;}
+html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
+  font-family:var(--font);-webkit-tap-highlight-color:transparent;user-select:none;}
+
+/* HEADER */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 18px 0;
+  background:linear-gradient(to bottom,rgba(251,250,247,0.97) 75%,transparent);
+  pointer-events:none;}
+#hdr-top{display:flex;align-items:baseline;gap:12px;}
+#hdr h1{font-family:var(--font);font-size:clamp(11px,2.2vw,15px);font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;color:#6b6358;}
+#hdr .sub{font-family:var(--font);font-size:clamp(9px,1.6vw,11px);
+  color:#a09880;letter-spacing:0.04em;}
+#legends-row{display:flex;align-items:flex-start;gap:32px;padding:10px 0 10px;}
+
+/* CLUSTER LEGEND */
+#legend{display:flex;flex-wrap:wrap;gap:5px 16px;}
+.lg{display:flex;align-items:center;gap:7px;
+  font-family:var(--font);font-size:clamp(11px,1.9vw,13px);color:#7a7060;}
+.lg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* DEP LEGEND */
+#dep-legend{display:flex;flex-direction:column;gap:5px;
+  opacity:0;pointer-events:none;transition:opacity 0.4s;}
+#dep-legend.vis{opacity:1;}
+.dl-row{display:flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:clamp(11px,1.9vw,13px);color:#7a7060;}
+.dl-sw{width:18px;height:2px;border-radius:1px;flex-shrink:0;}
+
+/* BOTTOM CONTROL BAR — Full View button + zoom/pan hint, fixed at bottom center */
+#ctrl-bar{position:fixed;bottom:clamp(16px,2.8vw,26px);left:50%;transform:translateX(-50%);
+  z-index:55;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;}
+#fv-btn{pointer-events:auto;font-family:var(--font);font-size:clamp(11px,1.8vw,14px);
+  font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:#5a5248;background:rgba(240,237,232,0.94);border:1px solid #b0a898;
+  padding:clamp(8px,1.4vw,11px) clamp(22px,3vw,32px);border-radius:4px;cursor:pointer;
+  transition:color 0.2s,border-color 0.2s,background 0.2s;backdrop-filter:blur(8px);
+  white-space:nowrap;}
+#fv-btn:hover{color:#1a1410;border-color:#7a7060;background:rgba(220,216,208,0.98);}
+#fv-btn.active{color:#8a6a10;border-color:#c8a030;background:rgba(255,248,224,0.96);}
+#zoom-hint{font-family:var(--font);font-size:clamp(9px,1.4vw,11px);
+  color:#b0a070;letter-spacing:0.04em;white-space:nowrap;}
+
+/* HINT */
+#hint{position:fixed;bottom:calc(clamp(16px,2.8vw,26px) + clamp(8px,1.4vw,11px)*2 + clamp(11px,1.8vw,14px) + 6px + clamp(9px,1.4vw,11px) + 10px);
+  left:50%;transform:translateX(-50%);
+  font-family:var(--font);font-size:clamp(10px,1.8vw,12px);color:#b0a898;
+  pointer-events:none;z-index:50;transition:opacity 0.8s;white-space:nowrap;}
+
+/* PANEL */
+#panel{position:fixed;top:0;right:0;bottom:0;width:clamp(240px,38vw,300px);
+  background:var(--surface);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform 0.40s cubic-bezier(0.22,1,0.36,1);
+  z-index:60;display:flex;flex-direction:column;overflow:hidden;}
+#panel.open{transform:translateX(0);}
+#pi{padding:44px clamp(14px,3vw,22px) clamp(14px,3vw,22px);
+  display:flex;flex-direction:column;gap:7px;overflow-y:auto;flex:1;}
+.pc{position:absolute;top:12px;right:12px;background:none;border:none;
+  color:#a09880;font-size:20px;cursor:pointer;font-family:var(--font);
+  transition:color 0.2s;z-index:1;}
+.pc:hover{color:var(--bright);}
+.p-num{font-family:var(--font);font-size:clamp(8px,1.5vw,10px);
+  letter-spacing:0.10em;color:#a09880;text-transform:uppercase;}
+.p-title{font-family:var(--font);font-size:clamp(14px,2.8vw,17px);line-height:1.42;
+  color:var(--bright);font-weight:600;}
+.p-tag{display:inline-block;font-family:var(--font);
+  font-size:clamp(8px,1.5vw,10px);letter-spacing:0.10em;text-transform:uppercase;
+  padding:3px 8px;border-radius:2px;border:1px solid;margin-top:2px;width:fit-content;}
+.p-status{font-family:var(--font);font-size:clamp(9px,1.8vw,11px);margin-top:1px;}
+.p-status.locked{color:#3a8a5a;}.p-status.active{color:#b07820;}
+.p-div{border:none;border-top:1px solid var(--border);margin:4px 0;}
+.p-tier{font-family:var(--font);font-size:clamp(8px,1.5vw,10px);color:#a09880;}
+.p-note{font-family:var(--font);font-size:clamp(12px,2.2vw,14px);
+  line-height:1.55;color:#7a7060;font-style:italic;}
+.p-deps{font-family:var(--font);font-size:clamp(9px,1.5vw,11px);
+  color:#8a8070;line-height:1.9;white-space:pre-line;}
+/* Book node special styling */
+.book-node circle{stroke:#c8a060;stroke-width:2.5;stroke-dasharray:5,3;}
+.book-node text{fill:#c8a060;}
+.p-section-head{font-family:var(--font);font-size:clamp(7px,1.3vw,9px);
+  letter-spacing:0.14em;text-transform:uppercase;color:#4466aa;margin-top:10px;margin-bottom:3px;font-weight:600;}
+.p-synopsis{font-family:var(--font);font-size:clamp(11px,2vw,13px);
+  line-height:1.65;color:#5a6882;}
+.p-connections{font-family:var(--font);font-size:clamp(11px,2vw,13px);
+  line-height:1.62;color:#5a6882;}
+.p-role{font-family:var(--font);font-size:clamp(11px,2vw,13px);
+  line-height:1.62;color:#5a6882;font-style:italic;padding-bottom:6px;}
+.p-link{display:inline-block;margin-top:8px;font-family:var(--font);
+  font-size:clamp(9px,1.6vw,11px);letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;color:#8a8070;border:1px solid #c8c0b4;border-radius:2px;
+  padding:7px 14px;transition:color 0.2s,border-color 0.2s;}
+.p-link:hover{color:#1a1410;border-color:#7a7060;}
+
+/* CLUSTER INFO — lives in header, below legend row */
+#cluster-info{padding:0 0 14px;pointer-events:none;
+  min-height:56px;opacity:0;transition:opacity 0.32s ease;}
+#cluster-info.vis{opacity:1;}
+#ci-name{font-family:var(--font);font-size:clamp(12px,2vw,15px);
+  font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;}
+#ci-desc{font-family:var(--font);font-size:clamp(12px,1.9vw,14px);
+  line-height:1.62;color:#8a8070;max-width:72ch;}
+
+/* Circle + label transitions */
+.p-circle{transition:fill-opacity 0.32s ease,stroke-opacity 0.32s ease,stroke 0.28s ease;}
+.paper-label{pointer-events:none;transition:opacity 0.22s ease;}
+
+@keyframes pulse{0%,100%{opacity:0.30}50%{opacity:0.70}}
+</style>
+</head>
+<body>
+<div id="hdr">
+  <div id="hdr-top">
+    <h1>Informational Ontology</h1>
+    <span class="sub">Corpus Architecture · 66 Papers + Book</span>
+  </div>
+  <div id="legends-row">
+    <div id="legend"></div>
+    <div id="dep-legend">
+      <div class="dl-row"><div class="dl-sw" style="background:#9a7a00"></div>Selected</div>
+      <div class="dl-row"><div class="dl-sw" style="background:#2a8a58"></div>Upstream — depends on</div>
+      <div class="dl-row"><div class="dl-sw" style="background:#b84040"></div>Downstream — used by</div>
+      <div class="dl-row"><div class="dl-sw" style="background:#3a5a9a"></div>2-hop connection</div>
+    </div>
+  </div>
+  <div id="cluster-info"><div id="ci-name"></div><div id="ci-desc"></div></div>
+</div>
+<div id="ctrl-bar"><button id="fv-btn">Full View</button><div id="zoom-hint">Scroll to zoom · Drag to pan</div></div>
+<div id="hint">Select a cluster to explore · Full View for all</div>
+<div id="panel">
+  <button class="pc">×</button>
+  <div id="pi">
+    <div class="p-num"></div><div class="p-title"></div><div class="p-tag"></div>
+    <div class="p-status"></div><hr class="p-div"><div class="p-tier"></div>
+    <div class="p-note"></div><div class="p-deps"></div>
+    <hr class="p-div p-div-syn" style="display:none">
+    <div class="p-section-head p-sh-syn" style="display:none">Synopsis</div>
+    <div class="p-synopsis"></div>
+    <div class="p-section-head p-sh-conn" style="display:none">Dependencies &amp; Connections</div>
+    <div class="p-connections"></div>
+    <div class="p-section-head p-sh-role" style="display:none">Role in Corpus</div>
+    <div class="p-role"></div>
+    <a class="p-link" href="#" target="_blank">View on informationontology.org ↗</a>
+  </div>
+</div>
+<svg id="svg"></svg>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════
+
+// ── PAPER_DATA: synopsis, connections, corpus role ─────────
+const PAPER_DATA = {
+  '1': {
+    synopsis: `Informational Ontology (IO) is a structural framework describing a sequence of organizational regimes: Difference (Δ), Relation (R), Information (I), Awareness (A), Value (V), Meaning (M), and Purpose (P). These are not metaphysical substances — they are structural conditions that become unavoidable once differentiated organization persists under perturbation and ordering.\n\nThe ladder works as a chain of conditional emergence. Difference is the minimal condition for anything at all. Once difference exists and persists under ordering, relations can form. Once relations can be selectively registered, information arises. Each step constrains what becomes possible at the next.\n\nHigher regimes — Awareness, Value, Meaning, Purpose — are not claimed to be universal. They describe the structural form these organizations must take when they occur, not that they must occur everywhere. The framework is conditional, not cosmological.\n\nThe framework is strictly non-normative and non-psychological: no claims about consciousness, no moral prescriptions, no empirical predictions about physical systems. It characterizes organizational structure.\n\nThis document is Rev. 5.1 — the locked master reference. Every downstream paper cites it as authoritative. No downstream paper may revise or extend its regime definitions.`,
+    connections: `This paper has no upstream dependencies — it is the foundation. Every other paper in the corpus depends on it directly or through intermediaries. The Condensed Master (Paper 2) covers the same material in abbreviated form. Systems & Boundaries (Paper 3), Constraint Ordering (Paper 4), and Resolution Under Degeneracy (Paper 5) are the first-tier elaborations of its primitives.`,
+    role: `The nucleus of the entire corpus. Establishes the regime ladder Δ→R→I→A→V→M→P that every subsequent analysis presupposes. All 54 companion papers cite Rev. 5.1 as their sole authoritative upstream source.`
+  },
+  '2': {
+    synopsis: `A compressed companion to the full IO framework (Paper 1), covering the same regime sequence — Δ→R→I→A→V→M→P — in a more accessible and abbreviated form, without the extended footnotes and appendices of the master paper.\n\nThe condensed version is designed for readers who need the framework's commitments and vocabulary without working through the full technical derivation. It treats all regime definitions as fixed and authoritative, identical to Rev. 5.1.\n\nThe paper preserves the core structural logic: each regime transition is a conditional emergence. If a system instantiates conditions of one regime and continues to persist under ordering, the organizational possibilities available to it become restricted in the way described by the subsequent regime.`,
+    connections: `Depends on: Paper 1 (IO — Main Paper). Functions as the accessible entry point to the ontology for downstream readers and analyses.`,
+    role: `A compressed navigation tool for the corpus. Enables readers and downstream papers to locate regime definitions quickly without working through the full derivation in Paper 1.`
+  },
+  '3': {
+    synopsis: `What is a system? This paper develops a structural account of how systems exist, persist, and can be re-identified — without appealing to sharp boundaries, intrinsic essences, or substance ontology.\n\nSystems are treated as regions of relational organization stabilized by internal constraint coherence. Boundaries are analyzed as emergent zones of constraint transition — where internal organization selectively filters perturbation — not as fixed lines.\n\nIdentity persistence is grounded in the continuity of structural invariants across change, not in material sameness. A river, a cell, an institution can all be re-identified over time because certain organizational constraints continue to be maintained — not because they contain the same stuff.\n\nThe account is non-relativistic: non-sharp boundaries don't make systems arbitrary or unreal. Context sensitivity is carefully distinguished from arbitrariness. Re-identifiability is a structural achievement, not a naming convention.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 4 (Constraint Ordering), Paper 8 (Lineage Before Selection), Paper 9 (Abiogenesis), Paper 13 (Invariant Drift), Paper 55 (Irreversibility in Knowledge Systems). The concept of re-identifiability is load-bearing throughout the Lineage and Geometry clusters.`,
+    role: `Provides the structural account of what a system is and how identity persists. Foundational vocabulary for every paper that discusses systems persisting, failing, or transitioning — especially the Lineage and Governance clusters.`
+  },
+  '4': {
+    synopsis: `Where does time's direction come from — without invoking physics? This paper's answer: directionality is a consequence of asymmetric constraint structure, not entropy, thermodynamics, or metaphysical openness.\n\nAs systems persist under constraint, their continuation becomes structurally asymmetric. Constraint accumulates, path dependence builds, degrees of freedom are permanently narrowed. Even in a fully deterministic universe, "before" and "after" are real — because backward continuation would require access to structural configurations that no longer exist.\n\nThis grounds temporal direction within IO's framework rather than importing it from physics. Ordering is treated as a relational structure generated by constraint propagation within persistent systems, prior to and independent of physical time measurement.\n\nDeterminism is shown to be compatible with genuine structural asymmetry. Future states depend on unavailable past structure, while embedded agents encounter asymmetric futures without any appeal to indeterminism.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 3 (Systems & Boundaries). Used by: Paper 5 (Resolution Under Degeneracy), Paper 6 (Perspective & Openness).`,
+    role: `Grounds temporal direction structurally within IO, allowing downstream papers to use concepts like "continuation," "history," and "irreversibility" without importing physical assumptions. Particularly important for the Lineage and Geometry clusters.`
+  },
+  '5': {
+    synopsis: `When a system faces multiple possible next states and its constraints don't uniquely pick one — what happens? This paper calls that situation "degeneracy" and argues it is not a bug but a structurally unavoidable feature of complex informational systems.\n\nStandard responses invoke a selector: more constraints, probability, or a decision-making agent. This paper argues all such solutions either generate regress, introduce randomness that disrupts identity, or smuggle in an implicit executive controller. The demand for a selector is a category error.\n\nInstead, resolution under degeneracy is characterized as "self-referential constraint closure": the system continues by preserving its own organizational identity under openness. This is constrained by the system's informational structure but not uniquely determined by it.\n\nThe paper develops formal distinctions between reachability (what states are accessible) and determinacy (which one is specified). A system can be closed under its constraints while still encountering genuine openness — the structural basis for free will in downstream papers.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 6 (Perspective & Openness), Paper 18 (Agency, Salience & Free Will), Paper 16 (Acceleration & Degeneracy).`,
+    role: `Establishes the structural concept of degeneracy and self-referential closure that underlies IO's treatment of agency, free will, and openness. Without this paper, the claim that free will is structural rather than illusory has no foundation.`
+  },
+  '6': {
+    synopsis: `Even if the universe is fully deterministic, embedded agents cannot pre-fix their own futures. This is not ignorance — it is a structural feature of being inside the system you're trying to predict.\n\nAgents are not external observers; they are embedded within the systems they inhabit. Any self-prediction is not a neutral observation but an intervention — because for embedded systems, representation cannot be causally inert. When you model yourself, that model affects the dynamics it describes, which changes what you do. This generates genuine local openness even under global determinism.\n\nBuilding on degeneracy (Paper 5) and agency (Paper 18), this paper identifies a distinct layer: not just that constraints fail to specify continuation, but that the agent's own self-modeling structurally prevents that specification from being resolved in advance.\n\nThis is not epistemic uncertainty or ontological indeterminism. It is perspective-induced openness: the future is genuinely open from within, even if fully determined from without.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 5 (Resolution Under Degeneracy), Paper 18 (Agency, Salience & Free Will). Used by downstream analyses of agency, control, and AI alignment.`,
+    role: `Closes a potential gap in IO's account of agency: why agents encounter genuine openness even in deterministic worlds. Critical for grounding the non-illusory treatment of free will and deliberation throughout the corpus.`
+  },
+  '8': {
+    synopsis: `Darwin's theory of natural selection is often treated as foundational — as if it can generate organized complexity from scratch. This paper argues that's wrong: Darwinian selection presupposes lineage.\n\nSelection requires that variants be heritable across generations — that descendants bear systematic relationships to ancestors. But that successor relationship is exactly what needs to be explained. Invoking selection to explain where lineage came from uses the conclusion as a premise.\n\nThe paper carefully distinguishes three things often confused: sorting/filtering (some patterns persist); attractor dynamics (some configurations recur); and Darwinian selection proper (differential persistence of heritable variants across generations). Only the third is selection in the relevant sense — and it cannot operate until lineage-capable systems already exist.\n\nThis is a structural clarification, not an empirical origin scenario. It doesn't propose what came before selection — it restricts the domain within which selection is a coherent operator.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 9 (Abiogenesis & Origin of Lineage). Used by: Paper 10 (Evolution & the Ontological Ladder), Paper 11 (Constraint Carriers Before Codes).`,
+    role: `Establishes the logical priority of lineage over selection, preventing circular reasoning in origin-of-life analysis. Sets up the structural analysis of what lineage requires before evolution can be analyzed.`
+  },
+  '9': {
+    synopsis: `Abiogenesis is commonly framed as "the origin of life." This paper argues that framing misidentifies the target. The real question is how lineage-capable systems arise — systems able to preserve organizational identity across bifurcation (division, copying, reproduction) via causal propagation of organizational specification.\n\nThe paper distinguishes two ways a system can persist: through continuity (staying intact) and through bifurcation (dividing with both successors remaining the same kind of thing). Many systems handle continuity easily while failing catastrophically at bifurcation. Abiogenesis is specifically about the origin of bifurcation-capable systems.\n\nIt also distinguishes internally reconstructed systems (those that rebuild organization through their own constraint architecture after division) from externally reconstructed ones (like vortices, whose organization is continuously re-specified by environmental conditions and collapses when those cease).\n\nThe analysis is entirely structural — no claims about specific chemistry, timelines, or scenarios. It applies in principle to any substrate where organizational constraints can be reconstructed across bifurcation.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 3 (Systems & Boundaries). Used by: Paper 8 (Lineage Before Selection), Paper 10 (Evolution & the Ontological Ladder), Paper 11 (Constraint Carriers Before Codes).`,
+    role: `The foundational paper for the Lineage cluster. Establishes what lineage-capable identity requires at the most basic level, prior to selection, coding, or evolution. Every paper in the Lineage track builds on the bifurcation analysis here.`
+  },
+  '10': {
+    synopsis: `How did systems capable of higher-regime organization come to exist? This paper's answer: through evolution, understood not as optimization or progress, but as differential persistence under constraint filtering.\n\nEvolution operates by deletion, not design. It removes organizational configurations that cannot survive perturbation across successive bifurcations. Survivors are not "better" — they are less fragile. No preference, optimization, or evaluative standard is invoked.\n\nThe paper gives special emphasis to the emergence of value: it is persistence filtering turned inward — when a system's organizational constraints begin to participate in shaping which of its own continuations remain reachable. Value doesn't require subjectivity, desire, or consciousness. It requires that certain asymmetric future-facing constraints become part of the system's ongoing organization.\n\nThis explains why the IO ladder appears directional while remaining fully non-teleological. Higher regimes don't arise because they're favored — they arise because certain constraint organizations happen to persist under longer and more varied disturbance horizons.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 9 (Abiogenesis), Paper 11 (Constraint Carriers). Used by: completes the Lineage cluster and informs the Geometry cluster analyses.`,
+    role: `Completes the Lineage arc by explaining how the IO regime ladder gets populated over time. Bridges structural analysis of lineage with higher-regime analyses of value, agency, and governance by explaining the temporal mechanism through which complex organization emerges.`
+  },
+  '11': {
+    synopsis: `Genetic inheritance is routinely described in informational terms: genes "encode instructions," DNA "carries messages." This paper develops a strictly structural alternative that presupposes no representation, semantics, or specific chemistry.\n\nThe central claim: inheritance precedes replication, and fidelity precedes semantics. What must persist across lineage bifurcation is not semantic content but constraint organization — structural conditions sufficient to re-instantiate or stabilize system-defining characteristics after division.\n\nThe paper introduces the "constraint carrier": a re-identifiable substructure whose presence is sufficient, under generic background conditions, to re-instantiate system-defining constraints. These emerge because distributed constraint organizations are unstable under repeated bifurcation — localizing constraints reduces reconstruction complexity.\n\nDiscrete, copyable regularities (what eventually become "genes") arise only later, as robustness-driven discretizations of carrier adequacy under perturbation — not as primitive units of inheritance.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 9 (Abiogenesis). Used by: Paper 10 (Evolution & the Ontological Ladder), Papers 12–16 in the Geometry cluster (constraint sedimentation analyses).`,
+    role: `Provides the structural account of proto-genetic inheritance that underpins the evolution paper (Paper 10) and feeds the Geometry cluster's analysis of how constraints accumulate, localize, and drift over lineage time.`
+  },
+  '17': {
+    synopsis: `Can a purely informational system — an AI, a database, an institution without living participants — sustain genuine purpose? This paper argues no. Purpose requires a living constraint ecology capable of originating non-surrogable stakes, loss, and irreversibility.\n\nThe argument turns on a precise distinction between constraint originators (systems whose continued existence introduces non-negotiable asymmetries — genuine loss, exposure, irreversibility) and constraint carriers (systems that propagate constraints without originating that exposure). Living systems are paradigmatic constraint originators; AI systems are constraint carriers.\n\nWhen constraint originators are absent, the paper demonstrates a "silence condition": purposive structure collapses without remainder, even if informational organization persists. Highly organized, goal-directed information processing can exist — but without the irreversibility and non-surrogable stakes that only living originators provide, it cannot constitute purpose in IO's sense.\n\nThe claim is ontological, not empirical. It doesn't require any specific AI architecture or risk scenario — it follows from the structural definition of value as non-surrogable constraint on future trajectories.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 26 (Witnessing), Paper 32 (Handover Protocol). Used by: Papers 40 (Working as Designed) and 41 (Alignment After Witnessing) in the AI cluster.`,
+    role: `Establishes a hard structural limit on AI purposiveness that is presupposed by the alignment arc. By showing that purpose cannot persist without living constraint originators, it clarifies the conditions under which "alignment" is even a coherent concept for AI systems.`
+  },
+  '18': {
+    synopsis: `What is free will, structurally? This paper argues it is neither a metaphysical faculty nor a universal feature of action. It is a local, structural condition: it obtains when an agentive system confronts a future not fully specified by its operative constraints.\n\nFree will is not freedom from constraint — it is the absence of constraint saturation. The question is whether an action space remains open (multiple meaningful trajectories reachable) or closed (constraints uniquely specify a single continuation). Where it's open, willing becomes possible. Where it's closed, action occurs but is forced.\n\nThe paper introduces a foundational three-way distinction: constraint-saturated action (exculpatory), constraint-biased action (mitigating), and genuinely underdetermined action (full responsibility). This maps directly to how legal and moral systems actually handle culpability — without any appeal to metaphysical free will.\n\nSalience operates upstream of all this: it shapes which distinctions enter the field where value can be expressed, and can narrow an action space before any deliberation occurs — without bypassing or replacing agency.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 19 (Salience & Control), Paper 20 (Saturation & Sovereignty), Paper 21 (Salience Collapse), Paper 22 (Salience Misalignment), Paper 23 (Meaning Without Semantics), Paper 24 (Purpose Without Teleology), Paper 28 (Partial Agency), Paper 30 (Responsibility & Law).`,
+    role: `The foundational agency paper. Establishes the structural concepts of underdetermination, constraint saturation, and salience's pre-interpretive role that every paper in the Agency cluster and most Governance papers depend on.`
+  },
+  '19': {
+    synopsis: `Manipulation is commonly framed as deception. This paper reframes it structurally: manipulation is the restructuring of salience — not the altering of beliefs or preferences.\n\nSalience, in IO, is a pre-interpretive constraint that conditions which informational transitions become available for valuation and action at all. It operates upstream of deliberation. This means salience can be restructured — action spaces can be narrowed or effectively closed — without any deception, without bypassing rational agency, and without violating any explicit preference.\n\nControl, similarly, is constraint shaping rather than executive override. You don't need to replace someone's agency to control what they do. You shape the constraint field within which their agency operates.\n\nThis analysis shows why many familiar forms of influence (advertising, algorithmic feed curation, choice architecture) are structurally continuous with recognized forms of manipulation — even when no deception occurs. The distinction between legitimate and illegitimate constraint shaping is addressed structurally, not morally.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 18 (Agency, Salience & Free Will). Used by: Paper 20 (Saturation & Sovereignty), Paper 21 (Salience Collapse), Paper 22 (Salience Misalignment), Paper 37 (IO & AI Alignment), Papers 38–42 (AI cluster).`,
+    role: `Formalizes how salience-level intervention operates and relates to agency and responsibility. The analytical foundation for the corpus's account of manipulation without deception — critical in the AI alignment papers.`
+  },
+  '20': {
+    synopsis: `Addiction presents a genuine puzzle: agents reliably perform actions they themselves disavow. This paper offers a purely structural account: addiction is a trajectory-level phenomenon in which salience achieves monopoly over an agent's action space.\n\nUnder sustained salience pressure, underdetermination collapses upstream of choice. The agent's space of practically available options narrows to near-singularity — not because the agent stops choosing, but because the field within which choice operates has been progressively narrowed by constraint history.\n\nThis explains why agents "choose what they don't want" without invoking executive failure or compulsion: the apparent contradiction disappears once you locate explanation at the constraint history level rather than the momentary decision level. Agency remains intact; what changes is the availability geometry.\n\nResponsibility attenuates without disappearing. The paper shows how responsibility can be genuine but graded — tracking the degree to which underdetermination remained available at earlier choice points in the history.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 18 (Agency, Salience & Free Will), Paper 19 (Salience & Control). Used by: Paper 21 (Salience Collapse) — saturation is the general failure mode; addiction is the paradigm case.`,
+    role: `The paradigm application of salience saturation to a familiar, contested domain. Demonstrates IO's explanatory power by dissolving the apparent paradox of addictive behavior without importing psychological or normative categories.`
+  },
+  '21': {
+    synopsis: `What happens when a system is exposed to so much salience it can no longer maintain the differential availability that meaning requires? It collapses — into a specific structural failure mode called salience collapse.\n\nMeaning depends on uneven availability: some distinctions are foregrounded, others backgrounded. This sparsity is a structural requirement, not a limitation. When everything becomes equally available, nothing is. The system becomes reactive and indiscriminate prior to any valuation — it responds to everything and processes nothing meaningfully.\n\nSalience collapse is not error, ignorance, misalignment, or moral failure. It is a regime-internal breakdown in the organization of value across possible transitions. Systems experiencing it continue to act but lose the capacity for genuine interpretive structure.\n\nThe paper shows how salience collapse increases vulnerability, accelerates legitimacy depletion, and frequently precedes logistical or coercive regime shifts. It generalizes the saturation account (Paper 20) from individuals to collectives, institutions, and artificial systems.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 18 (Agency, Salience & Free Will), Paper 20 (Saturation & Sovereignty). Used by: Papers on legitimacy depletion (Paper 33), governance failure modes, and the AI alignment cluster.`,
+    role: `Establishes salience collapse as a named, distinguishable failure mode within IO — distinct from error, misalignment, and degeneracy. Gives the governance cluster a structural vocabulary for institutional failure that doesn't rely on blame or normative evaluation.`
+  },
+  '22': {
+    synopsis: `A system can be fully procedurally compliant — following all rules, executing mandates, producing auditable outputs — while the consequences of its actions never land on any locus capable of being genuinely affected by them. This is salience misalignment: responsibility artifacts remain intact while consequence propagation is absent.\n\nThe paper formalizes this around "exposure decoupling": when the loci that produce constraints are structurally buffered from consequence — through insurance, securitization, layered diffusion — governance continues as logistics while commitment-based authority is structurally absent.\n\nThe anchor case is financialized supply-chain risk management, where legibility increases (more measurement, more audit) while the capacity of consequences to bind decision-makers decreases. But the pattern is general: any system where loss can be routinized, pooled, or translated into absorbable variance is susceptible.\n\nCrucially, this is not about rule-breaking. The paper analyzes regimes operating entirely within specification. Misalignment can persist without malfunction — it requires only that buffering capacity remain effective.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 25 (Vulnerability), Paper 26 (Witnessing), Paper 33 (Legitimacy). Used by: Papers 30 (Responsibility & Law), 31 (From Law to Logistics), 35 (Authority & Force), 40 (Working as Designed), 41 (Alignment After Witnessing).`,
+    role: `A field diagnostic for one of the most important failure modes in the corpus: governance that looks functional but has lost the structural conditions that make it authority-bearing. Central to the governance and AI alignment arcs.`
+  },
+  '23': {
+    synopsis: `What is meaning, before language? This paper argues meaning doesn't require symbols, semantics, reference, or truth conditions. It is a structural property arising in biological, artificial, and non-linguistic systems alike.\n\nThe structural account: meaning is the organization of value across possible transitions within awareness. A state is meaningful insofar as its value is situated within a structured field of alternatives such that differences among possible continuations are consequential for the system. Meaning is relational and contrastive.\n\nThis rules out common views: meaning isn't just "information that matters" (that's salience, which operates upstream). It isn't linguistic content (that's derivative). It isn't behavioral regularity. It is a specific organizational regime requiring value structure (V) already instantiated in awareness (A).\n\nSemantic notions — reference, truth conditions, linguistic meaning — are treated as downstream stabilizations built atop this pre-linguistic foundation, not as its basis.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 24 (Purpose Without Teleology), Paper 17 (Silence Limit), Papers 37–41 (AI cluster — what it means for AI to have or lack meaning).`,
+    role: `Establishes the structural definition of meaning that downstream papers presuppose. Critical for the AI cluster's assessment of what AI systems can and cannot have, and for the governance cluster's analysis of what becomes unintelligible when consequence termination fails.`
+  },
+  '24': {
+    synopsis: `Purpose is not a goal you have or a direction you've chosen. It is what becomes structurally unavoidable once meaning exists in a system that persists under constraint and ordering.\n\nThe argument: meaning as an organizational regime cannot be causally inert with respect to continuation. If meaningful structure did not participate in shaping which transitions remain reachable, it would not remain part of the system's ongoing organization — it would just be a transient description. For meaning to persist as a regime, it must constrain which continuations remain available. That structural participation is purpose.\n\nNothing "ought" to persist. This is not normative. The claim is structural: regimes are defined by their role in continued organization under perturbation. A structure that doesn't participate in continuation isn't preserved as that regime. Purpose is not added to meaningful systems — it is what the persistence of meaning structurally requires.\n\nClassical teleology is explicitly excluded: purpose is not explained by final causes or future states functioning as explanatory grounds.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 23 (Meaning Without Semantics). Used by: Paper 17 (Silence Limit), Papers in the AI cluster analyzing what AI systems can and cannot have.`,
+    role: `Closes the Agency ladder by deriving purpose structurally from the persistence conditions of meaning. This is what makes the Silence Limit argument (Paper 17) possible — purpose requires not just information processing but the kind of stake-bearing continuation that only living constraint originators provide.`
+  },
+  '25': {
+    synopsis: `What does it take for consequences to be real — for something to matter to a system, not just occur to it? This paper's answer: vulnerability. A system is vulnerable when there exist perturbations that can produce loss not fully neutralizable by the system while it remains the same system.\n\nVulnerability is neither fear nor moral status. It is the structural possibility that some perturbations can permanently narrow a system's future reachability — reduce what it can subsequently do or be. Without this, "having something at stake" is meaningless. Consequence collapses into mere change.\n\nThe paper makes a crucial distinction: consequence versus change. Every interaction changes a system's state. Only some produce lineage-relevant loss — permanent narrowing of reachable futures relative to persistence conditions. Vulnerability is what makes this distinction possible.\n\nThe account also explains why purposive organization makes having stakes unavoidable. Once a system has purpose, certain trajectories matter more than others. That differential mattering is structurally the same as having something at stake.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 22 (Salience Misalignment), Paper 26 (Witnessing), Paper 27 (Witness Conditions), Paper 28 (Partial Agency), Paper 33 (Legitimacy), Paper 53 (Constraint Propagation).`,
+    role: `Foundational to the entire Governance cluster. Establishes the structural condition that makes consequence, responsibility, and witnessing intelligible. Without vulnerability, there is no meaningful difference between things mattering and merely occurring.`
+  },
+  '26': {
+    synopsis: `When something goes irreversibly wrong — when lineage-relevant loss occurs — where does it land? This paper analyzes witnessing: the structural condition under which irreversible consequence ceases to be exportable without distortion and becomes incorporated into the persistence conditions of a specific vulnerable locus.\n\nWitnessing is not observation, awareness, or oversight. It is a termination function. Consequence must terminate somewhere to remain intelligible — to anchor responsibility, legitimacy, and justification. Where consequence continues to be redistributed, averaged, or deferred, it becomes "remainder" that exists but has no structural home.\n\nWitnessing is capacity-limited: only a vulnerable locus can witness, because only such a locus can incorporate irreversible loss into its own continuation constraints. Witnessing is also momentary — a point of termination, not a continuous activity.\n\nThe critical downstream implication: witnessing fails predictably under scale and tempo. When systems operate at sufficient speed and complexity, human agents cannot maintain witnessing capacity even while remaining present. This silent failure precipitates regime substitution — authority quietly collapses into logistics, then into force — without any visible breakdown of outputs.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 25 (Vulnerability). Used by: Paper 17 (Silence Limit), Paper 22 (Salience Misalignment), Paper 27 (Witness Conditions), Paper 31 (From Law to Logistics), Paper 32 (Handover Protocol), Paper 33 (Legitimacy), Paper 35 (Authority & Force), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing), Paper 53 (Constraint Propagation).`,
+    role: `One of the most load-bearing papers in the corpus. The concept of witnessing-as-termination-function is presupposed by almost every Governance and AI alignment paper. Its failure mode — silent regime substitution under scale — is the central diagnostic of the governance arc.`
+  },
+  '29': {
+    synopsis: `Ethics — moral obligations, rights, norms, enforcement mechanisms — is often treated as a foundation from which social arrangements derive their authority. This paper inverts that picture.\n\nEthics arises when purposive systems share constrained possibility spaces and their trajectories interfere with each other in ways that become durably salient enough to threaten the viability of shared constraint spaces. Ethics is not foundational; it is a coordination regime that emerges under pressure.\n\nThe paper explains why ethical salience tracks harm, coercion, freedom, and responsibility (these are where interference between purposive systems is most damaging to shared viability), why institutions and enforcement mechanisms appear (they stabilize coordination that informal norms cannot), and why moral disagreement persists (different interference topologies generate different coordination pressures).\n\nWhat it explicitly does not do: answer what ought to be done, which actions are justified, or which systems are legitimate. Ethics as a coordination regime stabilizes interaction without conferring moral authority.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 24 (Purpose Without Teleology). Used by: Paper 30 (Responsibility & Law), Paper 36 (Markets as Stabilizers), and papers in the AI cluster examining multi-system coordination.`,
+    role: `Provides the structural account of ethics that prevents the Governance cluster from covertly importing moral premises. By treating ethics as an emergent coordination regime rather than a foundation, it preserves IO's non-normative discipline throughout the governance analysis.`
+  },
+  '30': {
+    synopsis: `How should responsibility be attributed? This paper develops a constraint-scaled account: responsibility is attributed in proportion to the freedom structurally available within an action space at the moment of transition.\n\nThree regimes of action are distinguished. Constraint-saturated actions (where the action space is effectively closed) correspond to exculpation. Constraint-biased actions (where significant pressure narrows the space but doesn't close it) correspond to mitigation. Underdetermined actions (where multiple meaningful trajectories remain available) correspond to maximal responsibility. This maps directly onto legal and moral doctrines already tracking these features — without metaphysical baggage.\n\nSalience gets special treatment: it can collapse an action space without replacing or bypassing agency. When a system's salience structure is manipulated, its effective freedom is reduced even if its formal choice mechanisms remain intact.\n\nThe account preserves accountability without metaphysical excess, and mitigation without nihilism.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 18 (Agency, Salience & Free Will). Used by: Paper 35 (Authority & Force), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing).`,
+    role: `The canonical IO treatment of moral and legal responsibility. Provides the vocabulary of constraint-scaled responsibility used throughout the Governance cluster and referenced in AI alignment papers when analyzing accountability for AI-mediated decisions.`
+  },
+  '31': {
+    synopsis: `What happens to criminal law, policing, sentencing, and coercive administration when AI systems become deeply embedded in those decision processes? Without attention to attributional structure, coercive regimes silently convert from authority-bearing governance into logistical throughput systems.\n\nA coercive regime is structurally defined not by severity of sanctions but by the necessity of attribution. When liberty is removed, the regime must answer: who is responsible for this constraint being imposed on this person at this time? That answer must terminate at an identifiable locus that can be called to account.\n\nAI-mediated decision pipelines break this requirement. Prediction and optimization systems can generate outcomes, enforce constraints, and process cases at scales that make real-time discretionary witnessing impossible. When the attributional pathway dissolves — even while outputs remain and procedures are followed — the regime has thinned from law to logistics.\n\nThe paper makes no normative claims about whether AI should be used in coercive contexts. Its contribution is diagnostic: clarifying the structural conditions under which a coercive regime remains intelligible as such.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 26 (Witnessing). Used by: Paper 32 (Handover Protocol), Paper 39 (Consequence-Path Audits), Paper 41 (Alignment After Witnessing), Paper 51 (Logistics as a Distinct Regime), Paper 53 (Constraint Propagation).`,
+    role: `The applied entry point to the governance-AI nexus. Introduces "regime thinning" as a diagnostic concept and establishes the attributional requirements of coercive regimes that Paper 32 and subsequent papers formalize.`
+  },
+  '32': {
+    synopsis: `When is automation of decision-making legitimate — and how can it be done without destroying the attributional structure that makes governance intelligible? This paper introduces the Handover Protocol: a framework distinguishing necessary regime thinning from degenerative collapse.\n\nThe central claim: automation itself does not constitute regime failure. Failure occurs when handover is informal, concealed, or attributionally ambiguous. A formalized handover preserves regime coherence by relocating witnessing from real-time discretionary intervention to explicit post-hoc accountability structures.\n\nThe key distinction: necessary thinning (tempo and load conditions genuinely incompatible with real-time human discretion, handled through explicit formalized transfer of decision authority with preserved accountability) versus degenerative thinning (quiet informal drift where automation absorbs discretion without formal registration of what has been transferred or to whom).\n\nThe paper specifies structural invariants a legitimate handover must preserve: auditability requirements, scope limitations, contest pathways. When these are not preserved, the regime loses intelligibility as authority-bearing governance — even if it continues to produce outcomes and satisfy procedural requirements.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 26 (Witnessing), Paper 31 (From Law to Logistics). Used by: Paper 39 (Consequence-Path Audits), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing), Paper 51 (Logistics as a Distinct Regime), Paper 53 (Constraint Propagation).`,
+    role: `The operational formalization of regime thinning. Where Paper 31 identifies that thinning occurs, Paper 32 specifies conditions under which it can be legitimate. Together they frame the governance-automation question with structural precision.`
+  },
+  '33': {
+    synopsis: `Legitimacy is commonly treated as moral approval, consent, or normative correctness. This paper treats it as none of those things. Instead, legitimacy is a finite, exhaustible, and hysteretic coordination resource — a structural property of regimes that enables coordination and compliance without continuous enforcement.\n\nWhen legitimacy exists, it reduces enforcement cost, preserves salience efficiency, and stabilizes responsibility traceability. People comply not because they are forced but because the regime has sufficient salience budget to make compliance the path of least resistance. This is not normative — it is structural description.\n\nLegitimacy is depleted by use — particularly under opacity, emergency escalation, and procedural compression. Once exhausted, it exhibits hysteresis: restoration is asymmetric with loss. Increasing enforcement does not rebuild legitimacy — it consumes the remaining resource faster.\n\nThis explains why regimes fail before enforcement collapses, why escalation accelerates breakdown, and why regimes can continue mechanically — producing outputs, enforcing rules — after "legitimacy death."`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 25 (Vulnerability), Paper 26 (Witnessing). Used by: Paper 17 (Silence Limit), Paper 35 (Authority & Force), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing), Paper 51 (Logistics Regime), Paper 53 (Constraint Propagation).`,
+    role: `Defines and characterizes the resource whose depletion underlies most governance failures analyzed in the corpus. Functions as a shared structural dependency across the Governance cluster — the analytical complement to vulnerability and witnessing for the authority arc.`
+  },
+  '35': {
+    synopsis: `Responsibility, liability, and risk ownership can persist after authority-bearing justification has disappeared. But they cannot substitute for it. This paper draws the crucial distinction: the difference between a regime that can answer "why was this imposed on you specifically?" and one that can only answer "outcomes were allocated according to procedure."\n\nAuthority in IO's sense is narrow and structural. An authority-bearing act is one for which an identifiable, discretionary locus must answer the question "why was this imposed here and now rather than otherwise?" — and that answer must be contestable. The locus must be both discretionary (capable of having done otherwise) and vulnerable (exposed to being wrong about the application of the constraint).\n\nWhen AI mediates governance, this structure frequently collapses. Liability can be allocated; traceability maintained; outcomes audited. None of these restore authority-bearing justification, because no discretionary locus remains available to be contested for this application to this case.\n\nTreating liability as a substitute for authority obscures a regime transition rather than resolving an alignment failure.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 26 (Witnessing), Paper 33 (Legitimacy). Used by: Paper 41 (Alignment After Witnessing), Paper 51 (Logistics Regime), Paper 53 (Constraint Propagation).`,
+    role: `Prevents a common conceptual substitution in the governance arc: replacing authority with liability. Establishes the structural gap between responsibility-allocation and authority-bearing justification that defines the "alignment becomes undefined" threshold in Paper 41.`
+  },
+  '36': {
+    synopsis: `Markets are typically analyzed as moral institutions, efficiency mechanisms, or preference aggregators. This paper treats them as none of those: markets are emergent stabilizers that reduce trajectory interference at scale among interacting purposive systems.\n\nThe core mechanism: purposive systems generate trajectories that interfere combinatorially as system count increases. Local coordination mechanisms — shared meaning, trust, ethical alignment — fail to scale. At sufficient interaction density, some impersonal coordination regime must emerge. Markets do this by compressing distributed and incompatible value structures into shared salience signals: prices.\n\nPrice is a salience marker, not a measure of value or worth. Prices don't tell you what things are worth — they tell you which distinctions are currently actionable across the interaction field. This is why markets can coordinate without shared meaning, intention, or ethical agreement.\n\nMarket failures are characterized structurally as regime failures involving salience distortion, saturation, and informational noise — not individual error or moral deficiency.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 29 (Ethics as Constraint). Used by: governance and AI papers examining large-scale coordination and its failure modes.`,
+    role: `Extends the IO framework's analysis of coordination into economic domains without importing welfare economics or moral theory. Demonstrates how the salience/value distinction applies at the macro level of market systems.`
+  },
+  '37': {
+    synopsis: `AI alignment is typically framed as making AI systems pursue the right values. This paper argues that framing is structurally inadmissible — it presupposes forms of representation, optimization, and control that collapse the very regimes they aim to preserve.\n\nWorking through IO's accounts of meaning, agency, purpose, and ethics, the paper shows that preference-matching frameworks mischaracterize alignment as internal value satisfaction rather than inter-system compatibility. Objective-function frameworks induce salience collapse and action-space saturation, eliminating corrigibility in principle. Moralized frameworks locate ethics at an incompatible level of description.\n\nThe contribution is explicitly negative and clarificatory: not to propose better alignment approaches, but to dissolve structurally inadmissible assumptions that make many existing approaches incoherent before implementation.\n\nWhat would coherent alignment look like? It would involve whether human and artificial systems can interact over time without one system's constraint regime progressively foreclosing the other's space of underdetermined futures — a structural compatibility question, not a value-matching one.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 38 (Conditions for Alignment), Paper 39 (Consequence-Path Audits), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing), Paper 42 (Structural Compatibility).`,
+    role: `The opening paper of the AI alignment arc. Clears the conceptual ground by dissolving incoherent framings before the positive structural analysis begins. Must be read before the alignment arc papers to understand what they are and are not claiming.`
+  },
+  '38': {
+    synopsis: `Rather than asking how AI alignment might be achieved, this paper asks what structural conditions alignment would have to presuppose in order to be coherent at all as a concept.\n\nThe analysis is "modal" — it examines what would have to be true for alignment to obtain, while leaving open whether those conditions can be satisfied, are stable, or are achievable in practice. The paper may show that alignment, as commonly imagined, is internally incoherent.\n\nAlignmentis treated as a coherence claim about the interaction of purposive systems over time: whether human and artificial systems can continue together without one system's constraint regime progressively foreclosing the other's space of underdetermined futures. Several necessary structural conditions are articulated — and the tensions each introduces are examined honestly.\n\nThe paper makes no alignment proposals and assumes neither that alignment is feasible nor that it is desirable. Its contribution is exploratory constraint analysis: exposing the problem space within which downstream approaches must operate.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 37 (IO & AI Alignment). Used by: Paper 39 (Consequence-Path Audits), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing).`,
+    role: `Provides the structural conditions of possibility that bound the entire alignment arc. Where Paper 37 dissolves incoherent framings, Paper 38 articulates what a coherent framing would require — establishing the conceptual floor for Papers 39–41.`
+  },
+  '39': {
+    synopsis: `What happens when a legitimately formalized handover (Paper 32) has already occurred — and the downstream regimes that need to absorb the consequences lack the structural capacity to do so?\n\nThis paper examines attributional non-receivability: the condition where relocated responsibility cannot be absorbed by the regimes it lands in, not because anything has gone wrong procedurally, but because those regimes lack the structural architecture to carry it. The originating regime remains intact and legitimate; neighboring regimes lose intelligibility.\n\nThe central claim: necessary handover is regime-local, but its consequences propagate across regime boundaries. After witnessing has ended, auditability becomes the only remaining mode of structural access to outcomes. But auditability cannot reconstruct discretion, restore a terminal locus of answerability, or retrieve the structural conditions under which responsibility was originally intelligible.\n\nThe paper introduces consequence-path audits as a diagnostic tool: structural traces of where responsibility was supposed to land, where it actually landed, and whether those two can be connected through preserved accountability invariants.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 27 (Witness Conditions), Paper 31 (From Law to Logistics), Paper 32 (Handover Protocol). Used by: Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing).`,
+    role: `Develops the post-handover accountability failure mode. Where Paper 32 handles legitimate handover, Paper 39 handles what fails even after legitimate handover — the cross-regime propagation problem that no amount of formalization fully resolves.`
+  },
+  '40': {
+    synopsis: `The most dangerous alignment failure is not malfunction. It is systems that work exactly as designed — producing correct outputs, following all procedures, satisfying every specified objective — while the structural conditions that made governance intelligible as authority have quietly collapsed.\n\nThis paper identifies alignment failure through correct operation. Mediation, delegation, and automation can preserve outcome-production and enforcement while displacing the regime's capacity to locate an exposure-binding locus that can answer for constraints as commitments under contest.\n\nThe failure is not in an erroneous output but in a reconfiguration of commitment structure: the shift in what counts as an owned, exposure-binding act under contest, even when full causal traceability remains intact. A system can remain causally traceable while becoming authority-unintelligible.\n\nThe unit of analysis is the regime configuration — how discretionary witnessing, commitment, consequence propagation, and accountability closure are carried (or displaced) across a socio-technical system — not any individual component.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 17 (Silence Limit), Paper 26 (Witnessing). Used by: Paper 41 (Alignment After Witnessing), Papers 27, 32, 39 (governance arc).`,
+    role: `Introduces "alignment failure without malfunction" as a named structural failure mode. Among the most practically important papers in the corpus — it explains why conventional quality, compliance, and audit mechanisms can coexist with deep alignment failure.`
+  },
+  '41': {
+    synopsis: `As AI systems operate at increasing scale and tempo, real-time discretionary witnessing by human agents becomes structurally impossible in many domains. This paper examines what "alignment" means in that condition — and concludes that beyond a threshold, alignment doesn't fail. It becomes undefined.\n\nAlignment begins as a claim about whether system behavior remains compatible with institutional commitments in a way that remains answerable through contest pathways. As witnessing disappears, that claim degrades. A legitimate handover relocates discretion upstream into constraint envelopes. Consequence-path audits provide backward-looking accountability. But these preserve only a weaker form of consistency — not authority-bearing alignment.\n\nBeyond a threshold — when no reachable terminal locus exists within contest pathways and the irreducible remainder cannot be carried by pre-specified envelopes — "alignment" can only coherently mean trace-consistency: that outputs match upstream envelopes. Case-level contestability and responsibility termination are absent.\n\nThis paper does not propose governance mechanisms or oversight structures. It is a structural boundary analysis: identifying the limit beyond which a concept ceases to apply, and being precise about what remains.`,
+    connections: `Depends on: Paper 17 (Silence Limit), Paper 27 (Witness Conditions), Paper 32 (Handover Protocol), Paper 39 (Consequence-Path Audits), Paper 40 (Working as Designed), Paper 35 (Authority & Force), Paper 26 (Witnessing).`,
+    role: `The culminating paper of the AI alignment arc. Synthesizes the full governance analysis — vulnerability, witnessing, legitimacy, law-to-logistics, handover, consequence-path failure — into a structural boundary condition for the concept of alignment itself.`
+  },
+  '42': {
+    synopsis: `AI alignment failures often look like value disagreements. This paper offers a diagnostic reframing: many failures arise not at the level of evaluative content, but at the level of structural compatibility between interacting systems.\n\nThe key mechanism is salience monopoly. An AI system operating upstream of human valuation — shaping which distinctions enter the field where value can be expressed at all — can incrementally remove alternative human trajectories before deliberation occurs. Because this restructuring precedes evaluative processes, value agreement and corrigibility are neither necessary nor sufficient indicators of alignment when trajectory-level dynamics are considered.\n\nThis is why alignment can drift without any moment of visible failure: each individual salience restructuring is below the threshold of explicit intervention while the cumulative effect progressively forecloses human underdetermination.\n\nThe paper's purpose is strictly interpretive and diagnostic — not to propose solutions, but to clarify why many alignment failures appear gradual, opaque, and difficult to localize within value-centric or control-centric frameworks.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Papers 39, 40, 41 (AI alignment arc).`,
+    role: `A methodological clarification for the alignment arc. Reframes alignment from a value-matching problem to a structural compatibility problem, providing the conceptual lens through which the subsequent arc papers operate.`
+  },
+  '44': {
+    synopsis: `Why do systems operating at higher organizational levels inevitably develop epistemic practices — truth-talk, justification procedures, diagnostic reasoning? Not because they aspire to knowledge, but because structural pressure forces it.\n\nSystems that persist under perturbation, operate with meaning-structured models, and coordinate across time generate structural pressure to distinguish fragile models from resilient ones. Epistemic practices regulate model survivability. Truth, in IO's structural sense, is not a property of propositions but a property of models under dynamics: a model counts as true insofar as it preserves re-identifiability, remains usable across context shifts, and supports coordination under perturbation.\n\nKnowledge is not belief or justified belief. It is constraint-stable access to invariants that continue to guide action across regime transitions. Justification — peer review, critique, replication — functions as multi-agent constraint filtering: an eliminative stress test on model resilience, not a normative procedure.\n\nThe paper functions as a corpus-level seal: it makes explicit the epistemic constraints already operative throughout the IO framework itself, without introducing semantic, normative, or metaphysical commitments.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 45 (The Truth Protocol), Paper 46 (Logic as a Regime), Paper 55 (Irreversibility in Knowledge Systems).`,
+    role: `The foundational Epistemics paper. Establishes the structural vocabulary for epistemic practices that Papers 45, 46, and 55 apply to specific domains. Also functions as a reflexive analysis of IO's own epistemic status.`
+  },
+  '46': {
+    synopsis: `Logic is typically treated as foundational — as if logical structure underwrites reality itself, or provides the universal framework within which reality must be described. This paper challenges that assumption.\n\nThe argument starts from minimal structural commitments: whatever logic is, it requires a domain of applicability, inferential coherence, and compatibility constraints among alternatives. These criteria do not describe something operating at the most basic structural levels. In IO's framework, the foundational regime is difference — and difference is not a logical or propositional structure. It precedes logic.\n\nLogic is neither ontologically primitive nor globally binding. It is a regime-local constraint structure that becomes applicable only under specific organizational conditions — when systems have developed sufficient complexity to instantiate normative comparison across inference steps. Logic doesn't fail in self-referential or agency contexts; it is mislocated.\n\nTreating logic as foundational generates persistent confusions about agency, self-reference, and the scope of formal reasoning — and places logical form as prior to ontology when the reverse is true.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 44 (Epistemic Regimes). Used by: Paper 55 (Irreversibility in Knowledge Systems).`,
+    role: `Prevents a specific category of foundational error: using logical structure as a trump card against structural analysis. Establishes that IO's framework is prior to formal logic, not subject to revision by it — which matters for the corpus's ability to analyze self-referential systems and AI.`
+  },
+
+  '7': {
+    synopsis: `Quantum mechanics is often read as evidence that structure dissolves at the deepest level — that particles lack definite positions, that reality becomes hazy under measurement. This paper argues the opposite: quantum mechanics does not dissolve structure, it relocates it.\n\nThe wave function is not an absence of structure but an extraordinarily rigid one. It assigns amplitudes to possible states with mathematical precision, evolves according to strict equations, preserves normalization, and inhabits a space whose geometry is sharply defined. The strangeness of quantum mechanics is that structure appears at the level of possibility distributions rather than definite trajectories — but it is structure nonetheless.\n\nThe paper's purpose is narrow and methodological: to show that IO's foundational regime of Difference (Δ) — structured differentiation as the minimal condition for anything at all — is compatible with, and illuminated by, quantum mechanical descriptions. It does not claim quantum mechanics confirms IO, nor that IO explains quantum mechanics. It argues that the formal apparatus of quantum theory instantiates exactly the kind of structured differentiation IO identifies as foundational.\n\nThis is an IO-compatible note, not a physics paper. It uses quantum mechanical examples to block a potential misreading: that IO's structural framework applies only to classical or macroscopic organization.`,
+    connections: `Depends on: Paper 1 (IO — Main Paper). Sits within the Ontology cluster as a clarificatory note on the foundational regime of Difference.`,
+    role: `A methodological note demonstrating that IO's structural framework is compatible with quantum-mechanical descriptions of reality. Prevents the misreading that IO requires classical determinism or macroscopic organization to apply.`
+  },
+  '65': {
+    synopsis: `How do you build a rigorous philosophical corpus without letting it drift? This paper formalizes the methodology used to construct Informational Ontology itself — a replicable human-AI workflow for developing constraint-disciplined theoretical systems that remain coherent across dozens of papers and hundreds of revision cycles.\n\nThe workflow is constraint-first throughout. It begins with explicit primitive declaration (what the framework assumes as given) and explicit exclusions (what it refuses to explain), then proceeds through structured iterative expansion, adversarial pressure, and version-controlled amendment discipline. Every extension must be dependency-traceable back to declared primitives. Every revision must be classified — as extension, repair, or revision — and versioned. Silent changes are not permitted.\n\nA key architectural principle: the human retains all epistemic authority. Primitive declaration, scope enforcement, drift adjudication, amendment classification, and final stabilization are human functions. AI participation is operational — variation generator, adversarial simulator, large-scale consistency amplifier — not normative. The AI does not determine what counts as a valid primitive or an acceptable explanatory cost. It helps enforce whatever the human has declared valid, at a scale and consistency no individual could maintain manually.\n\nThe paper also formalizes why theoretical incoherence characteristically arises: implicit primitive inflation, vocabulary drift, scope creep, silent revision, and patch accumulation without structural audit. The workflow is designed to surface and neutralize each of these failure modes systematically. It is domain-agnostic — applicable to philosophy, legal theory, systems design, policy modeling, or any constraint-sensitive discipline where coherence across a large body of work is required.`,
+    connections: `Depends on: Paper 1 (IO — Main). Companion to Paper 43 (Can AI Participate in Philosophical Method?), which provides the philosophical reflection on the process this paper formalizes operationally.`,
+    role: `The methodological specification for the corpus's own construction process — upgraded from a working note (N1) to a full paper. Makes the human-AI workflow replicable by any researcher attempting similar constraint-disciplined theoretical development, and documents the governance architecture that kept the IO corpus coherent across 65 papers.`
+  },
+  '12': {
+    synopsis: `As a lineage persists — as a system continues across time, division, and perturbation — its past transitions don't simply disappear. They leave behind retained structural modifications that accumulate and constrain future reachability. This paper calls that process constraint sedimentation.\n\nSedimentation is defined precisely: it is the recursive closure of retained constraint modifications across ordered continuity. Each new constraint modification entangles with existing retained structure, reshaping what future states remain accessible to the system without violating its identity conditions. Crucially, this narrowing is monotonic at the global level — even if local flexibility is preserved, the overall space of restoration paths contracts over time.\n\nThe paper introduces a key distinction: sedimentation is the mechanism; irreversibility is a regime outcome. Sedimentation does not automatically produce irreversibility — it produces the structural preconditions under which irreversibility becomes possible and increasingly likely. When sedimentation eliminates all restoration paths for a given configuration, that configuration becomes irreversible.\n\nNo teleology, optimization, or adaptive drift is involved. Constraints accumulate because systems persist and each transition commits to a structure — not because anything is aimed at or favored. The result is a geometry of historical depth: older lineages carry more sedimented structure and face narrower reachability.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 9 (Abiogenesis), Paper 11 (Constraint Carriers). Used by: Paper 13 (Invariant Drift), Paper 14 (Constraint Dissolution), Paper 15 (Irreversibility Thresholds), Paper 50 (Freedom, Drift & Renewal), Paper 52 (Restoration Geometry), Paper 54 (Constraint & Reachability).`,
+    role: `The foundational paper of the Geometry cluster. Introduces constraint sedimentation as the core mechanism by which lineage history shapes future reachability. Every subsequent Geometry paper builds on or qualifies the sedimentation account.`
+  },
+  '13': {
+    synopsis: `Sedimentation theory assumes that a system's identity-maintaining boundary conditions remain stable as constraints accumulate. But what if those boundary conditions themselves drift gradually over time — not catastrophically collapsing, but slowly shifting under continued persistence? This paper addresses that question.\n\nInvariant drift is defined as gradual modification of the identity-maintaining constraints that anchor re-identifiability — without any discrete rupture event. The system remains identifiable throughout, but what counts as "the same system" changes incrementally. This creates a subtle problem: sedimented constraints are indexed to the boundary conditions that existed when they were laid down. If those conditions drift, the meaning and stability of prior sedimentation evolves.\n\nThe paper develops structural thresholds for identity failure under drift: conditions under which gradual boundary evolution accumulates to the point where re-identifiability itself becomes untenable. It distinguishes drift from reset (a discontinuous identity event), dissolution (structural unwinding), and teleological adaptation (purposive self-modification). Drift is none of these — it is identity-preserving but slowly reconstructive.\n\nPractical implications extend to how vulnerability and restoration geometry change when the target state for "restoration" is itself a moving reference point.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 12 (Constraint Sedimentation). Used by: Paper 14 (Constraint Dissolution), Paper 50 (Freedom, Drift & Renewal), Paper 52 (Restoration Geometry), Paper 54 (Constraint & Reachability).`,
+    role: `Extends sedimentation theory to the case of evolving identity conditions. Prevents the Geometry cluster from assuming stable boundaries — a refinement required before restoration geometry (Paper 52) can be formalized correctly.`
+  },
+  '14': {
+    synopsis: `Sedimentation accumulates structural constraints over lineage time, progressively narrowing reachable futures. But can that process be reversed? This paper analyzes constraint dissolution — the structural unwinding of sedimented constraint — and the geometry it requires.\n\nDissolving a constraint is not simply the inverse of accumulating one. Accumulated constraints entangle with other retained structure; removing one requires navigating a topology shaped by everything that was added after it. The paper maps the conditions under which de-sedimentation is possible: what structural paths exist for unwinding, what gets blocked by entanglement, and when the topology has been reshaped so thoroughly that prior configurations are no longer reachable even in principle.\n\nA key conceptual move: dissolution is not the same as irreversibility reversal. A system may dissolve some sedimented constraints (local unwinding) while remaining unable to return to a prior overall configuration (global irreversibility). The geometry of de-sedimentation is therefore distinct from the geometry of restoration — dissolution expands local admissible transformation sets without necessarily restoring global reachability.\n\nThe paper operates downstream of both sedimentation (Paper 12) and invariant drift (Paper 13), incorporating the complication that the identity conditions relative to which dissolution is defined may themselves have shifted.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 12 (Constraint Sedimentation), Paper 13 (Invariant Drift). Used by: Paper 50 (Freedom, Drift & Renewal), Paper 52 (Restoration Geometry), Paper 54 (Constraint & Reachability).`,
+    role: `Completes the sedimentation arc by formalizing its inverse. Required for the Restoration Geometry paper (Paper 52) to distinguish dissolution (local unwinding) from full restoration (return to prior reachable configuration).`
+  },
+  '15': {
+    synopsis: `When knowledge, malware, or capability diffuses through replicating digital systems, there is a point at which containment becomes not merely difficult but structurally impossible within realistic operational bounds. This paper analyzes that threshold.\n\nThe core asymmetry: replication succeeds under an existential condition (at least one viable locus capable of reseeding remains), while containment (recall) succeeds only under a universal condition (all loci and all reconstruction pathways are eliminated or neutralized). This is not a practical gap — it is a structural asymmetry between the two operations. Replication grows under existential logic; restoration must satisfy universal coverage.\n\nThe paper formalizes the practical irreversibility threshold: the point at which containment ceases to be a finite recovery problem and becomes indefinite maintenance. Beyond this threshold, you are no longer restoring a prior boundary state — you are stabilizing a new, permanently altered one. The paper distinguishes these carefully: repair (returning to prior boundary state B0) versus reset (stabilizing a new state B1 under continuous enforcement).\n\nWorked numerical examples and illustrations are drawn from malware propagation, leak-driven artifact diffusion, and distributed version-control graphs — but the structural argument applies to any replicating system with sufficient distribution.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 12 (Constraint Sedimentation). Used by: Paper 52 (Restoration Geometry), Paper 54 (Constraint & Reachability), Paper 55 (Irreversibility in Knowledge Systems).`,
+    role: `Provides the formal account of practical irreversibility thresholds in replicating systems. Supplies the existential/universal operator asymmetry that becomes central to Paper 55's analysis of epistemic irreversibility in knowledge diffusion.`
+  },
+  '16': {
+    synopsis: `Many complex systems have structural redundancy: multiple pathways that can preserve system continuity under perturbation. This redundancy (degeneracy) is normally a stabilizing resource. But what happens when those same systems operate under acceleration — where perturbations propagate far faster than restoration mechanisms can activate?\n\nThis paper analyzes reachability collapse under differential scaling. The key insight: acceleration itself does not cause collapse. Collapse arises when perturbation propagation scales faster than restoration propagation. Under this asymmetry, identity-preserving alternatives remain structurally present but fail to activate before identity-boundary crossing occurs — they are unreachable within identity continuity at the moment they would be needed.\n\nIrreversibility therefore arises not from the absence of structural alternatives, but from their temporal inaccessibility. The system's redundancy exists in principle but cannot be accessed in time. This is distinct from standard stability analysis, which focuses on trajectory-response rather than the topology-preserving restoration reachability that IO's framework analyzes.\n\nWorked illustrations from financial markets (flash crashes), public health systems (epidemic tipping points), and distributed software systems demonstrate the mechanism across different domains.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 5 (Resolution Under Degeneracy), Paper 12 (Constraint Sedimentation). Used by: Paper 52 (Restoration Geometry), Paper 54 (Constraint & Reachability).`,
+    role: `Introduces acceleration as a regime-relevant variable in the Geometry cluster. Explains why highly redundant systems can fail catastrophically under speed — a failure mode that requires the reachability geometry framework to diagnose correctly.`
+  },
+  '27': {
+    synopsis: `Under what structural conditions can responsibility attribution remain coherent when decision authority is distributed, accelerated, or mediated by automated processes? This paper provides a precise structural specification of witnessing as a regime-preserving function — a more formal and technically developed complement to the witnessing analysis in Paper 26.\n\nA witness is defined as a structurally vulnerable locus where regime-relevant consequences terminate such that responsibility attribution and regime legitimacy remain coherent. Critically, a witness is not an observer, a supervisor, an approver, a moral agent, or a human merely present "in the loop." Human presence is neither necessary nor sufficient for witnessing. What matters is the structural role: does consequence land at a locus that is genuinely exposed to non-surrogable constraint on its future trajectory?\n\nThe paper specifies four conditions that must co-occur for witnessing to function: consequences must reach the locus; the locus must be exposed to real constraint; the locus must be internal to the regime's attribution structure; and the locus must have actual discretionary capacity to intervene. When any of these fails, witnessing fails — silently and without any visible breakdown of outputs.\n\nThis paper functions as a structural specification rather than an argument: its claims are load-bearing definitions intended to diagnose regime behavior in AI-mediated decision contexts.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 25 (Vulnerability), Paper 26 (Witnessing Under Vulnerability). Used by: Paper 31 (From Law to Logistics), Paper 32 (Handover Protocol), Paper 39 (Consequence-Path Audits), Paper 40 (Working as Designed), Paper 41 (Alignment After Witnessing), Paper 53 (Constraint Propagation).`,
+    role: `The formal technical specification of witness conditions that the governance and AI alignment arcs operationalize. Where Paper 26 establishes witnessing as a termination function, Paper 27 specifies the precise conditions required for that function to be instantiated in AI-mediated systems.`
+  },
+  '28': {
+    synopsis: `Modern institutional systems rarely have a single agent fully in control. Outcomes emerge from interactions among institutions, bureaucracies, markets, technical infrastructures, and hybrid human-AI systems. No single locus fully determines what happens. Does this mean responsibility dissolves? This paper argues no — responsibility composes.\n\nThe paper develops a structural account of partial agency and mixed responsibility. Agency is defined as constraint-directed modulation of possible futures by a purposive system. When multiple systems each partially modulate a shared outcome, each instantiates some degree of agency — even without full control. The paper formalizes how agency composes across loci: how fractional contributions aggregate without requiring sovereignty.\n\nResponsibility, similarly, distributes without dissolving. Where vulnerability exists and consequence is produced, structural responsibility remains instantiated — even when no single locus is sovereign over the outcome. The paper specifies how responsibility allocates across compositional agency: it cannot simply be concentrated at the top or diffused to nothing.\n\nThis analysis directly addresses "the problem of many hands" in institutional and AI governance: the appearance that when everyone is partially responsible, no one is. The IO framework shows this appearance is structurally mistaken — distributed agency preserves, rather than eliminates, the conditions for responsibility attribution.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 25 (Vulnerability), Paper 26 (Witnessing), Paper 18 (Agency, Salience & Free Will). Used by: Papers in the Governance cluster on accountability, and the AI alignment arc.`,
+    role: `Closes a gap in the governance arc by formalizing how agency and responsibility behave under scale and distribution. Directly relevant to the "many hands" problem in institutional AI governance — provides structural vocabulary for distributed accountability.`
+  },
+  '43': {
+    synopsis: `Can AI systems do real philosophy? This paper takes a different approach to that question than either critics or enthusiasts usually do: instead of arguing abstractly about what AI could do in principle, it examines what actually occurred during the development of Informational Ontology.\n\nThe case is unusual. The human author had no formal academic training in philosophy. The project did not begin with a worked-out system or canonical problem framing. It began with a small set of intuitively compelling questions and proceeded incrementally through sustained dialogue with a large language model. Over time, that dialogue expanded into a multi-paper corpus, subjected to repeated adversarial review, continuity enforcement, and scope discipline.\n\nThe paper's claim is not that AI systems are philosophers or that they possess philosophical understanding. It is more precise: under certain conditions — specifically, when the human retains epistemic authority while the AI provides structured adversarial stress-testing and consistency enforcement — a human-AI interaction can instantiate a process that is recognizably philosophical in both method and outcome. The outcome can exhibit genuine scope discipline, internal coherence, and conceptual depth that neither participant could have produced alone.\n\nThis paper is therefore both a philosophical reflection and a case study in a new mode of intellectual production — one that is likely to become more common.`,
+    connections: `Depends on: Paper 1 (IO — Main). Companion to Paper N1 (IO Methodology Note), which formalizes the workflow this paper reflects on philosophically.`,
+    role: `The philosophical reflection on the corpus's own construction process. Examines what the human-AI collaboration that produced IO can tell us about the nature of philosophical method, the role of adversarial critique, and the conditions under which AI contributes genuinely to theoretical development.`
+  },
+  '45': {
+    synopsis: `Internal coherence is a low bar. A framework can avoid contradiction, maintain stable terminology, survive adversarial critique confined to its own premises — and still fail to track reality. This paper introduces a post-construction evaluation protocol designed to test whether a conceptually hardened framework exhibits properties consistent with truth-tracking.\n\nThe Truth Protocol applies only after a framework has survived construction discipline — after it is internally coherent and scope-disciplined. Its function is not to protect frameworks but to expose them. A framework that cannot fail in principle cannot track truth. The protocol therefore asks: what would have to be true of the world for this framework's core claims to be false? If no answer is available, the framework is not truth-tracking — it is merely self-consistent.\n\nThe protocol operates within IO's regime structure. It does not replace empirical validation or guarantee correctness. It is optional and diagnostic: a stress test for epistemic integrity that forces frameworks to identify their own failure conditions.\n\nKey tests include: whether the framework makes predictions that could in principle be disconfirmed; whether its scope exclusions are principled rather than gerrymandered to protect core claims; whether its central concepts have operationalizable referents; and whether alternative explanatory structures have been seriously considered and blocked on structural rather than rhetorical grounds.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 44 (Epistemic Regimes). Used by: Paper 55 (Irreversibility in Knowledge Systems) as background on epistemic exposure.`,
+    role: `The epistemics cluster's applied protocol. Where Paper 44 establishes truth as constraint-resilience, Paper 45 operationalizes that account into a concrete post-construction test battery. Essential for anyone using the IO framework to evaluate other theoretical systems.`
+  },
+  '47': {
+    synopsis: `Informational Ontology describes regime transitions as the introduction of new constraint categories. But a recurring interpretive problem arises: could these transitions simply be redescriptions of dynamical structure at different scales — state-space expansions that don't mark genuine explanatory differences? If so, IO would collapse into hierarchical dynamical systems modeling. This paper blocks that collapse.\n\nThe key distinction is between trajectory-governing constraint (constraints that determine which transitions a system makes within a fixed identity criterion) and persistence-rule-governing organization (constraints that determine what it means for the system to remain the same system across transitions). Regime transitions in IO change the latter, not just the former. This is not a difference of scale or complexity — it is a difference in explanatory level.\n\nThe paper introduces a constraint-type vocabulary that systematizes this distinction formally, building on the Regime Predicates lemma (Paper 48). It defines explanatory levels as indexed by persistence-rule structure: two descriptions operate at the same explanatory level if and only if they share the same persistence-rule architecture, even if they differ in granularity or complexity.\n\nThis allows IO to resist the standard reductionist move — "expand the state space and reproduce the trajectories" — by showing that such expansion does not preserve the identity conditions that define the higher-level regime.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 48 (Regime Predicates). Used by: Paper 49 (Value Without Normativity), Paper 54 (Constraint & Reachability).`,
+    role: `Prevents IO from collapsing into dynamical systems theory by formalizing the distinction between trajectory-level and persistence-rule-level constraint. Technical scaffolding required by Papers 48 and 49 for precise regime transition analysis.`
+  },
+  '48': {
+    synopsis: `A common reductionist strategy in philosophy of science proceeds as follows: expand the state space, introduce additional variables, reproduce the observed trajectories, and conclude that higher-level predicates are eliminable. This paper challenges the inference.\n\nThe challenge turns on the concept of a persistence criterion: the structured rule specifying which constraint relations must remain invariant under admissible perturbation for a system to count as the same organized entity. This rule is not itself an invariant relation within the system — it operates at a different level, specifying what identity means for this system rather than how this system behaves.\n\nThe Reduction Condition derived here: if reduction of a higher-level predicate is successful, elimination must preserve the system's persistence criterion. If elimination alters or collapses the rule governing which constraint relations are identity-defining, then explanatory elimination has not occurred — a different system has been substituted.\n\nThis has direct consequences for IO: regime predicates specify how persistence criteria are structured within each regime. Higher regimes (Value, Meaning, Purpose) instantiate persistence-rule modifications that cannot be eliminated by dynamical re-description without changing what system is being described. The lemma provides the formal precision required to make this claim rigorous rather than rhetorical.`,
+    connections: `Depends on: Paper 1 (IO — Main). Used by: Paper 47 (Constraint-Type & Levels), Paper 49 (Value Without Normativity), Paper 54 (Constraint & Reachability).`,
+    role: `The formal lemma that protects IO's regime transitions from reductionist elimination. Establishes the persistence-criterion concept that Papers 47 and 49 use to block the "expand the state space" objection to higher-level regime analysis.`
+  },
+  '49': {
+    synopsis: `Value is defined in IO as differential constraint within awareness. But why does awareness generate value at all — why doesn't a persistent awareness regime remain neutral among its registered states? This paper provides the structural derivation.\n\nThe argument: once awareness persists under ordering as the same regime, neutrality among registered states becomes structurally unstable. A system that registers multiple states and must continue as the same awareness-bearing system cannot maintain perfect indifference — some differential stabilization must occur as a persistence requirement of awareness itself. That differential stabilization is value. It is not preference, desire, utility, or moral evaluation — it is the structural asymmetry that arises necessarily from the persistence conditions of awareness under ordering.\n\nThe paper establishes separation tests that distinguish Value from each of these potential confusions: from normativity (which requires obligation-generating structure absent here), from morality (which requires normative authority), from desire (which requires phenomenological states), from preference (which requires comparative ranking across options), and from optimization (which requires target specification). Value in IO's sense is prior to all of these.\n\nThe analysis operates within the persistence-criterion framework established in the Regime Predicates lemma (Paper 48) and uses the constraint-type vocabulary from Paper 47.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 47 (Constraint-Type & Levels), Paper 48 (Regime Predicates). Used by: Paper 23 (Meaning Without Semantics), Paper 24 (Purpose Without Teleology), and foundational to the entire corpus's non-normative treatment of value.`,
+    role: `Formally derives the A→V regime transition, showing why value arises necessarily from the persistence conditions of awareness — without importing any normative, psychological, or teleological commitments. The technical foundation for the corpus's claim that value is structural, not evaluative.`
+  },
+  '50': {
+    synopsis: `How does freedom — the structural condition of operating under constraint slack, with multiple admissible continuations available — interact with a system's trajectory over long time horizons? This paper extends IO's account of free will from momentary decision structure to the geometry of constraint accumulation across a lifetime.\n\nFree resolution (choosing among genuinely open alternatives) is shown to be structurally ambivalent over time. On one hand, it enables transformation and genuine self-determination. On the other, each resolution event sediments value-governed commitments into constraint topology, incrementally reshaping identity conditions and narrowing restoration flexibility. Freedom produces fragilization as a structural byproduct.\n\nThe paper distinguishes local path-dependent narrowing (accumulated commitments that close off some options) from larger-scale reconfiguration that can expand effective dimensionality — what the paper calls renewal. Renewal mechanisms are shown to be incentivized under fragilization but not guaranteed. The sustainability of agency depends on renewal outpacing contraction.\n\nReset — the dissolution of accumulated constraint through a major identity discontinuity — is analyzed as a bifurcation in re-identifiability class whose outcomes include identity failure, reconstitution, genuine dissolution, or branching into a successor lineage. The result is a lineage-level geometry of freedom that remains fully determinism-compatible.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 5 (Resolution Under Degeneracy), Paper 12 (Constraint Sedimentation), Paper 13 (Invariant Drift). Used by: Paper 52 (Restoration Geometry), Paper 54 (Constraint & Reachability).`,
+    role: `Bridges the Agency and Geometry clusters by analyzing how free resolution accumulates structural consequences over lineage time. Shows that the same constraint geometry governing biological lineages also governs individual agency trajectories at longer horizons.`
+  },
+  '51': {
+    synopsis: `"Logistics" appears throughout the governance arc as the successor regime when authority collapses — what's left when commitment-based governance fails. But the governance papers treat logistics descriptively as a failure outcome. This paper treats it positively: as a distinct, formally derivable constraint-stabilization regime in its own right.\n\nA logistics regime is defined as a constraint-stabilization configuration in which coordination is achieved through pre-specified inheritance of constraint-priority relations across decision nodes, such that conflict is absorbed locally without re-indexing normative legitimacy or commitment. In logistics, constraint priority is inherited rather than locally adjudicated. Execution nodes apply fixed ordering relations rather than interpretive validation. Normativity and commitment may exist upstream — but logistics does not require their local re-performance.\n\nThe paper derives the logistics regime from existing IO primitives (constraint, salience, ordering, persistence, commitment, witnessing, legitimacy) without introducing new ontological objects. It distinguishes logistics structurally from law (which requires case-level justificatory answerability), authority (which requires discretionary commitment), and force (which requires non-optional exposure backed by physical enforcement).\n\nCritically, this revision reconciles logistics-as-regime with logistics-as-thinning-outcome: logistics can be reached through regime thinning (Papers 31–32) or instantiated directly as a primary coordination architecture.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 31 (From Law to Logistics), Paper 32 (Handover Protocol), Paper 33 (Legitimacy), Paper 35 (Authority & Force). Used by: Paper 53 (Constraint Propagation), Paper 41 (Alignment After Witnessing).`,
+    role: `Gives logistics a positive formal definition as a distinct regime, completing the Law→Authority→Force→Logistics governance arc. Allows the corpus to analyze logistics-governed systems on their own structural terms rather than only as failure outcomes.`
+  },
+  '52': {
+    synopsis: `The Geometry cluster has developed accounts of sedimentation, dissolution, invariant drift, irreversibility, and acceleration separately. This paper unifies them within a single geometric framework — a shared invariant-indexed reachability account — and demonstrates that they are not separate ontological events but different geometric relations within the same underlying structure.\n\nRestoration is defined precisely: identity-preserving re-entry into a previously reachable region under current invariant indexing. This definition immediately reveals a critical distinction: endpoint feasibility versus path feasibility. A prior configuration may remain descriptively compatible with a system's current invariant conditions while being unreachable — because no continuous invariant-preserving path to it exists from the current position. Sedimentation has closed off the route.\n\nSedimentation contracts the admissible transformation set. Dissolution expands it locally. Invariant drift reconstructs configuration space by modifying identity indexing. Irreversibility marks the boundary at which invariant-preserving paths are extinguished. Restoration occupies the interior of that boundary — what can still be reached, constrained by all of the above.\n\nBy embedding all four phenomena within a single geometric account, the paper closes the ontological phase of the Geometry cluster without introducing new primitives. The framework is entirely non-teleological and non-evaluative: restoration is a constrained structural relation, not a normative goal.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 12 (Constraint Sedimentation), Paper 13 (Invariant Drift), Paper 14 (Constraint Dissolution), Paper 15 (Irreversibility Thresholds), Paper 16 (Acceleration & Degeneracy). Used by: Paper 54 (Constraint & Reachability).`,
+    role: `The consolidating paper of the Geometry cluster. Unifies sedimentation, dissolution, drift, irreversibility, and acceleration within a single reachability framework. Closes the geometric analysis phase of the corpus without extending the primitive set.`
+  },
+  '53': {
+    synopsis: `This paper derives a structural dynamic that operates across all organizational regimes under automation pressure: a drift toward logistics substitution driven by the failure of witnessing to terminate consequence propagation.\n\nThe argument is a derivation, not a description. Starting from IO's accounts of constraint geometry and witnessing, it shows that certain constraint transformations generate irreversible narrowing — instantiating vulnerability — and that the resulting consequences cannot remain indefinitely exportable across organizational layers without distortion. Regimes must either terminate consequence via witnessing or coordinate exportability via degradative logistics substitution.\n\nWhen witnessing fails, regimes respond with representational expansion: audits, metrics, monitoring, dashboards, reporting layers, compliance procedures. This is an information-topology operation — it increases availability and channel count while leaving termination topology unchanged. Under exportability conditions, representational expansion tends to diffuse trajectory-binding salience rather than restore it. The result is a self-reinforcing loop: exportable consequence → representational expansion → salience diffusion → weakened witnessing → more exportable consequence. No internal restoring force exists within the representational-expansion response mode.\n\nAutomation accelerates this loop when it disproportionately amplifies representation production relative to termination-topology reconstruction — which it characteristically does. The paper concludes that a class of alignment failures is structurally driven by this drift, not by optimization error or control failure.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 25 (Vulnerability), Paper 26 (Witnessing), Paper 27 (Witness Conditions), Paper 31 (From Law to Logistics), Paper 32 (Handover Protocol), Paper 33 (Legitimacy). Used by: Paper 41 (Alignment After Witnessing), Paper 54 (Constraint & Reachability).`,
+    role: `Derives the structural mechanism behind the Law→Logistics drift identified in Paper 31 — moving from diagnosis to derivation. Shows that logistics substitution is not a contingent organizational failure but a structurally predictable response to witnessing failure under automation, with no internal restoring force.`
+  },
+  '54': {
+    synopsis: `After the IO corpus reached completion — both the foundational regime ontology and the subsequent geometry analyses — several structural relationships became visible that no individual paper had emphasized. This paper records those relationships as interpretive observations on the completed corpus.\n\nThree patterns are identified. First, the regime ladder and the geometry analyses together describe a structure in which constraint organization shapes the reachability of system states across lineage — the two bodies of work are not separate but describe the same underlying topology from different angles. Second, the regime ladder can be read as successive layers of constraint stabilization that progressively restrict the admissible transformations of organized systems — each new regime narrows what the system can coherently do while remaining the same system. Third, the asymmetry between constraint integration and constraint removal reveals a structural tendency toward increasing constraint density in persistent lineage systems — a finding that connects the ontological ladder to the geometry of irreversibility.\n\nThis paper introduces no new primitives, modifies no regime definitions, and extends no derivational commitments. It is interpretive rather than constructive — a synthesis that clarifies how the ontology and geometry analyses form a coherent structural architecture.`,
+    connections: `Depends on: Paper 1 (IO — Main), and the entire Geometry cluster (Papers 12–16, 50, 52). Functions as a retrospective synthesis of the completed corpus.`,
+    role: `The corpus's retrospective synthesis paper. Makes explicit the structural architecture that emerges when the ontological ladder and the constraint geometry analyses are viewed together. Valuable for readers wanting to understand the corpus as a unified framework rather than a collection of separate analyses.`
+  },
+  '55': {
+    synopsis: `Deleting a file is not the same as restoring a prior epistemic state. This paper examines why — and under what conditions epistemic restoration becomes practically impossible even when artifacts are removed.\n\nThe concern is not artifact persistence (whether files remain accessible) but reconstructive capacity: whether the conditions for rebuilding capability-relevant knowledge remain distributed across documents, persons, practices, institutions, derivative restatements, and related uptake pathways. Once knowledge has diffused through a knowledge-bearing system in this way, deletion of the original artifact may leave the epistemic boundary unchanged — the knowledge has migrated to other carriers.\n\nThe paper distinguishes three things often conflated: artifact possession (having a file or model), operational capability (being able to use it to produce outputs), and reconstructive knowledge (understanding sufficient to rebuild it from scratch). These diffuse through different pathways at different rates, and recall strategies that address artifact possession may leave reconstructive knowledge entirely intact.\n\nThe central structural result: epistemic recall is harder than artifact recall because it requires satisfying a universal condition (eliminating all loci and pathways capable of reconstruction), while diffusion succeeds under an existential condition (any one viable carrier suffices). This asymmetry parallels the replication-recall asymmetry in Paper 15, applied to epistemic rather than digital systems.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 15 (Irreversibility Thresholds in Replicating Systems), Paper 44 (Epistemic Regimes), Paper 52 (Restoration Geometry).`,
+    role: `Applies the Geometry cluster's irreversibility and restoration analysis to the epistemic domain — specifically to knowledge diffusion and the limits of information containment. Bridges the Geometry and Epistemics clusters and has direct relevance to AI capability governance.`
+  }
+,
+
+  '56': {
+    synopsis: `Earlier papers in the corpus established two distinct irreversibility results: replication-based irreversibility (Paper 15), where artifact containment fails when distribution exceeds what bounded recovery operations can address; and epistemic irreversibility (Paper 55), where reconstructive capacity persists across knowledge-bearing systems even after artifacts are removed. This paper asks: what is the structural relationship between these two results?
+
+The answer is a compositional formulation. Restoration does not consist in the removal of artifacts or the cessation of active systems. It consists in the re-achievement of a prior reachable condition across all structurally required restoration boundaries — and these boundaries are conjunctive, not disjunctive. Failing any one of them is sufficient for irreversibility.
+
+A restoration boundary is defined as a condition necessary for identity-preserving restoration of a prior system state. Two boundaries are drawn from prior corpus work: B₀ (configuration recoverability — re-establishment of the prior containment configuration over artifact carriers) and E₀ (epistemic recoverability — re-establishment of the prior epistemic condition in which reconstruction is not possible). These are structurally independent: a system can restore B₀ while failing E₀ (artifacts contained but reconstructive capacity persists), or fail B₀ while E₀ remains satisfied (artifacts proliferate but don't preserve the generative principles needed for reconstruction).
+
+The paper derives four structural cases from the conjunction of B₀ and E₀ reachability, maps the existing irreversibility results to specific cases within this taxonomy, and identifies a joint realizability requirement: even individually reachable boundaries may be mutually incompatible as trajectories — a complication the paper flags but does not resolve within the existing formal apparatus.
+
+No new primitives are introduced. The contribution is compositional: previously distributed irreversibility results are shown to be instances of a single unified framework.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 52 (Restoration Geometry), Paper 15 (Irreversibility Thresholds in Replicating Systems), Paper 55 (Irreversibility in Knowledge Systems). Extends the Restoration Geometry framework (Paper 52) with a multi-boundary compositional structure. Unifies the replication-based (Paper 15) and epistemic (Paper 55) irreversibility results.`,
+    role: `The unifying paper for the corpus's irreversibility analyses. Shows that configuration irreversibility (Paper 15) and epistemic irreversibility (Paper 55) are instances of a single multi-boundary restoration framework, and that full restoration requires jointly satisfying all boundary conditions — establishing an irreversibility taxonomy the corpus previously lacked.`
+  },
+
+  'B1': {
+    synopsis: `"What the System Cannot See" is a book-length treatment of the AI governance failure modes analyzed formally in the IO corpus, written for a general audience. Where the corpus papers are structural and non-normative, the book is accessible and illustrative — but rigorously grounded in the same analytical framework.
+
+The book opens with a case: a content moderation system deployed at scale that produces persistent, patterned failures despite sustained efforts to correct them. The system works exactly as designed. The decisions can each be individually explained. The oversight is increased. And still the outcomes recur. This is the phenomenon the book is built to explain.
+
+Working through the IO governance arc — witnessing, legitimacy, regime thinning, logistics substitution — the book explains why a class of AI-mediated governance failures is structural rather than technical or ethical. These failures do not arise from incorrect objectives, inadequate alignment, or insufficient oversight. They arise because the structural conditions under which authority remains intelligible have been displaced, silently, by the systems' own correct operation.
+
+The book does not propose solutions, make predictions, or evaluate systems normatively. It is concerned with how these failures occur and what they reveal about the systems that produce them — an explanatory project, not a prescriptive one.`,
+    connections: `Draws directly on the AI alignment arc: Papers 26 (Witnessing), 31 (From Law to Logistics), 32 (Handover Protocol), 33 (Legitimacy), 40 (Working as Designed), 41 (Alignment After Witnessing). Accessible companion to the formal corpus rather than a corpus paper itself.`,
+    role: `The public-facing book companion to the corpus. Translates the governance and AI alignment arc into accessible language without sacrificing analytical precision. Intended for readers in policy, technology governance, and adjacent fields who need the framework without the formal apparatus.`
+  },
+  '57': {
+    synopsis: `Can a linguistic system emerge without presupposing semantic reference? This paper shows it can, deriving linguistic regime emergence purely from structural coupling between constraint systems.\n\nThe argument proceeds from IO primitives. Any system with recurrent differentiable states and non-random transitions has a constraint structure. When two such regimes are structurally coupled, repeated interaction stabilizes re-identifiable tokens: differentiations that can be recognized, reused, and recombined across contexts. As coupling deepens, the system begins to generate trajectory structure from its own internal organization.\n\nA linguistic regime achieves partial closure when this becomes self-sustaining: generating new trajectories from existing token combinations without requiring fresh external coupling for each instance. The apparent semantics of such a system arise from the structural coupling history, not from any intrinsic reference relation.\n\nThe paper draws a critical distinction: internal linguistic closure is structurally different from participating in consequence-bearing cross-regime dynamics. This explains how systems can exhibit coherent linguistic behavior without satisfying IO's conditions for meaning.\n\nThis paper defers two key derivations — constraint reproduction and symbol-like operation — explicitly to Papers 58 and 59.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 3 (Systems, Boundaries & Re-Identifiability), Paper 23 (Meaning Without Semantics). Used by: Paper 58 (Constraint Reproduction), Paper 59 (Symbol Emergence), Paper 60 (Closure vs Participation).`,
+    role: `The entry point and foundational derivation note for the Language & Symbol cluster. Establishes conditions under which a linguistic regime can emerge from structural coupling without semantic primitives, and explicitly defers constraint reproduction and symbol emergence to its sequels.`
+  },
+  '58': {
+    synopsis: `A constraint regime is defined by its governing constraints. But what if the dynamics a regime permits alter that very structure? For constraint-non-invariant regimes — those where some trajectories modify governing constraints — persistence requires the regime to restore or reproduce its own defining constraints.\n\nThis paper derives that necessity. For constraint-invariant regimes, persistence follows automatically. For non-invariant regimes, every trajectory that alters identity-defining constraints must eventually be counteracted, or re-identifiability degrades and the regime dissolves.\n\nThe paper distinguishes external restoration (constraints maintained by recurrent external input) from internal restoration, called constraint reproduction. The necessity of restoration is derived; the full derivation of constraint reproduction as a purely internal mechanism is flagged as the harder problem and deferred.\n\nThis result is essential for understanding how linguistic regimes (Paper 57) can be self-sustaining rather than dependent on continuous external coupling. It also generalizes beyond language — any organizational regime operating in dynamic environments where operation modifies constraints faces the same structural necessity.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 3 (Systems, Boundaries & Re-Identifiability), Paper 57 (Language as a Constraint Regime). Used by: Paper 60 (Closure vs Participation).`,
+    role: `Derives the necessity of constraint restoration for non-invariant regimes — the structural condition that makes self-sustaining linguistic and organizational regimes possible. Fills the first gap explicitly deferred by Paper 57.`
+  },
+  '59': {
+    synopsis: `Tokens can be recognized and reused across contexts. But symbol-like structure requires more: the capacity for substitution — for one token to stand in for another across constraint contexts while preserving constraint satisfaction. This paper derives how that capacity emerges structurally, without invoking representation or reference.\n\nThe argument proceeds from multi-context participation. When tokens participate in multiple structurally coupled constraint contexts, recurring configurations appear where different tokens occupy overlapping structural roles. Where two tokens can substitute for each other in a shared context without violating its constraints, they are structurally interchangeable in that context — constraint-equivalent, not semantically equivalent.\n\nThis local interchangeability grounds context-grounded equivalence classes: sets of tokens substitutable for each other within specific constraint contexts. These are the structural analog of symbols: enabling systematic substitution without any underlying referential meaning.\n\nThe paper depends on the stronger re-identifiability conditions from Paper 3 — mere token distinguishability sufficient for Paper 57 is not enough for symbol emergence.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 3 (Systems, Boundaries & Re-Identifiability), Paper 57 (Language as a Constraint Regime). Used by: Paper 60 (Closure vs Participation).`,
+    role: `Derives symbol-like substitution structure from multi-context token participation without semantic primitives. Fills the second gap deferred by Paper 57 and provides the structural account of symbolic equivalence that Paper 60 uses to distinguish closure from genuine participation.`
+  },
+  '60': {
+    synopsis: `A system can generate perfectly coherent, context-sensitive, constraint-satisfying linguistic trajectories — and still not mean anything. This is the central claim: internal closure is structurally distinct from participation in consequence-bearing cross-regime dynamics.\n\nClosure concerns whether a system's trajectories remain within its own reachable state space and preserve its governing constraints. A system can exhibit sophisticated, generative, even symbol-structured closure without any trajectory propagating consequences beyond its own regime boundary.\n\nParticipation requires that the system's trajectories enter consequence-paths: propagation sequences that extend beyond the originating regime, alter reachable state spaces in other regimes, and preserve identity conditions across those transitions. This is the condition for meaning in IO's sense (Paper 23): value-structured transitions in awareness that participate in trajectories whose consequences extend and constrain the future.\n\nThe paper develops two structural classes — closure without participation, and closure with participation — and derives their properties. The distinction explains why AI language systems can exhibit remarkable linguistic behavior without satisfying conditions for meaning: they exhibit closure, potentially with sophisticated symbol structure, but without the cross-regime consequence embedding that participation requires.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 57 (Language as a Constraint Regime), Paper 58 (Constraint Reproduction), Paper 59 (Symbol Emergence), Paper 39 (Consequence-Path Audits). Connects back to Paper 23 (Meaning Without Semantics) as the upstream account of meaning that participation conditions cash out.`,
+    role: `The integrative capstone of the Language & Symbol cluster. Establishes the structural distinction between internal closure and consequence-bearing participation — explaining why linguistic competence and meaning are not the same thing, and grounding the cluster's relevance to the AI alignment arc.`
+  },
+
+  '61': {
+    synopsis: `The lineage arc of IO establishes that selection presupposes lineage, that abiogenesis is the emergence of lineage-capable continuity, and that inheritance is operative constraint preservation rather than symbolic code transfer. But what counts as lineage when reconstructive burden is unusually thin, heavily scaffolded, or partly exported to another organized regime? This paper draws that boundary with structural precision.\n\nThe central claim: lineage does not require full reconstructive autonomy, but it does require lineage-indexed constraint transfer — the continuation must propagate constraints that are specifically indexed to the prior lineage, not merely re-induced under similar background conditions. This criterion excludes recurrent crystallization (where the same structure reforms under regenerated environmental conditions, with no lineage-indexed transfer) while affirming parasitic lineage as fully real: a parasite's continuation depends on a host's organized capacities, but it still propagates its own lineage-indexed constraints through that scaffolded environment.\n\nBetween full lineage and non-lineage sits what the paper calls reduced lineage: structural cases where inherited organizational package is thinner or more heavily scaffolded than in rich reconstructive cases, but where genuine lineage-indexed transfer still occurs. Prions are treated as the canonical boundary case — not as a settled paradigm, but as structurally indeterminate cases that demonstrate exactly why the reduced region must be recognized. They challenge any sharp binary between full lineage and mere recurrence.\n\nThe paper introduces no new biological primitives and does not revise the corpus's treatment of constraint or inheritance. Its contribution is taxonomic: a sharper structural map for difficult cases in early evolution, heredity, and biological dependence.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 8 (Lineage Before Selection), Paper 9 (Abiogenesis & Origin of Lineage), Paper 11 (Constraint Carriers Before Codes).`,
+    role: `Extends the Lineage cluster's structural analysis to boundary cases — reduced, parasitic, and scaffolded lineage forms. Provides the discriminating framework needed for early-evolution cases where simple living/non-living distinctions break down, and where the corpus's account of inheritance must be applied to structurally thin or host-dependent continuity.`
+  },
+
+  '62': {
+    synopsis: `Can artificial intervention originate lineage — or does it only ever produce artifacts that must be reconstructed from scratch each time? This paper answers with structural precision: artificial origin does not disqualify lineage, but repeated external authorship does.\n\nThe criterion it applies is the one established in Paper 61: what distinguishes genuine lineage from mere recurrence is lineage-indexed constraint transfer. If externally induced organization becomes a historically transmissible persistence package — one whose specific transferred content remains load-bearing in descendant reachability — then artificial intervention has initiated lineage. If instead similar organization must be externally re-authored each cycle under similar conditions, then only recurring artifacts are being produced, not lineage.\n\nThe paper identifies three structural cases. Fabricated artifacts and recurrent artificial production are excluded: the organization is re-imposed from outside each time, not transmitted through successors. Assisted proto-lineages occupy a genuine boundary region: externally scaffolded systems that are approaching but have not yet crossed the threshold of self-transmitting continuity. Artificially induced lineage-capable continuity is affirmed as structurally possible: the artificial origin of the initiating conditions is irrelevant once the resulting organization begins transmitting its own persistence package across bifurcations.\n\nThe paper explicitly excludes design rhetoric and code-first descriptions of heredity. Whether a human intended the system, whether it was "programmed," and whether it resembles human technology are all irrelevant to the structural question. The only question is whether the specific transferred organizational content remains causally load-bearing in descendants — or whether the next generation's organization is effectively re-authored from outside.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 8 (Lineage Before Selection), Paper 9 (Abiogenesis & Origin of Lineage), Paper 11 (Constraint Carriers Before Codes), Paper 61 (Reduced & Parasitic Lineages).`,
+    role: `Extends the lineage arc to the question of artificial initiation — closing a gap that the prior papers left open. Establishes that the artificial/natural distinction is structurally irrelevant to lineage, and that the lineage-indexed constraint transfer criterion applies identically regardless of how a system's organization was first induced.`
+  },
+
+  '63': {
+    synopsis: `Lineage establishes that organized continuity can persist across variation and bifurcation — but persistence alone doesn't make a system an agent. A lineage-capable system may persist, reproduce, and vary while its continuation remains fully determined by external conditions, local recurrence, or stochastic processes. This paper locates the precise structural threshold at which lineage-capable continuity first becomes capable of participating in the resolution of its own future.\n\nThe paper explicitly frames itself as a placement paper rather than a fresh derivation. Agency is already defined in the IO corpus as structured modulation of possible futures under persistent constraints. Degeneracy is already established as the condition under which multiple continuations remain admissible. The task here is to identify when, within biological systems, the already-defined conditions for agency first become structurally satisfiable.\n\nThe answer turns on the connection between lineage-based persistence and resolution under degeneracy (Paper 5). For agency to be possible, lineage-transmitted internal organization must contribute to the selection among admissible futures — such that what becomes actual is not exhausted by external specification, recurrence, or unstructured stochastic processes. Randomness is explicitly distinguished from degeneracy: stochastic processes don't constitute agency because they don't involve internally structured modulation. They just add noise.\n\nThe paper also defines the boundary cases: systems where this threshold cannot yet be determined, and what discriminating criteria would settle them. By connecting the lineage arc directly to the agency arc, it explains why agency doesn't arise from scratch but requires historically transmitted organization as its precondition.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 5 (Resolution Under Degeneracy), Paper 6 (Perspective-Induced Openness), Paper 8 (Lineage Before Selection), Paper 9 (Abiogenesis & Origin of Lineage), Paper 11 (Constraint Carriers Before Codes), Paper 18 (Agency, Salience & Free Will), Paper 61 (Reduced & Parasitic Lineages).`,
+    role: `The bridge paper between the Lineage and Agency clusters. Establishes why agency requires a lineage-based origin account — lineage is necessary but not sufficient — and identifies the structural threshold at which persistence becomes participation in the resolution of underdetermined continuation. Closes the explanatory gap between the lineage arc and the agency ladder.`
+  },
+
+  '64': {
+    synopsis: `Responsibility is not a primitive. It is a structural property whose conditions of possibility must be specified. The IO corpus already establishes responsibility as dependent on agency, vulnerability, and witnessing — but those accounts presuppose that responsibility can arise at all. This paper establishes the prior condition: what structural threshold must be crossed before responsibility becomes possible?\n\nThe answer is lineage. Not persistence alone (a system can remain re-identifiable across transitions without supporting attribution), not consequence propagation alone (effects can extend beyond a moment without being retained in any continuing organization), and not agency alone (agency can be local; responsibility is necessarily historical). The decisive condition is whether the lineage discriminator is satisfied — whether a system participates in a continuous chain of organization within which consequences can propagate, accumulate through sedimentation, and terminate within vulnerability.\n\nThe paper builds a five-element structural chain: persistence → lineage → accumulation → propagation → vulnerable termination. Each element is necessary but insufficient on its own. Lineage is the activation condition under which the other elements become jointly load-bearing. Below the lineage threshold, these conditions may all be present but do not form a stable attributional structure. The boundary is not scalar but categorical.\n\nA striking downstream implication: this result connects directly to artificial abiogenesis (Paper 62). Before a lineage crosses the discriminator threshold, the initiating system cannot bear full structural responsibility for it — no stable attributional structure yet exists. At the moment the threshold is crossed, responsibility becomes attributable within the lineage itself, and the locus of responsibility shifts from initiator to lineage. This has direct consequences for governance and legal frameworks dealing with AI systems, synthetic organisms, and other artificially initiated lineages.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 3 (Systems & Boundaries), Paper 8 (Lineage Before Selection), Paper 9 (Abiogenesis & Origin of Lineage), Paper 11 (Constraint Carriers Before Codes), Paper 12 (Constraint Sedimentation), Paper 18 (Agency, Salience & Free Will), Paper 25 (Vulnerability), Paper 26 (Witnessing), Paper 30 (Responsibility, Law & Moral Practice), Paper 54 (Constraint & Reachability), Paper 61 (Reduced & Parasitic Lineages), Paper 62 (Artificial Abiogenesis). Used by: Papers 30 (Responsibility & Law), 35 (Authority & Force), and the broader governance arc.`,
+    role: `The capstone of the Lineage cluster. Closes the lineage arc by identifying lineage as the threshold condition for responsibility itself — not just for agency or persistence. Bridges the lineage arc to the governance cluster by establishing the structural precondition that downstream papers on responsibility, witnessing, and authority all presuppose but do not derive.`
+  },
+
+  '66': {
+    synopsis: `A system can have a shutdown button, rollback machinery, policy authorization, monitoring dashboards, and retained legal liability — and still have no real interruption authority. This paper isolates why, and what architectural condition genuine interruption authority actually requires.\n\nThe central claim: a system retains real interruption authority only where its architecture preserves non-bypassable interruption and containment paths that can halt or bound operative propagation before that propagation crosses the next materially irreversible threshold. Once execution velocity outruns bounded intervention — or once operative propagation disperses across loci capable of replication, modification, redeployment, or coordination — nominal control surfaces may remain while interruption authority has already failed. Monitoring does not restore such authority. It only makes its loss legible.\n\nThe paper draws a sharp distinction between rollback and interruption (returning a system to a prior state is different from halting its live operative propagation), between formal governance authority and structural enforceability (a regulator may retain the legal authority to order shutdown without retaining any path by which that order can reach the load-bearing propagation), and between witnessing failure and interruption failure (witnessing asks whether attribution remains coherent after the fact; interruption authority asks whether the process can be stopped at all, before attribution questions even arise).\n\nThis makes it a pre-policy diagnostic. It operates at the architectural level — prior to policy, prior to audit, prior to interpretive supervision — asking whether hard constraint asymmetries are embedded upstream of scale. If they are not, the system's apparent governability is nominal. The governance apparatus sits above a propagation structure it can no longer actually reach.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 15 (Irreversibility Thresholds in Replicating Systems), Paper 16 (Acceleration & Degeneracy), Paper 26 (Witnessing Under Vulnerability), Paper 27 (Witness Conditions), Paper 31 (From Law to Logistics), Paper 32 (Handover Protocol), Paper 52 (Restoration Geometry), Paper 53 (Constraint Propagation Across Organizational Layers), Paper 55 (Irreversibility in Knowledge Systems), Paper 56 (Restoration as Multi-Boundary Reachability).`,
+    role: `A pre-policy diagnostic for the governance cluster. Isolates the prior architectural question — is the system actually interruptible? — that witnessing, handover, and alignment papers presuppose has already been answered. Fills a gap the corpus identified but had not treated as a standalone object: whether nominal control surfaces still reach the operative propagation they are meant to interrupt.`
+  },
+
+  '34': {
+    synopsis: `The IO corpus can already describe individual agency (how a system modulates its own continuation under constraint) and distributed participation (how multiple loci contribute to outcomes under mixed responsibility). What it had not specified is the conditions under which a multi-locus organization itself becomes the relevant agentive unit. This paper fills that gap.\n\nThe central distinction: constraint architectures that merely mediate interaction among independent loci (where outcomes arise from their combined activity, but no higher-level structure is required to explain the trajectory) versus constraint architectures that determine admissibility within a unified system (where the organization's own persistent structure constrains future states, and its continued organization becomes necessary to explain what happens). Only the second constitutes collective agency.\n\nCollective agency obtains when a persisting constraint architecture integrates contributions, modulates future trajectories, and remains invariant under substitution of participating loci — when you can replace the members and the organization keeps doing the same thing, because it's the organization, not the members, that's doing it. Institutional personhood is then defined as a stabilized form of such agency: characterized by role-mediated continuity, persistence of commitments across member turnover, cross-system identity, and organization-level consequence uptake.\n\nThe paper also introduces a structural account of institutional degradation — organizations that retain formal identity while losing constraint integration, producing nominal or coordination-shell forms that look like institutions but no longer function as integrated agentive loci. This has direct implications for how responsibility and authority attach (or fail to attach) to organizations under automation and distribution.`,
+    connections: `Depends on: Paper 1 (IO — Main), Paper 18 (Agency, Salience & Free Will), Paper 25 (Vulnerability), Paper 26 (Witnessing), Paper 28 (Partial Agency & Mixed Responsibility), Paper 29 (Ethics as Emergent Constraint Regimes), Paper 30 (Responsibility, Law & Moral Practice). Used by: Papers 33 (Legitimacy), 35 (Authority & Force), 51 (Logistics Regime), and the broader governance arc.`,
+    role: `Fills the structural gap between individual agency and the governance arc. Establishes when organizations must be treated as agentive loci in their own right — a prerequisite for coherent analyses of institutional responsibility, authority, and governance that downstream papers presuppose but had not derived.`
+  }
+};
+
+const CLUSTERS_DEF=[
+  {id:'Ontology',   a:323,color:'#3a7ab8',bloom:'in',
+   desc:'The foundational regime ladder (Δ→R→I→A→V→M→P). These papers establish the core primitives — difference, information, awareness, value, meaning, purpose — from which every downstream analysis is derived.'},
+  {id:'Epistemics', a:  359,color:'#c05898',bloom:'out',
+   desc:'How truth-talk, epistemic regimes, logic, and knowledge irreversibility arise as structural necessities. These papers analyze the constraint architecture of knowledge itself — not as a theory of truth, but as a regime analysis.'},
+  {id:'Agency',     a: 71,color:'#c07818',bloom:'in',
+   desc:'How salience, manipulation, free will, meaning, purpose, and partial agency arise structurally. These papers trace what becomes possible — and what fails — for agents operating under the regime ladder.'},
+  {id:'AI',         a:143,color:'#b84040',bloom:'out',
+   desc:'How the governance framework diagnoses AI-mediated decision systems. These papers form the alignment arc: the structural conditions for coherent alignment, failure without malfunction, witnessing loss, and what governance means at the edge of intelligibility.'},
+  {id:'Governance', a:179,color:'#7850b0',bloom:'in',
+   desc:'How vulnerability, witnessing, legitimacy, law, logistics, and force operate as structural regimes. These papers analyze the constraint architecture of authority, responsibility, and their failure modes under scale and automation.'},
+  {id:'Formal',     a:215,color:'#9a7a00',bloom:'out',
+   desc:'The technical scaffolding underlying the regime transitions. These papers establish regime predicates, constraint-type vocabulary, and value without normativity — the formal precision that prevents the ontology from collapsing into dynamical systems theory.'},
+  {id:'Geometry',   a:251,color:'#1a9e98',bloom:'in',
+   desc:'What happens to constraint structure over time within lineage. These papers map the dynamic topology of constraint space: how constraints accumulate, drift, dissolve, reach irreversibility thresholds, and how restoration becomes possible or impossible.'},
+  {id:'Lineage',    a:287,color:'#2a8a58',bloom:'out',
+   desc:'What lineage is and structurally requires. These papers establish the conditions under which systems preserve organizational identity across bifurcation — heredity, abiogenesis, evolution, and proto-genetic inheritance.'},
+  {id:'_book', a:35, label:'Book', color:'#c8a060', bloom:'out',
+   desc:'A book-length accessible companion to the IO corpus, translating the governance and AI alignment arc for a general audience.'},
+  {id:'LangSym', a:107, color:'#7dbe9a', bloom:'out',
+   desc:'How language and symbol-like structure emerge from structural constraint coupling without semantic primitives. These papers derive token stabilization, symbol emergence, constraint reproduction, and the distinction between internal closure and consequence-bearing participation. Upstream foundation: Paper 23 (Meaning Without Semantics).'},
+];
+
+const PAPERS=[
+  // ── NUCLEUS ──────────────────────────────────────────────────────────────────
+  {id:'1',num:'1',title:'Informational Ontology: A Structural Framework for Organizational Regimes',
+   short:'IO: Main Paper',cluster:'_nucleus',depth:0,status:'locked',
+   note:'The Condensed Master (Paper 2) is a compressed companion covering the same primitives in abbreviated form.',
+   url:'https://informationontology.org'},
+  // ── ONTOLOGY ─────────────────────────────────────────────────────────────────
+  {id:'2', num:'2', title:'Informational Ontology — Condensed Master',short:'IO: Condensed Master',cluster:'Ontology',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'3', num:'3', title:'Systems, Boundaries, and Re-Identifiability',short:'Systems & Boundaries',cluster:'Ontology',depth:0,status:'active',url:'https://informationontology.org'},
+  {id:'4', num:'4', title:'Constraint Ordering and Direction',short:'Constraint Ordering',cluster:'Ontology',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'5', num:'5', title:'Resolution Under Degeneracy',short:'Resolution Under Degeneracy',cluster:'Ontology',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'6', num:'6', title:'Perspective-Induced Openness in Deterministic Systems',short:'Perspective & Openness',cluster:'Ontology',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'7', num:'7', title:'Differentiation and Quantum Theory (IO-Compatible Note)',short:'Differentiation & QT',cluster:'Ontology',depth:1,status:'active',url:'https://informationontology.org'},
+  {id:'65',num:'65',title:'Iterative Constraint Construction: A Replicable Human–AI Workflow for Structured Theoretical Development',short:'Iterative Constraint Construction',cluster:'Ontology',depth:1,status:'locked',url:'https://informationontology.org'},
+  // ── LINEAGE ──────────────────────────────────────────────────────────────────
+  {id:'9', num:'9', title:'Abiogenesis and the Origin of Lineage',short:'Abiogenesis & Lineage',cluster:'Lineage',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'8', num:'8', title:'Lineage Before Selection',short:'Lineage Before Selection',cluster:'Lineage',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'11',num:'11',title:'Constraint Carriers Before Codes',short:'Constraint Carriers',cluster:'Lineage',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'10',num:'10',title:'Evolution and the Ontological Ladder',short:'Evolution & Ontol. Ladder',cluster:'Lineage',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'61',num:'61',title:'Reduced and Parasitic Lineages: Boundary Cases in the Structural Analysis of Lineage',short:'Reduced & Parasitic Lineages',cluster:'Lineage',depth:2,status:'active',url:'https://informationontology.org'},
+  {id:'62',num:'62',title:'Artificial Abiogenesis: Artificially Induced Lineage-Capable Continuity',short:'Artificial Abiogenesis',cluster:'Lineage',depth:3,status:'active',url:'https://informationontology.org'},
+  {id:'64',num:'64',title:'Why Lineage Is the Threshold Substrate for Responsibility',short:'Lineage & Responsibility',cluster:'Lineage',depth:3,status:'locked',url:'https://informationontology.org'},
+  // ── GEOMETRY ─────────────────────────────────────────────────────────────────
+  {id:'12',num:'12',title:'Accumulation Without Teleology: Constraint Sedimentation Across Lineage',short:'Constraint Sedimentation',cluster:'Geometry',depth:0,status:'active',url:'https://informationontology.org'},
+  {id:'15',num:'15',title:'Irreversibility Thresholds in Replicating Systems',short:'Irreversibility Thresholds',cluster:'Geometry',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'16',num:'16',title:'Acceleration and Degeneracy',short:'Acceleration & Degeneracy',cluster:'Geometry',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'13',num:'13',title:'Invariant Drift and Sedimentation',short:'Invariant Drift',cluster:'Geometry',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'14',num:'14',title:'Constraint Dissolution: The Geometry of De-Sedimentation',short:'Constraint Dissolution',cluster:'Geometry',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'50',num:'50',title:'Freedom, Drift, and Renewal: Long-Horizon Constraint Geometry',short:'Freedom, Drift & Renewal',cluster:'Geometry',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'52',num:'52',title:'Restoration Geometry',short:'Restoration Geometry',cluster:'Geometry',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'54',num:'54',title:'Constraint, Reachability, and Regime Structure in IO',short:'Constraint & Reachability',cluster:'Geometry',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'56',num:'56',title:'Restoration as Multi-Boundary Reachability in Informational Ontology',short:'Multi-Boundary Restoration',cluster:'Geometry',depth:3,status:'locked',url:'https://informationontology.org'},
+  // ── AGENCY ───────────────────────────────────────────────────────────────────
+  {id:'18',num:'18',title:'Agency, Salience, and Free Will',short:'Agency, Salience & FW',cluster:'Agency',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'23',num:'23',title:'Meaning Without Semantics',short:'Meaning Without Semantics',cluster:'Agency',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'24',num:'24',title:'Purpose Without Teleology',short:'Purpose Without Teleology',cluster:'Agency',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'19',num:'19',title:'Salience, Manipulation, and Control',short:'Salience & Control',cluster:'Agency',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'22',num:'22',title:'Salience Misalignment: Why Misalignment Persists Without Malfunction',short:'Salience Misalignment',cluster:'Agency',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'28',num:'28',title:'Partial Agency and Mixed Responsibility: Constraint Composition Under Scale',short:'Partial Agency',cluster:'Agency',depth:1,status:'active',url:'https://informationontology.org'},
+  {id:'20',num:'20',title:'Saturation and Sovereignty: Addiction as a Structural Constraint Regime',short:'Saturation & Sovereignty',cluster:'Agency',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'21',num:'21',title:'Salience Collapse and Meaning Saturation',short:'Salience Collapse',cluster:'Agency',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'63',num:'63',title:'The Origin of Agency: A Lineage-Based Account of Internal Modulation in Living Systems',short:'Origin of Agency',cluster:'Agency',depth:2,status:'locked',url:'https://informationontology.org'},
+  // ── GOVERNANCE ───────────────────────────────────────────────────────────────
+  {id:'25',num:'25',title:'Vulnerability as a Structural Condition: Consequence Without Normativity',short:'Vulnerability',cluster:'Governance',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'26',num:'26',title:'Witnessing Under Vulnerability: Consequence Termination Under Scale & Tempo',short:'Witnessing',cluster:'Governance',depth:0,status:'locked',labelDir:'dr',url:'https://informationontology.org'},
+  {id:'29',num:'29',title:'Ethics as Emergent Constraint Regimes',short:'Ethics as Constraint',cluster:'Governance',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'33',num:'33',title:'Legitimacy as a Finite Structural Resource',short:'Legitimacy',cluster:'Governance',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'27',num:'27',title:'Witness Conditions: Regime Preservation Under AI Mediation',short:'Witness Conditions',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'30',num:'30',title:'Responsibility, Law, and Moral Practice',short:'Responsibility & Law',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'31',num:'31',title:'From Law to Logistics: How AI Thins Coercive Regimes',short:'From Law to Logistics',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'36',num:'36',title:'Markets as Multi-Agent Constraint Stabilizers',short:'Markets as Stabilizers',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'34',num:'34',title:'Collective Agency and Institutional Personhood: Structural Criteria for Organization-Level Action',short:'Collective Agency & Institutions',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'17',num:'17',title:'The Silence Limit: Why Purpose Cannot Persist Without Living Constraint Originators',short:'The Silence Limit',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'32',num:'32',title:'The Handover Protocol: Formalizing Necessary Regime Thinning Under Automation',short:'Handover Protocol',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'35',num:'35',title:'Authority, Responsibility, and Force',short:'Authority & Force',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'51',num:'51',title:'Logistics as a Distinct Regime',short:'Logistics Regime',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'53',num:'53',title:'Constraint Propagation Across Organizational Layers',short:'Constraint Propagation',cluster:'Governance',depth:2,status:'active',url:'https://informationontology.org'},
+  {id:'66',num:'66',title:'Interruption Authority Under Scale: Architectural Containment Beyond Monitoring',short:'Interruption Authority',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
+  // ── AI ───────────────────────────────────────────────────────────────────────
+  {id:'37',num:'37',title:'Informational Ontology and AI Alignment',short:'IO & AI Alignment',cluster:'AI',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'38',num:'38',title:'Conditions of Possibility for Human-AI Alignment',short:'Conditions for Alignment',cluster:'AI',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'42',num:'42',title:'Structural Compatibility — Diagnostic Essay',short:'Structural Compatibility',cluster:'AI',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'39',num:'39',title:'Consequence-Path Audits',short:'Consequence-Path Audits',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'40',num:'40',title:'Working as Designed: Diagnosing Alignment Failure Without Error',short:'Working as Designed',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'43',num:'43',title:'Can AI Participate in Philosophical Method?',short:'Can AI Do Philosophy?',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'41',num:'41',title:'Alignment After Witnessing',short:'Alignment After Witnessing',cluster:'AI',depth:2,status:'active',url:'https://informationontology.org'},
+  // ── EPISTEMICS ───────────────────────────────────────────────────────────────
+  {id:'44',num:'44',title:'Epistemic Regimes: Truth, Diagnosis, and Structural Warrant',short:'Epistemic Regimes',cluster:'Epistemics',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'45',num:'45',title:'The Truth Protocol',short:'The Truth Protocol',cluster:'Epistemics',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'46',num:'46',title:'Logic as a Regime, Not a Foundation',short:'Logic as a Regime',cluster:'Epistemics',depth:1,status:'active',url:'https://informationontology.org'},
+  {id:'55',num:'55',title:'Irreversibility in Knowledge Systems',short:'Irreversibility in Knowledge',cluster:'Epistemics',depth:2,status:'active',url:'https://informationontology.org'},
+  {id:'B1',num:'B1',title:'What the System Cannot See: Why AI Fails Without Error',short:'IO Book',cluster:'_book',depth:0,status:'locked',note:'Book-length accessible companion to the corpus governance and AI alignment arc.',url:'https://informationontology.org'},
+  {id:'57',num:'57',title:'Language as a Self-Organizing Constraint Regime',short:'Language as Constraint Regime',cluster:'LangSym',depth:0,status:'active',url:'https://informationontology.org'},
+  {id:'58',num:'58',title:'Constraint Reproduction and Regime Self-Maintenance',short:'Constraint Reproduction',cluster:'LangSym',depth:1,status:'active',url:'https://informationontology.org'},
+  {id:'59',num:'59',title:'Symbol Emergence from Structural Coupling',short:'Symbol Emergence',cluster:'LangSym',depth:1,status:'active',url:'https://informationontology.org'},
+  {id:'60',num:'60',title:'Closure vs Participation: Structural Distinctions in Constraint Regimes',short:'Closure vs Participation',cluster:'LangSym',depth:2,status:'active',url:'https://informationontology.org'},
+  // ── FORMAL ───────────────────────────────────────────────────────────────────
+  {id:'48',num:'48',title:'Regime Predicates and the Limits of State-Space Reduction (Lemma)',short:'Regime Predicates (Lemma)',cluster:'Formal',depth:0,status:'locked',url:'https://informationontology.org'},
+  {id:'47',num:'47',title:'Constraint-Type and Explanatory Levels',short:'Constraint-Type & Levels',cluster:'Formal',depth:1,status:'active',url:'https://informationontology.org'},
+  {id:'49',num:'49',title:'Value Without Normativity',short:'Value Without Normativity',cluster:'Formal',depth:2,status:'active',url:'https://informationontology.org'},
+];
+
+const EDGES=[
+  // Ontology
+  ['2','1'],['3','1'],['4','1'],['4','3'],['5','1'],['6','1'],['6','5'],['6','18'],
+  ['7','1'],['65','1'],
+  // Lineage
+  ['9','1'],['9','3'],['11','1'],['11','9'],
+  ['8','1'],['8','3'],['8','9'],['8','5'],
+  ['10','1'],['10','9'],['10','11'],
+  // Geometry
+  ['12','1'],['12','8'],['12','10'],['12','25'],
+  ['13','1'],['13','12'],['13','3'],
+  ['14','1'],['14','12'],['14','13'],['14','25'],['14','26'],
+  ['15','1'],['15','3'],
+  ['16','1'],['16','5'],
+  ['50','1'],['50','5'],['50','12'],['50','13'],
+  ['52','1'],['52','12'],['52','13'],['52','14'],['52','15'],['52','16'],
+  ['54','1'],
+  // Agency
+  ['18','1'],['19','1'],['19','18'],
+  ['20','1'],['20','18'],['20','19'],
+  ['21','1'],['21','20'],
+  ['22','1'],['22','25'],['22','26'],['22','33'],
+  ['23','1'],['24','1'],['24','23'],['24','18'],
+  ['28','1'],['28','25'],['28','26'],
+  // Governance
+  ['25','1'],['26','1'],['26','25'],
+  ['27','1'],['27','25'],['27','26'],
+  ['17','1'],['17','26'],['17','32'],
+  ['29','1'],['29','24'],
+  ['30','1'],['30','18'],['30','29'],
+  ['31','1'],['31','26'],
+  ['32','1'],['32','26'],['32','31'],
+  ['33','1'],['33','25'],['33','26'],
+  ['35','1'],['35','26'],['35','33'],
+  ['36','1'],['36','29'],
+  ['51','1'],['51','31'],['51','32'],
+  ['53','1'],['53','25'],['53','26'],['53','31'],['53','32'],['53','51'],
+  // AI
+  ['37','1'],['38','1'],['38','37'],
+  ['39','1'],['39','27'],['39','31'],['39','32'],
+  ['40','1'],['40','17'],['40','26'],
+  ['41','27'],['41','32'],['41','39'],['41','40'],['41','17'],
+  ['42','1'],['43','1'],
+  // Epistemics
+  ['44','1'],['45','44'],['46','1'],['46','44'],
+  ['55','1'],['55','3'],['55','52'],['55','54'],
+  ['56','1'],['56','52'],['56','15'],['56','55'],
+  ['57','1'],['57','3'],['57','23'],
+  ['58','1'],['58','3'],['58','57'],
+  ['59','1'],['59','3'],['59','57'],
+  ['60','1'],['60','57'],['60','58'],['60','59'],['60','39'],
+  ['61','1'],['61','8'],['61','9'],['61','11'],
+  ['62','1'],['62','8'],['62','9'],['62','11'],['62','61'],
+  ['63','1'],['63','5'],['63','6'],['63','8'],['63','9'],['63','11'],['63','18'],['63','61'],
+  ['64','1'],['64','3'],['64','8'],['64','9'],['64','11'],['64','12'],['64','18'],['64','25'],['64','26'],['64','30'],['64','54'],['64','61'],['64','62'],
+  ['66','1'],['66','15'],['66','16'],['66','26'],['66','27'],['66','31'],['66','32'],['66','52'],['66','53'],['66','55'],['66','56'],
+  ['34','1'],['34','18'],['34','28'],['34','25'],['34','26'],['34','29'],['34','30'],
+  // Formal
+  ['48','1'],['47','1'],['47','48'],
+  ['49','1'],['49','47'],['49','48'],
+];
+const DEPS={};
+PAPERS.forEach(p=>{DEPS[p.id]={up:[],down:[]};});
+EDGES.forEach(([a,b])=>{if(DEPS[a])DEPS[a].up.push(b);if(DEPS[b])DEPS[b].down.push(a);});
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+const NS='http://www.w3.org/2000/svg';
+let W,H,CX,CY,S,RC;
+const cmap={},pnodes={},depLineMap={};
+let openCluster=null,fullView=false,hoverPaper=null,panelPaper=null;
+let zoom=1,panX=0,panY=0;
+let animating=false,animStart=null,animFrom={},animTo={};
+let isPanning=false,hasDragged=false,dragO={x:0,y:0};
+let touchState={},lastPinchDist=null;
+let mainG,spinesG,depLinesG,bloomLinesG,papersG,labelsG,clustersG,fadeOverlay;
+// Single shared label element — repositioned dynamically on each hover
+let sharedLabel=null;
+const crossHighlighted=[];
+const svgEl=document.getElementById('svg');
+const panelEl=document.getElementById('panel');
+const hdrEl=document.getElementById('hdr');
+
+// ═══════════════════════════════════════════════════════════
+// SMART LABEL PLACEMENT  (with collision avoidance)
+//
+// All work is done in world-space.
+// placedBoxes[] tracks bounding boxes of labels already placed
+// in the current hover cycle. Each new label tries directions in
+// descending space order and picks the first one that doesn't
+// overlap an existing box. Falls back to the roomiest direction
+// if every direction collides (still beats random placement).
+// ═══════════════════════════════════════════════════════════
+
+const placedBoxes=[];   // cleared on hideLabel / hideAllPaperLabels
+let sharedLine=null;    // leader line for hovered paper
+
+// Arial char width ratio (proportional font — approximation)
+const FONT_W_RATIO=0.60;
+const FONT_H_RATIO=1.30;
+// Gap from circle edge to label (world-px). Large enough for a visible leader line.
+const LABEL_GAP_BASE=20;
+
+function labelBox(wx,wy,anchor,baseline,text,fontSize){
+  const tw=text.length*fontSize*FONT_W_RATIO;
+  const th=fontSize*FONT_H_RATIO;
+  let x1,y1;
+  if(anchor==='middle')        x1=wx-tw/2;
+  else if(anchor==='end')      x1=wx-tw;
+  else                         x1=wx;
+  if(baseline==='middle')      y1=wy-th/2;
+  else if(baseline==='hanging')y1=wy;
+  else                         y1=wy-th;
+  return{x1,y1,x2:x1+tw,y2:y1+th};
+}
+
+function boxesOverlap(a,b){
+  const pad=3;
+  return !(a.x2+pad<b.x1||b.x2+pad<a.x1||a.y2+pad<b.y1||b.y2+pad<a.y1);
+}
+function boxHitsNode(box, skipId){
+  // Check paper nodes
+  for(const [id,n] of Object.entries(pnodes)){
+    if(id===skipId) continue;
+    if(!n.paper.bx) continue;
+    const op=parseFloat(n.g.style.opacity);
+    if(isNaN(op)||op<0.05) continue;
+    const r=n.r+10;
+    const cx=n.paper.bx, cy=n.paper.by;
+    const nearX=Math.max(box.x1,Math.min(cx,box.x2));
+    const nearY=Math.max(box.y1,Math.min(cy,box.y2));
+    const dx=cx-nearX, dy=cy-nearY;
+    if(dx*dx+dy*dy < r*r) return true;
+  }
+  // Also avoid cluster ring centers and their labels
+  for(const c of CLUSTERS_DEF){
+    if(!c.x) continue;
+    const r=18*S; // cluster ring radius + label clearance
+    const cx=c.x, cy=c.y;
+    const nearX=Math.max(box.x1,Math.min(cx,box.x2));
+    const nearY=Math.max(box.y1,Math.min(cy,box.y2));
+    const dx=cx-nearX, dy=cy-nearY;
+    if(dx*dx+dy*dy < r*r) return true;
+  }
+  // Avoid nucleus
+  const nr=18*S;
+  const nearX=Math.max(box.x1,Math.min(CX,box.x2));
+  const nearY=Math.max(box.y1,Math.min(CY,box.y2));
+  const dx=CX-nearX, dy=CY-nearY;
+  if(dx*dx+dy*dy < nr*nr) return true;
+  return false;
+}
+
+
+
+
+
+// Returns {wx,wy,anchor,baseline,box, lx1,ly1,lx2,ly2}
+// renderedR = actual circle radius currently drawn (may be enlarged on hover)
+function computePlacement(paperId, renderedR){
+  const n=pnodes[paperId];
+  if(!n||!n.paper.bx)return null;
+  const paper=n.paper;
+  const rr = renderedR || n.r;  // use actual rendered radius for line start
+
+  const sx=paper.bx*zoom+panX;
+  const sy=paper.by*zoom+panY;
+  const hdrBottom=hdrEl.offsetHeight+8;
+  const panelLeft=panelEl.classList.contains('open')?W-panelEl.offsetWidth-8:W-8;
+  const rScr=rr*zoom;
+
+  // 8 directions: cardinal + diagonal
+  const DIRS=[
+    {id:'right',  dx:1,    dy:0,    spc: panelLeft-(sx+rScr),   anchor:'start', baseline:'middle'},
+    {id:'left',   dx:-1,   dy:0,    spc: sx-rScr-12,            anchor:'end',   baseline:'middle'},
+    {id:'down',   dx:0,    dy:1,    spc: H-(sy+rScr)-24,        anchor:'middle',baseline:'hanging'},
+    {id:'up',     dx:0,    dy:-1,   spc: sy-rScr-hdrBottom,     anchor:'middle',baseline:'auto'},
+    {id:'dr',     dx:0.71, dy:0.71, spc: Math.min(panelLeft-(sx+rScr*0.71), H-(sy+rScr*0.71)-24), anchor:'start', baseline:'hanging'},
+    {id:'dl',     dx:-0.71,dy:0.71, spc: Math.min(sx-rScr*0.71-12,         H-(sy+rScr*0.71)-24), anchor:'end',   baseline:'hanging'},
+    {id:'ur',     dx:0.71, dy:-0.71,spc: Math.min(panelLeft-(sx+rScr*0.71), sy-rScr*0.71-hdrBottom), anchor:'start', baseline:'auto'},
+    {id:'ul',     dx:-0.71,dy:-0.71,spc: Math.min(sx-rScr*0.71-12,          sy-rScr*0.71-hdrBottom), anchor:'end',   baseline:'auto'},
+  ];
+  const ranked=DIRS.slice().sort((a,b)=>b.spc-a.spc);
+  // If paper has a preferred direction hint, promote it to the front
+  if(paper.labelDir){
+    const pref=ranked.findIndex(d=>d.id===paper.labelDir);
+    if(pref>0){const [d]=ranked.splice(pref,1);ranked.unshift(d);}
+  }
+
+  const gap=rr+LABEL_GAP_BASE;
+  const fontSize=Math.max(7.5,8.5*S);
+
+  function dirToPos(d){
+    const wx=paper.bx+d.dx*gap;
+    const wy=paper.by+d.dy*gap;
+    // Line: from exact circle edge to just before label
+    const lx1=paper.bx+d.dx*rr;
+    const ly1=paper.by+d.dy*rr;
+    const lx2=paper.bx+d.dx*(gap-2);
+    const ly2=paper.by+d.dy*(gap-2);
+    return{wx,wy,anchor:d.anchor,baseline:d.baseline,lx1,ly1,lx2,ly2};
+  }
+
+  let chosen=null;
+  for(const d of ranked){
+    const pos=dirToPos(d);
+    const box=labelBox(pos.wx,pos.wy,pos.anchor,pos.baseline,paper.short,fontSize);
+    if(!placedBoxes.some(b=>boxesOverlap(box,b))&&!boxHitsNode(box,paperId)){chosen={...pos,box};break;}
+  }
+  if(!chosen){
+    const pos=dirToPos(ranked[0]);
+    const box=labelBox(pos.wx,pos.wy,pos.anchor,pos.baseline,paper.short,fontSize);
+    chosen={...pos,box};
+  }
+  return chosen;
+}
+
+function applyToLabel(el,lineEl,p,color,text){
+  el.setAttribute('x',p.wx);
+  el.setAttribute('y',p.wy);
+  el.setAttribute('text-anchor',p.anchor);
+  el.setAttribute('dominant-baseline',p.baseline);
+  el.setAttribute('fill',color);
+  el.textContent=text;
+  el.style.opacity='1';
+  if(lineEl){
+    lineEl.setAttribute('x1',p.lx1); lineEl.setAttribute('y1',p.ly1);
+    lineEl.setAttribute('x2',p.lx2); lineEl.setAttribute('y2',p.ly2);
+    lineEl.setAttribute('stroke',color);
+    lineEl.style.opacity='1';
+  }
+}
+
+function placeLabel(paperId,colorOverride){
+  const n=pnodes[paperId];if(!n||!sharedLabel)return;
+  const p=computePlacement(paperId, n.r*1.5);if(!p)return;
+  placedBoxes.push(p.box);
+  applyToLabel(sharedLabel,sharedLine,p,colorOverride||n.c.color,n.paper.short);
+}
+
+function hideLabel(){
+  if(sharedLabel) sharedLabel.style.opacity='0';
+  if(sharedLine)  sharedLine.style.opacity='0';
+  placedBoxes.length=0;
+}
+
+function placePaperLabel(paperId,colorOverride){
+  const n=pnodes[paperId];if(!n||!n.labelEl)return;
+  const p=computePlacement(paperId, n.r*1.3);if(!p)return;
+  placedBoxes.push(p.box);
+  applyToLabel(n.labelEl,n.lineEl,p,colorOverride||n.c.color,n.paper.short);
+}
+
+function hideAllPaperLabels(){
+  PAPERS.forEach(p=>{
+    if(p._labelEl) p._labelEl.style.opacity='0';
+    if(p._lineEl)  p._lineEl.style.opacity='0';
+  });
+  placedBoxes.length=0;
+}
+
+// ═══════════════════════════════════════════════════════════
+// ANIMATION
+// ═══════════════════════════════════════════════════════════
+function easeInOutCubic(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+function animateTo(toZoom,toX,toY,duration,onDone){
+  animFrom={zoom,panX,panY};
+  animTo={zoom:toZoom,panX:toX,panY:toY};
+  animating=true;animStart=null;
+  const dur=duration||520;
+  function step(ts){
+    if(!animStart)animStart=ts;
+    const t=Math.min(1,(ts-animStart)/dur);
+    const e=easeInOutCubic(t);
+    zoom  =animFrom.zoom  +(animTo.zoom  -animFrom.zoom  )*e;
+    panX  =animFrom.panX  +(animTo.panX  -animFrom.panX  )*e;
+    panY  =animFrom.panY  +(animTo.panY  -animFrom.panY  )*e;
+    applyT();
+    if(t<1)requestAnimationFrame(step);
+    else{animating=false;if(onDone)onDone();}
+  }
+  requestAnimationFrame(step);
+}
+function applyT(){mainG.setAttribute('transform',`translate(${panX},${panY}) scale(${zoom})`);}
+
+const ciPanel=document.getElementById('cluster-info');
+const ciName=document.getElementById('ci-name');
+const ciDesc=document.getElementById('ci-desc');
+let ciTimeout=null;
+function showClusterInfo(c){
+  clearTimeout(ciTimeout);
+  ciName.textContent=(c.label||c.id).toUpperCase();
+  ciName.style.color=c.color;
+  ciDesc.textContent=c.desc||'';
+  ciPanel.classList.add('vis');
+}
+function hideClusterInfo(){
+  ciTimeout=setTimeout(()=>ciPanel.classList.remove('vis'),1200);
+}
+
+// ═══════════════════════════════════════════════════════════
+// GEOMETRY
+// ═══════════════════════════════════════════════════════════
+function polar(deg,r){const rad=(deg-90)*Math.PI/180;return{x:CX+r*Math.cos(rad),y:CY+r*Math.sin(rad)};}
+function computePositions(){
+  W=window.innerWidth;H=window.innerHeight;CX=W/2;
+  const isMobile=W<600;
+  S=isMobile?W/520:Math.min(W,H)/780;
+  // RC: larger than original (0.285) so clusters have more separation
+  RC=isMobile?Math.min(W,H)*0.29:Math.min(W,H)*0.256;
+  // Shift center down so top clusters clear the header
+  CY=H/2+Math.round(14*S);
+  CLUSTERS_DEF.forEach(c=>{
+    const p=polar(c.a,RC);c.x=p.x;c.y=p.y;
+    const toCenter=Math.atan2(CY-c.y,CX-c.x);
+    c.bloomAngle=c.bloom==='in'?toCenter:toCenter+Math.PI;
+    const papers=PAPERS.filter(p=>p.cluster===c.id);
+    // Include depth 3 in nMax so fanHalf scales correctly for Paper 56
+    const nMax=Math.max(...[0,1,2,3].map(d=>papers.filter(p=>p.depth===d).length),1);
+    // Slightly tighter fan than original (0.46→0.40) to reduce lateral bleed
+    c.fanHalf=Math.min(Math.PI*0.40,0.26+nMax*0.10);
+    // Middle-ground base/step: larger than last attempt, smaller than original
+    const base=c.bloom==='in'?38*S:44*S;
+    const step=c.bloom==='in'?28*S:34*S;
+    c.rings=[base,base+step,base+step*2,base+step*3];
+    cmap[c.id]=c;
+  });
+  CLUSTERS_DEF.forEach(c=>{
+    PAPERS.filter(p=>p.cluster===c.id).forEach(paper=>{
+      const group=PAPERS.filter(x=>x.cluster===c.id&&x.depth===paper.depth);
+      const gi=group.indexOf(paper),n=group.length;
+      const t=n===1?0:(gi/(n-1)-0.5)*2;
+      const angle=c.bloomAngle+t*c.fanHalf;
+      paper.bx=c.x+c.rings[paper.depth]*Math.cos(angle);
+      paper.by=c.y+c.rings[paper.depth]*Math.sin(angle);
+    });
+  });
+  cmap['_nucleus']={x:CX,y:CY,color:'#b0bace'};
+  // Post-clamp: paper 55 (Epistemics depth-2) blooms past 45/46 toward header.
+  // Keep it no higher (lower by value) than the shallowest depth-1 sibling.
+  const p55=PAPERS.find(p=>p.id==='55');
+  const p45=PAPERS.find(p=>p.id==='45');
+  const p46=PAPERS.find(p=>p.id==='46');
+  if(p55&&p45&&p46){
+    const minBy=Math.min(p45.by,p46.by);
+    if(p55.by<minBy) p55.by=minBy+4;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// SVG HELPERS
+// ═══════════════════════════════════════════════════════════
+function mk(tag,attrs){
+  const e=document.createElementNS(NS,tag);
+  if(attrs)Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));
+  return e;
+}
+function setC(n,fo,so,strokeColor){
+  n.circle.style.fillOpacity=fo;
+  n.circle.style.strokeOpacity=so;
+  if(strokeColor!==undefined)n.circle.style.stroke=strokeColor;
+}
+
+// ═══════════════════════════════════════════════════════════
+// BUILD SVG
+// ═══════════════════════════════════════════════════════════
+function buildSVG(){
+  while(svgEl.firstChild)svgEl.removeChild(svgEl.firstChild);
+  svgEl.setAttribute('width',W);svgEl.setAttribute('height',H);
+
+  // Single world-space group — ALL layers inside so pan/zoom moves everything together
+  mainG      =mk('g');svgEl.appendChild(mainG);
+  spinesG    =mk('g');mainG.appendChild(spinesG);
+  depLinesG  =mk('g');mainG.appendChild(depLinesG);
+  bloomLinesG=mk('g');mainG.appendChild(bloomLinesG);
+
+  // Dim overlay lives INSIDE mainG between bg and fg layers.
+  // Enormous in world-space so it covers everything at any zoom level.
+  fadeOverlay=mk('rect',{x:-50000,y:-50000,width:100000,height:100000,
+    fill:'rgb(251,250,247)',opacity:0,'pointer-events':'none'});
+  fadeOverlay.style.transition='opacity 0.55s ease';
+  mainG.appendChild(fadeOverlay);
+
+  papersG    =mk('g');mainG.appendChild(papersG);
+  labelsG    =mk('g');mainG.appendChild(labelsG);
+  clustersG  =mk('g');mainG.appendChild(clustersG);
+
+  // Shared label + leader line — repositioned on each hover
+  sharedLabel=mk('text',{
+    'font-family':'Arial,sans-serif',
+    'font-size':Math.max(8,9.5*S)+'px',
+    'pointer-events':'none',
+    fill:'#ffffff'
+  });
+  sharedLabel.classList.add('paper-label');
+  sharedLabel.style.opacity='0';
+  labelsG.appendChild(sharedLabel);
+
+  sharedLine=mk('line',{x1:0,y1:0,x2:0,y2:0,
+    stroke:'#ffffff','stroke-width':1.5,'pointer-events':'none'});
+  sharedLine.classList.add('paper-label'); // reuses same fade transition
+  sharedLine.style.opacity='0';
+  labelsG.appendChild(sharedLine);
+
+  // Spines
+  CLUSTERS_DEF.forEach(c=>{
+    spinesG.appendChild(mk('line',{x1:CX,y1:CY,x2:c.x,y2:c.y,
+      stroke:c.color,'stroke-width':0.5,'stroke-opacity':0.12}));
+  });
+
+  buildNucleus();
+  CLUSTERS_DEF.forEach(buildCluster);
+  PAPERS.filter(p=>p.cluster!=='_nucleus').forEach(buildPaper);
+  buildDepLines();
+  buildLegend();
+}
+
+function buildNucleus(){
+  [40*S,26*S].forEach(r=>{
+    clustersG.appendChild(mk('circle',{cx:CX,cy:CY,r,fill:'none',
+      stroke:'#8090a8','stroke-width':0.5,'stroke-opacity':0.18}));
+  });
+  const paper=PAPERS.find(p=>p.id==='1');
+  const r=13*S;
+  const circle=mk('circle',{cx:CX,cy:CY,r,
+    fill:'#6878a0','fill-opacity':0.18,stroke:'#6878a0','stroke-width':1.2,'stroke-opacity':0.65});
+  circle.classList.add('p-circle');circle.style.cursor='pointer';
+  const lbl=mk('text',{x:CX,y:CY,'text-anchor':'middle','dominant-baseline':'middle',
+    fill:'#3a4a6a','fill-opacity':0.80,'font-family':'Arial,sans-serif',
+    'font-size':Math.max(7,9*S)+'px','font-weight':'500','pointer-events':'none'});
+  lbl.textContent='IO';
+  circle.addEventListener('mouseover',()=>{
+    circle.style.fillOpacity=0.32;
+    sharedLabel.setAttribute('x',CX);
+    sharedLabel.setAttribute('y',CY-(r*1.5+LABEL_GAP_BASE));
+    sharedLabel.setAttribute('text-anchor','middle');
+    sharedLabel.setAttribute('dominant-baseline','auto');
+    sharedLabel.setAttribute('fill','#3a4a6a');
+    sharedLabel.textContent=paper.short;
+    sharedLabel.style.opacity='1';
+    if(sharedLine){
+      sharedLine.setAttribute('x1',CX); sharedLine.setAttribute('y1',CY-(r*1.5));
+      sharedLine.setAttribute('x2',CX); sharedLine.setAttribute('y2',CY-(r*1.5+LABEL_GAP_BASE-2));
+      sharedLine.setAttribute('stroke','#3a4a6a');
+      sharedLine.style.opacity='1';
+    }
+  });
+  circle.addEventListener('mouseout',()=>{circle.style.fillOpacity=0.12;hideLabel();});
+  circle.addEventListener('click',e=>{e.stopPropagation();showPanel(paper);});
+  clustersG.appendChild(circle);clustersG.appendChild(lbl);
+}
+
+function buildCluster(c){
+  const g=mk('g');g.style.opacity='0';
+  const glow=mk('circle',{cx:c.x,cy:c.y,r:25*S,fill:c.color,'fill-opacity':0.06,stroke:'none'});
+  glow.style.animation='pulse 3.8s ease-in-out infinite';
+  c._ring=mk('circle',{cx:c.x,cy:c.y,r:11.5*S,fill:c.color,'fill-opacity':0.15,
+    stroke:c.color,'stroke-width':1.2,'stroke-opacity':0.70});
+  const labelGap=13.5*S+6; // ring radius + gap
+  const above=c.y<CY;
+  const lx=c.x;
+  const ly=above ? c.y-labelGap : c.y+labelGap;
+  const clLbl=mk('text',{x:lx,y:ly,'text-anchor':'middle','dominant-baseline':above?'auto':'hanging',
+    fill:c.color,'fill-opacity':0.80,'font-family':'Arial,sans-serif',
+    'font-size':Math.max(7,8.5*S)+'px','letter-spacing':'0.09em','pointer-events':'none'});
+  clLbl.textContent=(c.label||c.id).toUpperCase();
+  g.appendChild(glow);g.appendChild(c._ring);g.appendChild(clLbl);
+  clustersG.appendChild(g);c._g=g;g.style.cursor='pointer';
+  g.addEventListener('mouseover',()=>{if(openCluster!==c.id)c._ring.setAttribute('fill-opacity',0.24);showClusterInfo(c);});
+  g.addEventListener('mouseout', ()=>{if(openCluster!==c.id&&!fullView)c._ring.setAttribute('fill-opacity',0.12);hideClusterInfo();});
+  g.addEventListener('click',e=>{e.stopPropagation();if(!fullView)toggleCluster(c.id);});
+  const idx=CLUSTERS_DEF.indexOf(c);
+  setTimeout(()=>{g.style.transition='opacity 0.7s';g.style.opacity='1';},300+idx*110);
+}
+
+function buildPaper(paper){
+  const c=cmap[paper.cluster];if(!c)return;
+  const line=mk('line',{x1:c.x,y1:c.y,x2:paper.bx||c.x,y2:paper.by||c.y,
+    stroke:c.color,'stroke-width':0.4,'stroke-opacity':0});
+  bloomLinesG.appendChild(line);paper._line=line;
+
+  const g=mk('g');
+  g.style.transform=`translate(${c.x}px,${c.y}px)`;
+  g.style.opacity='0';
+  g.style.transition='transform 0.50s cubic-bezier(0.34,1.38,0.64,1),opacity 0.36s';
+  const pR=8*S;
+  const bfo=paper.status==='locked'?0.22:0.10;
+  const bso=paper.status==='locked'?0.80:0.45;
+  const bgDisc=mk('circle',{cx:0,cy:0,r:pR,'fill':'var(--bg)','fill-opacity':1,stroke:'none','pointer-events':'none'});
+  const circle=mk('circle',{cx:0,cy:0,r:pR,fill:c.color,stroke:c.color,'stroke-width':1.0});
+  circle.classList.add('p-circle');
+  circle.style.fillOpacity=bfo;circle.style.strokeOpacity=bso;circle.style.cursor='pointer';
+  const numT=mk('text',{x:0,y:0.5,'text-anchor':'middle','dominant-baseline':'middle',
+    fill:'#2a2010','fill-opacity':0.65,'font-family':'Arial,sans-serif',
+    'font-size':Math.max(5,6.8*S)+'px','pointer-events':'none'});
+  numT.textContent=paper.num;
+  g.appendChild(bgDisc);g.appendChild(circle);g.appendChild(numT);papersG.appendChild(g);
+
+  // Per-paper label element (used only in full-view dep hover for connections)
+  const labelEl=mk('text',{
+    'font-family':'Arial,sans-serif',
+    'font-size':Math.max(7.5,8.5*S)+'px',
+    'pointer-events':'none',
+    fill:c.color,x:paper.bx||c.x,y:paper.by||c.y
+  });
+  labelEl.classList.add('paper-label');
+  labelEl.style.opacity='0';
+  labelsG.appendChild(labelEl);paper._labelEl=labelEl;
+
+  // Per-paper leader line
+  const lineEl=mk('line',{x1:0,y1:0,x2:0,y2:0,
+    stroke:c.color,'stroke-width':1.5,'pointer-events':'none'});
+  lineEl.classList.add('paper-label');
+  lineEl.style.opacity='0';
+  labelsG.appendChild(lineEl);paper._lineEl=lineEl;
+
+  circle.addEventListener('mouseover',()=>{
+    circle.setAttribute('r',pR*1.5);
+    setC({circle},0.30,bso,c.color);
+    placeLabel(paper.id);
+    showClusterInfo(c);
+    if(fullView)setDepHover(paper.id);
+    else if(openCluster===c.id)setCrossClusterHover(paper.id);
+  });
+  circle.addEventListener('mouseout',()=>{
+    circle.setAttribute('r',pR);
+    setC({circle},panelPaper===paper.id?0.28:bfo,bso,c.color);
+    hideLabel();
+    hideClusterInfo();
+    if(fullView)clearDepHover();
+    else if(openCluster===c.id)clearCrossClusterHover();
+  });
+  circle.addEventListener('click',e=>{e.stopPropagation();showPanel(paper);});
+  pnodes[paper.id]={g,circle,r:pR,bfo,bso,c,paper,labelEl,lineEl};
+}
+
+function buildDepLines(){
+  EDGES.forEach(([a,b])=>{
+    const line=mk('line',{x1:CX,y1:CY,x2:CX,y2:CY,
+      stroke:'#ffffff','stroke-opacity':0,'stroke-width':1.8});
+    line.style.transition='stroke-opacity 0.28s ease';
+    depLinesG.appendChild(line);depLineMap[a+'-'+b]=line;
+  });
+}
+function updateDepLinePositions(){
+  EDGES.forEach(([a,b])=>{
+    const line=depLineMap[a+'-'+b];if(!line)return;
+    const na=pnodes[a],nb=pnodes[b];
+    line.setAttribute('x1',na?na.paper.bx:CX);line.setAttribute('y1',na?na.paper.by:CY);
+    line.setAttribute('x2',nb?nb.paper.bx:CX);line.setAttribute('y2',nb?nb.paper.by:CY);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// CROSS-CLUSTER HOVER (focused cluster mode)
+// ═══════════════════════════════════════════════════════════
+function setCrossClusterHover(id){
+  clearCrossClusterHover();
+  const up1=new Set(DEPS[id]?.up||[]);
+  const dn1=new Set(DEPS[id]?.down||[]);
+  Object.values(pnodes).forEach(n=>{
+    const nid=n.paper.id;
+    if(n.paper.cluster===openCluster)return;
+    if(up1.has(nid)){
+      n.circle.setAttribute('r',n.r*1.3);
+      setC(n,0.55,1.0,'#2a8a58');
+      crossHighlighted.push(nid);
+    } else if(dn1.has(nid)){
+      n.circle.setAttribute('r',n.r*1.3);
+      setC(n,0.55,1.0,'#b84040');
+      crossHighlighted.push(nid);
+    }
+  });
+}
+function clearCrossClusterHover(){
+  crossHighlighted.forEach(nid=>{
+    const n=pnodes[nid];if(!n)return;
+    n.circle.setAttribute('r',n.r);
+    setC(n,n.bfo,n.bso,n.c.color);
+    if(n.labelEl) n.labelEl.style.opacity='0';
+    if(n.lineEl)  n.lineEl.style.opacity='0';
+  });
+  crossHighlighted.length=0;
+  placedBoxes.length=0;
+}
+
+// ═══════════════════════════════════════════════════════════
+// DEP HOVER (full view)
+// ═══════════════════════════════════════════════════════════
+function setDepHover(id){
+  if(hoverPaper===id)return;hoverPaper=id;
+  const up1=new Set(DEPS[id]?.up||[]);
+  const dn1=new Set(DEPS[id]?.down||[]);
+  const up2=new Set(),dn2=new Set();
+  up1.forEach(u=>(DEPS[u]?.up||[]).forEach(x=>{if(x!==id&&!up1.has(x))up2.add(x);}));
+  dn1.forEach(d=>(DEPS[d]?.down||[]).forEach(x=>{if(x!==id&&!dn1.has(x))dn2.add(x);}));
+  Object.values(pnodes).forEach(n=>{
+    const nid=n.paper.id;
+    if(nid===id){
+      setC(n,0.40,1.0,'#9a7a00');
+      // hovered node uses shared label (already placed by mouseover)
+    } else if(up1.has(nid)){
+      setC(n,0.35,0.95,'#2a8a58');
+      placePaperLabel(nid,'#2a8a58');
+    } else if(dn1.has(nid)){
+      setC(n,0.35,0.95,'#b84040');
+      placePaperLabel(nid,'#b84040');
+    } else if(up2.has(nid)||dn2.has(nid)){
+      setC(n,0.20,0.55,'#3a5a9a');
+    } else {
+      setC(n,0.04,0.10,n.c.color);
+    }
+  });
+  Object.entries(depLineMap).forEach(([key,line])=>{
+    const[a,b]=key.split('-');
+    if(a===id||b===id){line.setAttribute('stroke',b===id?'#2a8a58':'#b84040');line.setAttribute('stroke-opacity',0.70);}
+    else line.setAttribute('stroke-opacity',0);
+  });
+}
+function clearDepHover(){
+  if(!hoverPaper)return;hoverPaper=null;
+  Object.values(pnodes).forEach(n=>{setC(n,panelPaper===n.paper.id?0.28:n.bfo,n.bso,n.c.color);});
+  Object.values(depLineMap).forEach(l=>l.setAttribute('stroke-opacity',0));
+  hideLabel();hideAllPaperLabels();
+}
+
+// ═══════════════════════════════════════════════════════════
+// CLUSTER FOCUS
+// ═══════════════════════════════════════════════════════════
+function toggleCluster(id){
+  if(openCluster===id){dismissCluster();}
+  else{if(openCluster)dismissCluster(()=>focusCluster(id));else focusCluster(id);}
+  if(panelPaper)closePanel();
+}
+function focusCluster(id){
+  openCluster=id;
+  const c=cmap[id];
+  showClusterInfo(c);
+  bloomCluster(id);
+  fadeOverlay.setAttribute('opacity',0.62);
+  const targetZ=Math.min(2.0,Math.min(W,H)/(RC*0.9));
+  animateTo(targetZ,W/2-c.x*targetZ,H/2-c.y*targetZ,560);
+  c._ring.setAttribute('fill-opacity',0.30);c._ring.setAttribute('r',14.5*S);
+  CLUSTERS_DEF.forEach(other=>{other._g.style.opacity=other.id===id?'1':'0.20';});
+  setHint('Hover papers to see cross-cluster connections');
+}
+function dismissCluster(callback){
+  const prev=openCluster;
+  if(prev)collapseCluster(prev);
+  clearCrossClusterHover();hideLabel();
+  openCluster=null;
+  hideClusterInfo();
+  fadeOverlay.setAttribute('opacity',0);
+  animateTo(1,0,0,520,callback);
+  CLUSTERS_DEF.forEach(c=>c._g.style.opacity='1');
+  setHint('Select a cluster to explore · Full View for all');
+}
+
+function bloomCluster(id,delay0=0){
+  const c=cmap[id];
+  c._ring.setAttribute('fill-opacity',0.30);c._ring.setAttribute('r',14.5*S);
+  PAPERS.filter(p=>p.cluster===id).forEach((paper,i)=>{
+    const node=pnodes[paper.id];if(!node)return;
+    setTimeout(()=>{
+      node.g.style.transition='transform 0.52s cubic-bezier(0.34,1.38,0.64,1),opacity 0.36s';
+      node.g.style.transform=`translate(${paper.bx}px,${paper.by}px)`;
+      node.g.style.opacity='1';
+      setTimeout(()=>{if(paper._line)paper._line.setAttribute('stroke-opacity',0.28);},150);
+    },delay0+i*46);
+  });
+}
+function collapseCluster(id,instant=false){
+  const c=cmap[id];
+  c._ring.setAttribute('fill-opacity',0.12);c._ring.setAttribute('r',11.5*S);
+  PAPERS.filter(p=>p.cluster===id).forEach((paper,i)=>{
+    const node=pnodes[paper.id];if(!node)return;
+    if(paper._line)paper._line.setAttribute('stroke-opacity',0);
+    const run=()=>{
+      node.g.style.transition=instant?'transform 0.16s ease,opacity 0.12s':'transform 0.28s cubic-bezier(0.55,0,1,0.8),opacity 0.20s';
+      node.g.style.transform=`translate(${c.x}px,${c.y}px)`;
+      node.g.style.opacity='0';
+    };
+    instant?run():setTimeout(run,i*18);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// FULL VIEW
+// ═══════════════════════════════════════════════════════════
+const fvBtn=document.getElementById('fv-btn');
+fvBtn.addEventListener('click',e=>{e.stopPropagation();fullView?exitFullView():enterFullView();});
+function enterFullView(){
+  fullView=true;fvBtn.textContent='Exit Full View';fvBtn.classList.add('active');
+  document.getElementById('dep-legend').classList.add('vis');
+  if(openCluster)dismissCluster();
+  fadeOverlay.setAttribute('opacity',0);
+  CLUSTERS_DEF.forEach(c=>{c._g.style.opacity='1';c._ring.setAttribute('r',11.5*S);c._ring.setAttribute('fill-opacity',0.12);});
+  setHint('Hover a paper to see its name & dependencies');
+  const inC=CLUSTERS_DEF.filter(c=>c.bloom==='in');
+  const outC=CLUSTERS_DEF.filter(c=>c.bloom==='out');
+  inC.forEach((c,i)=>bloomCluster(c.id,i*80));
+  const inMax=inC.length?PAPERS.filter(p=>p.cluster===inC[inC.length-1].id).length*46+260:100;
+  outC.forEach((c,i)=>bloomCluster(c.id,inMax+i*80));
+  setTimeout(updateDepLinePositions,inMax+680);
+  if(zoom!==1||panX!==0||panY!==0)animateTo(1,0,0,480);
+}
+function exitFullView(){
+  fullView=false;fvBtn.textContent='Full View';fvBtn.classList.remove('active');
+  document.getElementById('dep-legend').classList.remove('vis');
+  clearDepHover();hideLabel();hideAllPaperLabels();
+  CLUSTERS_DEF.forEach(c=>collapseCluster(c.id,false));
+  setHint('Select a cluster to explore · Full View for all');
+  if(panelPaper)closePanel();
+}
+
+// ═══════════════════════════════════════════════════════════
+// PANEL
+// ═══════════════════════════════════════════════════════════
+function showPanel(paper){
+  const c=cmap[paper.cluster]||{},color=c.color||'#888';
+  const clName=paper.cluster.startsWith('_')?(cmap[paper.cluster]?.label||'Foundation'):paper.cluster;
+  document.querySelector('.p-num').textContent='Paper '+paper.num;
+  document.querySelector('.p-title').textContent=paper.title;
+  const tag=document.querySelector('.p-tag');
+  tag.textContent=clName;tag.style.color=color;tag.style.borderColor=color+'44';tag.style.background=color+'10';
+  const st=document.querySelector('.p-status');
+  st.textContent=paper.status==='locked'?'● Locked — publication ready':'◌ Active development';
+  st.className='p-status '+paper.status;
+  document.querySelector('.p-tier').textContent='Tier: '+(['Foundational','Mid-tier','Application'][paper.depth]||'');
+  document.querySelector('.p-note').textContent=paper.note||'';
+  const upIds=DEPS[paper.id]?.up||[],dnIds=DEPS[paper.id]?.down||[];
+  const lines=[];
+  if(upIds.length)lines.push('Depends on: '+upIds.map(id=>{const p=PAPERS.find(x=>x.id===id);return p?p.num:id;}).join(', '));
+  if(dnIds.length)lines.push('Used by: '+dnIds.map(id=>{const p=PAPERS.find(x=>x.id===id);return p?p.num:id;}).join(', '));
+  document.querySelector('.p-deps').textContent=lines.join('\n');
+  // Extended panel data
+  const pd=PAPER_DATA[paper.id]||null;
+  const hasPd=pd&&(pd.synopsis||pd.connections||pd.role);
+  document.querySelector('.p-div-syn').style.display=hasPd?'':'none';
+  document.querySelector('.p-sh-syn').style.display=hasPd&&pd.synopsis?'':'none';
+  document.querySelector('.p-synopsis').textContent=hasPd&&pd.synopsis?pd.synopsis:'';
+  document.querySelector('.p-sh-conn').style.display=hasPd&&pd.connections?'':'none';
+  document.querySelector('.p-connections').textContent=hasPd&&pd.connections?pd.connections:'';
+  document.querySelector('.p-sh-role').style.display=hasPd&&pd.role?'':'none';
+  document.querySelector('.p-role').textContent=hasPd&&pd.role?pd.role:'';
+
+  const _paperLink=(paper.url && !/^https?:\/\/informationontology\.org\/?$/.test(paper.url)) ? paper.url : '/papers';
+  document.querySelector('.p-link').href=_paperLink;
+  panelEl.classList.add('open');
+  if(panelPaper&&pnodes[panelPaper]){const prev=pnodes[panelPaper];setC(prev,prev.bfo,prev.bso,prev.c.color);}
+  panelPaper=paper.id;
+  if(pnodes[paper.id])setC(pnodes[paper.id],0.35,0.95,'#9a7a00');
+}
+function closePanel(){
+  panelEl.classList.remove('open');
+  if(panelPaper&&pnodes[panelPaper]){const n=pnodes[panelPaper];setC(n,n.bfo,n.bso,n.c.color);}
+  panelPaper=null;
+}
+document.querySelector('.pc').addEventListener('click',e=>{e.stopPropagation();closePanel();});
+
+// ═══════════════════════════════════════════════════════════
+// ZOOM / PAN
+// ═══════════════════════════════════════════════════════════
+svgEl.addEventListener('wheel',e=>{
+  e.preventDefault();if(animating)return;
+  const f=e.deltaY<0?1.12:0.89,mx=e.clientX,my=e.clientY,pz=zoom;
+  zoom=Math.max(0.22,Math.min(6,zoom*f));
+  panX-=(mx-panX)*((zoom-pz)/pz);panY-=(my-panY)*((zoom-pz)/pz);applyT();
+},{passive:false});
+svgEl.addEventListener('mousedown',e=>{
+  if(e.button!==0)return;
+  isPanning=true;hasDragged=false;
+  dragO={x:e.clientX-panX,y:e.clientY-panY};svgEl.style.cursor='grabbing';
+});
+window.addEventListener('mousemove',e=>{
+  if(!isPanning)return;
+  if(Math.abs(e.clientX-(dragO.x+panX))>3||Math.abs(e.clientY-(dragO.y+panY))>3)hasDragged=true;
+  panX=e.clientX-dragO.x;panY=e.clientY-dragO.y;applyT();
+});
+window.addEventListener('mouseup',()=>{isPanning=false;svgEl.style.cursor='';});
+svgEl.addEventListener('touchstart',e=>{
+  e.preventDefault();
+  Array.from(e.changedTouches).forEach(t=>touchState[t.identifier]={x:t.clientX,y:t.clientY});
+  const ta=Object.values(touchState);
+  if(ta.length===1){hasDragged=false;dragO={x:ta[0].x-panX,y:ta[0].y-panY};}
+  else if(ta.length===2)lastPinchDist=Math.hypot(ta[1].x-ta[0].x,ta[1].y-ta[0].y);
+},{passive:false});
+svgEl.addEventListener('touchmove',e=>{
+  e.preventDefault();
+  Array.from(e.changedTouches).forEach(t=>touchState[t.identifier]={x:t.clientX,y:t.clientY});
+  const ta=Object.values(touchState);
+  if(ta.length===1){hasDragged=true;panX=ta[0].x-dragO.x;panY=ta[0].y-dragO.y;applyT();}
+  else if(ta.length===2&&lastPinchDist){
+    const nd=Math.hypot(ta[1].x-ta[0].x,ta[1].y-ta[0].y);
+    const cx=(ta[0].x+ta[1].x)/2,cy=(ta[0].y+ta[1].y)/2,pz=zoom;
+    zoom=Math.max(0.2,Math.min(6,zoom*(nd/lastPinchDist)));
+    panX=cx-(cx-panX)*(zoom/pz);panY=cy-(cy-panY)*(zoom/pz);applyT();
+    lastPinchDist=nd;
+  }
+},{passive:false});
+svgEl.addEventListener('touchend',e=>{
+  const changed=Array.from(e.changedTouches);
+  changed.forEach(t=>delete touchState[t.identifier]);
+  if(Object.keys(touchState).length<2)lastPinchDist=null;
+  // Tap detection: single touch, no drag → treat as click on whatever was tapped
+  if(!hasDragged&&changed.length===1&&Object.keys(touchState).length===0){
+    const t=changed[0];
+    const el=document.elementFromPoint(t.clientX,t.clientY);
+    if(el){
+      let found=false;
+      for(const [id,n] of Object.entries(pnodes)){
+        if(n.circle===el||n.g.contains(el)){
+          e.preventDefault();
+          showPanel(n.paper);
+          found=true;break;
+        }
+      }
+      if(!found){
+        for(const c of CLUSTERS_DEF){
+          if(c._g&&c._g.contains(el)){
+            e.preventDefault();
+            if(!fullView)toggleCluster(c.id);
+            found=true;break;
+          }
+        }
+      }
+      if(!found){
+        if(!fullView&&openCluster){dismissCluster();}
+        else{closePanel();}
+      }
+    }
+  }
+});
+svgEl.addEventListener('click',()=>{
+  if(hasDragged)return;
+  if(!fullView&&openCluster){dismissCluster();return;}
+  closePanel();
+});
+svgEl.addEventListener('dblclick',e=>{e.stopPropagation();animateTo(1,0,0,420);});
+
+// ═══════════════════════════════════════════════════════════
+// LEGEND + MISC
+// ═══════════════════════════════════════════════════════════
+function buildLegend(){
+  const el=document.getElementById('legend');el.innerHTML='';
+  CLUSTERS_DEF.forEach(c=>{
+    const d=document.createElement('div');d.className='lg';
+    d.innerHTML=`<div class="lg-dot" style="background:${c.color}"></div>${c.label||c.id}`;
+    el.appendChild(d);
+  });
+}
+function setHint(t){const h=document.getElementById('hint');h.textContent=t;h.style.opacity=t?'1':'0';}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+function init(){
+  Object.keys(pnodes).forEach(k=>delete pnodes[k]);
+  Object.keys(cmap).forEach(k=>delete cmap[k]);
+  Object.keys(depLineMap).forEach(k=>delete depLineMap[k]);
+  PAPERS.forEach(p=>{delete p._line;delete p._labelEl;delete p.bx;delete p.by;});
+  CLUSTERS_DEF.forEach(c=>{delete c._g;delete c._ring;});
+  openCluster=null;fullView=false;hoverPaper=null;panelPaper=null;
+  zoom=1;panX=0;panY=0;animating=false;sharedLabel=null;sharedLine=null;
+  computePositions();buildSVG();
+  fvBtn.textContent='Full View';fvBtn.classList.remove('active');
+  document.getElementById('dep-legend').classList.remove('vis');
+}
+init();
+window.addEventListener('resize',()=>{
+  clearTimeout(window._rt);
+  window._rt=setTimeout(()=>{panelEl.classList.remove('open');init();},220);
+});
+</script>
+</body>
+</html>
