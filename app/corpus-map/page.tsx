@@ -7,12 +7,12 @@ type MapMode = "light" | "dark";
 
 const MAPS: Record<MapMode, { src: string; label: string; note: string }> = {
   light: {
-    src: "/IO_Corpus_Map_light_v3.html",
+    src: "/IO_Corpus_Map_light_v4.html",
     label: "Light",
     note: "Default map view",
   },
   dark: {
-    src: "/IO_Corpus_Map_v14.html",
+    src: "/IO_Corpus_Map_v15.html",
     label: "Dark",
     note: "Dark-mode map view",
   },
