@@ -39,7 +39,7 @@ export default function SimulationsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Archived simulations (Rev4 snapshot)</CardTitle>
+          <CardTitle>Archived simulations (pre-Rev5 snapshot)</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm text-slate-200">
           <p>

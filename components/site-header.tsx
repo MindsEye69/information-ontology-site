@@ -24,7 +24,7 @@ export function SiteHeader() {
         <Link href="/" className="no-underline">
           <div className="flex items-baseline gap-3 min-w-0">
             <span className="text-lg font-semibold tracking-tight truncate">Informational Ontology</span>
-            <span className="text-xs text-black/55 whitespace-nowrap">Rev5+ corpus</span>
+            <span className="text-xs text-black/55 whitespace-nowrap">Rev5.1+ corpus</span>
           </div>
         </Link>
 

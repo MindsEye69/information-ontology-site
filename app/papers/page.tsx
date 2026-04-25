@@ -1,7 +1,7 @@
 import Link from "next/link";
 import papersData from "@/content/papers.json";
 
-type PaperStatus = "released" | "in_production";
+type PaperStatus = "released" | "in_production" | "retired";
 
 type PaperItem = {
   id: string;
@@ -35,6 +35,8 @@ function StatusPill({ status, state }: { status: PaperStatus; state?: string }) 
   const label =
     status === "released"
       ? "Released"
+      : state === "retired"
+      ? "Retired"
       : state === "complete_unpublished"
       ? "In production (complete)"
       : "In production";
@@ -66,8 +68,7 @@ export default function PapersPage() {
         {meta?.subtitle ? <p className="mt-2 text-sm text-black/60">{meta.subtitle}</p> : null}
 
         <p className="mt-4 text-black/70 leading-relaxed">
-          The corpus is in active production. Action buttons appear automatically when a PDF and/or Zenodo record is
-          available.
+          The corpus is in active production. Released papers include PDF download and Zenodo DOI links. Papers in production are catalogued with summaries and corpus function.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-2">

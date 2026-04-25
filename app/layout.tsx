@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Informational Ontology",
-  description: "A structural ontology of information: master text, derivative papers, and Ariadne interface.",
+  description: "A structural ontology of information: master text, derivative papers, and interactive corpus map.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
