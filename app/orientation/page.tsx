@@ -55,7 +55,7 @@ function parseOrientationText(raw: string): Block[] {
   // - drop the first line if it starts with the guide title
   // - treat the next line as a short lede/subtitle if present
   const first = (lines[0] ?? "").trim();
-  if (/^How\s+to\s+Build\s+a\s+Someone\s*:/i.test(first)) {
+  if (/^How\s+(to\s+Build\s+a\s+Someone|a\s+Someone\s+Becomes\s+Possible)\s*[:\-]?/i.test(first)) {
     i = 1;
     const maybeLede = (lines[1] ?? "").trim();
     if (maybeLede && maybeLede.length < 120 && !/^Introduction\s*:/i.test(maybeLede)) {
@@ -134,11 +134,11 @@ export default async function OrientationGuidePage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-14">
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-        How to Build a Someone
+        How a Someone Becomes Possible
       </h1>
 
       <p className="mt-2 text-sm text-black/55">
-        Orientation Guide — Non-canonical, explanatory only
+        A plain-language guide to the path from structure to life, agency, meaning, and responsibility. Non-canonical, explanatory only.
       </p>
 
       

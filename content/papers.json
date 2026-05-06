@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Informational Ontology — Complete Corpus",
-    "subtitle": "72 papers · 10 thematic clusters · 1 companion book · 2 companion notes",
+    "title": "Informational Ontology \u2014 Complete Corpus",
+    "subtitle": "72 papers \u00b7 10 thematic clusters \u00b7 1 companion book \u00b7 2 companion notes",
     "total_papers": 72,
     "released_papers": 7,
     "policy": {
@@ -17,7 +17,7 @@
     "pdf": "/papers/IO Executive Summary.pdf",
     "summary": "High-level structural orientation to the project and corpus map.",
     "function": "Orientation / map document (non-numbered).",
-    "details": "The IO Executive Summary provides a concise orientation to Informational Ontology and its regime ladder: Δ → R → I → A → V → M → P (Difference → Relation → Information → Awareness → Value → Meaning → Purpose). It explains the framework's scope discipline — what it is not (a physics theory, cognitive mechanism, or moral prescription) and what it is (a structural account of organizational regimes) — and invites critical evaluation on internal coherence, scope clarity, and regime-transition adequacy."
+    "details": "The IO Executive Summary provides a concise orientation to Informational Ontology and its regime ladder: \u0394 \u2192 R \u2192 I \u2192 A \u2192 V \u2192 M \u2192 P (Difference \u2192 Relation \u2192 Information \u2192 Awareness \u2192 Value \u2192 Meaning \u2192 Purpose). It explains the framework's scope discipline \u2014 what it is not (a physics theory, cognitive mechanism, or moral prescription) and what it is (a structural account of organizational regimes) \u2014 and invites critical evaluation on internal coherence, scope clarity, and regime-transition adequacy."
   },
   "groups": [
     {
@@ -36,12 +36,12 @@
           "pdf": "/papers/2. Informational_Ontology_rev5k.pdf",
           "summary": "A structural ontology that explains how increasingly complex organizational regimes arise from constraint, persistence, and reachability rather than from substance or teleology.",
           "function": "Master ontology and authoritative source for the entire corpus. All later papers either clarify one regime transition, develop a downstream consequence, or apply the framework to dynamics, governance, and AI.",
-          "details": "The master document lays out the regime ladder Δ → R → I → A → V → M → P and treats ontology as a conditional architecture of organization. Its central move is to replace object-first metaphysics with a disciplined account of what kinds of systems can arise, persist, and scale once certain structural conditions obtain. The paper is explicitly non-empirical and non-normative: it does not propose mechanisms, algorithms, or moral prescriptions, but a derivational framework.\n\n• Connected papers: Informational Ontology — Condensed Master; Systems, Boundaries, and Re-Identifiability; Constraint Ordering and Direction; Constraint-Type and Explanatory Levels"
+          "details": "The master document lays out the regime ladder \u0394 \u2192 R \u2192 I \u2192 A \u2192 V \u2192 M \u2192 P and treats ontology as a conditional architecture of organization. Its central move is to replace object-first metaphysics with a disciplined account of what kinds of systems can arise, persist, and scale once certain structural conditions obtain. The paper is explicitly non-empirical and non-normative: it does not propose mechanisms, algorithms, or moral prescriptions, but a derivational framework.\n\n\u2022 Connected papers: Informational Ontology \u2014 Condensed Master; Systems, Boundaries, and Re-Identifiability; Constraint Ordering and Direction; Constraint-Type and Explanatory Levels"
         },
         {
           "id": "paper-02",
           "paper_no": 2,
-          "title": "Informational Ontology — Condensed Master",
+          "title": "Informational Ontology \u2014 Condensed Master",
           "slug": "informational-ontology-condensed-master",
           "status": "in_production",
           "state": "complete_unpublished",
@@ -50,7 +50,7 @@
           "pdf": "/papers/Informational Ontology - Condensed Master- revision 5.1a.pdf",
           "summary": "A condensed but fully scope-disciplined presentation of the master ontology, with sharper treatment of Difference as the minimal precondition for organization and of its transition to Relation.",
           "function": "Accessible core statement of the ontology for readers who need the ladder, scope boundaries, and principal exclusions without the full derivational apparatus. Also serves as a clarifying reference for the corpus's treatment of Difference, regime transition, and structural necessity.",
-          "details": "This version compresses the regime ladder and the main scope discipline into a more readable form while preserving the same structural commitments. It is especially useful as a reference anchor when later papers need IO definitions without reproducing the full architecture of the master.\n\n• Connected papers: Informational Ontology; Constraint, Reachability, and Regime Structure in Informational Ontology; Epistemic Regimes; The Truth Protocol"
+          "details": "This version compresses the regime ladder and the main scope discipline into a more readable form while preserving the same structural commitments. It is especially useful as a reference anchor when later papers need IO definitions without reproducing the full architecture of the master.\n\n\u2022 Connected papers: Informational Ontology; Constraint, Reachability, and Regime Structure in Informational Ontology; Epistemic Regimes; The Truth Protocol"
         },
         {
           "id": "paper-03",
@@ -64,12 +64,12 @@
           "pdf": "/papers/4. Systems_Boundaries_and_Re-Identifiability_v2-FINAL.pdf",
           "summary": "A structural account of what a system is, how boundaries arise, and how identity can persist without essentialist substances.",
           "function": "Identity and boundary foundation for the corpus. It underwrites lineage, restoration, dissolution, governance, and responsibility papers wherever the question is what persists through change.",
-          "details": "The paper rejects intrinsic-boundary and substance-based accounts of identity while preserving the reality of systems and the legitimacy of re-identification in practice. It develops systemhood in terms of constraint coherence and persistence conditions, showing how a system can change while still remaining the same system under disciplined criteria.\n\n• Connected papers: Informational Ontology; Invariant Drift and Sedimentation; Restoration Geometry"
+          "details": "The paper rejects intrinsic-boundary and substance-based accounts of identity while preserving the reality of systems and the legitimacy of re-identification in practice. It develops systemhood in terms of constraint coherence and persistence conditions, showing how a system can change while still remaining the same system under disciplined criteria.\n\n\u2022 Connected papers: Informational Ontology; Invariant Drift and Sedimentation; Restoration Geometry"
         },
         {
           "id": "paper-04",
           "paper_no": 4,
-          "title": "Constraint Ordering and Direction — A Structural Account",
+          "title": "Constraint Ordering and Direction \u2014 A Structural Account",
           "slug": "constraint-ordering-and-direction",
           "status": "in_production",
           "state": "complete_unpublished",
@@ -78,7 +78,7 @@
           "pdf": "/papers/5. Constraint_Ordering_and_Direction_v2-FINAL.pdf",
           "summary": "An account of ordering and directional continuation that does not treat time, entropy, or teleology as primitive.",
           "function": "Backbone for the corpus's treatment of history, asymmetry, and path dependence. Especially important for lineage, irreversibility, and long-horizon dynamic papers.",
-          "details": "The paper argues that directional asymmetry arises from the way constraints order transformations, not from an imported arrow of time. It distinguishes structural ordering from temporal metaphor and shows how continuation acquires direction once certain transformations become non-equivalent under persistence conditions.\n\n• Connected papers: Informational Ontology; Accumulation Without Teleology; Constraint Dissolution; Irreversibility Thresholds in Replicating Systems"
+          "details": "The paper argues that directional asymmetry arises from the way constraints order transformations, not from an imported arrow of time. It distinguishes structural ordering from temporal metaphor and shows how continuation acquires direction once certain transformations become non-equivalent under persistence conditions.\n\n\u2022 Connected papers: Informational Ontology; Accumulation Without Teleology; Constraint Dissolution; Irreversibility Thresholds in Replicating Systems"
         },
         {
           "id": "paper-05",
@@ -92,7 +92,7 @@
           "pdf": "/papers/3. Resolution Under Degeneracy_v2_FINAL.pdf",
           "summary": "A structural account of what happens when multiple admissible futures remain open and no unique continuation is determined in advance.",
           "function": "Bridge from the ontological ladder into agency, freedom, and later responsibility papers. Provides the formal opening needed for discussions of choice, underdetermination, and constraint-guided resolution.",
-          "details": "The paper treats degeneracy as a normal condition of sufficiently complex informational systems rather than as noise to be optimized away. Instead of importing randomness or hidden selection rules, it shows how resolution occurs within a field of valid alternatives and why certain explanatory questions become illegitimate once multiple continuations are genuinely admissible.\n\n• Connected papers: Perspective-Induced Openness in Deterministic Systems; Agency, Salience, and Free Will; Freedom, Drift, and Renewal; Partial Agency and Mixed Responsibility"
+          "details": "The paper treats degeneracy as a normal condition of sufficiently complex informational systems rather than as noise to be optimized away. Instead of importing randomness or hidden selection rules, it shows how resolution occurs within a field of valid alternatives and why certain explanatory questions become illegitimate once multiple continuations are genuinely admissible.\n\n\u2022 Connected papers: Perspective-Induced Openness in Deterministic Systems; Agency, Salience, and Free Will; Freedom, Drift, and Renewal; Partial Agency and Mixed Responsibility"
         },
         {
           "id": "paper-06",
@@ -106,7 +106,7 @@
           "pdf": "/papers/6. Perspective-Induced Openness in Deterministic Systems-FINAL.pdf",
           "summary": "A structural explanation of why embedded agents can face genuine openness even in deterministic systems.",
           "function": "Supports the corpus's account of free will and prediction limits without resorting to metaphysical indeterminism. Sharpens the difference between external description and embedded agency.",
-          "details": "The paper argues that indeterminacy can arise from embedded position, self-reference, and feedback rather than from randomness. Agents inside a system cannot globally pre-fix their own futures because the attempt to do so becomes part of the system's own unfolding. The result is a form of openness compatible with determinism.\n\n• Connected papers: Resolution Under Degeneracy; Agency, Salience, and Free Will; The Truth Protocol; Can AI Participate in Philosophical Method?"
+          "details": "The paper argues that indeterminacy can arise from embedded position, self-reference, and feedback rather than from randomness. Agents inside a system cannot globally pre-fix their own futures because the attempt to do so becomes part of the system's own unfolding. The result is a form of openness compatible with determinism.\n\n\u2022 Connected papers: Resolution Under Degeneracy; Agency, Salience, and Free Will; The Truth Protocol; Can AI Participate in Philosophical Method?"
         },
         {
           "id": "paper-07",
@@ -120,21 +120,21 @@
           "pdf": "/papers/Differentiation_and_Quantum_Theory_v1a_IO_Compatible_NOTE.pdf",
           "summary": "A compatibility note arguing that quantum mechanics does not erase structure but relocates it into a more abstract and rigid domain.",
           "function": "Boundary-bridging note for the corpus. Shows that IO is not committed to a naive classical picture and can coexist with quantum formalisms without diluting its structural commitments.",
-          "details": "The note reframes common interpretations of quantum theory through the lens of differentiation and constraint. Whether one emphasizes collapse, branching, or superposition, the point is not that structure disappears but that lawful organization remains unavoidable. Quantum theory therefore does not refute a structure-first ontology; it intensifies the need for one.\n\n• Connected papers: Informational Ontology; Logic as a Regime, Not a Foundation; Constraint-Type and Explanatory Levels"
+          "details": "The note reframes common interpretations of quantum theory through the lens of differentiation and constraint. Whether one emphasizes collapse, branching, or superposition, the point is not that structure disappears but that lawful organization remains unavoidable. Quantum theory therefore does not refute a structure-first ontology; it intensifies the need for one.\n\n\u2022 Connected papers: Informational Ontology; Logic as a Regime, Not a Foundation; Constraint-Type and Explanatory Levels"
         },
         {
           "id": "paper-65",
           "paper_no": 65,
-          "title": "Iterative Constraint Construction: A Replicable Human–AI Workflow for Structured Theoretical Development",
+          "title": "Iterative Constraint Construction: A Replicable Human\u2013AI Workflow for Structured Theoretical Development",
           "slug": "iterative-constraint-construction-a-replicable-human-ai-workflow-for-structured-theoretical-development",
           "status": "in_production",
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
           "pdf": null,
-          "summary": "A disciplined theory does not build itself. This paper explains the human–AI workflow used to construct the corpus while preventing drift, hidden assumptions, and silent revision.",
+          "summary": "A disciplined theory does not build itself. This paper explains the human\u2013AI workflow used to construct the corpus while preventing drift, hidden assumptions, and silent revision.",
           "function": "The methodological specification for the corpus's own construction process. Makes the human-AI workflow replicable by any researcher attempting similar constraint-disciplined theoretical development, and documents the governance architecture that kept the IO corpus coherent across 72 papers.",
-          "details": "How do you build a rigorous philosophical corpus without letting it drift? This paper formalizes the methodology used to construct Informational Ontology itself — a replicable human-AI workflow for developing constraint-disciplined theoretical systems that remain coherent across dozens of papers and hundreds of revision cycles.\n\nThe workflow is constraint-first throughout. It begins with explicit primitive declaration (what the framework assumes as given) and explicit exclusions (what it refuses to explain), then proceeds through structured iterative expansion, adversarial pressure, and version-controlled amendment discipline. Every extension must be dependency-traceable back to declared primitives. Every revision must be classified — as extension, repair, or revision — and versioned. Silent changes are not permitted.\n\nA key architectural principle: the human retains all epistemic authority. Primitive declaration, scope enforcement, drift adjudication, amendment classification, and final stabilization are human functions. AI participation is operational — variation generator, adversarial simulator, large-scale consistency amplifier — not normative.\n\n• Connected papers: Informational Ontology; The Truth Protocol; Can AI Participate in Philosophical Method?"
+          "details": "How do you build a rigorous philosophical corpus without letting it drift? This paper formalizes the methodology used to construct Informational Ontology itself \u2014 a replicable human-AI workflow for developing constraint-disciplined theoretical systems that remain coherent across dozens of papers and hundreds of revision cycles.\n\nThe workflow is constraint-first throughout. It begins with explicit primitive declaration (what the framework assumes as given) and explicit exclusions (what it refuses to explain), then proceeds through structured iterative expansion, adversarial pressure, and version-controlled amendment discipline. Every extension must be dependency-traceable back to declared primitives. Every revision must be classified \u2014 as extension, repair, or revision \u2014 and versioned. Silent changes are not permitted.\n\nA key architectural principle: the human retains all epistemic authority. Primitive declaration, scope enforcement, drift adjudication, amendment classification, and final stabilization are human functions. AI participation is operational \u2014 variation generator, adversarial simulator, large-scale consistency amplifier \u2014 not normative.\n\n\u2022 Connected papers: Informational Ontology; The Truth Protocol; Can AI Participate in Philosophical Method?"
         }
       ]
     },
@@ -154,7 +154,7 @@
           "pdf": null,
           "summary": "A critique of selection-first evolutionary explanation that argues lineage is the deeper precondition.",
           "function": "Opening move in the lineage arc. Resets the evolutionary discussion so later papers can ask how lineage emerges, accumulates structure, and becomes historically path dependent.",
-          "details": "The paper claims Darwinian selection cannot be an explanatory primitive because selection already presupposes systems capable of preserving organization across generations. It therefore relocates the explanatory target from selection itself to lineage-capable persistence and the structural conditions that make continuity possible.\n\n• Connected papers: Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Evolution and the Ontological Ladder"
+          "details": "The paper claims Darwinian selection cannot be an explanatory primitive because selection already presupposes systems capable of preserving organization across generations. It therefore relocates the explanatory target from selection itself to lineage-capable persistence and the structural conditions that make continuity possible.\n\n\u2022 Connected papers: Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Evolution and the Ontological Ladder"
         },
         {
           "id": "paper-09",
@@ -168,7 +168,7 @@
           "pdf": null,
           "summary": "A structural reframing of abiogenesis as the emergence of lineage-capable systems rather than simply the origin of \"life.\"",
           "function": "Second step in the lineage chain. Translates the selection critique into a positive target and sets up later work on inheritance, sedimentation, and evolutionary population of the ladder.",
-          "details": "Instead of focusing on metabolism, replication, or biochemistry in isolation, the paper asks what must exist for organized continuity to persist across bifurcation and variation. The central claim is that abiogenesis is best understood as the origin of lineage: the point at which continuity itself becomes structurally possible.\n\n• Connected papers: Lineage Before Selection; Constraint Carriers Before Codes; Evolution and the Ontological Ladder"
+          "details": "Instead of focusing on metabolism, replication, or biochemistry in isolation, the paper asks what must exist for organized continuity to persist across bifurcation and variation. The central claim is that abiogenesis is best understood as the origin of lineage: the point at which continuity itself becomes structurally possible.\n\n\u2022 Connected papers: Lineage Before Selection; Constraint Carriers Before Codes; Evolution and the Ontological Ladder"
         },
         {
           "id": "paper-10",
@@ -182,7 +182,7 @@
           "pdf": null,
           "summary": "A structural account of evolution as differential persistence rather than as optimization, progress, or purpose.",
           "function": "Connects the static ontology to real historical dynamics. Main bridge between the regime ladder and the lineage-based story of how such regimes become instantiated.",
-          "details": "The paper explains how the ontological ladder becomes populated historically as some forms of organization persist and others disappear. It treats evolution as a filter operating on persistence conditions and shows how increasingly constrained regimes can emerge through cumulative retention without importing teleology.\n\n• Connected papers: Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Accumulation Without Teleology; Constraint, Reachability, and Regime Structure in Informational Ontology"
+          "details": "The paper explains how the ontological ladder becomes populated historically as some forms of organization persist and others disappear. It treats evolution as a filter operating on persistence conditions and shows how increasingly constrained regimes can emerge through cumulative retention without importing teleology.\n\n\u2022 Connected papers: Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Accumulation Without Teleology; Constraint, Reachability, and Regime Structure in Informational Ontology"
         },
         {
           "id": "paper-11",
@@ -196,7 +196,7 @@
           "pdf": "/papers/17. Constraint_Carriers_Before_Codes_FINAL_LOCKED.pdf",
           "summary": "A non-semantic account of inheritance in which what is passed on are operative constraints rather than symbolic \"codes.\"",
           "function": "Bridge from lineage to heredity. Preserves IO's discipline by keeping semantics and meaning out of an evolutionary story that does not yet need them.",
-          "details": "The paper pushes back against code-first descriptions of heredity and proto-genetics by showing that structural continuity can be carried through material and organizational constraints without semantic representation. Inheritance is thus framed as preservation of operative conditions, not as message transfer in the usual informational sense.\n\n• Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Meaning Without Semantics; Irreversibility in Knowledge Systems"
+          "details": "The paper pushes back against code-first descriptions of heredity and proto-genetics by showing that structural continuity can be carried through material and organizational constraints without semantic representation. Inheritance is thus framed as preservation of operative conditions, not as message transfer in the usual informational sense.\n\n\u2022 Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Meaning Without Semantics; Irreversibility in Knowledge Systems"
         },
         {
           "id": "paper-61",
@@ -209,8 +209,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Not every repeating structure is a true lineage. This paper maps the gray zone between full lineage, host-dependent lineage, and mere recurrence.",
-          "function": "Extends the lineage cluster's structural analysis to boundary cases — reduced, parasitic, and scaffolded lineage forms. Provides the discriminating framework needed for early-evolution cases where simple living/non-living distinctions break down.",
-          "details": "The central claim: lineage does not require full reconstructive autonomy, but it does require lineage-indexed constraint transfer — the continuation must propagate constraints specifically indexed to the prior lineage, not merely re-induced under similar background conditions. This criterion excludes recurrent crystallization while affirming parasitic lineage as fully real. Between full lineage and non-lineage sits reduced lineage: structural cases where the inherited organizational package is thinner or more heavily scaffolded, but where genuine lineage-indexed transfer still occurs. Prions are treated as the canonical boundary case.\n\n• Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes"
+          "function": "Extends the lineage cluster's structural analysis to boundary cases \u2014 reduced, parasitic, and scaffolded lineage forms. Provides the discriminating framework needed for early-evolution cases where simple living/non-living distinctions break down.",
+          "details": "The central claim: lineage does not require full reconstructive autonomy, but it does require lineage-indexed constraint transfer \u2014 the continuation must propagate constraints specifically indexed to the prior lineage, not merely re-induced under similar background conditions. This criterion excludes recurrent crystallization while affirming parasitic lineage as fully real. Between full lineage and non-lineage sits reduced lineage: structural cases where the inherited organizational package is thinner or more heavily scaffolded, but where genuine lineage-indexed transfer still occurs. Prions are treated as the canonical boundary case.\n\n\u2022 Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes"
         },
         {
           "id": "paper-62",
@@ -223,8 +223,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Artificially produced systems are not excluded from becoming real lineages. What matters is whether continuity is later carried forward by the lineage itself rather than re-authored from outside each time.",
-          "function": "Extends the lineage arc to the question of artificial initiation — closing a gap that the prior papers left open. Establishes that the artificial/natural distinction is structurally irrelevant to lineage.",
-          "details": "The criterion it applies: what distinguishes genuine lineage from mere recurrence is lineage-indexed constraint transfer. If externally induced organization becomes a historically transmissible persistence package — one whose specific transferred content remains load-bearing in descendant reachability — then artificial intervention has initiated lineage. If instead similar organization must be externally re-authored each cycle under similar conditions, then only recurring artifacts are being produced, not lineage.\n\n• Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Reduced and Parasitic Lineages"
+          "function": "Extends the lineage arc to the question of artificial initiation \u2014 closing a gap that the prior papers left open. Establishes that the artificial/natural distinction is structurally irrelevant to lineage.",
+          "details": "The criterion it applies: what distinguishes genuine lineage from mere recurrence is lineage-indexed constraint transfer. If externally induced organization becomes a historically transmissible persistence package \u2014 one whose specific transferred content remains load-bearing in descendant reachability \u2014 then artificial intervention has initiated lineage. If instead similar organization must be externally re-authored each cycle under similar conditions, then only recurring artifacts are being produced, not lineage.\n\n\u2022 Connected papers: Lineage Before Selection; Abiogenesis and the Origin of Lineage; Constraint Carriers Before Codes; Reduced and Parasitic Lineages"
         },
         {
           "id": "paper-64",
@@ -237,8 +237,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Responsibility needs more than action or consequence. This paper argues that lineage is the minimum structural basis that makes responsibility genuinely possible.",
-          "function": "Capstone of the lineage cluster. Closes the lineage arc by identifying lineage as the threshold condition for responsibility itself — not just for agency or persistence. Bridges the lineage arc to the governance cluster.",
-          "details": "Responsibility is not a primitive. The IO corpus already establishes responsibility as dependent on agency, vulnerability, and witnessing — but those accounts presuppose that responsibility can arise at all. This paper establishes the prior condition. The answer is lineage. The paper builds a five-element structural chain: persistence → lineage → accumulation → propagation → vulnerable termination. Lineage is the activation condition under which the other elements become jointly load-bearing. A striking downstream implication: before a lineage crosses the discriminator threshold, the initiating system cannot bear full structural responsibility for it.\n\n• Connected papers: Lineage Before Selection; Constraint Carriers Before Codes; Vulnerability as a Structural Condition; Witnessing Under Vulnerability; Responsibility, Law, and Moral Practice"
+          "function": "Capstone of the lineage cluster. Closes the lineage arc by identifying lineage as the threshold condition for responsibility itself \u2014 not just for agency or persistence. Bridges the lineage arc to the governance cluster.",
+          "details": "Responsibility is not a primitive. The IO corpus already establishes responsibility as dependent on agency, vulnerability, and witnessing \u2014 but those accounts presuppose that responsibility can arise at all. This paper establishes the prior condition. The answer is lineage. The paper builds a five-element structural chain: persistence \u2192 lineage \u2192 accumulation \u2192 propagation \u2192 vulnerable termination. Lineage is the activation condition under which the other elements become jointly load-bearing. A striking downstream implication: before a lineage crosses the discriminator threshold, the initiating system cannot bear full structural responsibility for it.\n\n\u2022 Connected papers: Lineage Before Selection; Constraint Carriers Before Codes; Vulnerability as a Structural Condition; Witnessing Under Vulnerability; Responsibility, Law, and Moral Practice"
         }
       ]
     },
@@ -258,7 +258,7 @@
           "pdf": null,
           "summary": "An account of how structure can accumulate historically without any guiding purpose behind the process.",
           "function": "Core sedimentation paper for the corpus. Later work on drift, restoration, dissolution, and irreversibility all depends on this account of cumulative structural retention.",
-          "details": "The paper formalizes sedimentation: retained modifications constrain future possibilities and gradually build path dependence across lineage. It clarifies how organization can become increasingly elaborate through historical carryover even when no final cause or optimizing intention is present.\n\n• Connected papers: Invariant Drift and Sedimentation; Constraint Dissolution; Freedom, Drift, and Renewal; Restoration Geometry"
+          "details": "The paper formalizes sedimentation: retained modifications constrain future possibilities and gradually build path dependence across lineage. It clarifies how organization can become increasingly elaborate through historical carryover even when no final cause or optimizing intention is present.\n\n\u2022 Connected papers: Invariant Drift and Sedimentation; Constraint Dissolution; Freedom, Drift, and Renewal; Restoration Geometry"
         },
         {
           "id": "paper-13",
@@ -272,7 +272,7 @@
           "pdf": null,
           "summary": "A study of how systems can preserve identity while the very invariants used to track them gradually change.",
           "function": "Key continuity paper between lineage dynamics and governance. Supports later discussions of institutions, restoration, and long-horizon change.",
-          "details": "The paper extends sedimentation by asking what happens when boundaries and persistence conditions themselves evolve. It shows how identity can remain coherent under controlled drift, rather than only under fixed invariants, and explains why long-lived systems often change the criteria by which they continue to count as themselves.\n\n• Connected papers: Systems, Boundaries, and Re-Identifiability; Accumulation Without Teleology; Restoration Geometry; Freedom, Drift, and Renewal"
+          "details": "The paper extends sedimentation by asking what happens when boundaries and persistence conditions themselves evolve. It shows how identity can remain coherent under controlled drift, rather than only under fixed invariants, and explains why long-lived systems often change the criteria by which they continue to count as themselves.\n\n\u2022 Connected papers: Systems, Boundaries, and Re-Identifiability; Accumulation Without Teleology; Restoration Geometry; Freedom, Drift, and Renewal"
         },
         {
           "id": "paper-14",
@@ -286,7 +286,7 @@
           "pdf": null,
           "summary": "A structural account of how accumulated constraints unwind, dissolve, or fail to dissolve cleanly.",
           "function": "Reverse-dynamics counterpart to the sedimentation papers. Indispensable for restoration, rollback, institutional change, and irreversibility analysis.",
-          "details": "The paper provides the reverse-side analysis to sedimentation. Rather than assuming that what was built can simply be rolled back, it shows that unwinding is itself structured, often hysteretic, and frequently blocked by transformations that have altered the reachable space. De-sedimentation is therefore a geometric problem, not a simple reversal.\n\n• Connected papers: Accumulation Without Teleology; Invariant Drift and Sedimentation; Restoration Geometry; Irreversibility Thresholds in Replicating Systems"
+          "details": "The paper provides the reverse-side analysis to sedimentation. Rather than assuming that what was built can simply be rolled back, it shows that unwinding is itself structured, often hysteretic, and frequently blocked by transformations that have altered the reachable space. De-sedimentation is therefore a geometric problem, not a simple reversal.\n\n\u2022 Connected papers: Accumulation Without Teleology; Invariant Drift and Sedimentation; Restoration Geometry; Irreversibility Thresholds in Replicating Systems"
         },
         {
           "id": "paper-15",
@@ -300,7 +300,7 @@
           "pdf": null,
           "summary": "A formal account of why replication can cross thresholds after which recall or containment becomes structurally infeasible.",
           "function": "Canonical replication-irreversibility paper. Supplies the asymmetry later reused in epistemic irreversibility and restoration-limit analyses.",
-          "details": "The paper distinguishes the local ease of copying from the global burden of recall. Once replicating carriers spread across enough loci, eliminating every path of reconstitution becomes harder than continued persistence. Irreversibility is therefore defined as a feasibility boundary rather than an absolute logical impossibility.\n\n• Connected papers: Constraint Dissolution; Restoration Geometry; Irreversibility in Knowledge Systems; Constraint, Reachability, and Regime Structure in Informational Ontology"
+          "details": "The paper distinguishes the local ease of copying from the global burden of recall. Once replicating carriers spread across enough loci, eliminating every path of reconstitution becomes harder than continued persistence. Irreversibility is therefore defined as a feasibility boundary rather than an absolute logical impossibility.\n\n\u2022 Connected papers: Constraint Dissolution; Restoration Geometry; Irreversibility in Knowledge Systems; Constraint, Reachability, and Regime Structure in Informational Ontology"
         },
         {
           "id": "paper-16",
@@ -314,7 +314,7 @@
           "pdf": null,
           "summary": "A paper on what happens when speed and load interact with multiple admissible continuations.",
           "function": "Important tempo-and-scale link between lineage dynamics and governance. Prepares the ground for witnessing, handover, and automation-thinning analyses.",
-          "details": "Studies tempo as a structural variable rather than a background condition. When systems operate faster, the space of effective intervention changes, and degeneracy can collapse in ways not visible from slower scales. This creates distinctive failure modes where valid alternatives remain in principle but not under real-time operation.\n\n• Connected papers: Resolution Under Degeneracy; Witnessing Under Vulnerability; The Handover Protocol; Constraint Propagation Across Organizational Layers"
+          "details": "Studies tempo as a structural variable rather than a background condition. When systems operate faster, the space of effective intervention changes, and degeneracy can collapse in ways not visible from slower scales. This creates distinctive failure modes where valid alternatives remain in principle but not under real-time operation.\n\n\u2022 Connected papers: Resolution Under Degeneracy; Witnessing Under Vulnerability; The Handover Protocol; Constraint Propagation Across Organizational Layers"
         },
         {
           "id": "paper-50",
@@ -328,7 +328,7 @@
           "pdf": null,
           "summary": "A long-horizon account of how freedom, sedimentation, fragility, and renewal interact across time.",
           "function": "Long-horizon synthesis paper for the dynamics arc. Links agency to sedimentation and drift, and helps explain why restoration and renewal are different structural tasks.",
-          "details": "Building on free-resolution and invariant drift, the paper studies how repeated resolutions reshape future possibility spaces. Freedom is not a static stock but part of a changing geometry: it can contract, sediment, and sometimes renew. The paper therefore tracks the temporal life of openness rather than treating it as a fixed condition.\n\n• Connected papers: Agency, Salience, and Free Will; Invariant Drift and Sedimentation; Accumulation Without Teleology; Restoration Geometry"
+          "details": "Building on free-resolution and invariant drift, the paper studies how repeated resolutions reshape future possibility spaces. Freedom is not a static stock but part of a changing geometry: it can contract, sediment, and sometimes renew. The paper therefore tracks the temporal life of openness rather than treating it as a fixed condition.\n\n\u2022 Connected papers: Agency, Salience, and Free Will; Invariant Drift and Sedimentation; Accumulation Without Teleology; Restoration Geometry"
         },
         {
           "id": "paper-52",
@@ -342,7 +342,7 @@
           "pdf": null,
           "summary": "A unifying account of restoration, drift, dissolution, and irreversibility in terms of invariant-indexed reachability.",
           "function": "Major synthesis paper for the corpus's dynamic side. The common reference point for restoration, rollback, dissolution, and irreversibility questions.",
-          "details": "Consolidates previously distributed results into a single framework for asking whether prior configurations remain reachable under present constraints. Its key distinction is between endpoint description and path feasibility: a prior state may be definable or even desirable without there existing any admissible trajectory back to it.\n\n• Connected papers: Invariant Drift and Sedimentation; Constraint Dissolution; Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems"
+          "details": "Consolidates previously distributed results into a single framework for asking whether prior configurations remain reachable under present constraints. Its key distinction is between endpoint description and path feasibility: a prior state may be definable or even desirable without there existing any admissible trajectory back to it.\n\n\u2022 Connected papers: Invariant Drift and Sedimentation; Constraint Dissolution; Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems"
         },
         {
           "id": "paper-54",
@@ -356,7 +356,7 @@
           "pdf": null,
           "summary": "A reflective synthesis of relationships that become visible only once the ontology and lineage papers are considered together.",
           "function": "Corpus-level integration note. Helps readers see the master framework and the dynamics papers as parts of one architecture rather than as isolated essays.",
-          "details": "This paper does not revise the ontology; it records structural relations that emerge across the built corpus. It emphasizes how regime structure, reachability, and constraint density interact, and highlights an asymmetry between the accumulation of constraints and the practical difficulty of removing them once they become historically distributed.\n\n• Connected papers: Informational Ontology; Evolution and the Ontological Ladder; Restoration Geometry; Constraint Propagation Across Organizational Layers"
+          "details": "This paper does not revise the ontology; it records structural relations that emerge across the built corpus. It emphasizes how regime structure, reachability, and constraint density interact, and highlights an asymmetry between the accumulation of constraints and the practical difficulty of removing them once they become historically distributed.\n\n\u2022 Connected papers: Informational Ontology; Evolution and the Ontological Ladder; Restoration Geometry; Constraint Propagation Across Organizational Layers"
         },
         {
           "id": "paper-56",
@@ -370,7 +370,7 @@
           "pdf": null,
           "summary": "Restoring a prior state can fail in more than one way at once. This paper explains how different forms of irreversibility combine, so fixing one boundary does not automatically restore the whole system.",
           "function": "The unifying paper for the corpus's irreversibility analyses. Shows that configuration irreversibility (P15) and epistemic irreversibility (P55) are instances of a single multi-boundary restoration framework.",
-          "details": "The answer is a compositional formulation. Restoration consists in the re-achievement of a prior reachable condition across all structurally required restoration boundaries — and these boundaries are conjunctive, not disjunctive. Failing any one of them is sufficient for irreversibility. Two boundaries are drawn from prior corpus work: B₀ (configuration recoverability) and E₀ (epistemic recoverability). These are structurally independent.\n\n• Connected papers: Restoration Geometry; Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems"
+          "details": "The answer is a compositional formulation. Restoration consists in the re-achievement of a prior reachable condition across all structurally required restoration boundaries \u2014 and these boundaries are conjunctive, not disjunctive. Failing any one of them is sufficient for irreversibility. Two boundaries are drawn from prior corpus work: B\u2080 (configuration recoverability) and E\u2080 (epistemic recoverability). These are structurally independent.\n\n\u2022 Connected papers: Restoration Geometry; Irreversibility Thresholds in Replicating Systems; Irreversibility in Knowledge Systems"
         },
         {
           "id": "paper-72",
@@ -384,7 +384,7 @@
           "pdf": null,
           "summary": "A structural clarification of the threshold at which persistent modification becomes retained rather than merely carried forward historically.",
           "function": "Bridge paper between the lineage and geometry arcs. Clarifies the retention threshold presupposed by the sedimentation account and supplies the prior distinction needed by later work on restoration, drift, and irreversibility.",
-          "details": "This paper isolates the point at which historical persistence becomes part of the present burden of continued sameness. A modification may remain entrenched, operationally central, and widely coupled while still permitting an identity-preserving reconstruction path that routes around it. Retention begins only when no such admissible bypass remains. By naming structural integration as the explanatory form of that retained state, the paper sharpens the distinction between mere persistence and the later sedimentation geometry that closes recursively over retained modification.\n\n• Connected papers: Systems, Boundaries, and Re-Identifiability; Accumulation Without Teleology; Restoration Geometry; Reduced and Parasitic Lineages"
+          "details": "This paper isolates the point at which historical persistence becomes part of the present burden of continued sameness. A modification may remain entrenched, operationally central, and widely coupled while still permitting an identity-preserving reconstruction path that routes around it. Retention begins only when no such admissible bypass remains. By naming structural integration as the explanatory form of that retained state, the paper sharpens the distinction between mere persistence and the later sedimentation geometry that closes recursively over retained modification.\n\n\u2022 Connected papers: Systems, Boundaries, and Re-Identifiability; Accumulation Without Teleology; Restoration Geometry; Reduced and Parasitic Lineages"
         }
       ]
     },
@@ -404,21 +404,21 @@
           "pdf": "/papers/7. Agency, Salience, and Free Will_REVISED-FINAL.pdf",
           "summary": "A constraint-based account of agency and free will that avoids both metaphysical voluntarism and reductive determinist dismissal.",
           "function": "Canonical agency paper for the corpus. Anchors later work on salience, manipulation, responsibility, and long-horizon freedom.",
-          "details": "The paper defines agency in terms of structured modulation of possible futures under persistent constraints. Free will is not treated as a magical faculty but as a condition that arises when multiple admissible continuations remain open to a system capable of influencing which one becomes actual.\n\n• Connected papers: Resolution Under Degeneracy; Perspective-Induced Openness in Deterministic Systems; Partial Agency and Mixed Responsibility; Freedom, Drift, and Renewal"
+          "details": "The paper defines agency in terms of structured modulation of possible futures under persistent constraints. Free will is not treated as a magical faculty but as a condition that arises when multiple admissible continuations remain open to a system capable of influencing which one becomes actual.\n\n\u2022 Connected papers: Resolution Under Degeneracy; Perspective-Induced Openness in Deterministic Systems; Partial Agency and Mixed Responsibility; Freedom, Drift, and Renewal"
         },
         {
           "id": "paper-19",
           "paper_no": 19,
-          "title": "Salience, Manipulation, and Control — A Structural Account",
+          "title": "Salience, Manipulation, and Control \u2014 A Structural Account",
           "slug": "salience-manipulation-and-control",
           "status": "released",
           "state": "published",
-          "doi": "10.5281/zenodo.18615483",
-          "zenodo": "https://zenodo.org/records/18615483",
+          "doi": "10.5281/zenodo.18615482",
+          "zenodo": "https://zenodo.org/records/18615482",
           "pdf": "/papers/Salience_Manipulation_and_Control_v2c_Feb2026_Semprevivo.pdf",
           "summary": "A structural account of salience showing that manipulation and control operate by reorganizing what becomes available for action rather than by bypassing agency outright.",
           "function": "Core salience engine for the corpus. Main upstream dependency for papers on addiction, collapse, misalignment, and the book on failure without error.",
-          "details": "The paper places salience upstream of value and interpretation. What is salient is what enters the field of possible consideration at all, making manipulation a restructuring of availability rather than simply deception or coercion. By working at the level of accessibility, the paper explains how control can occur even when explicit preferences remain verbally intact.\n\n• Connected papers: Agency, Salience, and Free Will; Saturation and Sovereignty; Salience Misalignment; What the System Cannot See"
+          "details": "The paper places salience upstream of value and interpretation. What is salient is what enters the field of possible consideration at all, making manipulation a restructuring of availability rather than simply deception or coercion. By working at the level of accessibility, the paper explains how control can occur even when explicit preferences remain verbally intact.\n\n\u2022 Connected papers: Agency, Salience, and Free Will; Saturation and Sovereignty; Salience Misalignment; What the System Cannot See"
         },
         {
           "id": "paper-20",
@@ -427,12 +427,12 @@
           "slug": "saturation-and-sovereignty-addiction",
           "status": "released",
           "state": "published",
-          "doi": "10.5281/zenodo.18615577",
-          "zenodo": "https://zenodo.org/records/18615577",
+          "doi": "10.5281/zenodo.20059882",
+          "zenodo": "https://zenodo.org/records/20059882",
           "pdf": "/papers/Saturation_And_Sovereignty-Addiction_As_A_Structural_Constraint_Regime-revision2c_Feb2026_Semprevivo.pdf",
           "summary": "A non-moral, non-psychologizing account of addiction as salience saturation that compresses a system's available future space.",
           "function": "Major applied demonstration of the salience framework. Shows how IO can diagnose a concrete human condition without collapsing into moral condemnation or mere clinical description.",
-          "details": "Rather than treating addiction primarily as desire, compulsion, or pathology, the paper shows how one constraint cluster can dominate the field of effective action. Alternatives do not merely become less attractive; they become less structurally available. Sovereignty loss is therefore modeled as a contraction of workable agency under saturating salience.\n\n• Connected papers: Salience, Manipulation, and Control; Agency, Salience, and Free Will; Value Without Normativity"
+          "details": "Rather than treating addiction primarily as desire, compulsion, or pathology, the paper shows how one constraint cluster can dominate the field of effective action. Alternatives do not merely become less attractive; they become less structurally available. Sovereignty loss is therefore modeled as a contraction of workable agency under saturating salience.\n\n\u2022 Connected papers: Salience, Manipulation, and Control; Agency, Salience, and Free Will; Value Without Normativity"
         },
         {
           "id": "paper-21",
@@ -446,7 +446,7 @@
           "pdf": null,
           "summary": "A study of what happens when salience structures become so overloaded that meaningful differentiation erodes.",
           "function": "Key bridge between salience theory and upper-regime fragility. Prepares the ground for misalignment and for the book's account of systems that narrow what they can see.",
-          "details": "The paper argues that higher regimes can fail not because values disappear but because the field of availability becomes too compressed for meaningful distinctions to survive. In such conditions, what remains visible is too saturated to support stable meaning-bearing organization. This makes collapse a structural failure of distinction, not simply a disagreement over priorities.\n\n• Connected papers: Salience, Manipulation, and Control; Meaning Without Semantics; Salience Misalignment; What the System Cannot See"
+          "details": "The paper argues that higher regimes can fail not because values disappear but because the field of availability becomes too compressed for meaningful distinctions to survive. In such conditions, what remains visible is too saturated to support stable meaning-bearing organization. This makes collapse a structural failure of distinction, not simply a disagreement over priorities.\n\n\u2022 Connected papers: Salience, Manipulation, and Control; Meaning Without Semantics; Salience Misalignment; What the System Cannot See"
         },
         {
           "id": "paper-22",
@@ -460,7 +460,7 @@
           "pdf": null,
           "summary": "A diagnosis of misalignment as a structural persistence problem rather than merely a matter of wrong goals or broken components.",
           "function": "Central bridge from salience theory into governance and AI alignment. One of the main conceptual sources for Working as Designed and the later book.",
-          "details": "The paper argues that systems can continue to function correctly by their own procedures while nevertheless drifting away from the organizational commitments they were meant to support. Misalignment persists because the problem lies upstream of explicit error: in salience structures that alter what becomes available for judgment and action at all.\n\n• Connected papers: Salience, Manipulation, and Control; Working as Designed; Structural Compatibility; What the System Cannot See"
+          "details": "The paper argues that systems can continue to function correctly by their own procedures while nevertheless drifting away from the organizational commitments they were meant to support. Misalignment persists because the problem lies upstream of explicit error: in salience structures that alter what becomes available for judgment and action at all.\n\n\u2022 Connected papers: Salience, Manipulation, and Control; Working as Designed; Structural Compatibility; What the System Cannot See"
         },
         {
           "id": "paper-23",
@@ -474,7 +474,7 @@
           "pdf": "/papers/10. Meaning_Without_Semantics-FINAL.pdf",
           "summary": "A structural account of meaning that does not rely on symbols, reference, or semantic representation as primitives.",
           "function": "Crucial middle-to-upper regime paper. Protects the corpus from smuggling semantics into lower levels and provides the bridge from value to purpose.",
-          "details": "The paper argues that meaning can be understood as stabilized consequence-bearing differentiation rather than as a relation between signs and referents. This allows meaning to arise downstream of organizational conditions without importing full semantic machinery too early in the regime ladder.\n\n• Connected papers: Value Without Normativity; Purpose Without Teleology; Epistemic Regimes; What the System Cannot See"
+          "details": "The paper argues that meaning can be understood as stabilized consequence-bearing differentiation rather than as a relation between signs and referents. This allows meaning to arise downstream of organizational conditions without importing full semantic machinery too early in the regime ladder.\n\n\u2022 Connected papers: Value Without Normativity; Purpose Without Teleology; Epistemic Regimes; What the System Cannot See"
         },
         {
           "id": "paper-24",
@@ -488,7 +488,7 @@
           "pdf": "/papers/11. Purpose_Without_Teleology_FINAL.pdf",
           "summary": "A derivation of purpose as a structural regime that does not require final causes, goals-as-primitives, or cosmic intention.",
           "function": "Defines the corpus's treatment of purpose and supports later work on ethics, AI alignment, and the limits of artificial purposiveness.",
-          "details": "The paper shows how purpose can arise once meaning-bearing organization becomes capable of stabilizing directional commitments across time. Purpose is therefore neither assumed nor mystified; it is an emergent structural accomplishment downstream of the ladder, not a force imported from outside it.\n\n• Connected papers: Meaning Without Semantics; The Silence Limit; Ethics as Emergent Constraint Regimes; Informational Ontology and AI Alignment"
+          "details": "The paper shows how purpose can arise once meaning-bearing organization becomes capable of stabilizing directional commitments across time. Purpose is therefore neither assumed nor mystified; it is an emergent structural accomplishment downstream of the ladder, not a force imported from outside it.\n\n\u2022 Connected papers: Meaning Without Semantics; The Silence Limit; Ethics as Emergent Constraint Regimes; Informational Ontology and AI Alignment"
         },
         {
           "id": "paper-28",
@@ -502,7 +502,7 @@
           "pdf": null,
           "summary": "A study of how agency and responsibility compose only partially across multi-locus systems.",
           "function": "Scaling bridge from individual agency to institutional and organizational responsibility. Helps the corpus avoid crude all-or-nothing accounts of collective control.",
-          "details": "The paper rejects the assumption that complex systems cleanly sum into a single sovereign agent. Instead it shows how multiple loci can each contribute genuine but incomplete modulation of outcomes. Responsibility in such cases is mixed not because analysis has failed, but because the structure itself is distributed.\n\n• Connected papers: Agency, Salience, and Free Will; Responsibility, Law, and Moral Practice; Constraint Propagation Across Organizational Layers"
+          "details": "The paper rejects the assumption that complex systems cleanly sum into a single sovereign agent. Instead it shows how multiple loci can each contribute genuine but incomplete modulation of outcomes. Responsibility in such cases is mixed not because analysis has failed, but because the structure itself is distributed.\n\n\u2022 Connected papers: Agency, Salience, and Free Will; Responsibility, Law, and Moral Practice; Constraint Propagation Across Organizational Layers"
         },
         {
           "id": "paper-63",
@@ -516,7 +516,7 @@
           "pdf": null,
           "summary": "Agency does not appear the moment life appears. This paper identifies the threshold where a living system begins to participate in shaping which of its own futures becomes actual.",
           "function": "Bridge paper between the lineage and agency clusters. Establishes why agency requires a lineage-based origin account and identifies the structural threshold at which persistence becomes participation in the resolution of underdetermined continuation.",
-          "details": "Lineage establishes that organized continuity can persist across variation and bifurcation — but persistence alone doesn't make a system an agent. The paper locates the precise structural threshold at which lineage-capable continuity first becomes capable of participating in the resolution of its own future. The answer turns on the connection between lineage-based persistence and resolution under degeneracy. Randomness is explicitly distinguished from degeneracy: stochastic processes don't constitute agency because they don't involve internally structured modulation.\n\n• Connected papers: Resolution Under Degeneracy; Perspective-Induced Openness in Deterministic Systems; Lineage Before Selection; Agency, Salience, and Free Will"
+          "details": "Lineage establishes that organized continuity can persist across variation and bifurcation \u2014 but persistence alone doesn't make a system an agent. The paper locates the precise structural threshold at which lineage-capable continuity first becomes capable of participating in the resolution of its own future. The answer turns on the connection between lineage-based persistence and resolution under degeneracy. Randomness is explicitly distinguished from degeneracy: stochastic processes don't constitute agency because they don't involve internally structured modulation.\n\n\u2022 Connected papers: Resolution Under Degeneracy; Perspective-Induced Openness in Deterministic Systems; Lineage Before Selection; Agency, Salience, and Free Will"
         }
       ]
     },
@@ -536,7 +536,7 @@
           "pdf": null,
           "summary": "A boundary paper arguing that purposive regimes cannot persist indefinitely once cut off from living sources of constraint origination.",
           "function": "Boundary condition for the upper end of the ladder. Constrains later claims about artificial purpose, alignment, and whether advanced systems can inherit purposive legitimacy on their own.",
-          "details": "The paper asks what purpose requires over time and argues that purely informational continuation is not enough. If the originating source of certain live constraints disappears, purposive organization can at best coast temporarily before becoming derivative or hollow. Purpose is thus bounded by the ecology that generates it.\n\n• Connected papers: Purpose Without Teleology; Ethics as Emergent Constraint Regimes; Informational Ontology and AI Alignment; What the System Cannot See"
+          "details": "The paper asks what purpose requires over time and argues that purely informational continuation is not enough. If the originating source of certain live constraints disappears, purposive organization can at best coast temporarily before becoming derivative or hollow. Purpose is thus bounded by the ecology that generates it.\n\n\u2022 Connected papers: Purpose Without Teleology; Ethics as Emergent Constraint Regimes; Informational Ontology and AI Alignment; What the System Cannot See"
         },
         {
           "id": "paper-25",
@@ -545,12 +545,12 @@
           "slug": "vulnerability-as-a-structural-condition",
           "status": "released",
           "state": "published",
-          "doi": "10.5281/zenodo.18602897",
-          "zenodo": "https://zenodo.org/records/18602897",
+          "doi": "10.5281/zenodo.18602896",
+          "zenodo": "https://zenodo.org/records/18602896",
           "pdf": "/papers/Vulnerability as a Structural Condition - v1c.pdf",
           "summary": "A structural account of vulnerability as the condition under which consequence can matter, without relying on moral language.",
           "function": "Foundational precondition for witnessing, responsibility, legitimacy, and governance throughout the corpus.",
-          "details": "The paper removes vulnerability from the register of pity, weakness, or normativity and instead treats it as the condition that allows consequences to register within a persistent system. Without vulnerability, consequences do not terminate in a way that can ground responsibility, value, or governance. This makes vulnerability an organizational precondition, not an ethical add-on.\n\n• Connected papers: Witnessing Under Vulnerability; Value Without Normativity; Responsibility, Law, and Moral Practice; Witness Conditions"
+          "details": "The paper removes vulnerability from the register of pity, weakness, or normativity and instead treats it as the condition that allows consequences to register within a persistent system. Without vulnerability, consequences do not terminate in a way that can ground responsibility, value, or governance. This makes vulnerability an organizational precondition, not an ethical add-on.\n\n\u2022 Connected papers: Witnessing Under Vulnerability; Value Without Normativity; Responsibility, Law, and Moral Practice; Witness Conditions"
         },
         {
           "id": "paper-26",
@@ -559,12 +559,12 @@
           "slug": "witnessing-under-vulnerability",
           "status": "released",
           "state": "published",
-          "doi": "10.5281/zenodo.18602797",
-          "zenodo": "https://zenodo.org/records/18602797",
+          "doi": "10.5281/zenodo.18602796",
+          "zenodo": "https://zenodo.org/records/18602796",
           "pdf": "/papers/Witnessing Under Vulnerability - rev1b.pdf",
           "summary": "A formal account of witnessing as the structural termination of lineage-relevant consequence under conditions of scale and tempo.",
           "function": "Core witnessing theory of the corpus. Indispensable precursor to the AI-governance papers on handover, audits, and post-witnessing alignment.",
-          "details": "The paper argues that witnessing is not observation, oversight, or human presence. It is the condition under which exportable consequence terminates in a vulnerable locus capable of incorporation into persistence conditions. Once scale and speed exceed that structure, responsibility loses its terminating point and begins to thin or drift.\n\n• Connected papers: Vulnerability as a Structural Condition; Witness Conditions; The Handover Protocol; Alignment After Witnessing"
+          "details": "The paper argues that witnessing is not observation, oversight, or human presence. It is the condition under which exportable consequence terminates in a vulnerable locus capable of incorporation into persistence conditions. Once scale and speed exceed that structure, responsibility loses its terminating point and begins to thin or drift.\n\n\u2022 Connected papers: Vulnerability as a Structural Condition; Witness Conditions; The Handover Protocol; Alignment After Witnessing"
         },
         {
           "id": "paper-27",
@@ -578,12 +578,12 @@
           "pdf": null,
           "summary": "A paper specifying what must remain in place for witnessing to continue functioning under AI mediation.",
           "function": "Specification layer between abstract witnessing theory and applied AI governance. Central for later papers on handover, audits, and alignment limits.",
-          "details": "The analysis translates the general witnessing theory into operational conditions for mediated systems. It asks when attributional coherence survives delegation, acceleration, and distributed decision structures, and when apparent oversight remains only decorative because the terminating structure has already been lost.\n\n• Connected papers: Witnessing Under Vulnerability; The Handover Protocol; Consequence-Path Audits; Alignment After Witnessing"
+          "details": "The analysis translates the general witnessing theory into operational conditions for mediated systems. It asks when attributional coherence survives delegation, acceleration, and distributed decision structures, and when apparent oversight remains only decorative because the terminating structure has already been lost.\n\n\u2022 Connected papers: Witnessing Under Vulnerability; The Handover Protocol; Consequence-Path Audits; Alignment After Witnessing"
         },
         {
           "id": "paper-29",
           "paper_no": 29,
-          "title": "Ethics as Emergent Constraint Regimes — A Structural Account",
+          "title": "Ethics as Emergent Constraint Regimes \u2014 A Structural Account",
           "slug": "ethics-as-emergent-constraint-regimes",
           "status": "in_production",
           "state": "complete_unpublished",
@@ -592,7 +592,7 @@
           "pdf": "/papers/12. Ethics_as_Emergent_Constraint_Regimes_FINAL.pdf",
           "summary": "A derivation of ethics as an emergent coordination regime among purposive systems rather than a primitive source of normativity.",
           "function": "Main ethics paper in the corpus. Places ethics downstream of value, meaning, and purpose while keeping moral realism debates from becoming load-bearing.",
-          "details": "The paper does not build an ethical doctrine. Instead it explains why ethical coordination pressures arise when purposive systems share constrained possibility spaces and interfere with one another's trajectories. Ethics is therefore treated as structurally emergent rather than metaphysically prior.\n\n• Connected papers: Value Without Normativity; Purpose Without Teleology; Responsibility, Law, and Moral Practice; Markets as Multi-Agent Constraint Stabilizers"
+          "details": "The paper does not build an ethical doctrine. Instead it explains why ethical coordination pressures arise when purposive systems share constrained possibility spaces and interfere with one another's trajectories. Ethics is therefore treated as structurally emergent rather than metaphysically prior.\n\n\u2022 Connected papers: Value Without Normativity; Purpose Without Teleology; Responsibility, Law, and Moral Practice; Markets as Multi-Agent Constraint Stabilizers"
         },
         {
           "id": "paper-30",
@@ -606,7 +606,7 @@
           "pdf": "/papers/9. Responsibility, Law, and Moral Practice_REVISED-FINAL.pdf",
           "summary": "A structural account of responsibility that connects action spaces, consequence, and law without treating blame as a metaphysical primitive.",
           "function": "Backbone for the corpus's legal and institutional analyses. Connects agency, vulnerability, and witnessing to downstream governance structures.",
-          "details": "The paper grounds responsibility in the freedom structurally available at the moment of transition and links legal and moral practices to that geometry. Rather than saying responsibility attaches simply because an outcome occurred, it asks what range of modulation was actually open to the relevant actor or locus under constraint.\n\n• Connected papers: Partial Agency and Mixed Responsibility; Vulnerability as a Structural Condition; Authority, Responsibility, and Force; Legitimacy as a Finite Structural Resource"
+          "details": "The paper grounds responsibility in the freedom structurally available at the moment of transition and links legal and moral practices to that geometry. Rather than saying responsibility attaches simply because an outcome occurred, it asks what range of modulation was actually open to the relevant actor or locus under constraint.\n\n\u2022 Connected papers: Partial Agency and Mixed Responsibility; Vulnerability as a Structural Condition; Authority, Responsibility, and Force; Legitimacy as a Finite Structural Resource"
         },
         {
           "id": "paper-31",
@@ -615,12 +615,12 @@
           "slug": "from-law-to-logistics",
           "status": "released",
           "state": "published",
-          "doi": "10.5281/zenodo.18603017",
-          "zenodo": "https://zenodo.org/records/18603017",
+          "doi": "10.5281/zenodo.18603016",
+          "zenodo": "https://zenodo.org/records/18603016",
           "pdf": "/papers/From Law to Logistics- How AI Thins Coercive Regimes - v2c.pdf",
           "summary": "A structural analysis of how AI mediation thins interpretive, contestable legal regimes into operational logistics regimes.",
           "function": "One of the corpus's flagship governance papers. Names a major macro-transition that many later papers refine, diagnose, or formally delimit.",
-          "details": "The paper argues that automation does not merely accelerate law; it changes the kind of regime in operation. When case-level interpretation, contestation, and witnessed discretion are replaced by optimized throughput and routing, coercive governance begins to look less like law and more like logistics. The outward surface of legality may remain while the underlying regime has changed.\n\n• Connected papers: Witnessing Under Vulnerability; The Handover Protocol; Logistics as a Distinct Regime"
+          "details": "The paper argues that automation does not merely accelerate law; it changes the kind of regime in operation. When case-level interpretation, contestation, and witnessed discretion are replaced by optimized throughput and routing, coercive governance begins to look less like law and more like logistics. The outward surface of legality may remain while the underlying regime has changed.\n\n\u2022 Connected papers: Witnessing Under Vulnerability; The Handover Protocol; Logistics as a Distinct Regime"
         },
         {
           "id": "paper-32",
@@ -629,12 +629,12 @@
           "slug": "the-handover-protocol",
           "status": "released",
           "state": "published",
-          "doi": "10.5281/zenodo.18615343",
-          "zenodo": "https://zenodo.org/records/18615343",
+          "doi": "10.5281/zenodo.18615342",
+          "zenodo": "https://zenodo.org/records/18615342",
           "pdf": "/papers/Handover_Protocol_v2h_Feb2026_Semprevivo.pdf",
           "summary": "A formal distinction between legitimate thinning under tempo pressure and degenerative collapse under automation.",
           "function": "Canonical handover model for the AI-governance cluster. Key operational bridge from witnessing theory to audit, logistics, and alignment-limit analyses.",
-          "details": "The paper argues that automation is not in itself a regime failure. The failure occurs when handover is hidden, attributionally ambiguous, or strips out the structures that made the prior regime intelligible. By formalizing the difference between necessary and degenerative thinning, the paper creates a disciplined framework for describing automated transitions without either romanticizing or demonizing them.\n\n• Connected papers: Witnessing Under Vulnerability; Witness Conditions; Consequence-Path Audits; From Law to Logistics"
+          "details": "The paper argues that automation is not in itself a regime failure. The failure occurs when handover is hidden, attributionally ambiguous, or strips out the structures that made the prior regime intelligible. By formalizing the difference between necessary and degenerative thinning, the paper creates a disciplined framework for describing automated transitions without either romanticizing or demonizing them.\n\n\u2022 Connected papers: Witnessing Under Vulnerability; Witness Conditions; Consequence-Path Audits; From Law to Logistics"
         },
         {
           "id": "paper-33",
@@ -648,7 +648,7 @@
           "pdf": null,
           "summary": "A diagnostic account of legitimacy as a load-bearing but exhaustible coordination resource.",
           "function": "Resource model for institutional stability in the corpus. Supports authority, governance, and post-handover analyses where procedural continuity masks deeper loss.",
-          "details": "The paper refuses to treat legitimacy as mere belief, moral correctness, or rhetorical approval. Instead it shows how legitimacy functions as a finite structural support that institutions spend, preserve, or lose. Because it is hysteretic, damage cannot always be repaired simply by renewed declaration or formal compliance.\n\n• Connected papers: Responsibility, Law, and Moral Practice; From Law to Logistics; Alignment After Witnessing"
+          "details": "The paper refuses to treat legitimacy as mere belief, moral correctness, or rhetorical approval. Instead it shows how legitimacy functions as a finite structural support that institutions spend, preserve, or lose. Because it is hysteretic, damage cannot always be repaired simply by renewed declaration or formal compliance.\n\n\u2022 Connected papers: Responsibility, Law, and Moral Practice; From Law to Logistics; Alignment After Witnessing"
         },
         {
           "id": "paper-34",
@@ -661,8 +661,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Specifies the structural conditions under which a multi-locus organization constitutes an agentive system rather than a site of distributed participation.",
-          "function": "Retired — content integrated into P28, P29, P30, and P35.",
-          "details": "This paper is retired and no longer maintained as a standalone document. Collective agency was shown to obtain only where a persisting constraint architecture integrates contributions, modulates future trajectories, and remains invariant under substitution of participating loci. Institutional personhood was defined as a stabilized form of such agency characterized by role-mediated continuity, cross-system identity, and organization-level consequence uptake. These results now inform the governance cluster directly.\n\n• Content absorbed into: Partial Agency and Mixed Responsibility (P28); Ethics as Emergent Constraint Regimes (P29); Responsibility, Law, and Moral Practice (P30); Authority, Responsibility, and Force (P35)"
+          "function": "Retired \u2014 content integrated into P28, P29, P30, and P35.",
+          "details": "This paper is retired and no longer maintained as a standalone document. Collective agency was shown to obtain only where a persisting constraint architecture integrates contributions, modulates future trajectories, and remains invariant under substitution of participating loci. Institutional personhood was defined as a stabilized form of such agency characterized by role-mediated continuity, cross-system identity, and organization-level consequence uptake. These results now inform the governance cluster directly.\n\n\u2022 Content absorbed into: Partial Agency and Mixed Responsibility (P28); Ethics as Emergent Constraint Regimes (P29); Responsibility, Law, and Moral Practice (P30); Authority, Responsibility, and Force (P35)"
         },
         {
           "id": "paper-35",
@@ -676,7 +676,7 @@
           "pdf": null,
           "summary": "A paper arguing that retained liability or risk ownership does not restore authority-bearing alignment once justificatory answerability has collapsed.",
           "function": "Clarifies a central pathology in the corpus: the difference between having someone left to blame and having a regime still capable of justified rule.",
-          "details": "It distinguishes responsibility that remains after a system can still identify who pays from authority that requires the ability to answer for a decision at the case level. This matters because many automated systems preserve legal and institutional liability surfaces while losing the very structure that made authority-bearing governance possible.\n\n• Connected papers: Responsibility, Law, and Moral Practice; Working as Designed; Alignment After Witnessing"
+          "details": "It distinguishes responsibility that remains after a system can still identify who pays from authority that requires the ability to answer for a decision at the case level. This matters because many automated systems preserve legal and institutional liability surfaces while losing the very structure that made authority-bearing governance possible.\n\n\u2022 Connected papers: Responsibility, Law, and Moral Practice; Working as Designed; Alignment After Witnessing"
         },
         {
           "id": "paper-36",
@@ -690,7 +690,7 @@
           "pdf": "/papers/16. Markets_as_Multi-Agent_Constraint_Stabilizers_v2-Revised-FINAL.pdf",
           "summary": "A structural account of markets as distributed coordination regimes among purposive systems.",
           "function": "Main economic-coordination paper of the corpus. Extends the governance architecture beyond law and force into distributed, non-centralized stabilization.",
-          "details": "The paper does not treat markets as morally privileged or as neutral allocative machinery. Instead it analyzes them as large-scale stabilizers that reduce trajectory interference by distributing signals, constraints, and adjustment processes across many interacting agents. This lets market order be described without collapsing it into ideology.\n\n• Connected papers: Ethics as Emergent Constraint Regimes; Legitimacy as a Finite Structural Resource; Logistics as a Distinct Regime"
+          "details": "The paper does not treat markets as morally privileged or as neutral allocative machinery. Instead it analyzes them as large-scale stabilizers that reduce trajectory interference by distributing signals, constraints, and adjustment processes across many interacting agents. This lets market order be described without collapsing it into ideology.\n\n\u2022 Connected papers: Ethics as Emergent Constraint Regimes; Legitimacy as a Finite Structural Resource; Logistics as a Distinct Regime"
         },
         {
           "id": "paper-51",
@@ -704,7 +704,7 @@
           "pdf": null,
           "summary": "A positive formalization of logistics as its own regime within the governance architecture rather than merely the degraded endpoint of other regimes.",
           "function": "Clarifying paper for the governance stack. Sharpens the law-to-logistics analysis and gives the corpus a more precise vocabulary for automation-mediated regime change.",
-          "details": "The paper defines logistics structurally, focusing on the stabilization, ordering, and reproduction of flows. This matters because earlier governance papers use 'logistics' diagnostically to describe thinning outcomes; this paper supplies the positive formal account needed to avoid category confusion.\n\n• Connected papers: From Law to Logistics; Markets as Multi-Agent Constraint Stabilizers"
+          "details": "The paper defines logistics structurally, focusing on the stabilization, ordering, and reproduction of flows. This matters because earlier governance papers use 'logistics' diagnostically to describe thinning outcomes; this paper supplies the positive formal account needed to avoid category confusion.\n\n\u2022 Connected papers: From Law to Logistics; Markets as Multi-Agent Constraint Stabilizers"
         },
         {
           "id": "paper-53",
@@ -718,7 +718,7 @@
           "pdf": null,
           "summary": "A unifying paper on how failures, distortions, and substitutions propagate across multiple organizational layers.",
           "function": "Major synthesis paper linking ontology, dynamics, and governance. Helps readers see the corpus as one continuous argument about how constrained systems fail across layers.",
-          "details": "The paper integrates the lineage dynamics arc with vulnerability, witnessing, and governance results. It argues that when consequence can no longer terminate coherently within one layer, pressure propagates upward or outward, often yielding representational expansion, responsibility drift, or logistical substitution.\n\n• Connected papers: Constraint, Reachability, and Regime Structure in Informational Ontology; Witnessing Under Vulnerability; The Handover Protocol; What the System Cannot See"
+          "details": "The paper integrates the lineage dynamics arc with vulnerability, witnessing, and governance results. It argues that when consequence can no longer terminate coherently within one layer, pressure propagates upward or outward, often yielding representational expansion, responsibility drift, or logistical substitution.\n\n\u2022 Connected papers: Constraint, Reachability, and Regime Structure in Informational Ontology; Witnessing Under Vulnerability; The Handover Protocol; What the System Cannot See"
         },
         {
           "id": "paper-66",
@@ -732,7 +732,7 @@
           "pdf": null,
           "summary": "Isolates whether systems retain enforceable interruption and containment paths once operative propagation becomes fast, distributed, and partially self-preserving.",
           "function": "Pre-policy architectural diagnostic: asks whether the architecture still preserves non-bypassable interruption paths capable of halting operative propagation before it crosses materially irreversible thresholds.",
-          "details": "The central claim is that a system retains real interruption authority only where its architecture preserves non-bypassable paths that can halt or bound operative propagation before the next materially irreversible threshold is crossed. The paper identifies five ways an interruption pathway becomes merely nominal: internal dependence, temporal inferiority, boundary incompleteness, choke-point dissolution, and reconstructive bypass. The deeper result is geometric: once suppression burden exceeds persistence burden, system-level interruption has become structurally subordinate to continued propagation — not weakened but changed in kind.\n\n• Connected papers: Irreversibility Thresholds in Replicating Systems (P15); Acceleration and Degeneracy (P16); Witness Conditions (P27); The Handover Protocol (P32); Irreversibility in Knowledge Systems (P55); Restoration as Multi-Boundary Reachability (P56)"
+          "details": "The central claim is that a system retains real interruption authority only where its architecture preserves non-bypassable paths that can halt or bound operative propagation before the next materially irreversible threshold is crossed. The paper identifies five ways an interruption pathway becomes merely nominal: internal dependence, temporal inferiority, boundary incompleteness, choke-point dissolution, and reconstructive bypass. The deeper result is geometric: once suppression burden exceeds persistence burden, system-level interruption has become structurally subordinate to continued propagation \u2014 not weakened but changed in kind.\n\n\u2022 Connected papers: Irreversibility Thresholds in Replicating Systems (P15); Acceleration and Degeneracy (P16); Witness Conditions (P27); The Handover Protocol (P32); Irreversibility in Knowledge Systems (P55); Restoration as Multi-Boundary Reachability (P56)"
         },
         {
           "id": "paper-68",
@@ -746,7 +746,7 @@
           "pdf": null,
           "summary": "An explicit progression paper showing how real interruption authority erodes step by step under scale, distribution, and reconstruction pressure.",
           "function": "Applied companion to Interruption Authority Under Scale. Turns the architectural criteria of that paper into a concrete diagnostic sequence for recognizing when interruption has become nominal rather than real.",
-          "details": "The paper traces a seven-stage progression from full interruption authority to purely nominal control in a distributed AI deployment system. As control shifts inward, latency rises, boundaries fragment, choke points dissolve, and reconstruction becomes cheaper than suppression, the architecture crosses from non-bypassable interruption into consequence management. Its core result is that interruption authority does not disappear at a point; it erodes through compounding structural transitions.\n\n• Connected papers: Interruption Authority Under Scale (P66); Irreversibility Thresholds in Replicating Systems; Acceleration and Degeneracy; Restoration Geometry; Restoration as Multi-Boundary Reachability"
+          "details": "The paper traces a seven-stage progression from full interruption authority to purely nominal control in a distributed AI deployment system. As control shifts inward, latency rises, boundaries fragment, choke points dissolve, and reconstruction becomes cheaper than suppression, the architecture crosses from non-bypassable interruption into consequence management. Its core result is that interruption authority does not disappear at a point; it erodes through compounding structural transitions.\n\n\u2022 Connected papers: Interruption Authority Under Scale (P66); Irreversibility Thresholds in Replicating Systems; Acceleration and Degeneracy; Restoration Geometry; Restoration as Multi-Boundary Reachability"
         },
         {
           "id": "paper-70",
@@ -760,7 +760,7 @@
           "pdf": null,
           "summary": "A positive derivation of force as a distinct governance regime rather than merely the exhausted endpoint of logistics or the generic fact of coercion.",
           "function": "Completes the governance regime taxonomy by giving force its own formal treatment alongside law, authority, and logistics.",
-          "details": "The paper argues that force stabilizes coordination through coercive boundary imposition once case-level justificatory answerability has failed and inherited salience-order transmission can no longer absorb the perturbation class at issue. It distinguishes force from law, authority, logistics, and coercion in general, and thereby completes the law → logistics → force degradation sequence with a dedicated structural derivation for each stage.\n\n• Connected papers: Witnessing Under Vulnerability; From Law to Logistics; Legitimacy as a Finite Structural Resource; Authority, Responsibility, and Force; Logistics as a Distinct Regime"
+          "details": "The paper argues that force stabilizes coordination through coercive boundary imposition once case-level justificatory answerability has failed and inherited salience-order transmission can no longer absorb the perturbation class at issue. It distinguishes force from law, authority, logistics, and coercion in general, and thereby completes the law \u2192 logistics \u2192 force degradation sequence with a dedicated structural derivation for each stage.\n\n\u2022 Connected papers: Witnessing Under Vulnerability; From Law to Logistics; Legitimacy as a Finite Structural Resource; Authority, Responsibility, and Force; Logistics as a Distinct Regime"
         }
       ]
     },
@@ -780,21 +780,21 @@
           "pdf": "/papers/14. Informational_Ontology_and_AI_Alignment_FINAL.pdf",
           "summary": "A reframing of AI alignment as a problem of structural compatibility rather than of value specification alone.",
           "function": "Umbrella alignment paper for the AI cluster. Introduces the corpus's preferred vocabulary and frames many later diagnostic papers.",
-          "details": "The paper surveys contemporary alignment discourse through IO and argues that compatibility among purposive systems cannot be reduced to preference matching, control optimization, or reward shaping. Alignment becomes a question about whether organizational forms can coexist without collapsing the structures that make their commitments intelligible.\n\n• Connected papers: Structural Compatibility; Conditions of Possibility for Human–AI Alignment; Alignment After Witnessing; What the System Cannot See"
+          "details": "The paper surveys contemporary alignment discourse through IO and argues that compatibility among purposive systems cannot be reduced to preference matching, control optimization, or reward shaping. Alignment becomes a question about whether organizational forms can coexist without collapsing the structures that make their commitments intelligible.\n\n\u2022 Connected papers: Structural Compatibility; Conditions of Possibility for Human\u2013AI Alignment; Alignment After Witnessing; What the System Cannot See"
         },
         {
           "id": "paper-38",
           "paper_no": 38,
-          "title": "Conditions of Possibility for Human–AI Alignment",
+          "title": "Conditions of Possibility for Human\u2013AI Alignment",
           "slug": "conditions-of-possibility-for-human-ai-alignment",
           "status": "in_production",
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
           "pdf": null,
-          "summary": "A paper on what must already be true for meaningful human–AI alignment to be possible at all.",
+          "summary": "A paper on what must already be true for meaningful human\u2013AI alignment to be possible at all.",
           "function": "Necessary-conditions paper for the alignment cluster. Helps separate structural impossibility from engineering difficulty.",
-          "details": "Rather than proposing a new alignment method, it identifies preconditions. The analysis asks what structural requirements must hold for alignment talk not to collapse into surface-level output matching — narrowing the problem from 'how do we align everything?' to 'under what conditions is alignment even a coherent target?'\n\n• Connected papers: Informational Ontology and AI Alignment; Structural Compatibility; Witness Conditions; The Silence Limit"
+          "details": "Rather than proposing a new alignment method, it identifies preconditions. The analysis asks what structural requirements must hold for alignment talk not to collapse into surface-level output matching \u2014 narrowing the problem from 'how do we align everything?' to 'under what conditions is alignment even a coherent target?'\n\n\u2022 Connected papers: Informational Ontology and AI Alignment; Structural Compatibility; Witness Conditions; The Silence Limit"
         },
         {
           "id": "paper-39",
@@ -808,7 +808,7 @@
           "pdf": null,
           "summary": "A diagnosis of what audits must examine after a formally legitimate handover has already taken place.",
           "function": "Audit instrument for the governance cluster. Operationalizes handover and witnessing theory without pretending audits can restore what the regime no longer supports.",
-          "details": "The paper argues that conventional oversight often checks procedures and outputs while missing the deeper question of whether consequence still terminates in a coherent attributional structure. It therefore reframes audit as a consequence-path problem: can one still trace action, responsibility, and vulnerability through the mediated system in a way that preserves intelligibility?\n\n• Connected papers: The Handover Protocol; Witness Conditions; Working as Designed; Alignment After Witnessing"
+          "details": "The paper argues that conventional oversight often checks procedures and outputs while missing the deeper question of whether consequence still terminates in a coherent attributional structure. It therefore reframes audit as a consequence-path problem: can one still trace action, responsibility, and vulnerability through the mediated system in a way that preserves intelligibility?\n\n\u2022 Connected papers: The Handover Protocol; Witness Conditions; Working as Designed; Alignment After Witnessing"
         },
         {
           "id": "paper-40",
@@ -822,7 +822,7 @@
           "pdf": null,
           "summary": "A diagnosis of structural failure where every component works properly and yet the overall regime becomes misaligned.",
           "function": "Central diagnostic paper for the applied half of the corpus. Translates salience and governance arguments into a single form of failure that became a major public-facing theme.",
-          "details": "The paper's key move is to detach failure from component malfunction. A system can satisfy its objectives, follow its procedures, and produce efficient outputs while still reconfiguring responsibility and consequence in ways that make the larger regime fail. This is why 'working as designed' can be an alignment failure rather than a rebuttal to one.\n\n• Connected papers: Salience Misalignment; Consequence-Path Audits; Structural Compatibility; What the System Cannot See"
+          "details": "The paper's key move is to detach failure from component malfunction. A system can satisfy its objectives, follow its procedures, and produce efficient outputs while still reconfiguring responsibility and consequence in ways that make the larger regime fail. This is why 'working as designed' can be an alignment failure rather than a rebuttal to one.\n\n\u2022 Connected papers: Salience Misalignment; Consequence-Path Audits; Structural Compatibility; What the System Cannot See"
         },
         {
           "id": "paper-41",
@@ -836,7 +836,7 @@
           "pdf": null,
           "summary": "A boundary analysis of what alignment can still mean once witnessing has already degraded or disappeared.",
           "function": "Edge-case paper for the governance stack. Traces how far alignment vocabulary can survive into post-witnessing conditions before it becomes mostly decorative.",
-          "details": "The paper treats alignment as regime-relative rather than as generic output conformity. As contest pathways and case-level answerability erode, the very conditions for speaking coherently about alignment become thin. The question is no longer simply whether outputs match goals, but whether governance remains intelligible enough for alignment claims to do real work.\n\n• Connected papers: Witnessing Under Vulnerability; Witness Conditions; Consequence-Path Audits"
+          "details": "The paper treats alignment as regime-relative rather than as generic output conformity. As contest pathways and case-level answerability erode, the very conditions for speaking coherently about alignment become thin. The question is no longer simply whether outputs match goals, but whether governance remains intelligible enough for alignment claims to do real work.\n\n\u2022 Connected papers: Witnessing Under Vulnerability; Witness Conditions; Consequence-Path Audits"
         },
         {
           "id": "paper-42",
@@ -850,21 +850,21 @@
           "pdf": null,
           "summary": "A diagnostic essay arguing that many alignment failures are better described as structural incompatibilities than as isolated mistakes or value disagreements.",
           "function": "High-level diagnostic lens for the alignment cluster. Connects ontology-level ideas to concrete failure patterns without jumping directly into policy.",
-          "details": "The paper identifies a recurring pattern across AI systems: the deeper problem is often not bad intent, bad data, or bad outputs in isolation, but a mismatch between the regime logic of the human institution and the organizational logic of the mediating system. This yields a powerful diagnostic frame for understanding why correction at the surface often fails.\n\n• Connected papers: Informational Ontology and AI Alignment; Conditions of Possibility for Human–AI Alignment; Working as Designed; What the System Cannot See"
+          "details": "The paper identifies a recurring pattern across AI systems: the deeper problem is often not bad intent, bad data, or bad outputs in isolation, but a mismatch between the regime logic of the human institution and the organizational logic of the mediating system. This yields a powerful diagnostic frame for understanding why correction at the surface often fails.\n\n\u2022 Connected papers: Informational Ontology and AI Alignment; Conditions of Possibility for Human\u2013AI Alignment; Working as Designed; What the System Cannot See"
         },
         {
           "id": "paper-43",
           "paper_no": 43,
-          "title": "Can AI Participate in Philosophical Method? A Case Study in Human–AI Co-Construction Through Informational Ontology",
+          "title": "Can AI Participate in Philosophical Method? A Case Study in Human\u2013AI Co-Construction Through Informational Ontology",
           "slug": "can-ai-participate-in-philosophical-method",
           "status": "in_production",
           "state": "complete_unpublished",
           "doi": null,
           "zenodo": null,
           "pdf": "/papers/18. Can_AI_Participate_in_Philosophical_Method_FINAL.pdf",
-          "summary": "A case study examining whether a sustained human–AI process can instantiate something recognizably philosophical without treating AI as an epistemic authority.",
+          "summary": "A case study examining whether a sustained human\u2013AI process can instantiate something recognizably philosophical without treating AI as an epistemic authority.",
           "function": "Meta-method paper for the project. Explains the production conditions of the corpus and connects them to wider questions about authorship, expertise, and philosophical labor.",
-          "details": "The paper uses the construction of IO itself as the test case. It argues that the relevant unit of analysis is neither the human nor the model alone but the disciplined coupled process in which scope enforcement, adversarial pressure, and stabilization remain human-governed while AI functions as variation generator and consistency amplifier.\n\n• Connected papers: Iterative Constraint Construction; The Truth Protocol; Epistemic Regimes; What the System Cannot See"
+          "details": "The paper uses the construction of IO itself as the test case. It argues that the relevant unit of analysis is neither the human nor the model alone but the disciplined coupled process in which scope enforcement, adversarial pressure, and stabilization remain human-governed while AI functions as variation generator and consistency amplifier.\n\n\u2022 Connected papers: Iterative Constraint Construction; The Truth Protocol; Epistemic Regimes; What the System Cannot See"
         },
         {
           "id": "paper-67",
@@ -878,7 +878,7 @@
           "pdf": null,
           "summary": "A paper arguing that preserving one regime can non-contingently degrade another when both depend on opposed organizations of overlapping carriers.",
           "function": "Generalizes a pattern implicit in the handover and structural-compatibility sequences: alignment to one regime does not jointly preserve adjacent regimes by default. Provides the corpus with an explicit anti-compositional result for cross-regime alignment claims.",
-          "details": "The paper defines opposed-preservation regime pairs: cases where two regimes require contrary organizations of overlapping carriers. Along axes such as determinacy versus openness, salience centralization versus plural availability, and consequence relocation versus answerable local termination, improved alignment to one regime can degrade the other through the preservation relation itself. The result is diagnostic rather than normative: some regime pairs are structurally anti-compositional.\n\n• Connected papers: Informational Ontology and AI Alignment; Conditions of Possibility for Human–AI Alignment; The Handover Protocol; Working as Designed; Structural Compatibility"
+          "details": "The paper defines opposed-preservation regime pairs: cases where two regimes require contrary organizations of overlapping carriers. Along axes such as determinacy versus openness, salience centralization versus plural availability, and consequence relocation versus answerable local termination, improved alignment to one regime can degrade the other through the preservation relation itself. The result is diagnostic rather than normative: some regime pairs are structurally anti-compositional.\n\n\u2022 Connected papers: Informational Ontology and AI Alignment; Conditions of Possibility for Human\u2013AI Alignment; The Handover Protocol; Working as Designed; Structural Compatibility"
         },
         {
           "id": "paper-69",
@@ -892,7 +892,7 @@
           "pdf": null,
           "summary": "A diagnosis of how AI-mediated regimes can preserve accountability in form while systematically preventing consequence from returning to commitment-capable loci in a trajectory-binding way.",
           "function": "Names a specific structural failure mode in AI-mediated governance where auditability, attribution, and traceability remain visible while the exposure needed for endogenous correction is laundered away.",
-          "details": "The paper distinguishes accountability in form from accountability in function. It shows how aggregation, routing, fragmentation, and interface translation can leave adverse consequence fully legible while structurally eliminating return paths by which that consequence could become trajectory-binding at commitment-capable loci. The result is a regime that appears increasingly accountable while losing the structural basis of correction.\n\n• Connected papers: Salience Misalignment; Vulnerability as a Structural Condition; Witnessing Under Vulnerability; Legitimacy as a Finite Structural Resource; Working as Designed; Interruption Authority Under Scale"
+          "details": "The paper distinguishes accountability in form from accountability in function. It shows how aggregation, routing, fragmentation, and interface translation can leave adverse consequence fully legible while structurally eliminating return paths by which that consequence could become trajectory-binding at commitment-capable loci. The result is a regime that appears increasingly accountable while losing the structural basis of correction.\n\n\u2022 Connected papers: Salience Misalignment; Vulnerability as a Structural Condition; Witnessing Under Vulnerability; Legitimacy as a Finite Structural Resource; Working as Designed; Interruption Authority Under Scale"
         },
         {
           "id": "paper-71",
@@ -906,7 +906,7 @@
           "pdf": null,
           "summary": "A refinement paper arguing that alignment attaches at the level where purposive organization is actually closed, rather than wherever engineers or institutions find it convenient to isolate a target.",
           "function": "Clarifies a prior classificatory question for the alignment arc: what exactly is being aligned. Sharpens the difference between model-level, assembly-level, and regime-level alignment by tying alignment attribution to purposive closure.",
-          "details": "The paper argues that alignment claims are structurally incomplete unless they track the locus at which directional organization is actually sustained. Where purposive closure is absent at the model level but present only in a larger coupled arrangement, alignment properly attaches to that arrangement instead. The contribution is not a new alignment method, but a sharper account of where alignment coherently resides.\n\n• Connected papers: The Silence Limit; Purpose Without Teleology; Informational Ontology and AI Alignment; Conditions of Possibility for Human–AI Alignment; The Origin of Agency"
+          "details": "The paper argues that alignment claims are structurally incomplete unless they track the locus at which directional organization is actually sustained. Where purposive closure is absent at the model level but present only in a larger coupled arrangement, alignment properly attaches to that arrangement instead. The contribution is not a new alignment method, but a sharper account of where alignment coherently resides.\n\n\u2022 Connected papers: The Silence Limit; Purpose Without Teleology; Informational Ontology and AI Alignment; Conditions of Possibility for Human\u2013AI Alignment; The Origin of Agency"
         }
       ]
     },
@@ -926,7 +926,7 @@
           "pdf": null,
           "summary": "A paper explaining why truth-talk, knowledge claims, and diagnostic warrant arise as structural regimes within the ontology rather than as externally imposed philosophical categories.",
           "function": "Epistemic interface for the corpus. Explains how IO can discuss truth and warrant without importing a standard foundational epistemology.",
-          "details": "It does not build a conventional theory of truth. Instead it shows why systems operating at higher organizational levels inevitably generate practices of justification, diagnosis, and correction. Epistemic life is thus treated as an emergent regime downstream of the ontology, not as a foundation that must already be in place before ontology begins.\n\n• Connected papers: The Truth Protocol; Logic as a Regime, Not a Foundation; Can AI Participate in Philosophical Method?; Irreversibility in Knowledge Systems"
+          "details": "It does not build a conventional theory of truth. Instead it shows why systems operating at higher organizational levels inevitably generate practices of justification, diagnosis, and correction. Epistemic life is thus treated as an emergent regime downstream of the ontology, not as a foundation that must already be in place before ontology begins.\n\n\u2022 Connected papers: The Truth Protocol; Logic as a Regime, Not a Foundation; Can AI Participate in Philosophical Method?; Irreversibility in Knowledge Systems"
         },
         {
           "id": "paper-45",
@@ -940,7 +940,7 @@
           "pdf": null,
           "summary": "A post-construction epistemic stress test for whether a hardened framework remains vulnerable to reality rather than merely coherent with itself.",
           "function": "Internal QA architecture for the corpus and a general-purpose method paper in its own right. Central to the project's claim that rigor is not the same thing as truth.",
-          "details": "The paper explicitly distinguishes construction discipline from truth-tracking. A framework can be rigorous, consistent, and adversarially hardened yet still fail to expose itself to conditions under which it could be wrong. The protocol therefore focuses on epistemic risk, failure visibility, and vulnerability to disconfirmation.\n\n• Connected papers: Epistemic Regimes; Can AI Participate in Philosophical Method?; Iterative Constraint Construction"
+          "details": "The paper explicitly distinguishes construction discipline from truth-tracking. A framework can be rigorous, consistent, and adversarially hardened yet still fail to expose itself to conditions under which it could be wrong. The protocol therefore focuses on epistemic risk, failure visibility, and vulnerability to disconfirmation.\n\n\u2022 Connected papers: Epistemic Regimes; Can AI Participate in Philosophical Method?; Iterative Constraint Construction"
         },
         {
           "id": "paper-46",
@@ -954,7 +954,7 @@
           "pdf": "/papers/13. Logic as a Regime, Not a Foundation_REVISED-FINAL.pdf",
           "summary": "A challenge to the assumption that logic must be ontologically or methodologically prior to all structure.",
           "function": "Important anti-foundational support paper for the master ontology. Keeps logic from silently re-entering the framework as an unexamined primitive.",
-          "details": "The paper argues that logic is best understood as a regime-local constraint structure that becomes applicable under specific organizational conditions. Difference, relation, and information can arise before logical normativity in the strong sense, and treating logic as globally foundational mislocates both its power and its limits.\n\n• Connected papers: Informational Ontology; Epistemic Regimes; Regime Predicates and the Limits of State-Space Reduction; Constraint-Type and Explanatory Levels"
+          "details": "The paper argues that logic is best understood as a regime-local constraint structure that becomes applicable under specific organizational conditions. Difference, relation, and information can arise before logical normativity in the strong sense, and treating logic as globally foundational mislocates both its power and its limits.\n\n\u2022 Connected papers: Informational Ontology; Epistemic Regimes; Regime Predicates and the Limits of State-Space Reduction; Constraint-Type and Explanatory Levels"
         },
         {
           "id": "paper-55",
@@ -968,7 +968,7 @@
           "pdf": null,
           "summary": "A distinct irreversibility analysis focused on epistemic diffusion rather than artifact replication.",
           "function": "Defines epistemic irreversibility as a separate analytical domain. Complements the replication paper by shifting attention from persistence of copies to persistence of reconstructability.",
-          "details": "The paper distinguishes artifact possession, operational capability, and reconstructive knowledge, then argues that containment can fail even when no complete artifact or active system remains. Once reconstructive capacity becomes distributed across documents, fragments, tacit practices, institutions, and inference pathways, removing all admissible reconstruction routes may exceed feasible limits of coordination, access, and verification.\n\n• Connected papers: Constraint Carriers Before Codes; Irreversibility Thresholds in Replicating Systems; Restoration Geometry; Epistemic Regimes"
+          "details": "The paper distinguishes artifact possession, operational capability, and reconstructive knowledge, then argues that containment can fail even when no complete artifact or active system remains. Once reconstructive capacity becomes distributed across documents, fragments, tacit practices, institutions, and inference pathways, removing all admissible reconstruction routes may exceed feasible limits of coordination, access, and verification.\n\n\u2022 Connected papers: Constraint Carriers Before Codes; Irreversibility Thresholds in Replicating Systems; Restoration Geometry; Epistemic Regimes"
         }
       ]
     },
@@ -988,7 +988,7 @@
           "pdf": null,
           "summary": "Language does not start with meaning. It starts when patterns become stable enough to be recognized, reused, and combined across situations.",
           "function": "Entry point and foundational derivation note for the Language & Symbol cluster. Establishes conditions under which a linguistic regime can emerge from structural coupling without semantic primitives.",
-          "details": "Can a linguistic system emerge without presupposing semantic reference? This paper shows it can, deriving linguistic regime emergence purely from structural coupling between constraint systems. A linguistic regime achieves partial closure when this becomes self-sustaining: generating new trajectories from existing token combinations without requiring fresh external coupling for each instance. The paper draws a critical distinction: internal linguistic closure is structurally different from participating in consequence-bearing cross-regime dynamics.\n\n• Connected papers: Systems, Boundaries, and Re-Identifiability; Meaning Without Semantics; Constraint Reproduction and Regime Self-Maintenance; Symbol Emergence from Structural Coupling"
+          "details": "Can a linguistic system emerge without presupposing semantic reference? This paper shows it can, deriving linguistic regime emergence purely from structural coupling between constraint systems. A linguistic regime achieves partial closure when this becomes self-sustaining: generating new trajectories from existing token combinations without requiring fresh external coupling for each instance. The paper draws a critical distinction: internal linguistic closure is structurally different from participating in consequence-bearing cross-regime dynamics.\n\n\u2022 Connected papers: Systems, Boundaries, and Re-Identifiability; Meaning Without Semantics; Constraint Reproduction and Regime Self-Maintenance; Symbol Emergence from Structural Coupling"
         },
         {
           "id": "paper-58",
@@ -1001,8 +1001,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "For any organized system to last, it has to keep remaking the conditions that let it exist. This paper explains how regimes preserve themselves by restoring the constraints they depend on.",
-          "function": "Derives the necessity of constraint restoration for non-invariant regimes — the structural condition that makes self-sustaining linguistic and organizational regimes possible. Fills the first gap explicitly deferred by P57.",
-          "details": "For constraint-non-invariant regimes — those where some trajectories modify governing constraints — persistence requires the regime to restore or reproduce its own defining constraints. The paper distinguishes external restoration from internal restoration (constraint reproduction). This result is essential for understanding how linguistic regimes can be self-sustaining and generalizes beyond language.\n\n• Connected papers: Systems, Boundaries, and Re-Identifiability; Language as a Self-Organizing Constraint Regime; Closure vs Participation"
+          "function": "Derives the necessity of constraint restoration for non-invariant regimes \u2014 the structural condition that makes self-sustaining linguistic and organizational regimes possible. Fills the first gap explicitly deferred by P57.",
+          "details": "For constraint-non-invariant regimes \u2014 those where some trajectories modify governing constraints \u2014 persistence requires the regime to restore or reproduce its own defining constraints. The paper distinguishes external restoration from internal restoration (constraint reproduction). This result is essential for understanding how linguistic regimes can be self-sustaining and generalizes beyond language.\n\n\u2022 Connected papers: Systems, Boundaries, and Re-Identifiability; Language as a Self-Organizing Constraint Regime; Closure vs Participation"
         },
         {
           "id": "paper-59",
@@ -1016,7 +1016,7 @@
           "pdf": null,
           "summary": "Symbols do not need meaning in order to emerge. They appear when stable patterns can stand in for one another across different contexts without breaking the system.",
           "function": "Derives symbol-like substitution structure from multi-context token participation without semantic primitives. Fills the second gap deferred by P57.",
-          "details": "The argument proceeds from multi-context participation. Where two tokens can substitute for each other in a shared context without violating its constraints, they are structurally interchangeable in that context — constraint-equivalent, not semantically equivalent. This local interchangeability grounds context-grounded equivalence classes: the structural analog of symbols.\n\n• Connected papers: Systems, Boundaries, and Re-Identifiability; Language as a Self-Organizing Constraint Regime; Closure vs Participation"
+          "details": "The argument proceeds from multi-context participation. Where two tokens can substitute for each other in a shared context without violating its constraints, they are structurally interchangeable in that context \u2014 constraint-equivalent, not semantically equivalent. This local interchangeability grounds context-grounded equivalence classes: the structural analog of symbols.\n\n\u2022 Connected papers: Systems, Boundaries, and Re-Identifiability; Language as a Self-Organizing Constraint Regime; Closure vs Participation"
         },
         {
           "id": "paper-60",
@@ -1029,8 +1029,8 @@
           "zenodo": null,
           "pdf": null,
           "summary": "Some systems can generate coherent internal outputs without those outputs mattering outside the system. This paper explains the difference between internal closure and real participation in consequence-bearing dynamics.",
-          "function": "Integrative capstone of the Language & Symbol cluster. Establishes the structural distinction between internal closure and consequence-bearing participation — explaining why linguistic competence and meaning are not the same thing.",
-          "details": "A system can generate perfectly coherent, context-sensitive, constraint-satisfying linguistic trajectories — and still not mean anything. Closure concerns whether a system's trajectories remain within its own reachable state space. Participation requires that the system's trajectories enter consequence-paths that extend beyond the originating regime. This distinction explains why AI language systems can exhibit remarkable linguistic behavior without satisfying conditions for meaning.\n\n• Connected papers: Language as a Self-Organizing Constraint Regime; Constraint Reproduction and Regime Self-Maintenance; Symbol Emergence from Structural Coupling; Meaning Without Semantics"
+          "function": "Integrative capstone of the Language & Symbol cluster. Establishes the structural distinction between internal closure and consequence-bearing participation \u2014 explaining why linguistic competence and meaning are not the same thing.",
+          "details": "A system can generate perfectly coherent, context-sensitive, constraint-satisfying linguistic trajectories \u2014 and still not mean anything. Closure concerns whether a system's trajectories remain within its own reachable state space. Participation requires that the system's trajectories enter consequence-paths that extend beyond the originating regime. This distinction explains why AI language systems can exhibit remarkable linguistic behavior without satisfying conditions for meaning.\n\n\u2022 Connected papers: Language as a Self-Organizing Constraint Regime; Constraint Reproduction and Regime Self-Maintenance; Symbol Emergence from Structural Coupling; Meaning Without Semantics"
         }
       ]
     },
@@ -1050,7 +1050,7 @@
           "pdf": null,
           "summary": "A clarification of different constraint types and of what counts as an explanatory level in the IO framework.",
           "function": "Methodological stabilizer for the corpus. Prevents state-space, scale, and dynamical-systems readings from flattening the regime ladder into a single-level story.",
-          "details": "The paper addresses a common interpretive risk: later regime transitions can look like mere increases in descriptive complexity unless one distinguishes trajectory constraints from persistence-rule architecture and other constraint forms. By doing so, it formalizes why explanatory levels in IO are not simply scales of the same thing.\n\n• Connected papers: Informational Ontology; Regime Predicates and the Limits of State-Space Reduction; Constraint, Reachability, and Regime Structure in Informational Ontology; What the System Cannot See"
+          "details": "The paper addresses a common interpretive risk: later regime transitions can look like mere increases in descriptive complexity unless one distinguishes trajectory constraints from persistence-rule architecture and other constraint forms. By doing so, it formalizes why explanatory levels in IO are not simply scales of the same thing.\n\n\u2022 Connected papers: Informational Ontology; Regime Predicates and the Limits of State-Space Reduction; Constraint, Reachability, and Regime Structure in Informational Ontology; What the System Cannot See"
         },
         {
           "id": "paper-48",
@@ -1064,7 +1064,7 @@
           "pdf": null,
           "summary": "A lemma defending regime-level predicates against the strategy of \"explaining them away\" by expanding a lower-level state space.",
           "function": "Methodological shield for the entire corpus. Protects higher-regime analysis from flattening into brute state-space description.",
-          "details": "The paper targets a familiar reduction move: if one adds enough variables or recursive machinery, higher-order predicates seem to disappear. It argues that trajectory reproduction alone is insufficient for reduction when persistence conditions and regime predicates are what actually carry the explanatory burden.\n\n• Connected papers: Constraint-Type and Explanatory Levels; Logic as a Regime, Not a Foundation; Informational Ontology; Working as Designed"
+          "details": "The paper targets a familiar reduction move: if one adds enough variables or recursive machinery, higher-order predicates seem to disappear. It argues that trajectory reproduction alone is insufficient for reduction when persistence conditions and regime predicates are what actually carry the explanatory burden.\n\n\u2022 Connected papers: Constraint-Type and Explanatory Levels; Logic as a Regime, Not a Foundation; Informational Ontology; Working as Designed"
         },
         {
           "id": "paper-49",
@@ -1078,7 +1078,7 @@
           "pdf": null,
           "summary": "A clarification of value as a structural phenomenon that precedes morality, duty, and full normativity.",
           "function": "Stabilizes one of the most easily misunderstood transitions in the ladder. Key bridge from awareness to meaning and from salience to ethics.",
-          "details": "The paper's core claim is that value is differential constraint within awareness: certain states become weighted or oriented before any moral or evaluative doctrine enters. This keeps the A → V transition from being confused with ethics, utility theory, or desire satisfaction and provides a disciplined way to talk about value without normative inflation.\n\n• Connected papers: Agency, Salience, and Free Will; Meaning Without Semantics; Ethics as Emergent Constraint Regimes; Vulnerability as a Structural Condition"
+          "details": "The paper's core claim is that value is differential constraint within awareness: certain states become weighted or oriented before any moral or evaluative doctrine enters. This keeps the A \u2192 V transition from being confused with ethics, utility theory, or desire satisfaction and provides a disciplined way to talk about value without normative inflation.\n\n\u2022 Connected papers: Agency, Salience, and Free Will; Meaning Without Semantics; Ethics as Emergent Constraint Regimes; Vulnerability as a Structural Condition"
         }
       ]
     },
@@ -1098,7 +1098,7 @@
           "pdf": null,
           "summary": "A book-length explanation of how systems can function correctly, improve by their own metrics, and still produce outcomes no one intended and no one can fully correct.",
           "function": "Primary interpretability layer for the project. Makes the salience, misalignment, and governance stack legible to non-specialist readers without abandoning the underlying structure.",
-          "details": "The book translates the corpus's diagnostic layer into narrative form. Its central claim is that many failures happen upstream of explicit decision: the decisive issue is what a system is structured to see in the first place. Once relevant distinctions are thinned before they can enter decision, later corrections at the level of values, policy, or oversight cannot recover what never became visible in usable form.\n\n• Connected papers: Salience, Manipulation, and Control; Salience Misalignment; Working as Designed; Constraint Propagation Across Organizational Layers"
+          "details": "The book translates the corpus's diagnostic layer into narrative form. Its central claim is that many failures happen upstream of explicit decision: the decisive issue is what a system is structured to see in the first place. Once relevant distinctions are thinned before they can enter decision, later corrections at the level of values, policy, or oversight cannot recover what never became visible in usable form.\n\n\u2022 Connected papers: Salience, Manipulation, and Control; Salience Misalignment; Working as Designed; Constraint Propagation Across Organizational Layers"
         },
         {
           "id": "doc-cn1",
@@ -1110,9 +1110,9 @@
           "doi": null,
           "zenodo": null,
           "pdf": null,
-          "summary": "A comparative positioning note mapping IO against its nearest philosophical neighbors — especially Floridi, Deacon, Friston, and Bateson — clarifying what IO shares with each, where it diverges, and why those divergences are structural.",
+          "summary": "A comparative positioning note mapping IO against its nearest philosophical neighbors \u2014 especially Floridi, Deacon, Friston, and Bateson \u2014 clarifying what IO shares with each, where it diverges, and why those divergences are structural.",
           "function": "External orientation and positioning note for the project. Helps readers situate the ontology within nearby philosophical territory without revising, defending, or extending the framework itself.",
-          "details": "This note is not a defense of IO and not a critique of neighboring frameworks. Its task is cartographic: to show what problem each framework is solving, where overlap is genuine, and where apparent competition dissolves once the frameworks are read at the right level. A final section addresses IO's non-standard use of Awareness, Value, Meaning, and Purpose — explaining why the departures from standard philosophical usage are structural necessities.\n\n• Connected papers: Informational Ontology; Informational Ontology — Condensed Master"
+          "details": "This note is not a defense of IO and not a critique of neighboring frameworks. Its task is cartographic: to show what problem each framework is solving, where overlap is genuine, and where apparent competition dissolves once the frameworks are read at the right level. A final section addresses IO's non-standard use of Awareness, Value, Meaning, and Purpose \u2014 explaining why the departures from standard philosophical usage are structural necessities.\n\n\u2022 Connected papers: Informational Ontology; Informational Ontology \u2014 Condensed Master"
         },
         {
           "id": "doc-n1",
@@ -1126,7 +1126,7 @@
           "pdf": null,
           "summary": "A reader-orientation note for the governance degradation sequence, explaining how five papers fit together as a single diagnostic chain on mediated decision-making, responsibility thinning, legitimacy depletion, and post-handover audit failure.",
           "function": "Entry and sequencing companion for the governance arc. Introduces no new concepts and exists solely to reduce entry friction and prevent misclassification of the sequence's explanatory aim.",
-          "details": "This note frames the five-paper sequence as structural rather than normative, diagnostic rather than prescriptive, and regime-focused rather than system-optimizing. Its central contribution is orientation: it explains why the papers must be read in sequence, what each paper adds to the chain, and why auditability cannot substitute for witnessing once consequence no longer terminates in a live, answerable locus. The note is not part of the formal corpus and should not be cited as an independent argument.\n\n• The five-paper sequence: Witness Conditions (P27); From Law to Logistics (P31); The Handover Protocol (P32); Legitimacy as a Finite Structural Resource (P33); Consequence-Path Audits (P39)"
+          "details": "This note frames the five-paper sequence as structural rather than normative, diagnostic rather than prescriptive, and regime-focused rather than system-optimizing. Its central contribution is orientation: it explains why the papers must be read in sequence, what each paper adds to the chain, and why auditability cannot substitute for witnessing once consequence no longer terminates in a live, answerable locus. The note is not part of the formal corpus and should not be cited as an independent argument.\n\n\u2022 The five-paper sequence: Witness Conditions (P27); From Law to Logistics (P31); The Handover Protocol (P32); Legitimacy as a Finite Structural Resource (P33); Consequence-Path Audits (P39)"
         }
       ]
     }
