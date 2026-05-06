@@ -36,9 +36,9 @@ html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
   font-family:var(--font);font-size:clamp(11px,1.9vw,13px);color:#3a4255;}
 .dl-sw{width:18px;height:2px;border-radius:1px;flex-shrink:0;}
 
-/* BOTTOM CONTROL BAR — Full View button + zoom/pan hint, fixed at bottom center */
-#ctrl-bar{position:fixed;bottom:clamp(16px,2.8vw,26px);left:50%;transform:translateX(-50%);
-  z-index:55;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;}
+/* BOTTOM — dep legend + zoom hint */
+#ctrl-bar{position:fixed;bottom:clamp(12px,2vw,20px);left:50%;transform:translateX(-50%);
+  z-index:55;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:none;}
 #fv-btn{pointer-events:auto;font-family:var(--font);font-size:clamp(11px,1.8vw,14px);
   font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
   color:#7a8499;background:rgba(13,15,24,0.92);border:1px solid #3a4258;
@@ -51,7 +51,7 @@ html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
   color:#2e3545;letter-spacing:0.04em;white-space:nowrap;}
 
 /* HINT — interaction state text, sits above ctrl-bar */
-#hint{position:fixed;bottom:calc(clamp(16px,2.8vw,26px) + clamp(8px,1.4vw,11px)*2 + clamp(11px,1.8vw,14px) + 6px + clamp(9px,1.4vw,11px) + 10px);
+#hint{position:fixed;bottom:calc(clamp(12px,2vw,20px) + 28px + 8px);
   left:50%;transform:translateX(-50%);
   font-family:var(--font);font-size:clamp(10px,1.8vw,12px);color:#272e3a;
   pointer-events:none;z-index:50;transition:opacity 0.8s;white-space:nowrap;}
@@ -132,8 +132,17 @@ html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
     </div>
   </div>
   <div id="cluster-info"><div id="ci-name"></div><div id="ci-desc"></div></div>
+  <button id="fv-btn">Full View</button>
 </div>
-<div id="ctrl-bar"><button id="fv-btn">Full View</button><div id="zoom-hint">Scroll to zoom · Drag to pan</div></div>
+<div id="ctrl-bar">
+  <div id="dep-legend">
+    <div class="dl-row"><div class="dl-sw" style="background:#9a7a00"></div>Selected</div>
+    <div class="dl-row"><div class="dl-sw" style="background:#2a8a58"></div>Upstream — depends on</div>
+    <div class="dl-row"><div class="dl-sw" style="background:#b84040"></div>Downstream — used by</div>
+    <div class="dl-row"><div class="dl-sw" style="background:#3a5a9a"></div>2-hop connection</div>
+  </div>
+  <div id="zoom-hint">Scroll to zoom · Drag to pan</div>
+</div>
 <div id="hint">Select a cluster to explore · Full View for all</div>
 <div id="panel">
   <button class="pc">×</button>
@@ -1396,6 +1405,7 @@ const fvBtn=document.getElementById('fv-btn');
 fvBtn.addEventListener('click',e=>{e.stopPropagation();fullView?exitFullView():enterFullView();});
 function enterFullView(){
   fullView=true;fvBtn.textContent='Exit Full View';fvBtn.classList.add('active');
+  clearDepHover();hideLabel();hideAllPaperLabels();
   document.getElementById('dep-legend').classList.add('vis');
   if(openCluster)dismissCluster();
   fadeOverlay.setAttribute('opacity',0);

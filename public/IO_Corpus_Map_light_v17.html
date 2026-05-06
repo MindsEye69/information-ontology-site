@@ -28,30 +28,29 @@ html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
   font-family:var(--font);font-size:clamp(11px,1.9vw,13px);color:#7a7060;}
 .lg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 
-/* DEP LEGEND */
-#dep-legend{display:flex;flex-direction:column;gap:5px;
-  opacity:0;pointer-events:none;transition:opacity 0.4s;}
-#dep-legend.vis{opacity:1;}
-.dl-row{display:flex;align-items:center;gap:8px;
-  font-family:var(--font);font-size:clamp(11px,1.9vw,13px);color:#7a7060;}
-.dl-sw{width:18px;height:2px;border-radius:1px;flex-shrink:0;}
+/* DEP LEGEND — always visible at bottom */
+#dep-legend{display:flex;flex-direction:row;gap:clamp(10px,2vw,18px);flex-wrap:wrap;
+  justify-content:center;pointer-events:none;}
+.dl-row{display:flex;align-items:center;gap:6px;
+  font-family:var(--font);font-size:clamp(9px,1.5vw,11px);color:#7a7060;white-space:nowrap;}
+.dl-sw{width:16px;height:2px;border-radius:1px;flex-shrink:0;}
 
-/* BOTTOM CONTROL BAR — Full View button + zoom/pan hint, fixed at bottom center */
-#ctrl-bar{position:fixed;bottom:clamp(16px,2.8vw,26px);left:50%;transform:translateX(-50%);
-  z-index:55;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;}
-#fv-btn{pointer-events:auto;font-family:var(--font);font-size:clamp(11px,1.8vw,14px);
+/* BOTTOM — dep legend + zoom hint */
+#ctrl-bar{position:fixed;bottom:clamp(12px,2vw,20px);left:50%;transform:translateX(-50%);
+  z-index:55;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:none;}
+#fv-btn{pointer-events:auto;font-family:var(--font);font-size:clamp(10px,1.6vw,12px);
   font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
   color:#5a5248;background:rgba(240,237,232,0.94);border:1px solid #b0a898;
-  padding:clamp(8px,1.4vw,11px) clamp(22px,3vw,32px);border-radius:4px;cursor:pointer;
+  padding:clamp(6px,1vw,9px) clamp(16px,2.2vw,24px);border-radius:3px;cursor:pointer;
   transition:color 0.2s,border-color 0.2s,background 0.2s;backdrop-filter:blur(8px);
-  white-space:nowrap;}
+  white-space:nowrap;margin-left:auto;}
 #fv-btn:hover{color:#1a1410;border-color:#7a7060;background:rgba(220,216,208,0.98);}
 #fv-btn.active{color:#8a6a10;border-color:#c8a030;background:rgba(255,248,224,0.96);}
 #zoom-hint{font-family:var(--font);font-size:clamp(9px,1.4vw,11px);
   color:#b0a070;letter-spacing:0.04em;white-space:nowrap;}
 
 /* HINT */
-#hint{position:fixed;bottom:calc(clamp(16px,2.8vw,26px) + clamp(8px,1.4vw,11px)*2 + clamp(11px,1.8vw,14px) + 6px + clamp(9px,1.4vw,11px) + 10px);
+#hint{position:fixed;bottom:calc(clamp(12px,2vw,20px) + 28px + 8px);
   left:50%;transform:translateX(-50%);
   font-family:var(--font);font-size:clamp(10px,1.8vw,12px);color:#b0a898;
   pointer-events:none;z-index:50;transition:opacity 0.8s;white-space:nowrap;}
@@ -124,16 +123,19 @@ html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
   </div>
   <div id="legends-row">
     <div id="legend"></div>
-    <div id="dep-legend">
-      <div class="dl-row"><div class="dl-sw" style="background:#9a7a00"></div>Selected</div>
-      <div class="dl-row"><div class="dl-sw" style="background:#2a8a58"></div>Upstream — depends on</div>
-      <div class="dl-row"><div class="dl-sw" style="background:#b84040"></div>Downstream — used by</div>
-      <div class="dl-row"><div class="dl-sw" style="background:#3a5a9a"></div>2-hop connection</div>
-    </div>
   </div>
   <div id="cluster-info"><div id="ci-name"></div><div id="ci-desc"></div></div>
+  <button id="fv-btn">Full View</button>
 </div>
-<div id="ctrl-bar"><button id="fv-btn">Full View</button><div id="zoom-hint">Scroll to zoom · Drag to pan</div></div>
+<div id="ctrl-bar">
+  <div id="dep-legend">
+    <div class="dl-row"><div class="dl-sw" style="background:#9a7a00"></div>Selected</div>
+    <div class="dl-row"><div class="dl-sw" style="background:#2a8a58"></div>Upstream — depends on</div>
+    <div class="dl-row"><div class="dl-sw" style="background:#b84040"></div>Downstream — used by</div>
+    <div class="dl-row"><div class="dl-sw" style="background:#3a5a9a"></div>2-hop connection</div>
+  </div>
+  <div id="zoom-hint">Scroll to zoom · Drag to pan</div>
+</div>
 <div id="hint">Select a cluster to explore · Full View for all</div>
 <div id="panel">
   <button class="pc">×</button>
@@ -1395,6 +1397,7 @@ const fvBtn=document.getElementById('fv-btn');
 fvBtn.addEventListener('click',e=>{e.stopPropagation();fullView?exitFullView():enterFullView();});
 function enterFullView(){
   fullView=true;fvBtn.textContent='Exit Full View';fvBtn.classList.add('active');
+  clearDepHover();hideLabel();hideAllPaperLabels();
   document.getElementById('dep-legend').classList.add('vis');
   if(openCluster)dismissCluster();
   fadeOverlay.setAttribute('opacity',0);
