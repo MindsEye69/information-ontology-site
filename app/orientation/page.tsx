@@ -84,7 +84,7 @@ function parseOrientationText(raw: string): Block[] {
     }
 
     // Section headers like: "Part 1: The Engine Room"
-    if (/^Part\s+\d+\s*:/i.test(line)) {
+    if (/^Part\s+(\d+|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten)\b/i.test(line)) {
       blocks.push({ kind: "h2", text: line });
       // Optional parenthetical subtitle line right after.
       const maybeSub = (lines[i + 1] ?? "").trim();
@@ -98,7 +98,8 @@ function parseOrientationText(raw: string): Block[] {
     }
 
     // Intro-style headers like: "Introduction: The Code of Reality"
-    if (/^[A-Za-z].*:\s+/.test(line) && line.length < 90) {
+    // Also catch short standalone title lines (no colon, no period at end)
+    if ((/^[A-Za-z].*:\s+/.test(line) || (!line.endsWith(".") && !line.endsWith(",") && line.length < 60 && !/^(A|The|It|This|That|In|For|But|So|As|And|Or|Not|Before|After|Once|When|Where|How)\s/i.test(line))) && line.length < 90) {
       blocks.push({ kind: "h2", text: line });
       i++;
       continue;
