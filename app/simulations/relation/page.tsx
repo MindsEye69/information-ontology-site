@@ -7,11 +7,11 @@ export default function RelationSimPage() {
       <ChainNav />
 
       <div className="space-y-2">
-        <p className="text-sm font-semibold tracking-wide text-sky-400">Simulations · R</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Simulations · R</p>
         <h1 className="text-3xl font-bold tracking-tight">R — Relation</h1>
-        <p className="max-w-3xl text-slate-200">
+        <p className="max-w-3xl text-black/70">
           Relation adds constraint between differences. Nothing here evaluates, remembers, or
-          optimizes—relations simply couple nearby states.
+          optimizes — relations simply couple nearby states.
         </p>
       </div>
 

@@ -8,21 +8,21 @@ export default function DeltaSimPage() {
       <ChainNav />
 
       <div className="space-y-2">
-        <p className="text-sm font-semibold tracking-wide text-sky-400">
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55">
           Simulations · Δ
         </p>
         <h1 className="text-3xl font-bold tracking-tight">Δ — Difference</h1>
-        <p className="max-w-3xl text-slate-200">
-          Visual aids for the <span className="font-semibold text-slate-50">Difference</span> stage.
-          These tools are not presented as proofs—only as intuition builders.
+        <p className="max-w-3xl text-black/70">
+          Visual aids for the <span className="font-semibold text-black">Difference</span> stage.
+          These tools are not presented as proofs — only as intuition builders.
         </p>
       </div>
 
       <DifferenceEngine />
 
-      <div className="text-sm text-slate-300">
-        Already have the older Δ → R particle toy? It&apos;s still available here: {" "}
-        <Link href="/simulations/delta-relation" className="text-sky-400">
+      <div className="text-sm text-black/55">
+        Already have the older Δ → R particle toy? It&apos;s still available here:{" "}
+        <Link href="/simulations/delta-relation" className="underline underline-offset-4 hover:text-black">
           open Δ → R →
         </Link>
       </div>

@@ -160,14 +160,14 @@ export default function DeltaRelationSimulationPage() {
     <div className="space-y-10">
       {/* Header */}
       <section className="space-y-3">
-        <p className="text-sm font-semibold tracking-wide text-sky-400">
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55">
           Simulation · Δ → R
         </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           From Differences to Relations
         </h1>
 
-        <p className="text-base text-slate-300 max-w-3xl leading-relaxed">
+        <p className="text-base text-black/70 max-w-3xl leading-relaxed">
           This simulation begins with isolated points—differences in position.
           As they drift, a relational web forms between points that come close
           to one another. This illustrates the IO idea that once you admit
@@ -178,22 +178,22 @@ export default function DeltaRelationSimulationPage() {
       {/* Canvas + Controls */}
       <section className="grid gap-8 md:grid-cols-[minmax(0,3fr),minmax(0,2fr)] items-start">
         <div className="space-y-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-3">
+          <div className="rounded-2xl border border-black/10 bg-white/60 p-3">
             <canvas
               ref={canvasRef}
               width={CANVAS_WIDTH}
               height={CANVAS_HEIGHT}
-              className="w-full h-auto rounded-xl border border-slate-800 bg-slate-950"
+              className="w-full h-auto rounded-xl border border-black/10 bg-slate-950"
             />
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-black/45">
             <div>
-              Particles: <span className="text-slate-200">{PARTICLE_COUNT}</span>
+              Particles: <span className="text-black/80">{PARTICLE_COUNT}</span>
             </div>
             <div>
               FPS:{" "}
-              <span className="text-slate-200">
+              <span className="text-black/80">
                 {frameRate > 0 ? frameRate : "…"}
               </span>
             </div>
@@ -201,10 +201,10 @@ export default function DeltaRelationSimulationPage() {
         </div>
 
         {/* Controls */}
-        <div className="space-y-5 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+        <div className="space-y-5 rounded-2xl border border-black/10 bg-white/60 p-4">
           <div className="space-y-2">
             <h2 className="text-lg font-semibold">Controls</h2>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-black/70 leading-relaxed">
               Slow the system down, pause it, or reset it to watch relational
               structure emerge.
             </p>
@@ -232,7 +232,7 @@ export default function DeltaRelationSimulationPage() {
 
             {/* Speed Slider */}
             <div className="space-y-1">
-              <div className="flex justify-between text-xs text-slate-300">
+              <div className="flex justify-between text-xs text-black/70">
                 <span>Speed</span>
                 <span>{speed.toFixed(2)}×</span>
               </div>
@@ -247,7 +247,7 @@ export default function DeltaRelationSimulationPage() {
                 className="w-full accent-sky-400"
               />
 
-              <div className="flex justify-between text-[10px] text-slate-500">
+              <div className="flex justify-between text-[10px] text-black/35">
                 <span>Slower</span>
                 <span>Faster</span>
               </div>
@@ -255,8 +255,8 @@ export default function DeltaRelationSimulationPage() {
           </div>
 
           {/* Explanatory text */}
-          <div className="space-y-2 text-sm text-slate-300 leading-relaxed">
-            <h3 className="font-semibold text-sky-300">Why this matters</h3>
+          <div className="space-y-2 text-sm text-black/70 leading-relaxed">
+            <h3 className="font-semibold text-black/70">Why this matters</h3>
 
             <p>
               Each dot begins as a simple positional difference. But once two
@@ -272,7 +272,7 @@ export default function DeltaRelationSimulationPage() {
           </div>
 
           {/* Navigation buttons – cleaner layout */}
-          <div className="pt-2 border-t border-slate-800 flex flex-col sm:flex-row gap-3 text-xs">
+          <div className="pt-2 border-t border-black/10 flex flex-col sm:flex-row gap-3 text-xs">
             <Link href="/simulations" className="sm:flex-1 min-w-[8rem]">
               <Button variant="outline" className="w-full border-slate-700">
                 ← Back to simulations
@@ -282,7 +282,7 @@ export default function DeltaRelationSimulationPage() {
             <Link href="/deep/delta" className="sm:flex-1 min-w-[8rem]">
               <Button
                 variant="outline"
-                className="w-full border-sky-700/60 text-sky-300"
+                className="w-full border-black/15 text-black/70"
               >
                 Δ — Difference deep dive
               </Button>

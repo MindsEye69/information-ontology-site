@@ -12,8 +12,8 @@ const CHAIN = [
 
 export default function ChainNav() {
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
-      <div className="text-xs font-semibold tracking-wide text-slate-400">
+    <div className="rounded-2xl border border-black/10 bg-white/60 p-5">
+      <div className="text-xs font-semibold tracking-wide text-black/45">
         IO Chain
       </div>
 
@@ -22,19 +22,19 @@ export default function ChainNav() {
           <div key={c.symbol} className="flex items-center gap-3">
             <Link
               href={c.href}
-              className="group flex flex-col items-center justify-center rounded-2xl border border-slate-800 bg-slate-950/60 px-5 py-4 hover:border-slate-600"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-4 hover:border-black/25 hover:bg-black/5"
               title={c.label}
             >
-              <div className="text-4xl font-extrabold tracking-tight text-slate-50">
+              <div className="text-4xl font-extrabold tracking-tight text-black">
                 {c.symbol}
               </div>
-              <div className="mt-1 text-xs font-semibold text-slate-400 group-hover:text-slate-200">
+              <div className="mt-1 text-xs font-semibold text-black/45 group-hover:text-black/70">
                 {c.label}
               </div>
             </Link>
 
             {i < CHAIN.length - 1 && (
-              <div className="text-2xl font-bold text-slate-600">→</div>
+              <div className="text-2xl font-bold text-black/25">→</div>
             )}
           </div>
         ))}

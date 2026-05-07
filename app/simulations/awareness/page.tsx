@@ -7,11 +7,12 @@ export default function AwarenessSimPage() {
       <ChainNav />
 
       <div className="space-y-2">
-        <p className="text-sm font-semibold tracking-wide text-sky-400">Simulations · A</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Simulations · A</p>
         <h1 className="text-3xl font-bold tracking-tight">A — Awareness</h1>
-        <p className="max-w-3xl text-slate-200">
-          Awareness introduces feedback: a system uses information about its own state to regulate itself.
-          These visual aids are not presented as proofs—only as intuition builders.
+        <p className="max-w-3xl text-black/70">
+          Awareness is the regime in which informational registration is perspective-relative:
+          a system&apos;s internal state shifts in a structured way because of the differences
+          it occupies. These visual aids are not presented as proofs — only as intuition builders.
         </p>
       </div>
 
