@@ -38,7 +38,7 @@ export const paths = {
   pdfArchiveDir: path.join(root, "data", "admin", "pdf-archive"),
 };
 
-function ensureDir(dir: string) { fs.mkdirSync(dir, { recursive: true }); }
+function ensureDir(dir: string) { try { fs.mkdirSync(dir, { recursive: true }); } catch {} }
 function readJsonFile<T>(filePath: string): T { return JSON.parse(fs.readFileSync(filePath, "utf8")) as T; }
 function writeJsonFile(filePath: string, data: unknown) {
   ensureDir(path.dirname(filePath));
@@ -98,7 +98,7 @@ export async function saveUploadedPdf(file: File, previousPublicPath?: string | 
   fs.writeFileSync(target, Buffer.from(await file.arrayBuffer()));
   return `/papers/${fileName}`;
 }
-export function appendJsonl(filePath: string, event: unknown) { ensureDir(path.dirname(filePath)); fs.appendFileSync(filePath, `${JSON.stringify(event)}\n`, "utf8"); }
+export function appendJsonl(filePath: string, event: unknown) { try { ensureDir(path.dirname(filePath)); fs.appendFileSync(filePath, `${JSON.stringify(event)}\n`, "utf8"); } catch {} }
 export function readJsonl<T>(filePath: string, limit = 10000): T[] {
   noStore(); if (!fs.existsSync(filePath)) return [];
   return fs.readFileSync(filePath, "utf8").split(/\r?\n/).filter(Boolean).slice(-limit).flatMap((line) => { try { return [JSON.parse(line) as T]; } catch { return []; } });
