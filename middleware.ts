@@ -30,6 +30,8 @@ const CURRENT_SITE_ROUTES = new Set([
   "process",
   "glossary",
   "archive",
+  "ai-alignment",
+  "corpus-map",
   "ariadne",
   "about",
   "contact",

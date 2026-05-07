@@ -21,7 +21,7 @@ const nav = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur border-b border-black/10">
-      <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
         <Link href="/" className="no-underline">
           <div className="flex items-baseline gap-3 min-w-0">
             <span className="text-lg font-semibold tracking-tight truncate">Informational Ontology</span>
@@ -30,7 +30,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Mobile / tablet: simple dropdown (prevents chopped links) */}
-        <div className="flex items-center lg:hidden">
+        <div className="flex items-center xl:hidden">
           <details className="relative">
             <summary className="list-none cursor-pointer select-none text-sm text-black/75 hover:text-black px-3 py-2 rounded-md border border-black/10 bg-white/60 [&::-webkit-details-marker]:hidden">
               Menu
@@ -59,15 +59,15 @@ export function SiteHeader() {
         </div>
 
         {/* Desktop: full nav */}
-        <nav className="hidden lg:flex items-center gap-5 text-sm">
+        <nav className="hidden xl:flex items-center gap-4 text-sm">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="no-underline text-black/75 hover:text-black">
+            <Link key={item.href} href={item.href} className="no-underline whitespace-nowrap text-black/75 hover:text-black">
               {item.label}
             </Link>
           ))}
           <a
             href="/archive"
-            className="no-underline text-black/60 hover:text-black"
+            className="no-underline whitespace-nowrap text-black/60 hover:text-black"
             title="Historical snapshot of the earlier site"
           >
             Archive
