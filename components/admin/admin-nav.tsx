@@ -1,0 +1,5 @@
+import Link from "next/link";
+const items = [{ href: "/admin", label: "Dashboard" }, { href: "/admin/papers", label: "Papers" }, { href: "/admin/papers/new", label: "New paper" }, { href: "/admin/statistics", label: "Statistics" }, { href: "/admin/downloads", label: "Downloads" }, { href: "/admin/security", label: "Security" }];
+export function AdminNav({ username }: { username: string }) {
+  return <div className="border-b border-black/10 bg-white/60"><div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between gap-4 flex-wrap"><nav className="flex flex-wrap items-center gap-2 text-sm">{items.map((item) => <Link key={item.href} href={item.href} className="no-underline rounded-full border border-black/10 bg-white px-3 py-1.5 text-black/70 hover:text-black hover:bg-black/5">{item.label}</Link>)}</nav><form action="/api/admin/logout" method="post" className="flex items-center gap-3 text-sm text-black/55"><span>Signed in as {username}</span><button className="rounded-full border border-black/10 bg-white px-3 py-1.5 text-black/70 hover:bg-black/5" type="submit">Log out</button></form></div></div>;
+}

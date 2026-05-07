@@ -44,32 +44,50 @@ const NODE_CONTENT: Record<
   },
   "R": {
     title: "R — Relation",
-    body: ["Extended explanation forthcoming."],
+    body: [
+      "Difference, once present, is always articulated under some ordering: this and not that, before and after, here and elsewhere. That structured articulation—held under ordering and persistence—is what IO calls Relation.",
+      "R marks the first level at which organizational structure appears. Differences do not simply exist side by side; they are positioned relative to each other.",
+    ],
     links: [{ href: "/start/relation", label: "Start Here: Relation" }],
   },
   "I": {
     title: "I — Information",
-    body: ["Extended explanation forthcoming."],
+    body: [
+      "Where structured difference persists across transitions—where a pattern remains re-identifiable rather than dissolving—IO calls this Information. Not message, not meaning, but structured difference that holds.",
+      "I is prior to interpretation. The re-identifiability is load-bearing: without it, nothing downstream can organize itself against a stable contrast.",
+    ],
     links: [{ href: "/start/information", label: "Start Here: Information" }],
   },
   "A": {
     title: "A — Awareness",
-    body: ["Extended explanation forthcoming."],
+    body: [
+      "Not every position within a system is the same position with respect to structured difference. Awareness names the regime in which informational registration is perspective-relative: which differences are available depends on where within the structure a system stands.",
+      "A is not consciousness. It is the organizational condition under which information is not uniformly present but differentially registered from a position.",
+    ],
     links: [{ href: "/start/awareness", label: "Start Here: Awareness" }],
   },
   "V": {
     title: "V — Value",
-    body: ["Extended explanation forthcoming."],
+    body: [
+      "Within awareness, not all registrations are equivalent with respect to what persists. Some registered states allow continued organization; others do not. That differential stabilization—relative to persistence—is what IO calls Value.",
+      "V is not preference or moral worth. It is the structural asymmetry that appears whenever differences are registered from a position that has persistence conditions of its own.",
+    ],
     links: [{ href: "/start/value", label: "Start Here: Value" }],
   },
   "M": {
     title: "M — Meaning",
-    body: ["Extended explanation forthcoming."],
+    body: [
+      "Where the differential stabilization of one transition structures what is available in the next—where value is coordinated across transitions—IO calls this Meaning. Interpretation becomes possible without requiring symbols or semantic content.",
+      "M is not semantics. It is the organizational regime in which structured constraint carries interpretive weight across time, prior to any representational apparatus.",
+    ],
     links: [{ href: "/start/meaning", label: "Start Here: Meaning" }],
   },
   "P": {
     title: "P — Purpose",
-    body: ["Extended explanation forthcoming."],
+    body: [
+      "Where the coordination of value across transitions acquires a directional bias that persists—where constraint structure leans through time rather than merely across it—IO calls this Purpose. Not intention, not goal, but sustained directional constraint.",
+      "P marks the structural persistence condition under which organized continuation holds its orientation. It closes the chain: the differences P generates are the Δ from which the next cycle begins.",
+    ],
     links: [{ href: "/start/purpose", label: "Start Here: Purpose" }],
   },
 };
