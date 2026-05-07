@@ -143,7 +143,7 @@ export default function PapersPage() {
 
         <div className="mt-12 space-y-10">
           {groups.map((group) => (
-            <section key={group.id} className="space-y-4">
+            <section key={group.id} id={group.id} className="scroll-mt-24 space-y-4">
               <div className="flex items-baseline justify-between gap-6 flex-wrap">
                 <h2 className="text-xl font-semibold">{group.title}</h2>
                 <span className="text-xs text-black/45">{group.items.length} items</span>

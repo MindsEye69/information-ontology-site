@@ -6,10 +6,11 @@ const SHOW_ARIADNE = process.env.NEXT_PUBLIC_SHOW_ARIADNE === "true";
 
 const nav = [
   { href: "/start-here", label: "Start Here" },
+  { href: "/ai-alignment", label: "AI Path" },
   { href: "/orientation/how-to-build-a-someone", label: "Orientation Guide" },
   { href: "/master", label: "The Master" },
   { href: "/papers", label: "Papers" },
-  { href: "/corpus-map.html", label: "Corpus Map" },
+  { href: "/corpus-map", label: "Corpus Map" },
   { href: "/simulations", label: "Simulations" },
   { href: "/process", label: "Process" },
   { href: "/glossary", label: "Glossary" },

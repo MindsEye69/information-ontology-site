@@ -100,13 +100,14 @@ html,body{width:100%;height:100%;background:var(--bg);overflow:hidden;
 .p-link:hover{color:#1a1410;border-color:#7a7060;}
 
 /* CLUSTER INFO — lives in header, below legend row */
-#cluster-info{padding:0 0 14px;pointer-events:none;
+#cluster-info{padding:0 0 14px;pointer-events:auto;
   min-height:56px;opacity:0;transition:opacity 0.32s ease;}
 #cluster-info.vis{opacity:1;}
 #ci-name{font-family:var(--font);font-size:clamp(12px,2vw,15px);
   font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;}
 #ci-desc{font-family:var(--font);font-size:clamp(12px,1.9vw,14px);
   line-height:1.62;color:#8a8070;max-width:72ch;}
+#ci-desc a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 
 /* Circle + label transitions */
 .p-circle{transition:fill-opacity 0.32s ease,stroke-opacity 0.32s ease,stroke 0.28s ease;}
@@ -644,14 +645,14 @@ const PAPERS=[
   {id:'26',num:'26',title:'Witnessing Under Vulnerability: Consequence Termination Under Scale & Tempo',short:'Witnessing',cluster:'Governance',depth:0,status:'locked',labelDir:'dr',url:'https://informationontology.org'},
   {id:'29',num:'29',title:'Ethics as Emergent Constraint Regimes',short:'Ethics as Constraint',cluster:'Governance',depth:0,status:'locked',url:'https://informationontology.org'},
   {id:'33',num:'33',title:'Legitimacy as a Finite Structural Resource',short:'Legitimacy',cluster:'Governance',depth:0,status:'locked',url:'https://informationontology.org'},
-  {id:'27',num:'27',title:'Witness Conditions: Regime Preservation Under AI Mediation',short:'Witness Conditions',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'27',num:'27',title:'Witness Conditions: Regime Preservation Under AI Mediation',short:'Witness Conditions',cluster:'Governance',depth:1,status:'locked',url:'/papers/witness-conditions'},
   {id:'30',num:'30',title:'Responsibility, Law, and Moral Practice',short:'Responsibility & Law',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
   {id:'31',num:'31',title:'From Law to Logistics: How AI Thins Coercive Regimes',short:'From Law to Logistics',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
   {id:'36',num:'36',title:'Markets as Multi-Agent Constraint Stabilizers',short:'Markets as Stabilizers',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
   {id:'N1',num:'N1',title:'Orientation Note: The Regime Degradation Sequence',short:'Regime Degradation Guide',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
   {id:'34',num:'34',title:'Collective Agency and Institutional Personhood: Structural Criteria for Organization-Level Action',short:'Collective Agency & Institutions',cluster:'Governance',depth:1,status:'locked',url:'https://informationontology.org'},
   {id:'17',num:'17',title:'The Silence Limit: Why Purpose Cannot Persist Without Living Constraint Originators',short:'The Silence Limit',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
-  {id:'32',num:'32',title:'The Handover Protocol: Formalizing Necessary Regime Thinning Under Automation',short:'Handover Protocol',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
+  {id:'32',num:'32',title:'The Handover Protocol: Formalizing Necessary Regime Thinning Under Automation',short:'Handover Protocol',cluster:'Governance',depth:2,status:'locked',url:'https://doi.org/10.5281/zenodo.18615342'},
   {id:'35',num:'35',title:'Authority, Responsibility, and Force',short:'Authority & Force',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
   {id:'51',num:'51',title:'Logistics as a Distinct Regime',short:'Logistics Regime',cluster:'Governance',depth:2,status:'locked',url:'https://informationontology.org'},
   {id:'53',num:'53',title:'Constraint Propagation Across Organizational Layers',short:'Constraint Propagation',cluster:'Governance',depth:2,status:'active',url:'https://informationontology.org'},
@@ -664,10 +665,10 @@ const PAPERS=[
   {id:'42',num:'42',title:'Structural Compatibility — Diagnostic Essay',short:'Structural Compatibility',cluster:'AI',depth:0,status:'locked',url:'https://informationontology.org'},
   {id:'71',num:'71',title:'Purposive Thresholds and the Distribution of Alignment',short:'Purposive Thresholds',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
   {id:'39',num:'39',title:'Consequence-Path Audits',short:'Consequence-Path Audits',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
-  {id:'40',num:'40',title:'Working as Designed: Diagnosing Alignment Failure Without Error',short:'Working as Designed',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
+  {id:'40',num:'40',title:'Working as Designed: Diagnosing Alignment Failure Without Error',short:'Working as Designed',cluster:'AI',depth:1,status:'locked',url:'/papers/working-as-designed'},
   {id:'43',num:'43',title:'Can AI Participate in Philosophical Method?',short:'Can AI Do Philosophy?',cluster:'AI',depth:1,status:'locked',url:'https://informationontology.org'},
-  {id:'41',num:'41',title:'Alignment After Witnessing',short:'Alignment After Witnessing',cluster:'AI',depth:2,status:'active',url:'https://informationontology.org'},
-  {id:'69',num:'69',title:'Vulnerability Laundering in AI-Mediated Regimes',short:'Vulnerability Laundering',cluster:'AI',depth:2,status:'active',url:'https://informationontology.org'},
+  {id:'41',num:'41',title:'Alignment After Witnessing',short:'Alignment After Witnessing',cluster:'AI',depth:2,status:'active',url:'/papers/alignment-after-witnessing'},
+  {id:'69',num:'69',title:'Vulnerability Laundering in AI-Mediated Regimes',short:'Vulnerability Laundering',cluster:'AI',depth:2,status:'active',url:'/papers/vulnerability-laundering-in-ai-mediated-regimes'},
   // ── EPISTEMICS ───────────────────────────────────────────────────────────────
   {id:'44',num:'44',title:'Epistemic Regimes: Truth, Diagnosis, and Structural Warrant',short:'Epistemic Regimes',cluster:'Epistemics',depth:0,status:'locked',url:'https://informationontology.org'},
   {id:'45',num:'45',title:'The Truth Protocol',short:'The Truth Protocol',cluster:'Epistemics',depth:1,status:'locked',url:'https://informationontology.org'},
@@ -986,7 +987,11 @@ function showClusterInfo(c){
   clearTimeout(ciTimeout);
   ciName.textContent=(c.label||c.id).toUpperCase();
   ciName.style.color=c.color;
-  ciDesc.textContent=c.desc||'';
+  if(c.id==='AI'){
+    ciDesc.innerHTML=(c.desc||'')+' <a href="/ai-alignment" target="_top" rel="noopener">Open the AI alignment path →</a>';
+  }else{
+    ciDesc.textContent=c.desc||'';
+  }
   ciPanel.classList.add('vis');
 }
 function hideClusterInfo(){

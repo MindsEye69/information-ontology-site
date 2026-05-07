@@ -85,9 +85,35 @@ export default function HomePage() {
             volume, but by following the consequences of the framework until its most
             important open paths had been worked through.
           </p>
+        </div>
 
+        <section className="mt-9 grid gap-4 md:grid-cols-2">
+          <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm">
+            <p className="text-xs uppercase tracking-[0.2em] text-black/45">Reader path</p>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">Philosophical path</h2>
+            <p className="mt-3 text-sm leading-relaxed text-black/65">
+              Start with the core regime chain: difference, relation, information, awareness, value, meaning, and purpose.
+            </p>
+            <div className="mt-5">
+              <PrimaryLink href="/start-here" label="Start Here" />
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm">
+            <p className="text-xs uppercase tracking-[0.2em] text-black/45">Reader path</p>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">AI Alignment path</h2>
+            <p className="mt-3 text-sm leading-relaxed text-black/65">
+              Enter through the AI-facing papers on correct-operation failure, witnessing, handover, alignment boundaries, and vulnerability laundering.
+            </p>
+            <div className="mt-5">
+              <PrimaryLink href="/ai-alignment" label="AI Alignment path" />
+            </div>
+          </div>
+        </section>
+
+        <div className="mt-9 text-black/75 leading-relaxed space-y-4">
           <p>
-            The site is layered for different readers:
+            The site is also layered for different readers:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
@@ -112,10 +138,9 @@ export default function HomePage() {
         </div>
 
         <div className="mt-9 flex flex-wrap gap-3">
-          <PrimaryLink href="/start-here" label="Start Here" />
           <SecondaryLink href="/orientation" label="Orientation Guide" />
           <SecondaryLink href="/papers" label="Papers" />
-          <SecondaryLink href="/corpus-map.html" label="Interactive Corpus Map" />
+          <SecondaryLink href="/corpus-map" label="Interactive Corpus Map" />
           <ExternalSecondaryLink
             href={SUBSTACK_URL}
             label="IO Substack"

@@ -59,7 +59,8 @@ export default function CorpusMapPage() {
         </h1>
         <p className="mt-6 text-black/75 leading-relaxed">
           Explore the full IO corpus architecture visually. The map opens in light mode by
-          default, and you can switch to the dark version at any time.
+          default, and you can switch to the dark version at any time. Readers entering through
+          the AI cluster can also use the guided AI alignment and governance path.
         </p>
       </div>
 
@@ -84,6 +85,12 @@ export default function CorpusMapPage() {
         >
           Open current view in a new tab
         </a>
+        <Link
+          href="/ai-alignment"
+          className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-black px-5 py-3 text-sm font-medium text-white no-underline hover:bg-black/90"
+        >
+          AI Alignment path
+        </Link>
         <Link
           href="/papers"
           className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
