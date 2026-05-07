@@ -11,7 +11,8 @@
     "build-archive": "node scripts/build-archive.mjs",
     "sync-papers": "node scripts/sync-papers.mjs",
     "check:placeholders": "node scripts/check-placeholders.cjs",
-    "check:papers": "node scripts/check-papers.mjs"
+    "check:papers": "node scripts/check-papers.mjs",
+    "admin:hash": "node scripts/create-admin-password-hash.mjs"
   },
   "dependencies": {
     "next": "14.2.35",
