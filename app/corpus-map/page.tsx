@@ -1,55 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 
-type MapMode = "light" | "dark";
-
-const MAPS: Record<MapMode, { src: string; label: string; note: string }> = {
-  light: {
-    src: "/IO_Corpus_Map_light_v17.html",
-    label: "Light",
-    note: "Default map view",
-  },
-  dark: {
-    src: "/IO_Corpus_Map_v17.html",
-    label: "Dark",
-    note: "Dark-mode map view",
-  },
-};
-
-function ModeButton({
-  active,
-  onClick,
-  label,
-  note,
-}: {
-  active: boolean;
-  onClick: () => void;
-  label: string;
-  note: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`inline-flex flex-col items-start rounded-2xl border px-4 py-3 text-left transition ${
-        active
-          ? "border-black bg-black text-white"
-          : "border-black/10 bg-white text-black/80 hover:bg-black/5"
-      }`}
-      aria-pressed={active}
-    >
-      <span className="text-sm font-medium">{label}</span>
-      <span className={`text-xs ${active ? "text-white/70" : "text-black/55"}`}>{note}</span>
-    </button>
-  );
-}
+const MAP_SRC = "/IO_Corpus_Map_v19.html";
 
 export default function CorpusMapPage() {
-  const [mode, setMode] = useState<MapMode>("light");
-  const currentMap = MAPS[mode];
-
   return (
     <main className="mx-auto max-w-7xl px-4 py-14">
       <div className="max-w-3xl">
@@ -58,32 +13,22 @@ export default function CorpusMapPage() {
           Interactive Corpus Map
         </h1>
         <p className="mt-6 text-black/75 leading-relaxed">
-          Explore the full IO corpus architecture visually. The map opens in light mode by
-          default, and you can switch to the dark version at any time. Readers entering through
-          the AI cluster can also use the guided AI alignment and governance path.
+          Explore the full IO corpus in two views. <strong>Reading Order</strong> traces
+          each cluster as a branching chain — follow any thread from the master outward
+          through its dependency sequence. <strong>Corpus Architecture</strong> shows the
+          radial bloom of all papers and their cross-cluster connections. Light and dark
+          mode are available via the toggle inside the map.
         </p>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
-        <ModeButton
-          active={mode === "light"}
-          onClick={() => setMode("light")}
-          label="Light"
-          note="Default"
-        />
-        <ModeButton
-          active={mode === "dark"}
-          onClick={() => setMode("dark")}
-          label="Dark"
-          note="Alternate view"
-        />
         <a
-          href={currentMap.src}
+          href={MAP_SRC}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
         >
-          Open current view in a new tab
+          Open in new tab ↗
         </a>
         <Link
           href="/ai-alignment"
@@ -101,10 +46,9 @@ export default function CorpusMapPage() {
 
       <div className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
         <iframe
-          key={currentMap.src}
-          src={currentMap.src}
-          title={`Interactive Corpus Map (${mode})`}
-          className="h-[78vh] min-h-[720px] w-full"
+          src={MAP_SRC}
+          title="Interactive Corpus Map"
+          className="h-[82vh] min-h-[720px] w-full"
         />
       </div>
     </main>
