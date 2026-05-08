@@ -35,6 +35,7 @@ const CURRENT_SITE_ROUTES = new Set([
   "ariadne",
   "about",
   "contact",
+  "admin",
 ]);
 
 // Known legacy top-level routes that exist in /public/archive as .html snapshots.
@@ -55,6 +56,18 @@ const LEGACY_ARCHIVE_ROUTES = new Set([
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  // Admin pages are intentionally not linked publicly. This is only a
+  // cookie-presence gate; signed-session validation still happens server-side.
+  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
+    if (!req.cookies.get("io_admin_session")) {
+      const url = req.nextUrl.clone();
+      url.pathname = "/admin/login";
+      url.searchParams.set("next", pathname);
+      return NextResponse.redirect(url);
+    }
+  }
+
   const referer = req.headers.get("referer") || "";
   const fromArchive = (() => {
     try {
