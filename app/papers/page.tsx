@@ -3,7 +3,24 @@
 import Link from "next/link";
 import { useState } from "react";
 import papersData from "@/content/papers.json";
-import type { PaperItem, PaperGroup } from "@/lib/admin/storage";
+
+type PaperStatus = "released" | "in_production" | "retired";
+type PaperItem = {
+  id: string;
+  paper_no?: number;
+  title: string;
+  slug: string;
+  status: PaperStatus;
+  state?: string;
+  doi?: string | null;
+  zenodo?: string | null;
+  pdf?: string | null;
+  summary?: string;
+  function?: string;
+  details?: string;
+  [key: string]: unknown;
+};
+type PaperGroup = { id: string; title: string; items: PaperItem[] };
 
 function hasPdf(item: PaperItem): item is PaperItem & { pdf: string } {
   return typeof item.pdf === "string" && item.pdf.trim().length > 0;
