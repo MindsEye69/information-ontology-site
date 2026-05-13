@@ -15,7 +15,9 @@ export default function RelationSimPage() {
         </p>
       </div>
 
-      <RelationFieldEngine />
+      <div className="rounded-2xl bg-slate-950 p-1">
+        <RelationFieldEngine />
+      </div>
     </div>
   );
 }

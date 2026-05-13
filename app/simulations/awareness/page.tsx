@@ -16,7 +16,9 @@ export default function AwarenessSimPage() {
         </p>
       </div>
 
-      <AwarenessHomeostasisToy />
+      <div className="rounded-2xl bg-slate-950 p-1">
+        <AwarenessHomeostasisToy />
+      </div>
     </div>
   );
 }

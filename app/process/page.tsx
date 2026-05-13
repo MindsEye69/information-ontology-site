@@ -13,16 +13,15 @@ export default function ProcessPage() {
           The Project as Process
         </h1>
 
-        <div className="mt-8 rounded-2xl border border-black/10 bg-white/60 p-6 md:p-8">
-          <p className="text-base md:text-lg text-black/80 leading-relaxed">
-            <strong>
-              The fact that Informational Ontology makes the project intelligible
-              in retrospect is evidence of its explanatory adequacy.
-            </strong>
+        <div className=”mt-8 rounded-2xl border border-black/10 bg-white/60 p-6 md:p-8”>
+          <p className=”text-base md:text-lg text-black/80 leading-relaxed”>
+            This page describes how Informational Ontology developed: the questions
+            it began from, the constraints that shaped it over time, and the role
+            that human–AI collaboration played in the process.
           </p>
 
-          <p className="mt-4 text-base md:text-lg text-black/80 leading-relaxed">
-            The collaboration was not planned as a demonstration of <DefinedTerm slug="alignment" tooltip="Here, “alignment” means structural compatibility under shared constraints—not shared goals or values.">alignment</DefinedTerm>;
+          <p className=”mt-4 text-base md:text-lg text-black/80 leading-relaxed”>
+            The collaboration was not planned as a demonstration of <DefinedTerm slug=”alignment” tooltip=”Here, “alignment” means structural compatibility under shared constraints—not shared goals or values.”>alignment</DefinedTerm>;
             an account of alignment unfolded organically from the original work.
             Only in retrospect did it become clear that this account relied on
             the same constrained methodology through which the project itself

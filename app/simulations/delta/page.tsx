@@ -18,7 +18,9 @@ export default function DeltaSimPage() {
         </p>
       </div>
 
-      <DifferenceEngine />
+      <div className="rounded-2xl bg-slate-950 p-1">
+        <DifferenceEngine />
+      </div>
 
       <div className="text-sm text-black/55">
         Already have the older Δ → R particle toy? It&apos;s still available here:{" "}

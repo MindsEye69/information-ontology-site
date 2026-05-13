@@ -15,7 +15,9 @@ export default function InformationSimPage() {
         </p>
       </div>
 
-      <InformationStabilityEngine />
+      <div className="rounded-2xl bg-slate-950 p-1">
+        <InformationStabilityEngine />
+      </div>
     </div>
   );
 }
