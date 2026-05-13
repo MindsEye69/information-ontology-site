@@ -13,16 +13,22 @@ export default function ProcessPage() {
           The Project as Process
         </h1>
 
-        <div className=”mt-8 rounded-2xl border border-black/10 bg-white/60 p-6 md:p-8”>
-          <p className=”text-base md:text-lg text-black/80 leading-relaxed”>
+        <div className="mt-8 rounded-2xl border border-black/10 bg-white/60 p-6 md:p-8">
+          <p className="text-base md:text-lg text-black/80 leading-relaxed">
             This page describes how Informational Ontology developed: the questions
             it began from, the constraints that shaped it over time, and the role
-            that human–AI collaboration played in the process.
+            that human&ndash;AI collaboration played in the process.
           </p>
 
-          <p className=”mt-4 text-base md:text-lg text-black/80 leading-relaxed”>
-            The collaboration was not planned as a demonstration of <DefinedTerm slug=”alignment” tooltip={`Here, “alignment” means structural compatibility under shared constraints—not shared goals or values.`}>alignment</DefinedTerm>;
-            an account of alignment unfolded organically from the original work.
+          <p className="mt-4 text-base md:text-lg text-black/80 leading-relaxed">
+            The collaboration was not planned as a demonstration of{" "}
+            <DefinedTerm
+              slug="alignment"
+              tooltip="Here, alignment means structural compatibility under shared constraints — not shared goals or values."
+            >
+              alignment
+            </DefinedTerm>
+            ; an account of alignment unfolded organically from the original work.
             Only in retrospect did it become clear that this account relied on
             the same constrained methodology through which the project itself
             had been developed.
@@ -32,7 +38,7 @@ export default function ProcessPage() {
         <div className="mt-12 space-y-6">
           <p className="text-sm md:text-base text-black/70 leading-relaxed">
             This project did not begin as an attempt to construct a philosophical
-            system, nor as an experiment in human–AI collaboration. It began with
+            system, nor as an experiment in human&ndash;AI collaboration. It began with
             a small set of persistent questions about how structure, meaning, and
             apparent direction can arise without presupposing purpose, intention,
             normativity, or teleology.
@@ -57,14 +63,14 @@ export default function ProcessPage() {
         <div className="mt-12 space-y-6">
           <p className="text-sm md:text-base text-black/70 leading-relaxed">
             The development of Informational Ontology proceeded through sustained
-            human–AI interaction under increasing constraint. Early stages were
+            human&ndash;AI interaction under increasing constraint. Early stages were
             permissive and exploratory. As provisional structure appeared, the
             process shifted toward stricter constraint enforcement.
           </p>
 
           <p className="text-sm md:text-base text-black/70 leading-relaxed">
             Candidate explanations were proposed, tested, and discarded when they
-            collapsed into hidden assumptions—semantic representation, implicit
+            collapsed into hidden assumptions &mdash; semantic representation, implicit
             normativity, executive control, or teleological explanation. Entire
             lines of argument were abandoned rather than patched. What stabilized
             was not a narrative or metaphor, but a framework whose components
@@ -120,7 +126,7 @@ export default function ProcessPage() {
             Nothing in this section suggests that philosophical work can be
             delegated to machines, that training and expertise are obsolete, or
             that institutional scholarship is dispensable. The claim is narrower:
-            under sufficiently disciplined conditions, a human–AI system can
+            under sufficiently disciplined conditions, a human&ndash;AI system can
             instantiate a process that is recognizably philosophical in method
             and outcome, and Informational Ontology provides a coherent way of
             explaining how that occurred in this case.
