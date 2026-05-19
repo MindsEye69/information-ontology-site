@@ -468,8 +468,8 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
 <div id="view-mm" class="io-view">
 <div id="mm-hdr">
   <div>
-    <div id="mm-hdr-title">Informational Ontology — Corpus Mind Map</div>
-    <div id="mm-hdr-sub">Michael Semprevivo · informationontology.org · 75 Entries · 10 Clusters</div>
+    <div id="mm-hdr-title">Corpus Mind Map</div>
+    <div id="mm-hdr-sub">75 Entries · 10 Clusters</div>
   </div>
   <div id="mm-legend">
     <div class="li"><span class="lb lb-f">F</span>Foundational</div>
@@ -564,6 +564,7 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
 
 <script>
 /* ══ THEME + VIEW MANAGEMENT ══════════════════════════════════ */
+let radialInitialized=false;
 (function(){
   const savedTheme = localStorage.getItem('io-theme') || 'light';
   const savedView  = localStorage.getItem('io-view')  || 'mm';
@@ -582,7 +583,6 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   });
 })();
 
-let radialInitialized=false;
 function applyTheme(t){
   document.documentElement.dataset.theme=t;
   document.getElementById('btn-theme').textContent=t==='dark'?'☀':'🌙';
@@ -1923,7 +1923,7 @@ EDGES.forEach(([a,b])=>{if(DEPS[a])DEPS[a].up.push(b);if(DEPS[b])DEPS[b].down.pu
 const NS='http://www.w3.org/2000/svg';
 let W,H,CX,CY,S,RC;
 const cmap={},pnodes={},depLineMap={};
-let openCluster=null,fullView=false,hoverPaper=null,panelPaper=null;
+let openCluster=null,fullView=false,hoverPaper=null,panelPaper=null,depHoverGen=0;
 let zoom=1,panX=0,panY=0;
 let animating=false,animStart=null,animFrom={},animTo={};
 let isPanning=false,hasDragged=false,dragO={x:0,y:0};
@@ -2444,6 +2444,7 @@ function clearCrossClusterHover(){
 // ═══════════════════════════════════════════════════════════
 function setDepHover(id){
   if(hoverPaper===id)return;hoverPaper=id;
+  const gen=++depHoverGen;
   const up1=new Set(DEPS[id]?.up||[]);
   const dn1=new Set(DEPS[id]?.down||[]);
   const up2=new Set(),dn2=new Set();
@@ -2476,15 +2477,15 @@ function setDepHover(id){
     else line.setAttribute('stroke-opacity',0);
   });
   upLines.forEach((line,i)=>{
-    setTimeout(()=>{line.setAttribute('stroke-opacity',0.70);},i*55);
+    setTimeout(()=>{if(depHoverGen===gen)line.setAttribute('stroke-opacity',0.70);},i*55);
   });
   const upDelay=upLines.length>0?upLines.length*55+180:0;
   dnLines.forEach((line,i)=>{
-    setTimeout(()=>{line.setAttribute('stroke-opacity',0.70);},upDelay+i*55);
+    setTimeout(()=>{if(depHoverGen===gen)line.setAttribute('stroke-opacity',0.70);},upDelay+i*55);
   });
 }
 function clearDepHover(){
-  if(!hoverPaper)return;hoverPaper=null;
+  if(!hoverPaper)return;hoverPaper=null;depHoverGen++;
   Object.values(pnodes).forEach(n=>{setC(n,panelPaper===n.paper.id?0.28:n.bfo,n.bso,n.c.color);});
   Object.values(depLineMap).forEach(l=>l.setAttribute('stroke-opacity',0));
   hideLabel();hideAllPaperLabels();
