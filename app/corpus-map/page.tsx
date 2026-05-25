@@ -54,12 +54,30 @@ export default function CorpusMapPage() {
         </Link>
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-white dark:bg-[#0d0f18] shadow-sm">
+      {/* Mobile: Show fullscreen CTA */}
+      <div className="mt-8 md:hidden">
+        <div className="rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-gradient-to-br from-white/60 to-white/40 dark:from-[#111828]/70 dark:to-[#0d0f18]/70 p-8 text-center">
+          <p className="text-sm text-black/65 dark:text-[#b8c6de] mb-4">
+            The interactive map is best experienced fullscreen on larger displays.
+          </p>
+          <a
+            href={MAP_SRC}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center rounded-2xl bg-black dark:bg-[#b8c6de] px-6 py-3 text-sm font-medium text-white dark:text-black no-underline hover:bg-black/90 dark:hover:bg-[#e4e8f0] transition-colors"
+          >
+            Open Interactive Map Fullscreen →
+          </a>
+        </div>
+      </div>
+
+      {/* Desktop: Show embedded iframe */}
+      <div className="mt-8 hidden md:block overflow-hidden rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-white dark:bg-[#0d0f18] shadow-sm">
         <iframe
           ref={iframeRef}
           src={MAP_SRC}
           title="Interactive Corpus Map"
-          className="h-[50vh] md:h-[82vh] w-full"
+          className="h-[82vh] w-full"
         />
       </div>
     </main>
