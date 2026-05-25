@@ -140,7 +140,7 @@ export default function RegimeChainExplorer() {
         <div className="h-12 md:h-14 flex items-end">
           {phrase && (
             <div
-              className={`text-2xl md:text-3xl font-semibold tracking-tight transition-opacity duration-[1400ms] ${
+              className={`text-2xl md:text-3xl font-semibold tracking-tight transition-opacity duration-[1400ms] text-black dark:text-[#b8c6de] ${
                 visible ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -149,7 +149,7 @@ export default function RegimeChainExplorer() {
           )}
         </div>
 
-        <div className="mt-6 rounded-3xl border border-black/10 bg-white/60 p-6 md:p-8">
+        <div className="mt-6 rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 p-6 md:p-8">
           <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xl md:text-2xl">
             {NODES.map((n, i) => (
               <div key={n} className="flex items-center gap-3 md:gap-4">
@@ -158,7 +158,7 @@ export default function RegimeChainExplorer() {
                     setPane({ kind: "node", key: n });
                     flashPhrase(n);
                   }}
-                  className="rounded-2xl px-4 py-2 border border-black/15 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                  className="rounded-2xl px-4 py-2 border border-black/15 dark:border-slate-700 text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 dark:focus-visible:ring-slate-700"
                 >
                   {n}
                 </button>
@@ -170,7 +170,7 @@ export default function RegimeChainExplorer() {
                         `${NODES[i]}-${NODES[i + 1]}` as EdgeKey
                       ]
                     }
-                    className="no-underline text-black/45 hover:text-black/80 rounded px-1 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                    className="no-underline text-black/45 dark:text-[#5a6a82] hover:text-black/80 dark:hover:text-[#b8c6de] rounded px-1 hover:bg-black/5 dark:hover:bg-[#111828]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 dark:focus-visible:ring-slate-700"
                   >
                     →
                   </Link>
@@ -178,18 +178,18 @@ export default function RegimeChainExplorer() {
               </div>
             ))}
           </div>
-          <p className="mt-3 text-sm text-black/45 text-center">
+          <p className="mt-3 text-sm text-black/45 dark:text-[#5a6a82] text-center">
             Click the symbols or arrows to explore the chain.
           </p>
         </div>
 
-        <div className="mt-10 min-h-[220px] rounded-3xl border border-black/10 bg-paper p-6 md:p-8">
+        <div className="mt-10 min-h-[220px] rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-paper dark:bg-[#111828]/70 p-6 md:p-8">
           {content && (
             <>
-              <h2 className="text-lg md:text-xl font-semibold">
+              <h2 className="text-lg md:text-xl font-semibold text-black dark:text-[#b8c6de]">
                 {content.title}
               </h2>
-              <div className="mt-3 space-y-3 text-black/75">
+              <div className="mt-3 space-y-3 text-black/75 dark:text-[#b8c6de]">
                 {content.body.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
@@ -199,7 +199,7 @@ export default function RegimeChainExplorer() {
                   <Link
                     key={l.href}
                     href={l.href}
-                    className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+                    className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-slate-700 text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]/80"
                   >
                     {l.label}
                   </Link>
@@ -212,25 +212,25 @@ export default function RegimeChainExplorer() {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/master"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-slate-700 text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]/80"
           >
             The Master
           </Link>
           <Link
             href="/papers"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-slate-700 text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]/80"
           >
             Papers
           </Link>
           <Link
             href="/orientation/how-to-build-a-someone"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-slate-700 text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]/80"
           >
             Orientation Guide
           </Link>
           <Link
             href="/archive"
-            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+            className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-slate-700 text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]/80"
           >
             Archived site
           </Link>
