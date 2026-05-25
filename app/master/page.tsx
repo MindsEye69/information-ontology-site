@@ -29,7 +29,7 @@ function Paragraph({ text }: { text: string }) {
   // Preserve line breaks inside paragraphs (the PDF extraction uses hard wraps).
   const parts = text.split("\n");
   return (
-    <p className="mt-4 text-sm md:text-base leading-relaxed text-black/75">
+    <p className="mt-4 text-sm md:text-base leading-relaxed text-black/75 dark:text-[#b8c6de]">
       {parts.map((line, i) => (
         <span key={i}>
           {line}
@@ -42,11 +42,11 @@ function Paragraph({ text }: { text: string }) {
 
 function ExplainPlaceholder() {
   return (
-    <details className="mt-3 rounded-2xl border border-black/10 bg-white/60 px-4 py-3">
-      <summary className="cursor-pointer text-sm text-black/65 select-none">
+    <details className="mt-3 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 px-4 py-3">
+      <summary className="cursor-pointer text-sm text-black/65 dark:text-[#5a6a82] select-none">
         Explanation forthcoming
       </summary>
-      <div className="mt-2 text-sm leading-relaxed text-black/70">
+      <div className="mt-2 text-sm leading-relaxed text-black/70 dark:text-[#b8c6de]">
         <p>
           Plain-language explanations, examples, and cross-links will be added here in a future update.
         </p>
@@ -69,12 +69,12 @@ export default function MasterPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-5xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">The Master</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">The Master</p>
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           Informational Ontology — Rev 5.1 (web reader)
         </h1>
 
-        <p className="mt-4 text-sm md:text-base text-black/70 leading-relaxed">
+        <p className="mt-4 text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
           The canonical Master is shown verbatim. Optional explanations will appear as collapsed
           drop-downs at selected anchors.
         </p>
@@ -94,13 +94,13 @@ export default function MasterPage() {
           </Link>
         </div>
 
-        <div className="mt-10 rounded-2xl border border-black/10 bg-white/60 p-5">
-          <p className="text-xs uppercase tracking-[0.2em] text-black/55">On this page</p>
+        <div className="mt-10 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 p-5">
+          <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">On this page</p>
           <ul className="mt-3 grid gap-2">
             {toc.map((item) => (
               <li key={item.id} className={item.level === 2 ? "ml-4" : ""}>
                 <a
-                  className="text-sm text-black/70 hover:text-black underline decoration-black/20 hover:decoration-black/40"
+                  className="text-sm text-black/70 dark:text-[#b8c6de] hover:text-black dark:hover:text-[#e4e8f0] underline decoration-black/20 dark:decoration-[#5a6a82] hover:decoration-black/40 dark:hover:decoration-[#b8c6de]"
                   href={`#${item.id}`}
                 >
                   {item.title}

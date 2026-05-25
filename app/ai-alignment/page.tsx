@@ -76,7 +76,7 @@ function PrimaryButton({ href, children }: SmartLinkProps) {
   return (
     <SmartLink
       href={href}
-      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-black px-5 py-3 text-sm font-medium text-white no-underline hover:bg-black/90"
+      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-black dark:bg-[#111828] px-5 py-3 text-sm font-medium text-white dark:text-[#b8c6de] no-underline hover:bg-black/90 dark:hover:bg-[#1a1e2a]"
     >
       {children} <span aria-hidden>→</span>
     </SmartLink>
@@ -87,7 +87,7 @@ function SecondaryButton({ href, children }: SmartLinkProps) {
   return (
     <SmartLink
       href={href}
-      className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
+      className="inline-flex items-center justify-center rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white dark:bg-[#111828] px-5 py-3 text-sm font-medium text-black/80 dark:text-[#b8c6de] no-underline hover:bg-black/5 dark:hover:bg-[#1a1e2a]"
     >
       {children}
     </SmartLink>
@@ -98,17 +98,17 @@ export default function AIAlignmentLandingPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <section className="max-w-4xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">
           AI Alignment / AI Governance
         </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl text-black dark:text-[#b8c6de]">
           Informational Ontology for AI Alignment and AI Governance
         </h1>
-        <p className="mt-4 text-lg text-black/65 leading-relaxed">
+        <p className="mt-4 text-lg text-black/65 dark:text-[#b8c6de] leading-relaxed">
           A structural diagnostic for AI-mediated systems that work as specified while displacing responsibility, witnessing, contestability, or authority-bearing alignment.
         </p>
-        <div className="mt-8 rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm md:p-8">
-          <p className="text-lg leading-relaxed text-black/75">
+        <div className="mt-8 rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-white/70 dark:bg-[#111828]/70 p-6 shadow-sm md:p-8">
+          <p className="text-lg leading-relaxed text-black/75 dark:text-[#b8c6de]">
             Informational Ontology offers a structural diagnostic for AI-mediated systems that work as specified while displacing the conditions under which responsibility, contestability, witnessing, or authority-bearing alignment remain coherent. The AI-facing papers do not propose a new optimization target or governance checklist. They ask a prior question: when automated systems produce correct outputs at scale, what must still be true of the surrounding regime for those outputs to remain answerable?
           </p>
         </div>
@@ -124,24 +124,24 @@ export default function AIAlignmentLandingPage() {
         {paperCards.map((paper, index) => (
           <article
             key={paper.title}
-            className="rounded-3xl border border-black/10 bg-white/65 p-6 shadow-sm md:p-7"
+            className="rounded-3xl border border-black/10 dark:border-[#1a1e2a] bg-white/65 dark:bg-[#111828]/70 p-6 shadow-sm md:p-7"
           >
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
               <div className="max-w-3xl">
-                <p className="text-xs uppercase tracking-[0.2em] text-black/45">
+                <p className="text-xs uppercase tracking-[0.2em] text-black/45 dark:text-[#5a6a82]">
                   {index + 1}. {paper.kicker}
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold tracking-tight">
                   <SmartLink
                     href={paper.href}
-                    className="text-black no-underline hover:underline"
+                    className="text-black dark:text-[#b8c6de] no-underline hover:underline"
                   >
                     {paper.title}
                   </SmartLink>
                 </h2>
-                <p className="mt-4 text-black/70 leading-relaxed">{paper.hook}</p>
+                <p className="mt-4 text-black/70 dark:text-[#b8c6de] leading-relaxed">{paper.hook}</p>
                 {paper.shortTitle === "Working as Designed" ? (
-                  <p className="mt-3 text-sm text-black/55 leading-relaxed">
+                  <p className="mt-3 text-sm text-black/55 dark:text-[#5a6a82] leading-relaxed">
                     This is a strong first paper for AI researchers because it begins from a familiar problem: correct system operation can still produce regime-level failure.
                   </p>
                 ) : null}
@@ -149,7 +149,7 @@ export default function AIAlignmentLandingPage() {
               <div className="shrink-0 md:pt-9">
                 <SmartLink
                   href={paper.href}
-                  className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black/80 no-underline hover:bg-black/5"
+                  className="inline-flex items-center justify-center rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white dark:bg-[#111828] px-4 py-2 text-sm font-medium text-black/80 dark:text-[#b8c6de] no-underline hover:bg-black/5 dark:hover:bg-[#1a1e2a]"
                 >
                   {paper.button}
                 </SmartLink>

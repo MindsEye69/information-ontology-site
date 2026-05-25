@@ -111,31 +111,31 @@ export default function GlossaryPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">Glossary</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Core terms</h1>
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">Glossary</p>
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">Core terms</h1>
 
-        <p className="mt-5 text-black/70 leading-relaxed">
+        <p className="mt-5 text-black/70 dark:text-[#b8c6de] leading-relaxed">
           These are short, structural definitions for how the site uses key terms. Where a common word is used in an uncommon way, this glossary is the reference.
         </p>
 
-        <div className="mt-10 divide-y divide-black/10 rounded-2xl border border-black/10 bg-paper">
+        <div className="mt-10 divide-y divide-black/10 dark:divide-[#1a1e2a] rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-paper dark:bg-[#111828]/70">
           {TERMS.map((t) => (
             <details key={t.slug} className="group p-5">
               <summary className="cursor-pointer list-none select-none">
                 <div className="flex items-baseline justify-between gap-6 flex-wrap">
-                  <div className="text-base font-medium">{t.term}</div>
-                  <span className="text-sm text-black/45 group-open:hidden">Open</span>
-                  <span className="text-sm text-black/45 hidden group-open:inline">Close</span>
+                  <div className="text-base font-medium text-black dark:text-[#b8c6de]">{t.term}</div>
+                  <span className="text-sm text-black/45 dark:text-[#5a6a82] group-open:hidden">Open</span>
+                  <span className="text-sm text-black/45 dark:text-[#5a6a82] hidden group-open:inline">Close</span>
                 </div>
-                <p className="mt-2 text-sm text-black/65 leading-relaxed">{t.short}</p>
+                <p className="mt-2 text-sm text-black/65 dark:text-[#b8c6de] leading-relaxed">{t.short}</p>
               </summary>
 
-              <div className="mt-4 space-y-3 text-black/75 leading-relaxed">
+              <div className="mt-4 space-y-3 text-black/75 dark:text-[#b8c6de] leading-relaxed">
                 {t.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
                 <div className="pt-2">
-                  <Link className="text-sm underline underline-offset-4 text-black/60" href={`/glossary/${t.slug}`}>
+                  <Link className="text-sm underline underline-offset-4 text-black/60 dark:text-[#b8c6de] dark:hover:text-[#e4e8f0]" href={`/glossary/${t.slug}`}>
                     Permalink
                   </Link>
                 </div>

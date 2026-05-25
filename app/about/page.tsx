@@ -2,10 +2,10 @@ export default function Page() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">About</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">About Informational Ontology</h1>
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">About</p>
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">About Informational Ontology</h1>
 
-        <div className="mt-6 text-black/75 leading-relaxed space-y-5">
+        <div className="mt-6 text-black/75 dark:text-[#b8c6de] leading-relaxed space-y-5">
           <p>
             Informational Ontology (IO) is a scope-disciplined structural framework describing how increasingly rich kinds of organization can arise
             without assuming meaning, minds, goals, or teleology as primitives.
@@ -18,7 +18,7 @@ export default function Page() {
           </p>
 
           <section className="space-y-2">
-            <h2 className="text-lg font-semibold tracking-tight text-black/85">What this site is</h2>
+            <h2 className="text-lg font-semibold tracking-tight text-black/85 dark:text-[#b8c6de]">What this site is</h2>
             <ul className="list-disc pl-6 space-y-1">
               <li>A public interface to the canonical Master text and the full paper corpus (PDF).</li>
               <li>A layered reading experience: fast intuition, guided tour, and canonical documents.</li>
@@ -26,7 +26,7 @@ export default function Page() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-lg font-semibold tracking-tight text-black/85">What this site is not</h2>
+            <h2 className="text-lg font-semibold tracking-tight text-black/85 dark:text-[#b8c6de]">What this site is not</h2>
             <p>
               IO is not a physics theory, a cognitive mechanism, a semantic theory of truth/representation, or a moral prescription. “Awareness”,
               “meaning”, and “purpose” are used as names for structural regimes, not as folk-psychological imports.
@@ -34,7 +34,7 @@ export default function Page() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-lg font-semibold tracking-tight text-black/85">How to read</h2>
+            <h2 className="text-lg font-semibold tracking-tight text-black/85 dark:text-[#b8c6de]">How to read</h2>
             <ol className="list-decimal pl-6 space-y-1">
               <li>If you want the authoritative statement: read the Master (PDF or web reader).</li>
               <li>If you want a gentle introduction: use Start Here and the guided path (/start).</li>
@@ -43,11 +43,11 @@ export default function Page() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-lg font-semibold tracking-tight text-black/85">License</h2>
+            <h2 className="text-lg font-semibold tracking-tight text-black/85 dark:text-[#b8c6de]">License</h2>
             <p>© 2025–2026 Michael Semprevivo. Licensed CC BY 4.0 (see Master / PDFs for full text).</p>
             <p>
               Contact:{" "}
-              <a className="underline underline-offset-4" href="mailto:info@informationontology.org">
+              <a className="underline underline-offset-4 text-black dark:text-[#b8c6de] hover:text-black/70 dark:hover:text-[#e4e8f0]" href="mailto:info@informationontology.org">
                 info@informationontology.org
               </a>
             </p>

@@ -134,11 +134,11 @@ export default async function OrientationGuidePage() {
   const blocks = parseOrientationText(text);
   return (
     <main className="mx-auto max-w-4xl px-4 py-14">
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
         How a Someone Becomes Possible
       </h1>
 
-      <p className="mt-2 text-sm text-black/55">
+      <p className="mt-2 text-sm text-black/55 dark:text-[#5a6a82]">
         A plain-language guide to the path from structure to life, agency, meaning, and responsibility. Non-canonical, explanatory only.
       </p>
 
@@ -148,7 +148,7 @@ export default async function OrientationGuidePage() {
         <ExplanatoryBanner />
       </div>
 
-      <div className="mt-6 rounded-2xl border border-black/10 bg-white/60 p-5 text-sm text-black/70 leading-relaxed">
+      <div className="mt-6 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 p-5 text-sm text-black/70 dark:text-[#b8c6de] leading-relaxed">
         <p>
           Notes: This guide uses metaphors (e.g., “code”, “video game”, “build a someone”) as reader aids only. They are not ontological claims.
         </p>
@@ -156,12 +156,13 @@ export default async function OrientationGuidePage() {
           When the guide discusses “slack” or “wiggle room”, it refers to perspectival openness under constraint (local underdetermination for embedded systems), compatible with global determinism.
         </p>
       </div>
-<section className="mt-8 rounded-2xl border border-black/10 bg-white p-6 md:p-8">
+
+      <section className="mt-8 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white dark:bg-[#0d0f18] p-6 md:p-8">
         <article className="max-w-none">
           {blocks.map((b, idx) => {
             if (b.kind === "lede")
               return (
-                <p key={idx} className="mt-2 text-base text-black/70 leading-7">
+                <p key={idx} className="mt-2 text-base text-black/70 dark:text-[#b8c6de] leading-7">
                   {b.text}
                 </p>
               );
@@ -170,7 +171,7 @@ export default async function OrientationGuidePage() {
               return (
                 <h2
                   key={idx}
-                  className="mt-10 text-xl md:text-2xl font-semibold tracking-tight"
+                  className="mt-10 text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-[#b8c6de]"
                 >
                   {b.text}
                 </h2>
@@ -180,7 +181,7 @@ export default async function OrientationGuidePage() {
               return (
                 <h3
                   key={idx}
-                  className="mt-7 text-lg md:text-xl font-semibold tracking-tight"
+                  className="mt-7 text-lg md:text-xl font-semibold tracking-tight text-black dark:text-[#b8c6de]"
                 >
                   {b.text}
                 </h3>
@@ -188,13 +189,13 @@ export default async function OrientationGuidePage() {
 
             if (b.kind === "subtitle")
               return (
-                <p key={idx} className="mt-1 text-sm text-black/55">
+                <p key={idx} className="mt-1 text-sm text-black/55 dark:text-[#5a6a82]">
                   {b.text}
                 </p>
               );
 
             return (
-              <p key={idx} className="mt-3 text-base leading-7">
+              <p key={idx} className="mt-3 text-base leading-7 text-black dark:text-[#b8c6de]">
                 {b.text}
               </p>
             );
@@ -205,7 +206,7 @@ export default async function OrientationGuidePage() {
       <div className="mt-6 flex flex-wrap gap-3">
         <a
           href="/orientation/How To Build A Someone - A Guide to IO.pdf"
-          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-[#1a1e2a] text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]"
           download
         >
           Download PDF
@@ -213,7 +214,7 @@ export default async function OrientationGuidePage() {
 
         <Link
           href="/start-here"
-          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 text-sm"
+          className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15 dark:border-[#1a1e2a] text-sm text-black dark:text-[#b8c6de] hover:bg-black/5 dark:hover:bg-[#111828]"
         >
           Back to Start Here
         </Link>

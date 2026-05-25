@@ -6,14 +6,18 @@
   color-scheme: light;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 html, body {
   height: 100%;
 }
 
 body {
-  @apply bg-paper text-ink antialiased;
+  @apply bg-paper dark:bg-[#07080d] text-ink dark:text-[#b8c6de] antialiased;
 }
 
 a {
-  @apply underline decoration-black/20 underline-offset-4 hover:decoration-black/50;
+  @apply underline decoration-black/20 dark:decoration-[#1a1e2a] underline-offset-4 hover:decoration-black/50 dark:hover:decoration-[#5a6a82];
 }

@@ -47,13 +47,6 @@ body{display:flex;flex-direction:column}
 .view-btn:hover{color:var(--text);border-color:#b0b8c8}
 .view-btn.active{background:var(--bright);color:var(--bg);border-color:var(--bright);
   box-shadow:0 1px 6px rgba(0,0,0,.15)}
-#btn-theme{
-  width:32px;height:32px;border-radius:50%;background:var(--surface);
-  border:1px solid var(--border);color:var(--dim);font-size:15px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all var(--tr);box-shadow:0 1px 3px rgba(0,0,0,.06);flex-shrink:0;
-}
-#btn-theme:hover{color:var(--text);border-color:#b0b8c8}
 
 /* ══ VIEW SWITCHING ═════════════════════════════════════════════ */
 .io-view{flex:1;display:none;overflow:hidden;position:relative;flex-direction:column}
@@ -78,7 +71,7 @@ html[data-view="rm"] #view-rm{display:flex}
 }
 #mm-hdr-title{font-family:var(--serif);font-size:clamp(14px,2vw,20px);font-weight:600;letter-spacing:.04em;color:var(--bright)}
 #mm-hdr-sub{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:3px}
-#mm-legend{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+#mm-legend{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:6px}
 .li{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--dim)}
 .lb{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:3px;font-size:8px;font-weight:700}
 .lb-f{background:#6b9fd420;border:1px solid #6b9fd488;color:#4a82b8}
@@ -373,7 +366,6 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   #mm-panel{width:100vw;box-shadow:0 -4px 24px rgba(0,0,0,.10);border-left:none;border-top:1px solid var(--border)}
   #topbar{padding:10px 14px 8px;gap:8px}
   .view-btn{padding:5px 10px;font-size:8px}
-  #btn-theme{width:28px;height:28px;font-size:13px}
 }
 
 /* ══ MIND MAP DARK MODE OVERRIDES ═══════════════════════════════
@@ -461,7 +453,6 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   <div id="tb-controls">
     <button class="view-btn active" id="btn-mm">Reading Order</button>
     <button class="view-btn" id="btn-rm">Corpus Architecture</button>
-    <button id="btn-theme" title="Toggle light / dark mode">☀</button>
   </div>
 </div>
 
@@ -564,11 +555,6 @@ let radialInitialized=false;
   const savedView  = localStorage.getItem('io-view')  || 'mm';
   applyTheme(savedTheme);
   applyView(savedView);
-  document.getElementById('btn-theme').addEventListener('click',()=>{
-    const next = document.documentElement.dataset.theme==='dark' ? 'light' : 'dark';
-    applyTheme(next); localStorage.setItem('io-theme',next);
-    if(document.documentElement.dataset.view==='rm' && radialInitialized) redrawRadial();
-  });
   document.getElementById('btn-mm').addEventListener('click',()=>{
     applyView('mm'); localStorage.setItem('io-view','mm');
   });
@@ -579,7 +565,6 @@ let radialInitialized=false;
 
 function applyTheme(t){
   document.documentElement.dataset.theme=t;
-  document.getElementById('btn-theme').textContent=t==='dark'?'☀':'🌙';
 }
 function applyView(v){
   document.documentElement.dataset.view=v;

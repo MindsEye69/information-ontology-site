@@ -5,22 +5,22 @@ export default function ProcessPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="max-w-4xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-black/55">
+        <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">
           The Project
         </p>
 
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           The Project as Process
         </h1>
 
-        <div className="mt-8 rounded-2xl border border-black/10 bg-white/60 p-6 md:p-8">
-          <p className="text-base md:text-lg text-black/80 leading-relaxed">
+        <div className="mt-8 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 p-6 md:p-8">
+          <p className="text-base md:text-lg text-black/80 dark:text-[#b8c6de] leading-relaxed">
             This page describes how Informational Ontology developed: the questions
             it began from, the constraints that shaped it over time, and the role
             that human&ndash;AI collaboration played in the process.
           </p>
 
-          <p className="mt-4 text-base md:text-lg text-black/80 leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-black/80 dark:text-[#b8c6de] leading-relaxed">
             The collaboration was not planned as a demonstration of{" "}
             <DefinedTerm
               slug="alignment"
@@ -36,7 +36,7 @@ export default function ProcessPage() {
         </div>
 
         <div className="mt-12 space-y-6">
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             This project did not begin as an attempt to construct a philosophical
             system, nor as an experiment in human&ndash;AI collaboration. It began with
             a small set of persistent questions about how structure, meaning, and
@@ -44,7 +44,7 @@ export default function ProcessPage() {
             normativity, or teleology.
           </p>
 
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             No prior methodological framework governed the work. There was no
             target tradition, no predefined ontology, and no expectation that the
             project would expand beyond exploratory dialogue. The eventual
@@ -53,7 +53,7 @@ export default function ProcessPage() {
             within it.
           </p>
 
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             Throughout the process, the AI system was not treated as a
             philosophical agent. It did not supply understanding, judgment, or
             authority. Those functions remained irreducibly human at every stage.
@@ -61,14 +61,14 @@ export default function ProcessPage() {
         </div>
 
         <div className="mt-12 space-y-6">
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             The development of Informational Ontology proceeded through sustained
             human&ndash;AI interaction under increasing constraint. Early stages were
             permissive and exploratory. As provisional structure appeared, the
             process shifted toward stricter constraint enforcement.
           </p>
 
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             Candidate explanations were proposed, tested, and discarded when they
             collapsed into hidden assumptions &mdash; semantic representation, implicit
             normativity, executive control, or teleological explanation. Entire
@@ -77,7 +77,7 @@ export default function ProcessPage() {
             constrained one another across documents.
           </p>
 
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             As the corpus grew, additional discipline was imposed. Terminology was
             locked, upstream papers were treated as authoritative background, and
             adversarial review was applied systematically. Later, the work was
@@ -87,7 +87,7 @@ export default function ProcessPage() {
         </div>
 
         <div className="mt-12 space-y-6">
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             The role of the AI system was one of amplification rather than
             authorship. It enabled rapid generation and critique of candidate
             structures, high-bandwidth adversarial simulation, and consistency
@@ -96,7 +96,7 @@ export default function ProcessPage() {
             success was judged.
           </p>
 
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             At no point did the AI determine which questions mattered, which
             explanatory costs were acceptable, or when stabilization had been
             reached. Those judgments required sustained human evaluation under
@@ -105,7 +105,7 @@ export default function ProcessPage() {
         </div>
 
         <div className="mt-12 space-y-6">
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             A later paper on AI alignment drew on Informational Ontology to explain
             one aspect of why this collaboration succeeded. The claim advanced
             there is not that alignment consists in shared values, intentions, or
@@ -114,15 +114,15 @@ export default function ProcessPage() {
             coherence.
           </p>
 
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             This account does not imply that AI systems are aligned in general, nor
             that the problem of alignment is solved. It offers a structural
             explanation of a specific outcome, grounded in a completed case.
           </p>
         </div>
 
-        <div className="mt-12 rounded-2xl border border-black/10 bg-paper p-6 md:p-8">
-          <p className="text-sm md:text-base text-black/70 leading-relaxed">
+        <div className="mt-12 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-paper dark:bg-[#111828]/70 p-6 md:p-8">
+          <p className="text-sm md:text-base text-black/70 dark:text-[#b8c6de] leading-relaxed">
             Nothing in this section suggests that philosophical work can be
             delegated to machines, that training and expertise are obsolete, or
             that institutional scholarship is dispensable. The claim is narrower:
