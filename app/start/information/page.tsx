@@ -14,13 +14,13 @@ export default function InformationStepPage() {
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <ExplanatoryBanner className="mb-8" />
       <section className="space-y-3">
-        <p className="text-sm font-semibold tracking-wide text-neutral-500">
+        <p className="text-sm font-semibold tracking-wide text-neutral-500 dark:text-[#5a6a82]">
           Start here · Step 3 of 8
         </p>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-black dark:text-[#b8c6de]">
           Information: patterns that can make a difference
         </h1>
-        <p className="text-base text-neutral-700 leading-relaxed max-w-3xl">
+        <p className="text-base text-neutral-700 dark:text-[#b8c6de] leading-relaxed max-w-3xl">
           Once relations become stable, something new appears: patterns that can
           be used to predict or guide what happens next. That&apos;s the sense
           of &quot;information&quot; we&apos;ll use here.
@@ -28,22 +28,22 @@ export default function InformationStepPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Footprints in the snow</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">Footprints in the snow</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           Imagine you wake up after a fresh snowfall. The ground outside is
           perfectly smooth—until you notice a line of footprints crossing the
           yard.
         </p>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           The footprints are just differences in the snow. But they also{" "}
           <span className="font-semibold">tell you something</span>:
         </p>
-        <ul className="list-disc list-inside text-neutral-700 space-y-1">
+        <ul className="list-disc list-inside text-neutral-700 dark:text-[#b8c6de] space-y-1">
           <li>Someone or something walked by.</li>
           <li>You can guess which way they were going.</li>
           <li>You can estimate how long ago it happened from how sharp the edges are.</li>
         </ul>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           The shape and spacing of the footprints form a{" "}
           <span className="italic">pattern</span>. That pattern makes some
           possibilities likely and others unlikely. In that sense, it carries{" "}
@@ -52,8 +52,8 @@ export default function InformationStepPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Patterns that matter</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">Patterns that matter</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           Information, in this ontology, is not about news headlines or
           meaningful sentences. It&apos;s more basic than that. It&apos;s about{" "}
           <span className="font-semibold">
@@ -61,10 +61,10 @@ export default function InformationStepPage() {
             arranged.
           </span>
         </p>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           A few examples:
         </p>
-        <ul className="list-disc list-inside text-neutral-700 space-y-1">
+        <ul className="list-disc list-inside text-neutral-700 dark:text-[#b8c6de] space-y-1">
           <li>
             The position of the hands on a clock tells you what time it is.
           </li>
@@ -76,18 +76,18 @@ export default function InformationStepPage() {
             identify a product.
           </li>
         </ul>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           In each case, a stable relation—between shapes, colours, positions,
           timings—makes a difference to what can be expected or done next.
         </p>
       </section>
 
-      <section className="space-y-2 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+      <section className="space-y-2 rounded-2xl border border-neutral-200 dark:border-[#1a1e2a] bg-neutral-50 dark:bg-[#111828]/70 p-4">
         <details>
-          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">
+          <summary className="cursor-pointer text-sm font-semibold text-neutral-700 dark:text-[#b8c6de]">
             Deeper insight: information without a reader?
           </summary>
-          <div className="mt-2 space-y-2 text-sm text-neutral-700 leading-relaxed">
+          <div className="mt-2 space-y-2 text-sm text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
             <p>
               Do you need a conscious mind for there to be information? IO
               leans toward &quot;no&quot; in the basic sense used here. The
@@ -105,11 +105,11 @@ export default function InformationStepPage() {
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-lg font-semibold">What to carry forward</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-lg font-semibold text-black dark:text-[#b8c6de]">What to carry forward</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           From this step, keep this in mind:
         </p>
-        <p className="text-neutral-900 leading-relaxed font-medium">
+        <p className="text-neutral-900 dark:text-[#b8c6de] leading-relaxed font-medium">
           When relations form stable patterns that rule in and rule out
           possibilities, we have information in the structural sense.
         </p>

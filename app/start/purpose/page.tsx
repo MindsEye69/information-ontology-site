@@ -14,13 +14,13 @@ export default function PurposeStepPage() {
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <ExplanatoryBanner className="mb-8" />
       <section className="space-y-3">
-        <p className="text-sm font-semibold tracking-wide text-neutral-500">
+        <p className="text-sm font-semibold tracking-wide text-neutral-500 dark:text-[#5a6a82]">
           Start here · Step 7 of 8
         </p>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-black dark:text-[#b8c6de]">
           Purpose: what we actually do with meaning
         </h1>
-        <p className="text-base text-neutral-700 leading-relaxed max-w-3xl">
+        <p className="text-base text-neutral-700 dark:text-[#b8c6de] leading-relaxed max-w-3xl">
           Purpose is where the chain stops being theoretical. When meaning and
           value start to shape{" "}
           <span className="font-semibold">how a system actually behaves</span>,
@@ -29,12 +29,12 @@ export default function PurposeStepPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">From recipe to cooking</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">From recipe to cooking</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           A recipe has meaning when you can read it and imagine the dish. It has
           purpose when you tie on an apron and start chopping vegetables.
         </p>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           In the same way, an ontology that never shapes behaviour remains
           hypothetical. Purpose is where your understanding starts to change
           what you do, which experiments you run, which relationships you
@@ -43,12 +43,12 @@ export default function PurposeStepPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Purpose as feedback</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">Purpose as feedback</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           In IO, purpose is not a one-way arrow from thought to action. Actions
           feed back:
         </p>
-        <ul className="list-disc list-inside text-neutral-700 space-y-1">
+        <ul className="list-disc list-inside text-neutral-700 dark:text-[#b8c6de] space-y-1">
           <li>They generate new information.</li>
           <li>
             They confirm or disconfirm values (“this goal was worth it”, “this
@@ -56,18 +56,18 @@ export default function PurposeStepPage() {
           </li>
           <li>They reshape meaning (“so that&apos;s what this really implies”).</li>
         </ul>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           Purpose closes the loop: Δ → R → I → A → V → M → P → new Δ. What we do
           changes the differences that will exist next.
         </p>
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-lg font-semibold">What to carry forward</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-lg font-semibold text-black dark:text-[#b8c6de]">What to carry forward</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           The key idea from this step:
         </p>
-        <p className="text-neutral-900 leading-relaxed font-medium">
+        <p className="text-neutral-900 dark:text-[#b8c6de] leading-relaxed font-medium">
           Purpose is meaning and value in motion: how a system&apos;s stories
           about what matters become patterns of action in the world.
         </p>

@@ -15,13 +15,13 @@ export default function StartSummaryPage() {
       <ExplanatoryBanner className="mb-8" />
       {/* Header */}
       <section className="space-y-3">
-        <p className="text-sm font-semibold tracking-wide text-neutral-500">
+        <p className="text-sm font-semibold tracking-wide text-neutral-500 dark:text-[#5a6a82]">
           Start here · Step 8 of 8
         </p>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-black dark:text-[#b8c6de]">
           Summary & toolkit
         </h1>
-        <p className="text-base text-neutral-700 leading-relaxed max-w-3xl">
+        <p className="text-base text-neutral-700 dark:text-[#b8c6de] leading-relaxed max-w-3xl">
           You&apos;ve walked through the core chain of Informational Ontology in
           narrative form. This page gathers the main ideas in one place and
           gives you a small toolkit for exploring the rest of the site.
@@ -30,12 +30,12 @@ export default function StartSummaryPage() {
 
       {/* Chain recap */}
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">The chain in one breath</h2>
-        <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4 space-y-2">
-          <p className="text-sm font-mono tracking-wide text-neutral-700">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">The chain in one breath</h2>
+        <div className="rounded-2xl border border-neutral-200 dark:border-[#1a1e2a] bg-neutral-50 dark:bg-[#111828]/70 p-4 space-y-2">
+          <p className="text-sm font-mono tracking-wide text-neutral-700 dark:text-[#b8c6de]">
             Δ → R → I → A → V → M → P
           </p>
-          <ul className="list-decimal list-inside text-sm text-neutral-700 space-y-1">
+          <ul className="list-decimal list-inside text-sm text-neutral-700 dark:text-[#b8c6de] space-y-1">
             <li>
               <span className="font-semibold">Difference</span> – If nothing
               ever differed from anything else, there would be no world to talk
@@ -73,11 +73,11 @@ export default function StartSummaryPage() {
 
       {/* Reading toolkit */}
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">How to use the rest of the site</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">How to use the rest of the site</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           From here, there are a few natural next steps:
         </p>
-        <ul className="list-disc list-inside text-neutral-700 space-y-1">
+        <ul className="list-disc list-inside text-neutral-700 dark:text-[#b8c6de] space-y-1">
           <li>
             Visit the{" "}
             <span className="font-semibold">Ontological chain</span> page for a
@@ -92,7 +92,7 @@ export default function StartSummaryPage() {
             see some of these ideas in action.
           </li>
         </ul>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           You don&apos;t need to keep all the details in your head. The important
           thing is to remember how the pieces hang together: differences,
           relations, information, awareness, value, meaning, and purpose.
@@ -101,12 +101,12 @@ export default function StartSummaryPage() {
 
       {/* Closing */}
       <section className="space-y-2">
-        <h2 className="text-lg font-semibold">What to carry forward</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-lg font-semibold text-black dark:text-[#b8c6de]">What to carry forward</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           IO is not just a list of definitions. It&apos;s a way of seeing the
           world as layered, structured, and meaningful without hand-waving.
         </p>
-        <p className="text-neutral-900 leading-relaxed font-medium">
+        <p className="text-neutral-900 dark:text-[#b8c6de] leading-relaxed font-medium">
           Use the chain as a map: when something puzzles you, ask what&apos;s
           differing, how it&apos;s related, what information is present, who or
           what is aware of it, what has value, what it means, and what purpose

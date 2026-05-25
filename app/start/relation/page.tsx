@@ -13,13 +13,13 @@ export default function RelationStepPage() {
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
       <ExplanatoryBanner className="mb-8" />
       <section className="space-y-3">
-        <p className="text-sm font-semibold tracking-wide text-neutral-500">
+        <p className="text-sm font-semibold tracking-wide text-neutral-500 dark:text-[#5a6a82]">
           Start here · Step 2 of 8
         </p>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-black dark:text-[#b8c6de]">
           Relation: when differences lean on each other
         </h1>
-        <p className="text-base text-neutral-700 leading-relaxed max-w-3xl">
+        <p className="text-base text-neutral-700 dark:text-[#b8c6de] leading-relaxed max-w-3xl">
           Once we admit differences, something else quietly comes along for the
           ride: relations. Two things that differ are not just separate; they
           stand in some way with respect to each other.
@@ -27,36 +27,36 @@ export default function RelationStepPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">From dots to distances</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">From dots to distances</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           Go back to the sheet of paper with a single dot. Now add a second dot.
         </p>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           As soon as you do that, something new is present: a{" "}
           <span className="italic">distance</span> between them. You didn&apos;t
           have to draw the distance. It comes along automatically when there
           are two separate points.
         </p>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           You can now talk about:
         </p>
-        <ul className="list-disc list-inside text-neutral-700 space-y-1">
+        <ul className="list-disc list-inside text-neutral-700 dark:text-[#b8c6de] space-y-1">
           <li>which dot is to the left or right,</li>
           <li>which one is closer to the edge of the page,</li>
           <li>what would happen if you joined them with a line.</li>
         </ul>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           The dots haven&apos;t changed. But the <span className="italic">web</span> they form
           has become richer.
         </p>
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Relations everywhere</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-xl font-semibold text-black dark:text-[#b8c6de]">Relations everywhere</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           The same idea shows up in ordinary life:
         </p>
-        <ul className="list-disc list-inside text-neutral-700 space-y-1">
+        <ul className="list-disc list-inside text-neutral-700 dark:text-[#b8c6de] space-y-1">
           <li>
             Two notes in music: one can be higher, lower, consonant, or dissonant.
           </li>
@@ -69,19 +69,19 @@ export default function RelationStepPage() {
             boiling.
           </li>
         </ul>
-        <p className="text-neutral-700 leading-relaxed">
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           Whenever you have differences, you also have ways of comparing,
           ordering, and connecting them. This is what IO calls{" "}
           <span className="font-semibold">relational structure</span>.
         </p>
       </section>
 
-      <section className="space-y-2 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+      <section className="space-y-2 rounded-2xl border border-neutral-200 dark:border-[#1a1e2a] bg-neutral-50 dark:bg-[#111828]/70 p-4">
         <details>
-          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">
+          <summary className="cursor-pointer text-sm font-semibold text-neutral-700 dark:text-[#b8c6de]">
             Deeper insight: no lonely differences
           </summary>
-          <div className="mt-2 space-y-2 text-sm text-neutral-700 leading-relaxed">
+          <div className="mt-2 space-y-2 text-sm text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
             <p>
               It would be strange to imagine a &quot;difference&quot; that
               doesn&apos;t relate to anything. Different from what? As soon as
@@ -99,11 +99,11 @@ export default function RelationStepPage() {
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-lg font-semibold">What to carry forward</h2>
-        <p className="text-neutral-700 leading-relaxed">
+        <h2 className="text-lg font-semibold text-black dark:text-[#b8c6de]">What to carry forward</h2>
+        <p className="text-neutral-700 dark:text-[#b8c6de] leading-relaxed">
           From this step, keep one simple phrase in mind:
         </p>
-        <p className="text-neutral-900 leading-relaxed font-medium">
+        <p className="text-neutral-900 dark:text-[#b8c6de] leading-relaxed font-medium">
           Where there are differences, there are relations. The world is not
           just a pile of separate bits, but a web of &quot;in-between&quot;.
         </p>
