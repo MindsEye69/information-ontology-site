@@ -62,7 +62,7 @@ export function SiteHeader() {
             <summary className="list-none cursor-pointer select-none text-sm text-black/75 dark:text-[#b8c6de] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 rounded-md border border-black/10 dark:border-slate-700 bg-white/60 dark:bg-[#0d0f18]/60 [&::-webkit-details-marker]:hidden">
               Menu
             </summary>
-            <div className="absolute right-0 mt-2 w-56 rounded-xl border border-black/10 dark:border-slate-700 bg-white dark:bg-[#0d0f18] shadow-lg p-2">
+            <div className="absolute right-0 mt-2 w-56 max-w-[calc(100vw-1rem)] rounded-xl border border-black/10 dark:border-slate-700 bg-white dark:bg-[#0d0f18] shadow-lg p-2">
               <div className="flex flex-col">
                 {nav.map((item) => (
                   <Link

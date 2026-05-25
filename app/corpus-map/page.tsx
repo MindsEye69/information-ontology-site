@@ -59,7 +59,7 @@ export default function CorpusMapPage() {
           ref={iframeRef}
           src={MAP_SRC}
           title="Interactive Corpus Map"
-          className="h-[82vh] min-h-[720px] w-full"
+          className="h-[50vh] md:h-[82vh] w-full"
         />
       </div>
     </main>

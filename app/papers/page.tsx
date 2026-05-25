@@ -96,7 +96,7 @@ export default function PapersPage() {
         {exec ? (
           <div className="mt-10 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 p-6">
             <div className="flex items-start justify-between gap-6 flex-wrap">
-              <div className="min-w-[16rem]">
+              <div className="min-w-0 md:min-w-[16rem]">
                 <div className="flex items-center gap-3 flex-wrap">
                   <h2 className="text-lg font-semibold text-black dark:text-[#b8c6de]">Executive Summary</h2>
                   <StatusPill status={exec.status} state={exec.state} />
@@ -135,7 +135,7 @@ export default function PapersPage() {
                   <div className="divide-y divide-black/10 dark:divide-[#1a1e2a] border-t border-black/10 dark:border-[#1a1e2a]">
                     {group.items.map((item) => (
                       <div key={item.id} className="p-5 flex items-start justify-between gap-6 flex-wrap">
-                        <div className="min-w-[16rem]">
+                        <div className="min-w-0 md:min-w-[16rem]">
                           <div className="flex items-center gap-3 flex-wrap">
                             <div className="text-sm text-black/45 dark:text-[#5a6a82]">Corpus entry</div>
                             <StatusPill status={item.status} state={item.state} />
