@@ -378,6 +378,26 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   .view-btn{padding:5px 10px;font-size:8px}
   /* Topbar wraps to 2 rows on narrow phones; push rm-hdr content below it */
   #rm-hdr{padding-top:72px}
+
+  /* ── MOBILE RADIAL PANEL — slides up from bottom ── */
+  #rm-panel{
+    top:auto;bottom:0;left:0;right:0;
+    width:100%;max-height:62vh;
+    border-left:none;border-top:1px solid var(--border);
+    border-radius:16px 16px 0 0;
+    transform:translateY(100%);
+    box-shadow:0 -4px 28px rgba(0,0,0,.16);
+  }
+  #rm-panel.open{transform:translateY(0);}
+  /* Drag-handle affordance */
+  #rm-panel::before{
+    content:'';display:block;
+    width:36px;height:4px;border-radius:2px;
+    background:var(--border);
+    margin:12px auto 0;
+  }
+  /* Clear the close button (absolute at top:12px) + drag-handle area */
+  #rm-pi{padding:30px 18px calc(24px + env(safe-area-inset-bottom)) 18px;}
 }
 
 /* ══ MIND MAP DARK MODE OVERRIDES ═══════════════════════════════
@@ -1931,6 +1951,12 @@ const svgEl=document.getElementById('rm-svg');
 const panelEl=document.getElementById('rm-panel');
 const hdrEl=document.getElementById('rm-hdr');
 
+// ── MOBILE TOUCH MODE ──────────────────────────────────────
+// True on any device whose primary input is touch (phones/tablets).
+// Used to switch from hover-driven interaction to tap-driven bloom.
+const isTouch=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+let mobileBloomed=null; // paper.id currently showing a touch bloom, or null
+
 // ═══════════════════════════════════════════════════════════
 // SMART LABEL PLACEMENT  (with collision avoidance)
 //
@@ -2550,15 +2576,25 @@ function collapseCluster(id,instant=false){
 // FULL VIEW
 // ═══════════════════════════════════════════════════════════
 const fvBtn=document.getElementById('rm-fv-btn');
-fvBtn.addEventListener('click',e=>{e.stopPropagation();fullView?exitFullView():enterFullView();});
+fvBtn.addEventListener('click',e=>{
+  e.stopPropagation();
+  if(isTouch){
+    // On mobile the button resets zoom/pan and clears any active bloom
+    clearDepHover();mobileBloomed=null;closePanel();
+    animateTo(1,0,0,400);
+  }else{
+    fullView?exitFullView():enterFullView();
+  }
+});
 function enterFullView(){
-  fullView=true;fvBtn.textContent='Exit Full View';fvBtn.classList.add('active');
+  fullView=true;
+  if(!isTouch){fvBtn.textContent='Exit Full View';fvBtn.classList.add('active');}
   clearDepHover();hideLabel();hideAllPaperLabels();
   document.getElementById('rm-dep-legend').classList.add('vis');
   if(openCluster)dismissCluster();
   fadeOverlay.setAttribute('opacity',0);
   CLUSTERS_DEF.forEach(c=>{c._g.style.opacity='1';c._ring.setAttribute('r',11.5*S);c._ring.setAttribute('fill-opacity',0.12);});
-  setHint('Hover a paper to see its name & dependencies');
+  setHint(isTouch?'Tap any paper · tap again to dismiss':'Hover a paper to see its name & dependencies');
   const inC=CLUSTERS_DEF.filter(c=>c.bloom==='in');
   const outC=CLUSTERS_DEF.filter(c=>c.bloom==='out');
   inC.forEach((c,i)=>bloomCluster(c.id,i*80));
@@ -2574,6 +2610,36 @@ function exitFullView(){
   CLUSTERS_DEF.forEach(c=>collapseCluster(c.id,false));
   setHint('Select a cluster to explore · Full View for all');
   if(panelPaper)closePanel();
+}
+
+// ═══════════════════════════════════════════════════════════
+// MOBILE TAP BLOOM
+// Tap a paper → center viewport on it + staged dep-line bloom
+// + bottom-drawer panel. Tap same paper again to dismiss.
+// ═══════════════════════════════════════════════════════════
+function mobileTapPaper(paper){
+  // Second tap on the same paper — dismiss bloom and panel
+  if(mobileBloomed===paper.id){
+    clearDepHover();
+    mobileBloomed=null;
+    closePanel();
+    return;
+  }
+  mobileBloomed=paper.id;
+
+  // Smoothly center the viewport on the selected paper,
+  // zooming in enough to see the surrounding connections clearly.
+  const targetZ=Math.max(1.6,zoom);
+  const cx=W/2-paper.bx*targetZ;
+  const cy=H/2-paper.by*targetZ;
+  animateTo(targetZ,cx,cy,380);
+
+  // Staged dep bloom: upstream lines first, downstream 220ms later
+  clearDepHover();
+  setDepHover(paper.id);
+
+  // Slide up the info panel from the bottom
+  showPanel(paper);
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -2672,7 +2738,8 @@ svgEl.addEventListener('touchend',e=>{
       for(const [id,n] of Object.entries(pnodes)){
         if(n.circle===el||n.g.contains(el)){
           e.preventDefault();
-          showPanel(n.paper);
+          if(isTouch){mobileTapPaper(n.paper);}
+          else{showPanel(n.paper);}
           found=true;break;
         }
       }
@@ -2686,8 +2753,14 @@ svgEl.addEventListener('touchend',e=>{
         }
       }
       if(!found){
-        if(!fullView&&openCluster){dismissCluster();}
-        else{closePanel();}
+        if(isTouch){
+          // Tap on empty space: clear active bloom and close panel
+          clearDepHover();mobileBloomed=null;closePanel();
+        } else if(!fullView&&openCluster){
+          dismissCluster();
+        } else {
+          closePanel();
+        }
       }
     }
   }
@@ -2722,16 +2795,30 @@ function init(){
   PAPERS.forEach(p=>{delete p._line;delete p._labelEl;delete p.bx;delete p.by;});
   CLUSTERS_DEF.forEach(c=>{delete c._g;delete c._ring;});
   openCluster=null;fullView=false;hoverPaper=null;panelPaper=null;
+  mobileBloomed=null;
   zoom=1;panX=0;panY=0;animating=false;sharedLabel=null;sharedLine=null;
   computePositions();buildSVG();
-  fvBtn.textContent='Full View';fvBtn.classList.remove('active');
+  if(isTouch){
+    fvBtn.textContent='Reset View';
+    fvBtn.classList.remove('active');
+  } else {
+    fvBtn.textContent='Full View';fvBtn.classList.remove('active');
+  }
   document.getElementById('rm-dep-legend').classList.remove('vis');
 }
 init();
 window.addEventListener('resize',()=>{
   clearTimeout(window._rt);
-  window._rt=setTimeout(()=>{panelEl.classList.remove('open');init();},220);
+  window._rt=setTimeout(()=>{panelEl.classList.remove('open');init();
+    if(isTouch)setTimeout(()=>{if(!fullView)enterFullView();},300);
+  },220);
 });
+
+// On touch devices: auto-enter full view so every paper is immediately
+// tappable. The dep-line bloom + bottom-drawer handle all interaction.
+if(isTouch){
+  setTimeout(()=>{if(!fullView)enterFullView();},600);
+}
 
 }
 function redrawRadial(){
