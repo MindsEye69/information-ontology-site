@@ -106,7 +106,7 @@ export default function GlossaryTermPage({ params }: { params: { slug: string } 
           ← Back to glossary
         </Link>
 
-        <h1 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight">{entry.term}</h1>
+        <h1 className="mt-5 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">{entry.term}</h1>
         <p className="mt-4 text-black/70 leading-relaxed">{entry.short}</p>
 
         <div className="mt-6 space-y-4 text-black/75 leading-relaxed">

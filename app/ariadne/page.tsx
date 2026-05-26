@@ -3,7 +3,7 @@ export default function Page() {
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55">Ariadne</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Ariadne</h1>
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">Ariadne</h1>
 
         <div className="mt-6 text-black/75 leading-relaxed space-y-4">
           <p>

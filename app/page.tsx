@@ -60,7 +60,7 @@ export default function HomePage() {
           Informational Ontology • Rev5.1+ corpus
         </p>
 
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           Welcome
         </h1>
 

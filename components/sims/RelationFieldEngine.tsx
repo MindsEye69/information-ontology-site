@@ -291,7 +291,7 @@ export default function RelationFieldEngine() {
   }, [K, palette, params, preset, running]);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <div className="grid gap-3 md:gap-6 lg:grid-cols-[1.2fr_0.8fr]">
       <Card className="border border-white/10 bg-white/5">
         <CardHeader className="flex flex-row items-start justify-between gap-3">
           <div className="space-y-1">

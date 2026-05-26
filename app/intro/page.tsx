@@ -138,7 +138,7 @@ export default function IntroPage() {
           </li>
         </ol>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-3 md:gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-2">
             <h3 className="text-sm font-semibold text-sky-300">
               If you like intuition and analogies

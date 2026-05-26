@@ -59,7 +59,7 @@ export function SiteHeader() {
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
           <details className="relative">
-            <summary className="list-none cursor-pointer select-none text-sm text-black/75 dark:text-[#b8c6de] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 rounded-md border border-black/10 dark:border-slate-700 bg-white/60 dark:bg-[#0d0f18]/60 [&::-webkit-details-marker]:hidden">
+            <summary className="list-none cursor-pointer select-none text-sm text-black/75 dark:text-[#b8c6de] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 sm:px-4 sm:py-3 rounded-md border border-black/10 dark:border-slate-700 bg-white/60 dark:bg-[#0d0f18]/60 [&::-webkit-details-marker]:hidden">
               Menu
             </summary>
             <div className="absolute right-0 mt-2 w-56 max-w-[calc(100vw-1rem)] rounded-xl border border-black/10 dark:border-slate-700 bg-white dark:bg-[#0d0f18] shadow-lg p-2">
@@ -68,14 +68,14 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="no-underline text-sm text-black/80 dark:text-[#b8c6de] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-[#111828]"
+                    className="no-underline text-sm text-black/80 dark:text-[#b8c6de] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 sm:px-4 sm:py-3 rounded-lg hover:bg-black/5 dark:hover:bg-[#111828]"
                   >
                     {item.label}
                   </Link>
                 ))}
                 <a
                   href="/archive"
-                  className="no-underline text-sm text-black/70 dark:text-[#5a6a82] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-[#111828]"
+                  className="no-underline text-sm text-black/70 dark:text-[#5a6a82] hover:text-black dark:hover:text-[#e4e8f0] px-3 py-2 sm:px-4 sm:py-3 rounded-lg hover:bg-black/5 dark:hover:bg-[#111828]"
                   title="Historical snapshot of the earlier site"
                 >
                   Archive

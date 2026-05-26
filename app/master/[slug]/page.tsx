@@ -69,7 +69,7 @@ export default function MasterSectionPage({ params }: { params: { slug: string }
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55">The Master</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">{data.meta.title}</h1>
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">{data.meta.title}</h1>
 
         <div className="mt-7 flex flex-wrap gap-3">
           <Link href="/master" className="no-underline inline-flex items-center rounded-2xl px-4 py-2 border border-black/15">

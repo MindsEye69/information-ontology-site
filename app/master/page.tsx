@@ -70,7 +70,7 @@ export default function MasterPage() {
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-5xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">The Master</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           Informational Ontology — Rev 5.1 (web reader)
         </h1>
 

@@ -6,7 +6,7 @@ export default function ArchivePage() {
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="max-w-4xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55">Archive</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
           Historical snapshot
         </h1>
 

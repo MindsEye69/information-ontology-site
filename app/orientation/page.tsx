@@ -134,7 +134,7 @@ export default async function OrientationGuidePage() {
   const blocks = parseOrientationText(text);
   return (
     <main className="mx-auto max-w-4xl px-4 py-14">
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
         How a Someone Becomes Possible
       </h1>
 

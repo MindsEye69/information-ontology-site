@@ -112,7 +112,7 @@ export default function GlossaryPage() {
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">Glossary</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">Core terms</h1>
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">Core terms</h1>
 
         <p className="mt-5 text-black/70 dark:text-[#b8c6de] leading-relaxed">
           These are short, structural definitions for how the site uses key terms. Where a common word is used in an uncommon way, this glossary is the reference.
@@ -122,7 +122,7 @@ export default function GlossaryPage() {
           {TERMS.map((t) => (
             <details key={t.slug} className="group p-5">
               <summary className="cursor-pointer list-none select-none">
-                <div className="flex items-baseline justify-between gap-6 flex-wrap">
+                <div className="flex items-baseline justify-between gap-3 md:gap-6 flex-wrap">
                   <div className="text-base font-medium text-black dark:text-[#b8c6de]">{t.term}</div>
                   <span className="text-sm text-black/45 dark:text-[#5a6a82] group-open:hidden">Open</span>
                   <span className="text-sm text-black/45 dark:text-[#5a6a82] hidden group-open:inline">Close</span>

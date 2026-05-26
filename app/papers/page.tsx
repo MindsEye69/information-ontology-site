@@ -73,7 +73,7 @@ export default function PapersPage() {
     <div className="mx-auto max-w-6xl px-4 py-14">
       <div className="max-w-4xl">
         <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">Corpus</p>
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           {meta?.title ?? "The Corpus"}
         </h1>
         {meta?.subtitle ? <p className="mt-2 text-sm text-black/60 dark:text-[#5a6a82]">{meta.subtitle}</p> : null}
@@ -95,7 +95,7 @@ export default function PapersPage() {
         {/* Executive Summary — always visible */}
         {exec ? (
           <div className="mt-10 rounded-2xl border border-black/10 dark:border-[#1a1e2a] bg-white/60 dark:bg-[#111828]/70 p-6">
-            <div className="flex items-start justify-between gap-6 flex-wrap">
+            <div className="flex items-start justify-between gap-3 md:gap-6 flex-wrap">
               <div className="min-w-0 md:min-w-[16rem]">
                 <div className="flex items-center gap-3 flex-wrap">
                   <h2 className="text-lg font-semibold text-black dark:text-[#b8c6de]">Executive Summary</h2>
@@ -134,7 +134,7 @@ export default function PapersPage() {
                 {isOpen && (
                   <div className="divide-y divide-black/10 dark:divide-[#1a1e2a] border-t border-black/10 dark:border-[#1a1e2a]">
                     {group.items.map((item) => (
-                      <div key={item.id} className="p-5 flex items-start justify-between gap-6 flex-wrap">
+                      <div key={item.id} className="p-5 flex items-start justify-between gap-3 md:gap-6 flex-wrap">
                         <div className="min-w-0 md:min-w-[16rem]">
                           <div className="flex items-center gap-3 flex-wrap">
                             <div className="text-sm text-black/45 dark:text-[#5a6a82]">Corpus entry</div>

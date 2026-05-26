@@ -9,7 +9,7 @@ export default function ProcessPage() {
           The Project
         </p>
 
-        <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           The Project as Process
         </h1>
 
