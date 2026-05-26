@@ -101,7 +101,7 @@ export default function AIAlignmentLandingPage() {
         <p className="text-xs uppercase tracking-[0.2em] text-black/55 dark:text-[#5a6a82]">
           AI Alignment / AI Governance
         </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl text-black dark:text-[#b8c6de]">
+        <h1 className="mt-3 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-black dark:text-[#b8c6de]">
           Informational Ontology for AI Alignment and AI Governance
         </h1>
         <p className="mt-4 text-lg text-black/65 dark:text-[#b8c6de] leading-relaxed">
@@ -131,7 +131,7 @@ export default function AIAlignmentLandingPage() {
                 <p className="text-xs uppercase tracking-[0.2em] text-black/45 dark:text-[#5a6a82]">
                   {index + 1}. {paper.kicker}
                 </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight">
+                <h2 className="mt-3 text-lg sm:text-2xl font-semibold tracking-tight">
                   <SmartLink
                     href={paper.href}
                     className="text-black dark:text-[#b8c6de] no-underline hover:underline"
@@ -163,7 +163,7 @@ export default function AIAlignmentLandingPage() {
         <p className="text-xs uppercase tracking-[0.2em] text-white/55">
           What this is, and what it is not
         </p>
-        <h2 className="mt-3 text-2xl font-semibold tracking-tight">
+        <h2 className="mt-3 text-lg sm:text-2xl font-semibold tracking-tight">
           A diagnostic path, not a replacement program
         </h2>
         <p className="mt-5 max-w-4xl text-white/75 leading-relaxed">
