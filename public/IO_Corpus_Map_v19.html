@@ -38,6 +38,15 @@ body{display:flex;flex-direction:column}
 #tb-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--dim);margin-top:2px}
 #tb-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#tb-back{font-family:var(--mono);font-size:14px;line-height:1;
+  width:30px;height:30px;border:1px solid var(--border);border-radius:50%;
+  background:var(--surface);color:var(--dim);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:color 0.2s,border-color 0.2s,background 0.2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.06);}
+#tb-back:hover{color:var(--bright);border-color:#b0b8c8;background:var(--surface2);}
+[data-theme="dark"] #tb-back{background:rgba(13,15,24,0.92);border-color:#3a4258;}
+[data-theme="dark"] #tb-back:hover{color:#e4e8f0;border-color:#6a7490;}
 .view-btn{
   font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;
   padding:6px 14px;border:1px solid var(--border);border-radius:20px;
@@ -242,7 +251,8 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   letter-spacing:0.18em;text-transform:uppercase;color:#3c4456;}
 #rm-hdr .sub{font-family:var(--font);font-size:clamp(9px,1.6vw,11px);
   color:#252c38;letter-spacing:0.04em;}
-#rm-legends-row{display:flex;align-items:flex-start;gap:32px;padding:10px 0 10px;}
+#rm-legends-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 0 10px;}
+#rm-legend-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0;}
 
 /* CLUSTER LEGEND */
 #rm-legend{display:flex;flex-wrap:wrap;gap:5px 16px;}
@@ -261,10 +271,10 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
 /* BOTTOM CONTROL BAR — Full View button + zoom/pan hint, fixed at bottom center */
 #rm-ctrl-bar{position:fixed;bottom:clamp(16px,2.8vw,26px);left:50%;transform:translateX(-50%);
   z-index:55;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;}
-#rm-fv-btn{pointer-events:auto;font-family:var(--font);font-size:clamp(11px,1.8vw,14px);
+#rm-fv-btn{pointer-events:auto;font-family:var(--font);font-size:clamp(10px,1.6vw,12px);
   font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
   color:var(--dim);background:var(--surface);border:1px solid var(--border);
-  padding:clamp(8px,1.4vw,11px) clamp(22px,3vw,32px);border-radius:4px;cursor:pointer;
+  padding:6px 14px;border-radius:4px;cursor:pointer;flex-shrink:0;
   transition:color 0.2s,border-color 0.2s,background 0.2s;backdrop-filter:blur(8px);
   white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.08);}
 #rm-fv-btn:hover{color:var(--text);border-color:#b0b8c8;background:var(--surface2);}
@@ -366,6 +376,8 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   #mm-panel{width:100vw;box-shadow:0 -4px 24px rgba(0,0,0,.10);border-left:none;border-top:1px solid var(--border)}
   #topbar{padding:10px 14px 8px;gap:8px}
   .view-btn{padding:5px 10px;font-size:8px}
+  /* Topbar wraps to 2 rows on narrow phones; push rm-hdr content below it */
+  #rm-hdr{padding-top:72px}
 }
 
 /* ══ MIND MAP DARK MODE OVERRIDES ═══════════════════════════════
@@ -453,6 +465,8 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
   <div id="tb-controls">
     <button class="view-btn active" id="btn-mm">Reading Order</button>
     <button class="view-btn" id="btn-rm">Corpus Architecture</button>
+    <button id="tb-back" title="Return to site" aria-label="Return to site"
+      onclick="if(window.opener){window.close()}else if(document.referrer){window.location.href=document.referrer}else{window.location.href='/corpus-map'}">✕</button>
   </div>
 </div>
 
@@ -513,16 +527,18 @@ svg#mm-ln{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
     <span class="sub">Corpus Architecture · 72 Papers + Book</span>
   </div>
   <div id="rm-legends-row">
-    <div id="rm-legend"></div>
-    <div id="rm-dep-legend">
-      <div class="dl-row"><div class="dl-sw" style="background:#e8c870"></div>Selected</div>
-      <div class="dl-row"><div class="dl-sw" style="background:#6dba8a"></div>Upstream — depends on</div>
-      <div class="dl-row"><div class="dl-sw" style="background:#e06b6b"></div>Downstream — used by</div>
-      <div class="dl-row"><div class="dl-sw" style="background:#4466aa"></div>2-hop connection</div>
+    <div id="rm-legend-group">
+      <div id="rm-legend"></div>
+      <div id="rm-dep-legend">
+        <div class="dl-row"><div class="dl-sw" style="background:#e8c870"></div>Selected</div>
+        <div class="dl-row"><div class="dl-sw" style="background:#6dba8a"></div>Upstream — depends on</div>
+        <div class="dl-row"><div class="dl-sw" style="background:#e06b6b"></div>Downstream — used by</div>
+        <div class="dl-row"><div class="dl-sw" style="background:#4466aa"></div>2-hop connection</div>
+      </div>
     </div>
+    <button id="rm-fv-btn">Full View</button>
   </div>
   <div id="rm-cluster-info"><div id="rm-ci-name"></div><div id="rm-ci-desc"></div></div>
-  <button id="rm-fv-btn">Full View</button>
 </div>
 <div id="rm-ctrl-bar">
   <div id="rm-zoom-hint">Scroll to zoom · Drag to pan</div>

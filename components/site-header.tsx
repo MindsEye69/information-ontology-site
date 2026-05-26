@@ -26,7 +26,12 @@ export function SiteHeader() {
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    // Close menu on mouseleave (works on devices with mouse support)
+    // Only close on mouseleave for pointer devices that support hover.
+    // On touch screens (hover: none) this event fires unexpectedly during
+    // tap gestures and causes the menu to close before the user can select an item.
+    const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!supportsHover) return;
+
     const detailsEl = document.querySelector('details');
     if (!detailsEl) return;
 
@@ -40,11 +45,11 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-paper/85 dark:bg-[#07080d]/85 backdrop-blur border-b border-black/10 dark:border-[#1a1e2a]">
-      <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-4">
         <Link href="/" className="no-underline">
-          <div className="flex items-baseline gap-3 min-w-0">
+          <div className="flex flex-col xl:flex-row xl:items-baseline xl:gap-3 min-w-0">
             <span className="text-lg font-semibold tracking-tight truncate text-black dark:text-[#b8c6de]">Informational Ontology</span>
-            <span className="text-xs text-black/55 dark:text-[#5a6a82] whitespace-nowrap">Rev5.1+ corpus</span>
+            <span className="text-xs text-black/55 dark:text-[#5a6a82] leading-tight">Rev5.1+ corpus</span>
           </div>
         </Link>
 
