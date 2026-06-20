@@ -3,3 +3,13 @@ node_modules
 out
 dist
 .env*
+
+# Local dashboard / agent artifacts
+notes.md
+.codegraph/
+.codex/
+.cursor/
+data/analytics/events.jsonl
+dashboard.md
+dashboards/
+graphify-out/
